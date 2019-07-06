@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05FC33E9-3FA8-C9F0-747E-2D8A4061E50B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
+    <UnityProjectGenerator>VSTU</UnityProjectGenerator>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
+    <UnityVersion>5.3.8f2</UnityVersion>
+    <RootNamespace>
+    </RootNamespace>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_8;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_8;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>D:/software/unity/unity538/application/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/software/unity/unity538/application/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>D:/software/unity/unity538/application/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>Assets/Plugins/Common/Sql/Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Assets/Plugins/Common/Sql/System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>D:/software/unity/unity538/application/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Scripts\ClientCommon\AutoCreateConfigElem.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\ConfigDataBase.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Configuration.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\DbBase\CustomDbClass.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\DbBase\DbClass.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\DbBase\DbClassLoader.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\DbBase\IDbAccessor.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\DbBase\IDbAccessorFactory.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Ability.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\AbilityComponent.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\AbilityParameter.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\ActivityAward.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\ActivityReward.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\AlertMessage.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\AttackTalk.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\AttributeList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\ConfigDataBaseGenerated.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\ConstValueGenerated.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\DungeonWeight.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\FactionTreeMission.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\GainData.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\LeagueBoss.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaption.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaptionList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Rewards.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\SaleGroup.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\SaleGroupList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\AttributeType.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\ConstValueName.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\MonsterSelfAdaptionType.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\MonsterType.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\SqliteAccessor\SqliteAccessor.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\SqliteAccessor\SqliteAccessorFactory.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\TypeNameContainer.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\UnpackFile2PersistentPath.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Utility\ConstValue.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Utility\SplitColumnValueParser.cs" />
+    <Compile Include="Assets\Scripts\Constants\Defines.cs" />
+    <Compile Include="Assets\Scripts\GameMain.cs" />
+    <Compile Include="Assets\Scripts\GameStateMachine\GameStateBase.cs" />
+    <Compile Include="Assets\Scripts\GameStateMachine\GameStateInitializing.cs" />
+    <Compile Include="Assets\Scripts\GameStateMachine\GameStateQueryGateServer.cs" />
+    <Compile Include="Assets\Scripts\Managers\AbsManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\FileManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameShellManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameStateChangingContexes.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameStateMachineManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\GlobalManager.cs" />
+    <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\AutoCreateSingleton.cs" />
+    <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\MonoSingleton.cs" />
+    <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\PathUtility.cs" />
+    <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\WWWRequestChecker.cs" />
+    <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\WWWUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\StreamingAssets\Configs\ConfigsVersion.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>
