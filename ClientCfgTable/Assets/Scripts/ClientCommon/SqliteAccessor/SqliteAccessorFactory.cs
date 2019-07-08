@@ -44,6 +44,12 @@ namespace ClientCommon
             return sqlAccessor;
         }
 
+        public void Release(string tableName)
+        {
+            sqlAccessorPool[tableName].ReallyCloseDb();
+            sqlAccessorPool.Remove(tableName);
+        }
+
         public void ReleaseAll()
         {
             Monitor.Enter("ReleaseAll");
@@ -61,7 +67,7 @@ namespace ClientCommon
                 }
 
                 sqlAccessorPool.Clear();
-                SqliteConnection.ClearAllPools();
+                SqliteConnection.ClearAllPools(); 
             }
             catch (Exception e)
             {

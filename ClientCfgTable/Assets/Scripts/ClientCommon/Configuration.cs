@@ -32,7 +32,8 @@ namespace ClientCommon
             Debug.LogError("should not reach here!");
         }
 
-        private bool hasLoadedAll = false;
+        bool hasLoadedAll = false;
+
         public bool HasLoadedAll
         {
             get { return hasLoadedAll; }

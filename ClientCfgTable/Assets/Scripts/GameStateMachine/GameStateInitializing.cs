@@ -15,7 +15,7 @@ public class GameStateInitializing : GameStateBase
     {
         GlobalManager.Instance.Add<GameShellManager>();
 
-        StartCoroutine(ConfigDataBase.Instance.ConstructLocalConfigDbFile(Defines.ConfigFolder, this));
+        StartCoroutine(ConfigDataBase.Instance.ConstructLocalConfigDbFile(Defines.ConfigsFolder, this));
     }
 
     void Initialize()
@@ -26,9 +26,7 @@ public class GameStateInitializing : GameStateBase
         }
         isInited = true;
 
-        ConfigDataBase.Instance.SetReleaseData(false);
-
-        ConfigDataBase.Instance.Initialize(new SqliteAccessorFactory(), Defines.ConfigFolder);
+        ConfigDataBase.Instance.Initialize(new SqliteAccessorFactory(), Defines.ConfigsFolder);
     }
 
     void Update()

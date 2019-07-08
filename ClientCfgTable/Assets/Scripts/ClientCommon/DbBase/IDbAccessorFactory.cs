@@ -4,6 +4,8 @@
     {
         IDbAccessor GetDbAccessor(string tableName);
 
+        void Release(string tableName);
+
         void ReleaseAll();
     }
 }

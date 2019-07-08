@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ClientCommon
 {
     /// <summary>
-    /// 标记数据库表对应类的属性, 记录表名和类名
+    /// 用于标记数据库表对应的类, 记录表名和类名
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
     public sealed class DbTableAttribute : Attribute
@@ -22,7 +22,7 @@ namespace ClientCommon
         public string ExpectClassName { get { return expectClassName; } }
 
         /// <summary>
-        /// 类名, 由于混淆, 不能用type.Name
+        /// 数据库表对应的类名, 由于混淆, 不能用type.Name
         /// </summary>
         private string className = string.Empty;
         public string ClassName { get { return className; } }
@@ -43,7 +43,7 @@ namespace ClientCommon
     }
 
     /// <summary>
-    /// 标记数据库表中列拆分后对应的类的属性, 记录表名和数据库列名
+    /// 用于标记数据库表中列拆分后对应的类, 记录表名和数据库列名
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
     public sealed class DbSubColumnClassAttribute : Attribute
@@ -55,7 +55,7 @@ namespace ClientCommon
         private string TableName { get { return tableName; } }
 
         /// <summary>
-        /// 对应的数据库列名
+        /// 成员对应的数据库列名
         /// </summary>
         private string columnName = string.Empty;
         public string ColumnName { get { return columnName; } }
@@ -68,19 +68,19 @@ namespace ClientCommon
     }
 
     /// <summary>
-    /// 标记数据库表中列对应的字段的属性, 记录数据库列的属性(数据库列名、是否是主键、是否是外键等)
+    /// 用于标记数据库表中列对应的成员, 记录数据库列的属性(数据库列名、是否是主键、是否是外键等)
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class DbColumnAttribute : Attribute
     {
         /// <summary>
-        /// 是否是主键
+        /// 数据库表中列是否是主键
         /// </summary>
         private bool keyColumn = false;
         public bool KeyColumn { get { return keyColumn; } }
 
         /// <summary>
-        /// 对应的数据库列名
+        /// 成员对应的数据库列名
         /// </summary>
         private string columnName = string.Empty;
         public string ColumnName { get { return columnName; } }
@@ -98,19 +98,19 @@ namespace ClientCommon
         public bool IsFloatCol { get { return isFloatCol; } }
 
         /// <summary>
-        /// 是否是外键
+        /// 数据库表中列是否是外键
         /// </summary>
         private bool isForeignKey = false;
         public bool IsForeignKey { get { return isForeignKey; } }
 
         /// <summary>
-        /// 外键引用的表名
+        /// 数据库表外键列引用的主表对应的类的类型
         /// </summary>
         private Type referencedClass = null;
         public Type ReferencedClass { get { return referencedClass; } }
 
         /// <summary>
-        /// 外键引用的列名
+        /// 数据库表外键列引用的主表的列名
         /// </summary>
         private string referencedColumn = string.Empty;
         public string ReferencedColumn { get { return referencedColumn; } }
@@ -137,13 +137,13 @@ namespace ClientCommon
     }
 
     /// <summary>
-    /// 用于标记数据库表中可拆分列对应的字段属性, 记录数据库列名和拆分后类型
+    /// 用于标记数据库表中可拆分列对应的成员, 记录数据库列名和拆分后类型
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class DbSplitColumnAttribute : Attribute
     {
         /// <summary>
-        /// 数据库列名
+        /// 成员对应的数据库列名
         /// </summary>
         private string columnName = string.Empty;
         public string ColumnName { get { return columnName; } }
@@ -169,13 +169,13 @@ namespace ClientCommon
     }
 
     /// <summary>
-    /// 用于标记数据库表中可拆分成范围的列(例如: 1~35)对应的字段属性, 记录数据库列名
+    /// 用于标记数据库表中可拆分成范围的列(例如: 1~35)对应的成员, 记录数据库列名
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class DbSplitRangeAttribute : Attribute
     {
         /// <summary>
-        /// 数据库列名
+        /// 成员对应的数据库列名
         /// </summary>
         private string columnName = string.Empty;
         public string ColumnName { get { return columnName; } }
@@ -187,7 +187,7 @@ namespace ClientCommon
     }
 
     /// <summary>
-    /// 用于标记可以合并多个数据库表中列的字段属性, 记录合并后的类型
+    /// 用于标记可以合并数据库表中多个列的成员, 记录合并后的类型
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class DbMergeColumnAttribute : Attribute
@@ -199,7 +199,7 @@ namespace ClientCommon
         public Type Type { get { return type; } }
 
         /// <summary>
-        /// 该注解对应的字段名
+        /// 字段名, 因为合并列没有一个单一的列明, 就用这个字段名做标识用
         /// </summary>
         private string fieldTypeName = string.Empty;
         public string FieldTypeName { get { return fieldTypeName; } }
@@ -212,23 +212,26 @@ namespace ClientCommon
     }
 
     /// <summary>
-    /// 标记数据库表中列拆分后对应的类的字段的属性, 记录第几个字段
+    /// 用于标记数据库表中列拆分后对应的类的成员, 记录第几个成员
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class DbSplitFieldAttribute : Attribute
     {
         /// <summary>
-        /// 第几个字段, index-1当下标使用
+        /// 标记是第几个成员, index-1当下标使用
         /// </summary>
         private int index = 0;
         public int Index { get { return index; } }
 
         /// <summary>
-        /// 是否是自定义类型, 太复杂了, 几乎不使用
+        /// 是否是自定义类型
         /// </summary>
         private bool isCustomType = false;
         public bool IsCustomType { get { return isCustomType; } }
 
+        /// <summary>
+        /// 如果是自定义类型, 这个成员的类型
+        /// </summary>
         private Type type = null;
         public Type Type { get { return type; } }
 
@@ -241,19 +244,19 @@ namespace ClientCommon
     }
 
     /// <summary>
-    /// 标记有外键链接的属性, 一般为List<>
+    /// 用于标记有外键链接的成员, 一般为List<>
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class DbColumnSubTableAttribute : Attribute
     {
         /// <summary>
-        /// 实际对应的数据类型
+        /// 外键链接的子类的类型
         /// </summary>
         private Type classType = null;
         public Type ClassType { get { return classType; } }
 
         /// <summary>
-        /// 对应的数据库子表名称
+        /// 外键链接的数据库子表名称
         /// </summary>
         private string subTableName = string.Empty;
         public string SubTableName { get { return subTableName; } }
@@ -271,33 +274,45 @@ namespace ClientCommon
     public sealed class ClassDesc
     {
         /// <summary>
-        /// 保存成员属性与外键相关的信息
+        /// 保存外键列对应的成员属性信息、属性描述、引用主表主键列对应的属性信息
         /// </summary>
         public sealed class ForeignKeyPropertyDesc
         {
-            public DbColumnAttribute attribute;
-            public PropertyInfo propertyInfo;
-            public PropertyInfo referencedPropertyInfo;
+            public DbColumnAttribute attribute; // 属性描述
+            public PropertyInfo propertyInfo; // 属性信息
+            public PropertyInfo referencedPropertyInfo; // 引用主表主键列对应的属性信息
         }
 
+        /// <summary>
+        /// 保存属性信息、属性描述
+        /// </summary>
         public sealed class PropertyDesc
         {
             public DbColumnAttribute attribute;
             public PropertyInfo propertyInfo;
         }
 
+        /// <summary>
+        /// 保存可拆分列对应的属性信息、属性描述
+        /// </summary>
         public sealed class SplitPropertyDesc
         {
             public DbSplitColumnAttribute splitAttribute;
             public PropertyInfo propertyInfo;
         }
 
+        /// <summary>
+        /// 保存可拆分范围列对应的属性信息、属性描述
+        /// </summary>
         public sealed class SplitRangePropertyDesc
         {
             public DbSplitRangeAttribute rangeAttribute;
             public PropertyInfo propertyInfo;
         }
 
+        /// <summary>
+        /// 保存可以合并数据库表中多个列的成员属性信息、属性描述
+        /// </summary>
         public sealed class MergePropertyDesc
         {
             public DbMergeColumnAttribute mergeAttribute;
@@ -305,7 +320,7 @@ namespace ClientCommon
         }
 
         /// <summary>
-        /// 保存子表属性相关信息
+        /// 保存有外键链接的成员属性信息、属性描述
         /// </summary>
         public sealed class SubTablePropertyDesc
         {
@@ -314,13 +329,13 @@ namespace ClientCommon
         }
 
         /// <summary>
-        /// 对应的数据类
+        /// 数据库表对应的类的类型
         /// </summary>
         private Type classType = null;
         public Type ClassType { get { return classType; } }
 
         /// <summary>
-        /// 对应的数据库表名
+        /// 类对应的数据库表名
         /// </summary>
         private string tableName = string.Empty;
         public string TableName { get { return tableName; } }
@@ -341,29 +356,32 @@ namespace ClientCommon
         public string ToNameStr { get { return toNameStr; } }
 
         /// <summary>
-        /// 索引列的名称
+        /// 主键列对应的成员属性描述
         /// </summary>
         private DbColumnAttribute keyAttribute = null;
         public DbColumnAttribute KeyAttribute { get { return keyAttribute; } }
 
         /// <summary>
-        /// 字表中与根表主键相对应的属性
+        /// 子表中与根表主键相对应的属性描述
         /// </summary>
         private DbColumnAttribute rootKeyAttribute = null;
         public DbColumnAttribute RootKeyAttribute { get { return rootKeyAttribute; } }
 
         /// <summary>
-        /// 表中定义数据列对应的属性信息
+        /// 表中所有列对应的成员属性信息、属性描述集合
         /// </summary>
         private Dictionary<string, PropertyDesc> propertyInfoDic = new Dictionary<string, PropertyDesc>();
         public Dictionary<string, PropertyDesc> PropertyInfoDic { get { return propertyInfoDic; } }
 
         /// <summary>
-        /// 表中定义拆分列对应的属性信息
+        /// 表中所有可拆分列对应的成员属性信息、属性描述集合
         /// </summary>
         private Dictionary<string, SplitPropertyDesc> splitPropertyInfoDic = new Dictionary<string, SplitPropertyDesc>();
         public Dictionary<string, SplitPropertyDesc> SplitPropertyInfoDic { get { return splitPropertyInfoDic; } }
 
+        /// <summary>
+        /// 表中所有可拆分范围列对应的成员属性信息、属性描述集合
+        /// </summary>
         private Dictionary<string, SplitRangePropertyDesc> splitRangePropertyInfoDic = new Dictionary<string, SplitRangePropertyDesc>();
         public Dictionary<string, SplitRangePropertyDesc> SplitRangePropertyInfoDic { get { return splitRangePropertyInfoDic; } }
 
@@ -371,22 +389,17 @@ namespace ClientCommon
         public Dictionary<string, MergePropertyDesc> MergePropertyInfoDic { get { return mergePropertyInfoDic; } }
 
         /// <summary>
-        /// 外键对应所引用属性的信息
+        /// 表中所有外键列对应的成员属性信息、属性描述、引用主表主键列对应的属性信息集合
         /// </summary>
         private List<ForeignKeyPropertyDesc> fkPropertyInfoList = new List<ForeignKeyPropertyDesc>();
         public List<ForeignKeyPropertyDesc> FkPropertyInfoList { get { return fkPropertyInfoList; } }
 
         /// <summary>
-        /// 子表属性对应的信息
+        /// 有外键链接的成员属性信息、属性描述集合
         /// </summary>
         private List<SubTablePropertyDesc> subTablePropertyDescList = new List<SubTablePropertyDesc>();
         public List<SubTablePropertyDesc> SubTablePropertyDescList { get { return subTablePropertyDescList; } }
 
-        /// <summary>
-        /// 通过列名获取对应的属性信息
-        /// </summary>
-        /// <param name="columnName"></param>
-        /// <returns></returns>
         public PropertyDesc GetPropertyInfo(string columnName)
         {
             return propertyInfoDic.ContainsKey(columnName) ? propertyInfoDic[columnName] : null;
@@ -464,12 +477,13 @@ namespace ClientCommon
                     var atb = atbArr[0] as DbColumnAttribute;
                     if (atb.KeyColumn)
                     {
+                        // 主键一定不是外键
                         if (atb.IsForeignKey)
                         {
                             throw new Exception("Pk can't be foreign key.");
                         }
 
-                        // 主键一定不是外键
+                        // 只有一个主键
                         if (clsDesc.keyAttribute != null)
                         {
                             Debug.LogError(string.Format("Key column already exist {0}", atb.ColumnName));
@@ -487,15 +501,13 @@ namespace ClientCommon
                         foreignKeyPropertyDesc.attribute = atb;
                         foreignKeyPropertyDesc.propertyInfo = pi;
 
-                        // 对应的ReferencedPropertyInfo
                         var refClsDesc = dbClsLoader.GetClassDesc(atb.ReferencedClass);
                         foreignKeyPropertyDesc.referencedPropertyInfo = refClsDesc.GetPropertyInfo(atb.ReferencedColumn).propertyInfo;
-
+                        
                         clsDesc.rootKeyAttribute = atb;
                         clsDesc.fkPropertyInfoList.Add(foreignKeyPropertyDesc);
                     }
 
-                    // 保存属性信息
                     if (clsDesc.propertyInfoDic.ContainsKey(atb.ColumnName))
                     {
                         Debug.LogWarning(string.Format("Duplicated column name {0}", atb.ColumnName));
@@ -511,7 +523,6 @@ namespace ClientCommon
                 }
                 else if (splitAtbArr.Length != 0)
                 {
-                    // 检测和获取主键列信息
                     var splitAtb = splitAtbArr[0] as DbSplitColumnAttribute;
 
                     if (clsDesc.splitPropertyInfoDic.ContainsKey(splitAtb.ColumnName))

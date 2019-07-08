@@ -42,7 +42,7 @@ public class GameShellManager : AbsManager<GameShellManager>
 	/// </summary>
     private void OnApplicationQuit()
     {
-        ConfigDataBase.Instance.DbAccessorFactory.ReleaseAll();
+        ConfigDataBase.Instance.ReleaseAll(true);
     }
 
 }

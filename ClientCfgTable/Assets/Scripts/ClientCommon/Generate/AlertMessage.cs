@@ -7,103 +7,114 @@ namespace ClientCommon
 	[DbTable("alert_message", "AlertMessage", "", "")]
 	sealed public class AlertMessage : AutoCreateConfigElem
 	{
-		private string _id = "";
+		private string id = "";
 		[DbColumn(false, "id")]
-		public string Id { get { return _id; } set { _id = value; } }
+		public string Id { get { return id; } set { id = value; } }
 
-		private int _code = 0;
+		private int code = 0;
 		[DbColumn(true, "code")]
-		public int Code { get { return _code; } set { _code = value; } }
+		public int Code { get { return code; } set { code = value; } }
 
-		private int _type = 0;
+		private int type = 0;
 		[DbColumn(false, "type")]
-		public int Type { get { return _type; } set { _type = value; } }
+		public int Type { get { return type; } set { type = value; } }
 
-		private string _content = "";
+		private string content = "";
 		[DbColumn(false, "content")]
-		public string Content { get { return _content; } set { _content = value; } }
+		public string Content { get { return content; } set { content = value; } }
 
-		private string _ok_label = "";
+		private string okLabel = "";
 		[DbColumn(false, "ok_label")]
-		public string OkLabel { get { return _ok_label; } set { _ok_label = value; } }
+		public string OkLabel { get { return okLabel; } set { okLabel = value; } }
 
-		private string _cancel_label = "";
+		private string cancelLabel = "";
 		[DbColumn(false, "cancel_label")]
-		public string CancelLabel { get { return _cancel_label; } set { _cancel_label = value; } }
+		public string CancelLabel { get { return cancelLabel; } set { cancelLabel = value; } }
 
-		private string _yes_label = "";
+		private string yesLabel = "";
 		[DbColumn(false, "yes_label")]
-		public string YesLabel { get { return _yes_label; } set { _yes_label = value; } }
+		public string YesLabel { get { return yesLabel; } set { yesLabel = value; } }
 
-		private string _no_label = "";
+		private string noLabel = "";
 		[DbColumn(false, "no_label")]
-		public string NoLabel { get { return _no_label; } set { _no_label = value; } }
+		public string NoLabel { get { return noLabel; } set { noLabel = value; } }
 
-		private string _description = "";
+		private string description = "";
 		[DbColumn(false, "description")]
-		public string Description { get { return _description; } set { _description = value; } }
+		public string Description { get { return description; } set { description = value; } }
 
-		private bool _abandoned = false;
+		private bool abandoned = false;
 		[DbColumn(false, "abandoned")]
-		public bool Abandoned { get { return _abandoned; } set { _abandoned = value; } }
+		public bool Abandoned { get { return abandoned; } set { abandoned = value; } }
 
-		private int _version = 0;
+		private int version = 0;
 		[DbColumn(false, "version")]
-		public int Version { get { return _version; } set { _version = value; } }
+		public int Version { get { return version; } set { version = value; } }
 
 	}
 
 	public class AlertMessageConfig : Configuration
 	{
-		private List<AlertMessage> _alert_messages = null;
-		private Dictionary<int, AlertMessage> _alert_messageMap = new Dictionary<int, AlertMessage>();
-		private Dictionary<int, long> _refMap = new Dictionary<int, long>();
-		private long listRefTime = long.MaxValue;
-		private long lastCheckReleaseTime = long.MaxValue;
+		private List<AlertMessage> altMsgList = null;
+
+		private Dictionary<int, AlertMessage> altMsgDic = new Dictionary<int, AlertMessage>();
+
+		private Dictionary<int, long> refDic = new Dictionary<int, long>();
+		private long listRefTime = 0;
+		private long lastCheckReleaseTime = 0;
 
 		public override void LoadAllData()
 		{
-			_alert_messages = DbClassLoader.Instance.QueryAllData<AlertMessage>(ConfigDataBase.Instance.DbAccessorFactory);
-			foreach (var _alert_message in _alert_messages)
-			{
-				if (_alert_messageMap.ContainsKey(_alert_message.Code) == false)
-					_alert_messageMap.Add(_alert_message.Code, _alert_message);
-				else
-					_alert_messageMap[_alert_message.Code] = _alert_message;
+			altMsgList = DbClassLoader.Instance.QueryAllData<AlertMessage>(ConfigDataBase.Instance.DbAccessorFactory);
 
-				if (_refMap.ContainsKey(_alert_message.Code) == false)
-					_refMap.Add(_alert_message.Code, DateTime.Now.Ticks);
-				else
-					_refMap[_alert_message.Code] = DateTime.Now.Ticks;
+            foreach (var altMsg in altMsgList)
+            {
+                if (altMsgDic.ContainsKey(altMsg.Code) == false)
+                {
+                    altMsgDic.Add(altMsg.Code, altMsg);
+                    refDic.Add(altMsg.Code, DateTime.Now.Ticks);
+                }
+                else
+                {
+                    altMsgDic[altMsg.Code] = altMsg;
+                    refDic[altMsg.Code] = DateTime.Now.Ticks;
+                }
 			}
+
+            HasLoadedAll = true;
 		}
 
 		public List<AlertMessage> AlertMessages
 		{
 			get
 			{
-				if (_alert_messages == null)
-					LoadAllData();
+                if (altMsgList == null)
+                {
+                    LoadAllData();
+                }
 
-				listRefTime = DateTime.Now.Ticks;
-				return _alert_messages;
+				listRefTime = GetCurrentTimeTick();
+				return altMsgList;
 			}
 		}
 
 		public AlertMessage Get(int code)
 		{
-			if(code <= 0)
-				return null;
-			AlertMessage alert_message = null;
-			if (_alert_messageMap.TryGetValue(code, out alert_message))
+            if (code <= 0)
+            {
+                return null;
+            }
+
+			AlertMessage altMsg = null;
+			if (altMsgDic.TryGetValue(code, out altMsg))
 			{
-				_refMap[alert_message.Code] = GetCurrentTimeTick();
+				refDic[code] = GetCurrentTimeTick();
 				ReleaseData(false);
-				return alert_message;
+				return altMsg;
 			}
 
-			alert_message = DbClassLoader.Instance.QueryData<AlertMessage>(ConfigDataBase.Instance.DbAccessorFactory, code);
-			if (alert_message == null)
+			altMsg = DbClassLoader.Instance.QueryData<AlertMessage>(ConfigDataBase.Instance.DbAccessorFactory, code);
+			if (altMsg == null)
 			{
 #if UNITY_EDITOR
 				Debug.LogWarning("Invalid `code` value in table `alert_message` : " + code);
@@ -111,56 +122,56 @@ namespace ClientCommon
 				return null;
 			}
 
-			_alert_messageMap.Add(code, alert_message);
-			if (_refMap.ContainsKey(alert_message.Code) == false)
-				_refMap.Add(alert_message.Code, GetCurrentTimeTick());
-
+			altMsgDic.Add(code, altMsg);
+            refDic.Add(code, GetCurrentTimeTick());
+            
 			ReleaseData(false);
-			return alert_message;
+			return altMsg;
 		}
 
 		public override void ReleaseData(bool isForce)
 		{
-			if (!isForce && ConfigDataBase.Instance.ReleaseData == false)
-				return;
-
 			long nowtime = GetCurrentTimeTick();
-			if (!isForce && nowtime - lastCheckReleaseTime < CheckReleaseTime)
-				return;
+            if (!isForce && nowtime - lastCheckReleaseTime < CheckReleaseTime)
+            {
+                return;
+            }
 			lastCheckReleaseTime = nowtime;
 
-
-			var keys = new List<int>(_refMap.Keys);
+			var keys = new List<int>(refDic.Keys);
 			for (int index = 0; index < keys.Count; index++)
 			{
 				var key = keys[index];
-				if (isForce || nowtime - _refMap[key] > MaxStayTime)
+				if (isForce || nowtime - refDic[key] > MaxStayTime)
 				{
-					_alert_messageMap.Remove(key);
-					_refMap[key] = long.MaxValue;
-				}
+					altMsgDic.Remove(key);
+					refDic.Remove(key);
+                }
 			}
 
-			if (isForce || nowtime - listRefTime > MaxStayTime || _alert_messageMap.Count <= 0)
-				_alert_messages = null;
+            if (isForce || nowtime - listRefTime > MaxStayTime || altMsgDic.Count <= 0)
+            {
+                altMsgList = null;
+                HasLoadedAll = false;
+                DbClassLoader.Instance.Release<AlertMessage>(ConfigDataBase.Instance.DbAccessorFactory);
+            }
 		}
 
 #if UNITY_EDITOR
-		public void MemoryUpdate(int key, AlertMessage alert_message)
+		public void MemoryUpdate(int key, AlertMessage altMsg)
 		{
-			AlertMessages.RemoveAll(n => n.Code == key);
-			if (_alert_messageMap.ContainsKey(key))
+            AlertMessages.RemoveAll(n => n.Code == key);
+			if (altMsgDic.ContainsKey(key))
 			{
-				_alert_messageMap.Remove(key);
-				if (_refMap.ContainsKey(key))
-					_refMap.Remove(key);
+				altMsgDic.Remove(key);
+                refDic.Remove(key);
 			}
 
-			if (alert_message != null)
+			if (altMsg != null)
 			{
-				AlertMessages.Add(alert_message);
-				_alert_messageMap.Add(key, alert_message);
-				_refMap.Add(key, DateTime.Now.Ticks);
+				AlertMessages.Add(altMsg);
+				altMsgDic.Add(key, altMsg);
+				refDic.Add(key, DateTime.Now.Ticks);
 			}
 		}
 #endif

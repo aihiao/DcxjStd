@@ -46,16 +46,6 @@ namespace ClientCommon
         private DateTime lastReleaseTime = DateTime.Now;
         private readonly TimeSpan ReleaseDelta = new TimeSpan(0, 0, 300);
 
-        private bool releaseData = true;
-        public bool ReleaseData
-        {
-            get { return releaseData; }
-        }
-        public void SetReleaseData(bool shouldRelease)
-        {
-            releaseData = shouldRelease;
-        }
-
         public void Initialize(IDbAccessorFactory dbAccessorFactory, string subPath)
         {
             if (inited)
@@ -121,15 +111,6 @@ namespace ClientCommon
 
         public T GetConfiguration<T>() where T : Configuration, new()
         {
-            Configuration configuration = null;
-            if (configDic.TryGetValue(typeof(T), out configuration))
-            {
-                return configuration as T;
-            }
-
-            configuration = new T();
-            configDic.Add(typeof(T), configuration);
-
             if (DateTime.Now - lastReleaseTime > ReleaseDelta)
             {
                 foreach (var kvp in configDic)
@@ -142,6 +123,15 @@ namespace ClientCommon
                 lastReleaseTime = DateTime.Now;
             }
 
+            Configuration configuration = null;
+            if (configDic.TryGetValue(typeof(T), out configuration))
+            {
+                return configuration as T;
+            }
+
+            configuration = new T();
+            configDic.Add(typeof(T), configuration);
+
             return configuration as T;
         }
 
@@ -150,7 +140,26 @@ namespace ClientCommon
             foreach (var kvp in configDic)
             {
                 kvp.Value.ReleaseData(isForce);
-                kvp.Value.HasLoadedAll = false;
+            }
+
+            if (isForce)
+            {
+                configDic.Clear();
+                DbClassLoader.Instance.ReleaseAll(); 
+                dbAccessorFactory.ReleaseAll(); 
+            }
+        }
+
+        public void Release<T>(bool isForce) where T : Configuration, new()
+        {
+            if (configDic.ContainsKey(typeof(T)))
+            {
+                configDic[typeof(T)].ReleaseData(isForce);
+
+                if (isForce)
+                {
+                    configDic.Remove(typeof(T));
+                }
             }
         }
 

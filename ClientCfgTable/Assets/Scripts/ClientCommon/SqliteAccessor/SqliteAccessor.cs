@@ -18,7 +18,7 @@ namespace ClientCommon
 
             try
             {
-                dbConn = new SqliteConnection(dbPath);
+                dbConn = new SqliteConnection(dbPath); 
                 dbConn.Open();
 
 #if UNITY_EDITOR

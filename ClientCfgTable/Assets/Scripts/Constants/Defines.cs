@@ -8,7 +8,7 @@ public class Defines
     // Game config extension
     public const string ConfigFileExtension = "lyw";
 
-    public const string ConfigFolder = "Configs";
+    public const string ConfigsFolder = "Configs";
 
     public const string ConfigVersionFileName = "ConfigsVersion.txt";
 }

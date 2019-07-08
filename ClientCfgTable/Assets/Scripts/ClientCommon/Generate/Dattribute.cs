@@ -100,9 +100,6 @@ namespace ClientCommon
 
 		public override void ReleaseData(bool isForce)
 		{
-			if (!isForce && ConfigDataBase.Instance.ReleaseData == false)
-				return;
-
 			long nowtime = GetCurrentTimeTick();
 			if (!isForce && nowtime - lastCheckReleaseTime < CheckReleaseTime)
 				return;

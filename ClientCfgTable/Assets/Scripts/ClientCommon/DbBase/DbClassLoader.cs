@@ -30,6 +30,20 @@ namespace ClientCommon
             return clsDesc;
         }
 
+        public void ReleaseAll()
+        {
+            clsDescDic.Clear();
+        }
+
+        public void Release<T>(IDbAccessorFactory dbAcsFty)
+        {
+            if (clsDescDic.ContainsKey(typeof(T)))
+            {
+                dbAcsFty.Release(clsDescDic[typeof(T)].TableName);
+                clsDescDic.Remove(typeof(T));
+            }
+        }
+
         /// <summary>
         /// 根据索引获取一条数据
         /// </summary>
@@ -92,6 +106,44 @@ namespace ClientCommon
                 Debug.LogError(sb.ToString());
                 return new List<T>();
             }
+        }
+
+        /// <summary>
+		/// 解析一条数据
+		/// </summary>
+        private T ReadOneItem<T>(IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key) where T : class, new()
+        {
+            while(dr.Read())
+            {
+                return CreateOneItem(typeof(T), dr, clsDesc, ref subItemDic, dbAcsFty, key) as T;
+            }
+            return null;
+        }
+
+        /// <summary>
+		/// 解析所有数据
+		/// </summary>
+        private List<T> ReadItems<T>(IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key) where T : class, new()
+        {
+            List<T> list = new List<T>();
+            while (dr.Read())
+            {
+                list.Add(CreateOneItem(typeof(T), dr, clsDesc, ref subItemDic, dbAcsFty, key) as T);
+            }
+            return list;
+        }
+
+        /// <summary>
+		/// 解析所有数据
+		/// </summary>
+        private IList ReadItems(Type type, IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key)
+        {
+            IList list = Activator.CreateInstance(typeof(List<>).MakeGenericType(type)) as IList;
+            while (dr.Read())
+            {
+                list.Add(CreateOneItem(type, dr, clsDesc, ref subItemDic, dbAcsFty, key));
+            }
+            return list;
         }
 
         /// <summary>
@@ -619,44 +671,6 @@ namespace ClientCommon
                 }
             }
             return true;
-        }
-
-        /// <summary>
-		/// 解析一条数据
-		/// </summary>
-        private T ReadOneItem<T>(IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key) where T : class, new()
-        {
-            while(dr.Read())
-            {
-                return CreateOneItem(typeof(T), dr, clsDesc, ref subItemDic, dbAcsFty, key) as T;
-            }
-            return null;
-        }
-
-        /// <summary>
-		/// 解析所有数据
-		/// </summary>
-        private List<T> ReadItems<T>(IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key) where T : class, new()
-        {
-            List<T> list = new List<T>();
-            while (dr.Read())
-            {
-                list.Add(CreateOneItem(typeof(T), dr, clsDesc, ref subItemDic, dbAcsFty, key) as T);
-            }
-            return list;
-        }
-
-        /// <summary>
-		/// 解析所有数据
-		/// </summary>
-        private IList ReadItems(Type type, IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key)
-        {
-            IList list = Activator.CreateInstance(typeof(List<>).MakeGenericType(type)) as IList;
-            while (dr.Read())
-            {
-                list.Add(CreateOneItem(type, dr, clsDesc, ref subItemDic, dbAcsFty, key));
-            }
-            return list;
         }
 
         /// <summary>
