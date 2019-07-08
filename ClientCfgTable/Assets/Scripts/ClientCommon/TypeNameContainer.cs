@@ -49,8 +49,7 @@ namespace ClientCommon
         /// 通过类型名获取类型值
         /// </summary>
         /// <param name="typeName"></param>
-        /// <returns></returns>
-        public static int GetTypeByName(string typeName)
+        public static object GetTypeByName(string typeName)
         {
             if (!IsValidType(typeName))
             {
@@ -114,7 +113,7 @@ namespace ClientCommon
                 return defValue;
             }
 
-            return GetTypeByName(typeName);
+            return (int)GetTypeByName(typeName);
         }
 
         public static int ParseNoCase(string typeName, int defValue)

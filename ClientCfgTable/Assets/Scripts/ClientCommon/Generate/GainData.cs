@@ -1,7 +1,7 @@
 ﻿namespace ClientCommon
 {
 	[DbSubColumnClass("treasure_reel", "gain_data")]
-	sealed public class GainData
+    public sealed class GainData
 	{
 		private int _gain_type = 0;
 		[DbSplitField(1)]

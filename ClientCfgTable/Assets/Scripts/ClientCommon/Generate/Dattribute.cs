@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ClientCommon
 {
 	[DbTable("dattribute", "Dattribute", "Attribute", "attribute")]
-	sealed public class Dattribute : AutoCreateConfigElem
+    public sealed class Dattribute : AutoCreateConfigElem
 	{
 		private int _dattribute_id = 0;
 		[DbColumn(true, "dattribute_id")]

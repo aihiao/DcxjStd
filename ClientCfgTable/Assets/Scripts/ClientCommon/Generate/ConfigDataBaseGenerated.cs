@@ -8,6 +8,7 @@ namespace ClientCommon
         public static ActivityAwardConfig ActivityAwardConfig { get { return Instance.GetConfiguration<ActivityAwardConfig>(); } }
         public static AlertMessageConfig AlertMessageConfig { get { return Instance.GetConfiguration<AlertMessageConfig>(); } }
         public static LeagueBossConfig LeagueBossConfig { get { return Instance.GetConfiguration<LeagueBossConfig>(); } }
+        public static DattributeConfig DattributeConfig { get { return Instance.GetConfiguration<DattributeConfig>(); } }
 
         public static Dictionary<string, string> dbNameDic = new Dictionary<string, string>()
         {
@@ -158,7 +159,14 @@ namespace ClientCommon
 
         public void RegisterEnumerationType(CustomDbClass customDbClass)
         {
+            customDbClass.RegisterTypeParser(typeof(LywColor), LywColor.Parse);
+            customDbClass.RegisterTypeParser(typeof(LywVector2), LywVector2.Parse);
+            customDbClass.RegisterTypeParser(typeof(LywVector3), LywVector3.Parse);
+            customDbClass.RegisterTypeParser(typeof(LywRect), LywRect.Parse);
 
+            AttributeType.Initialize();
+            customDbClass.RegisterTypeParser(typeof(AttributeType), AttributeType.GetTypeByName);
+            customDbClass.RegisterTextParser(typeof(AttributeType), AttributeType.GetNameByType);
         }
 
         

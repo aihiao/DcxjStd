@@ -1,6 +1,6 @@
 ﻿namespace ClientCommon
 {
-	sealed public class AttributeList
+    public sealed class AttributeList
 	{
 		private int _attribute_type = 0;
 		[DbColumn(false, "attribute_type", typeof(AttributeType))]

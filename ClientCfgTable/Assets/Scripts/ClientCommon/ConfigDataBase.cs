@@ -63,12 +63,8 @@ namespace ClientCommon
                 customDbClass = new CustomDbClass();
             }
             RegisterEnumerationType(customDbClass);
-            ConstValue.Initialize();
 
-            customDbClass.RegisterTypeParser(typeof(LywColor), LywColor.Parse);
-            customDbClass.RegisterTypeParser(typeof(LywVector2), LywVector2.Parse);
-            customDbClass.RegisterTypeParser(typeof(LywVector3), LywVector3.Parse);
-            customDbClass.RegisterTypeParser(typeof(LywRect), LywRect.Parse);
+            ConstValue.Initialize();
         }
 
         void OnUnpackFileFinished(bool success)

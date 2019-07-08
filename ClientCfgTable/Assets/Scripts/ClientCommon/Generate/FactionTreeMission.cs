@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ClientCommon
 {
 	[DbTable("faction_tree_mission", "FactionTreeMission", "", "")]
-	sealed public class FactionTreeMission : AutoCreateConfigElem
+    public sealed class FactionTreeMission : AutoCreateConfigElem
 	{
 		private int _id = 0;
 		[DbColumn(true, "id")]

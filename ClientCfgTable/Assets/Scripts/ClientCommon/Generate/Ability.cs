@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ClientCommon
 {
 	[DbTable("editor_ability", "Ability", "", "")]
-	sealed public class Ability : AutoCreateConfigElem
+    public sealed class Ability : AutoCreateConfigElem
 	{
 		private int _id = 0;
 		[DbColumn(true, "id")]

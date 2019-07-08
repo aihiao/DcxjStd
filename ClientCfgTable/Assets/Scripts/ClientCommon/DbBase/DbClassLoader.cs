@@ -68,8 +68,8 @@ namespace ClientCommon
                     }
                     dbReader = dbAccessor.Query(GetQueryString(clsDesc.TableName, clsDesc.KeyAttribute.ColumnName, localKey));
                 }
-                Dictionary<Type, IList> subItemDic = null;
-                T result = ReadOneItem<T>(dbReader, clsDesc, ref subItemDic, dbAcsFty, key);
+               
+                T result = ReadOneItem<T>(dbReader, clsDesc, dbAcsFty, key);
                 dbAccessor.CloseDbReader();
                 return result;
             }
@@ -93,8 +93,7 @@ namespace ClientCommon
                 ClassDesc clsDesc = GetClassDesc(typeof(T));
                 IDbAccessor dbAccessor = dbAcsFty.GetDbAccessor(clsDesc.TableName);
                 IDataReader reader = dbAccessor.Query(GetQueryString(clsDesc.TableName, clsDesc.KeyAttribute.ColumnName, null));
-                Dictionary<Type, IList> subItemDic = null;
-                List<T> result = ReadItems<T>(reader, clsDesc, ref subItemDic, dbAcsFty, null);
+                List<T> result = ReadItems<T>(reader, clsDesc, dbAcsFty, null);
                 dbAccessor.CloseDbReader();
                 return result;
             }
@@ -111,11 +110,11 @@ namespace ClientCommon
         /// <summary>
 		/// 解析一条数据
 		/// </summary>
-        private T ReadOneItem<T>(IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key) where T : class, new()
+        private T ReadOneItem<T>(IDataReader dr, ClassDesc clsDesc, IDbAccessorFactory dbAcsFty, object key) where T : class, new()
         {
             while(dr.Read())
             {
-                return CreateOneItem(typeof(T), dr, clsDesc, ref subItemDic, dbAcsFty, key) as T;
+                return CreateOneItem(typeof(T), dr, clsDesc, dbAcsFty, key) as T;
             }
             return null;
         }
@@ -123,12 +122,12 @@ namespace ClientCommon
         /// <summary>
 		/// 解析所有数据
 		/// </summary>
-        private List<T> ReadItems<T>(IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key) where T : class, new()
+        private List<T> ReadItems<T>(IDataReader dr, ClassDesc clsDesc, IDbAccessorFactory dbAcsFty, object key) where T : class, new()
         {
             List<T> list = new List<T>();
             while (dr.Read())
             {
-                list.Add(CreateOneItem(typeof(T), dr, clsDesc, ref subItemDic, dbAcsFty, key) as T);
+                list.Add(CreateOneItem(typeof(T), dr, clsDesc, dbAcsFty, key) as T);
             }
             return list;
         }
@@ -136,12 +135,12 @@ namespace ClientCommon
         /// <summary>
 		/// 解析所有数据
 		/// </summary>
-        private IList ReadItems(Type type, IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key)
+        private IList ReadItems(Type type, IDataReader dr, ClassDesc clsDesc, IDbAccessorFactory dbAcsFty, object key)
         {
             IList list = Activator.CreateInstance(typeof(List<>).MakeGenericType(type)) as IList;
             while (dr.Read())
             {
-                list.Add(CreateOneItem(type, dr, clsDesc, ref subItemDic, dbAcsFty, key));
+                list.Add(CreateOneItem(type, dr, clsDesc, dbAcsFty, key));
             }
             return list;
         }
@@ -149,7 +148,7 @@ namespace ClientCommon
         /// <summary>
 		/// 从数据流获取数据类, 支持外键
 		/// </summary>
-        private object CreateOneItem(Type type, IDataReader dr, ClassDesc clsDesc, ref Dictionary<Type, IList> subItemDic, IDbAccessorFactory dbAcsFty, object key)
+        private object CreateOneItem(Type type, IDataReader dr, ClassDesc clsDesc, IDbAccessorFactory dbAcsFty, object key)
         {
             // 创建具体类型
             var model = Activator.CreateInstance(type);
@@ -317,7 +316,7 @@ namespace ClientCommon
                 // 外键属性都应该是List<>类型
                 var list = subTablePropertyDesc.propertyInfo.GetValue(model, null) as IList;
                 // 根据具List<>对应的泛型类型获取数据
-                var subItemList = GetSubItemList(ref subItemDic, subTablePropertyDesc.attribute.ClassType, dbAcsFty, localKey);
+                var subItemList = GetSubItemList(subTablePropertyDesc.attribute.ClassType, dbAcsFty, localKey);
                 // 将于model匹配的数据添加到对应的外键属性
                 AddSubItems2ReferenceList(subItemList, GetClassDesc(subTablePropertyDesc.attribute.ClassType), list, model);
             }
@@ -325,50 +324,11 @@ namespace ClientCommon
             return model;
         }
 
-        private void addNonMergeColumn(Type type, IDataReader dr, ClassDesc clsDesc, ref object model, int idx)
+        private void AddSplitColumn(Type type, PropertyInfo pi, string valueStr, bool isCustomType, object model)
         {
-            var propertyDesc = clsDesc.GetPropertyInfo(dr.GetName(idx));
-            if (propertyDesc != null)
-            {
-                if (dr[idx] is DBNull)
-                {
-                    Debug.Log(string.Format("DBNull found in column : {0}.If it's a test record, ignore", dr.GetName(idx)));
-                }
-                else if (propertyDesc.attribute.CustomType == null)
-                {
-                    // 设置非自定义值
-                    // bool值特殊处理
-                    if (propertyDesc.propertyInfo.PropertyType == typeof(bool))
-                    {
-                        propertyDesc.propertyInfo.SetValue(model, Convert.ToInt32(dr[idx]) == 1, null);
-                    }
-                    else
-                    {
-                        if (propertyDesc.propertyInfo.PropertyType == typeof(string))
-                        {
-                            string value = dr[idx] as string;
-                            propertyDesc.propertyInfo.SetValue(model, value, null);
-                        }
-                        else
-                        {
-                            propertyDesc.propertyInfo.SetValue(model, dr[idx], null);
-                        }
-                    }
-                }
-                else
-                {
-                    // 对于自定义类型值, 使用CustomDBClass转换
-                    if (dr[idx].GetType() != typeof(string))
-                    {
-                        Debug.LogError(string.Format("Column value of custom type must be string : {0}", dr.GetName(idx)));
-                    }
-                    else
-                    {
-                        var value = ConfigDataBase.Instance.CustomDbClass.ParseType(propertyDesc.attribute.CustomType, dr[idx] as string);
-                        propertyDesc.propertyInfo.SetValue(model, value, null);
-                    }
-                }
-            }
+            IList list = pi.GetValue(model, null) as IList;
+            // 根据具List<>对应的泛型类型获取数据
+            GetSplitItemList(type, valueStr, isCustomType, ref list);
         }
 
         private IList GetSplitItemList(Type type, string valueStr, bool isCustomType, ref IList list)
@@ -393,28 +353,29 @@ namespace ClientCommon
                         if (fieldAtbArr.Length != 0)
                         {
                             var fieldAtb = fieldAtbArr[0] as DbSplitFieldAttribute;
-                            // 拆3项只填了1;2;这样的话，会拆成 1  2 ""  isHasData = true
-                            // 若是 1;2，会拆成 1 2 isHasData = false
-                            // 若填了1; 会拆成 1 ""  isHasData = false
+                            // 若拆成3项, 只填了1;2;这样的话, 会拆成 1  2 ""  isHasData = false
+                            // 只填了1;2这样的话, 会拆成 1 2  isHasData = false
+                            // 只填了1;这样的话, 会拆成 1 ""  isHasData = false
+                            // 只填了1这样的话, 会拆成 1  isHasData = false
                             // 故，统一将数据不完整的情况设置为false
-                            string fieldValue = ""; // 如果需要拆分n项，而只填了n-1或者更少的项，则认为fieldValue是""
+                            string fieldValue = ""; // 如果需要拆分n项, 而只填了n-1或者更少的项, 则认为fieldValue是""
                             bool isHasData = (fieldAtb.Index <= valFieldList.Count);
                             if (isHasData)
                             {
                                 fieldValue = valFieldList[fieldAtb.Index - 1];
                                 if (fieldValue == "")
                                 {
-                                    isHasData = false; // 如果解析出来的是""，仍然认为其数据为默认值
+                                    isHasData = false; // 如果解析出来的是"", 仍然认为其数据为默认值
                                 }
                             }
 
                             if (fieldAtb.IsCustomType)
                             {
-                                if (fieldAtb.Type.IsPrimitive)
+                                if (fieldAtb.Type.IsPrimitive) // 是否是自定义的基础属性
                                 {
-                                    // 这是list
-                                    if (isHasData) // 有数据的才进行这些处理，对应字符串段没填的话，就用默认值
+                                    if (isHasData) // 有数据的才进行这些处理, 对应字符串段没填的话, 就用默认值
                                     {
+                                        // 这是list
                                         List<string> subValList = parser.splitMultiValue2List(fieldValue);
                                         var subList = pi.GetValue(item, null) as IList;
                                         foreach (var subVal in subValList)
@@ -510,14 +471,6 @@ namespace ClientCommon
             {
                 list.Add(item);
             }
-        }
-
-        private void AddSplitColumn(Type type, PropertyInfo pi, string valueStr, bool isCustomType, object model)
-        {
-            // 外键属性都应该是List<>类型
-            IList list = pi.GetValue(model, null) as IList;
-            // 根据具List<>对应的泛型类型获取数据
-            GetSplitItemList(type, valueStr, isCustomType, ref list);
         }
 
         private void AddMergeColumn(Type type, PropertyInfo pi, object model, List<string> valueList, IDataReader dr)
@@ -626,15 +579,63 @@ namespace ClientCommon
             list.Add(item);
         }
 
+        private void addNonMergeColumn(Type type, IDataReader dr, ClassDesc clsDesc, ref object model, int idx)
+        {
+            Debug.LogError("addNonMergeColumn method called...............");
+
+            var propertyDesc = clsDesc.GetPropertyInfo(dr.GetName(idx));
+            if (propertyDesc != null)
+            {
+                if (dr[idx] is DBNull)
+                {
+                    Debug.Log(string.Format("DBNull found in column : {0}.If it's a test record, ignore", dr.GetName(idx)));
+                }
+                else if (propertyDesc.attribute.CustomType == null)
+                {
+                    // 设置非自定义值
+                    // bool值特殊处理
+                    if (propertyDesc.propertyInfo.PropertyType == typeof(bool))
+                    {
+                        propertyDesc.propertyInfo.SetValue(model, Convert.ToInt32(dr[idx]) == 1, null);
+                    }
+                    else
+                    {
+                        if (propertyDesc.propertyInfo.PropertyType == typeof(string))
+                        {
+                            string value = dr[idx] as string;
+                            propertyDesc.propertyInfo.SetValue(model, value, null);
+                        }
+                        else
+                        {
+                            propertyDesc.propertyInfo.SetValue(model, dr[idx], null);
+                        }
+                    }
+                }
+                else
+                {
+                    // 对于自定义类型值, 使用CustomDBClass转换
+                    if (dr[idx].GetType() != typeof(string))
+                    {
+                        Debug.LogError(string.Format("Column value of custom type must be string : {0}", dr.GetName(idx)));
+                    }
+                    else
+                    {
+                        var value = ConfigDataBase.Instance.CustomDbClass.ParseType(propertyDesc.attribute.CustomType, dr[idx] as string);
+                        propertyDesc.propertyInfo.SetValue(model, value, null);
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// 从已加载的数据中获取对应类型的List<>, 如果对应类型不存在, 加载并返回加载后的结果
         /// </summary>
-        private IList GetSubItemList(ref Dictionary<Type, IList> subItemDic, Type type, IDbAccessorFactory dbAcsFty, object key)
+        private IList GetSubItemList(Type type, IDbAccessorFactory dbAcsFty, object key)
         {
             ClassDesc clsDesc = GetClassDesc(type);
             IDbAccessor dbAccessor = dbAcsFty.GetDbAccessor(clsDesc.TableName);
             IDataReader reader = dbAccessor.Query(GetQueryString(clsDesc.TableName, clsDesc.RootKeyAttribute.ColumnName, key));
-            IList list = ReadItems(type, reader, clsDesc, ref subItemDic, dbAcsFty, key);
+            IList list = ReadItems(type, reader, clsDesc, dbAcsFty, key);
             dbAccessor.CloseDbReader();
             return list;
         }
@@ -658,12 +659,12 @@ namespace ClientCommon
         }
 
         /// <summary>
-        /// 判断一个外键类型是否与其相应的referenceObj匹配, 也就是外键值全都一致
+        /// 判断一个外键属性值是否与它引用主键属性值一致
         /// </summary>
         private static bool IsMatchReferenceClass(ClassDesc clsDesc, object obj, object refObj)
         {
             for (int i = 0; i < clsDesc.FkPropertyInfoList.Count; i++)
-            {
+            { 
                 var fkPropertyDesc = clsDesc.FkPropertyInfoList[i];
                 if (fkPropertyDesc.propertyInfo.GetValue(obj, null).Equals(fkPropertyDesc.referencedPropertyInfo.GetValue(refObj, null)) == false)
                 {

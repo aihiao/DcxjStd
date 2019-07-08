@@ -1,7 +1,7 @@
 ﻿namespace ClientCommon
 {
 	[DbTable("editor_ability_sub_ability_parameter", "AbilityParameter", "", "")]
-	sealed public class AbilityParameter
+    public sealed class AbilityParameter
 	{
 		private int _ability_id = 0;
 		[DbColumn(false, "ability_id", true, typeof(Ability), "id")]

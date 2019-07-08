@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ClientCommon
 {
 	[DbTable("alert_message", "AlertMessage", "", "")]
-	sealed public class AlertMessage : AutoCreateConfigElem
+    public sealed class AlertMessage : AutoCreateConfigElem
 	{
 		private string id = "";
 		[DbColumn(false, "id")]

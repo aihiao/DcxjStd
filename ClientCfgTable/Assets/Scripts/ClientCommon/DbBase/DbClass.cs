@@ -200,6 +200,7 @@ namespace ClientCommon
 
         /// <summary>
         /// 字段名, 因为合并列没有一个单一的列明, 就用这个字段名做标识用
+        /// ClassName+List组成 或者 ExpectClassName+List组成
         /// </summary>
         private string fieldTypeName = string.Empty;
         public string FieldTypeName { get { return fieldTypeName; } }

@@ -1,7 +1,7 @@
 ﻿namespace ClientCommon
 {
 	[DbSubColumnClass("faction_tree_mission", "rewards")]
-	sealed public class Rewards
+    public sealed class Rewards
 	{
 		private int _item_id = 0;
 		[DbSplitField(1)]
