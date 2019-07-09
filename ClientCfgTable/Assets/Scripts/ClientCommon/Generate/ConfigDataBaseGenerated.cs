@@ -9,6 +9,7 @@ namespace ClientCommon
         public static AlertMessageConfig AlertMessageConfig { get { return Instance.GetConfiguration<AlertMessageConfig>(); } }
         public static LeagueBossConfig LeagueBossConfig { get { return Instance.GetConfiguration<LeagueBossConfig>(); } }
         public static DattributeConfig DattributeConfig { get { return Instance.GetConfiguration<DattributeConfig>(); } }
+        public static MonsterConfig MonsterConfig { get { return Instance.GetConfiguration<MonsterConfig>(); } }
 
         public static Dictionary<string, string> dbNameDic = new Dictionary<string, string>()
         {
@@ -167,6 +168,10 @@ namespace ClientCommon
             AttributeType.Initialize();
             customDbClass.RegisterTypeParser(typeof(AttributeType), AttributeType.GetTypeByName);
             customDbClass.RegisterTextParser(typeof(AttributeType), AttributeType.GetNameByType);
+
+            MonsterType.Initialize();
+            customDbClass.RegisterTypeParser(typeof(MonsterType), MonsterType.GetTypeByName);
+            customDbClass.RegisterTextParser(typeof(MonsterType), MonsterType.GetNameByType);
         }
 
         

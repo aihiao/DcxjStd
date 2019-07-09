@@ -13,14 +13,12 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.8f2</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -80,32 +78,32 @@
     <Compile Include="Assets\Scripts\ClientCommon\DbBase\DbClassLoader.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\DbBase\IDbAccessor.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\DbBase\IDbAccessorFactory.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\Ability.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\AbilityComponent.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\AbilityParameter.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\ActivityAward.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\ActivityReward.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\AlertMessage.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\AttackTalk.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\AttributeList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Ability\Ability.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Ability\AbilityComponent.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Ability\AbilityParameter.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\ActivityAward\ActivityAward.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\AlertMessage\AlertMessage.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\ConfigDataBaseGenerated.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\ConstValueGenerated.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\DungeonWeight.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\AttributeList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\AttributeType.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\Dattribute.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\FactionTreeMission.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\GainData.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\LeagueBoss.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\LeagueBoss\ActivityReward.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\LeagueBoss\DungeonWeight.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\LeagueBoss\LeagueBoss.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster\AttackTalk.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster\Monster.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster\MonsterList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster\MonsterType.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaption.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaptionList.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Rewards.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\SaleGroup.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\SaleGroupList.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\AttributeType.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\ConstValueName.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\MonsterSelfAdaptionType.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\MonsterType.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\SqliteAccessor\SqliteAccessor.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\SqliteAccessor\SqliteAccessorFactory.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\TypeNameContainer.cs" />

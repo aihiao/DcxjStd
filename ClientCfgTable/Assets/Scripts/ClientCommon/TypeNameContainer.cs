@@ -197,7 +197,6 @@ namespace ClientCommon
                 Debug.LogError(string.Format("Invalid Type {0} in {1}", typeName, typeof(Type)));
                 return false;
             }
-
             typeList.Add(type);
             container.Add(typeName, new KeyValuePair<int, string>(type, displayName));
 

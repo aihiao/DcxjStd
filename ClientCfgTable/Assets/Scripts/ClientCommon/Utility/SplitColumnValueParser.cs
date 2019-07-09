@@ -49,7 +49,6 @@ namespace ClientCommon
             List<string> result = new List<string>();
             int begin = 0;
             int level = 0;
-
             char[] charArr = value.ToCharArray();
             for (int i = 0; i < charArr.Length; i++)
             {
@@ -63,8 +62,8 @@ namespace ClientCommon
                 }
                 else if (charArr[i] == ';' && level == 0)
                 {
-                    begin = i + 1;
                     result.Add(value.Substring(begin, i - begin).Trim());
+                    begin = i + 1;
                 }
             }
 

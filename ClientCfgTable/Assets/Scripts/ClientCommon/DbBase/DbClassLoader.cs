@@ -166,7 +166,7 @@ namespace ClientCommon
 
                     if (dr[i] is DBNull)
                     {
-                        Debug.Log(string.Format("DBNull found in column : {0}.If it's test record, ignore", dr.GetName(i)));
+                        Debug.LogWarning(string.Format("DBNull found in column : {0}.If it's test record, ignore", dr.GetName(i)));
                     }
                     else if (propertyDesc.attribute.CustomType == null)
                     {
@@ -224,7 +224,7 @@ namespace ClientCommon
                     {
                         if (dr[i] is DBNull || dr.GetValue(i) == null)
                         {
-                            Debug.Log(string.Format("DBNull found in column : {0}. If it's test record, ignore", dr.GetName(i)));
+                            Debug.LogWarning(string.Format("DBNull found in column : {0}. If it's test record, ignore", dr.GetName(i)));
                         }
                         else
                         {
@@ -235,7 +235,7 @@ namespace ClientCommon
                     {
                         if (dr[i] is DBNull || dr.GetValue(i) == null)
                         {
-                            Debug.Log(string.Format("DBNull found in column : {0}.If it's test record, ignore", dr.GetName(i)));
+                            Debug.LogWarning(string.Format("DBNull found in column : {0}.If it's test record, ignore", dr.GetName(i)));
                         }
                         else
                         {
@@ -353,12 +353,7 @@ namespace ClientCommon
                         if (fieldAtbArr.Length != 0)
                         {
                             var fieldAtb = fieldAtbArr[0] as DbSplitFieldAttribute;
-                            // 若拆成3项, 只填了1;2;这样的话, 会拆成 1  2 ""  isHasData = false
-                            // 只填了1;2这样的话, 会拆成 1 2  isHasData = false
-                            // 只填了1;这样的话, 会拆成 1 ""  isHasData = false
-                            // 只填了1这样的话, 会拆成 1  isHasData = false
-                            // 故，统一将数据不完整的情况设置为false
-                            string fieldValue = ""; // 如果需要拆分n项, 而只填了n-1或者更少的项, 则认为fieldValue是""
+                            string fieldValue = ""; 
                             bool isHasData = (fieldAtb.Index <= valFieldList.Count);
                             if (isHasData)
                             {
