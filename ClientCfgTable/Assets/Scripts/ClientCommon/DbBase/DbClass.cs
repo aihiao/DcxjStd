@@ -17,27 +17,27 @@ namespace ClientCommon
         private string tableName = string.Empty;
         public string TableName { get { return tableName; } }
 
-        // to_name中定义的名字
-        private string expectClassName = string.Empty;
-        public string ExpectClassName { get { return expectClassName; } }
-
         /// <summary>
         /// 数据库表对应的类名, 由于混淆, 不能用type.Name
         /// </summary>
         private string className = string.Empty;
         public string ClassName { get { return className; } }
 
+        // 这在合并列的时候有用, 合并列生成一个可以指定名字的类
+        private string toClassName = string.Empty;
+        public string ToClassName { get { return toClassName; } }
+
         /// <summary>
-        /// 数据库中to_name注释, 为了不引入复杂的转换规则, 故加入该注解
+        /// toClassName成员注释, 为了不引入复杂的转换规则, 故加入该注解
         /// </summary>
         private string toNameStr = string.Empty;
         public string ToNameStr { get { return toNameStr; } }
 
-        public DbTableAttribute(string tableName, string className = "", string expectClassName = "", string toNameStr = "")
+        public DbTableAttribute(string tableName, string className = "", string toClassName = "", string toNameStr = "")
         {
             this.tableName = tableName;
             this.className = className;
-            this.expectClassName = expectClassName;
+            this.toClassName = toClassName;
             this.toNameStr = toNameStr;
         }
     }
@@ -68,7 +68,8 @@ namespace ClientCommon
     }
 
     /// <summary>
-    /// 用于标记数据库表中列对应的成员, 记录数据库列的属性(数据库列名、是否是主键、是否是外键等)
+    /// 用于标记数据库表中列对应的成员, 记录数据库列的属性(数据库列名、是否是主键、是否是外键等)。
+    /// 一般标记非拆分、合并的列对应的基础成员, 这时候如果是自定义类型, 调用注册过的Parse方法获取成员值
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class DbColumnAttribute : Attribute
@@ -86,7 +87,7 @@ namespace ClientCommon
         public string ColumnName { get { return columnName; } }
 
         /// <summary>
-        /// 自定义类型
+        /// 自定义类型, 这里如果是自定义类型, 调用注册过的Parse方法获取成员值
         /// </summary>
         private Type customType = null;
         public Type CustomType { get { return customType; } }
@@ -341,8 +342,8 @@ namespace ClientCommon
         private string tableName = string.Empty;
         public string TableName { get { return tableName; } }
 
-        private string expectClassName = string.Empty;
-        public string ExpectClassName { get { return expectClassName; } }
+        private string toClassName = string.Empty;
+        public string ToClassName { get { return toClassName; } }
 
         /// <summary>
         /// 存储类名, 由于混淆, 原type.Name不能用
@@ -445,8 +446,8 @@ namespace ClientCommon
                 {
                     var atb = atbAyy[0] as DbTableAttribute;
                     clsDesc.tableName = atb.TableName;
-                    clsDesc.expectClassName = atb.ExpectClassName;
                     clsDesc.className = atb.ClassName;
+                    clsDesc.toClassName = atb.ToClassName;
                     clsDesc.toNameStr = atb.ToNameStr;
                 }
             }

@@ -6,6 +6,9 @@ using Mono.Data.Sqlite;
 
 namespace ClientCommon
 {
+    /// <summary>
+    /// Sqlite存取器
+    /// </summary>
     public class SqliteAccessor : IDbAccessor
     {
         private string dbPath;

@@ -7,6 +7,9 @@ using Mono.Data.Sqlite;
 
 namespace ClientCommon
 {
+    /// <summary>
+    /// Sqlite存取器工厂
+    /// </summary>
     public class SqliteAccessorFactory : IDbAccessorFactory
     {
         private static Dictionary<string, SqliteAccessor> sqlAccessorPool = new Dictionary<string, SqliteAccessor>();

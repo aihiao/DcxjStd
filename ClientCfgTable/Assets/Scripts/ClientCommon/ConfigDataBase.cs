@@ -39,8 +39,13 @@ namespace ClientCommon
         }
 
         private string defaultPath = string.Empty;
+        /// <summary>
+        /// 表名对应的配置文件缓存路径
+        /// </summary>
         private Dictionary<string, string> configDbPathDic = new Dictionary<string, string>();
-
+        /// <summary>
+        /// 配置文件类型对应配置文件数据类
+        /// </summary>
         private Dictionary<Type, Configuration> configDic = new Dictionary<Type, Configuration>();
 
         private DateTime lastReleaseTime = DateTime.Now;

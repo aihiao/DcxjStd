@@ -179,6 +179,7 @@ namespace ClientCommon
             MonsterSelfAdaptionType.Initialize();
             customDbClass.RegisterTypeParser(typeof(MonsterSelfAdaptionType), MonsterSelfAdaptionType.GetTypeByName);
             customDbClass.RegisterTextParser(typeof(MonsterSelfAdaptionType), MonsterSelfAdaptionType.GetNameByType);
+
         }
 
         

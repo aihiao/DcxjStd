@@ -246,14 +246,14 @@ namespace ClientCommon
                     {
                         int dstPrefixLen = 0;
                         string className = string.Empty;
-                        if (string.IsNullOrEmpty(clsDesc.ExpectClassName))
+                        if (string.IsNullOrEmpty(clsDesc.ToClassName))
                         {
                             className = clsDesc.ClassName + "List";
                             dstPrefixLen = clsDesc.TableName.Length;// 如此，则合并表不能有editor等类似的前缀
                         }
                         else // 有to_name注释
                         {   // 需要根据className 去 获得mergeColumnDesc
-                            className = clsDesc.ExpectClassName + "List";
+                            className = clsDesc.ToClassName + "List";
                             dstPrefixLen = clsDesc.ToNameStr.Length;
                         }
                         var mergeColumnDesc = clsDesc.GetMergePropertyInfo(className);
