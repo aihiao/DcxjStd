@@ -10,6 +10,9 @@ namespace ClientCommon
         public static LeagueBossConfig LeagueBossConfig { get { return Instance.GetConfiguration<LeagueBossConfig>(); } }
         public static DattributeConfig DattributeConfig { get { return Instance.GetConfiguration<DattributeConfig>(); } }
         public static MonsterConfig MonsterConfig { get { return Instance.GetConfiguration<MonsterConfig>(); } }
+        public static MonsterSelfAdaptionConfig MonsterSelfAdaptionConfig { get { return Instance.GetConfiguration<MonsterSelfAdaptionConfig>(); } }
+        public static SaleGroupConfig SaleGroupConfig { get { return Instance.GetConfiguration<SaleGroupConfig>(); } }
+        public static FactionTreeMissionConfig FactionTreeMissionConfig { get { return Instance.GetConfiguration<FactionTreeMissionConfig>(); } }
 
         public static Dictionary<string, string> dbNameDic = new Dictionary<string, string>()
         {
@@ -172,6 +175,10 @@ namespace ClientCommon
             MonsterType.Initialize();
             customDbClass.RegisterTypeParser(typeof(MonsterType), MonsterType.GetTypeByName);
             customDbClass.RegisterTextParser(typeof(MonsterType), MonsterType.GetNameByType);
+
+            MonsterSelfAdaptionType.Initialize();
+            customDbClass.RegisterTypeParser(typeof(MonsterSelfAdaptionType), MonsterSelfAdaptionType.GetTypeByName);
+            customDbClass.RegisterTextParser(typeof(MonsterSelfAdaptionType), MonsterSelfAdaptionType.GetNameByType);
         }
 
         

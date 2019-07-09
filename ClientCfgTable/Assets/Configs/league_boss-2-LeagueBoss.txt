@@ -1,0 +1,172 @@
+Id=1 LeagueLevel=1 LigeanceCount=12 DungeonReward=610100322 ActivityEmailId=158 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=14
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+DungeonId=3 Weight=1
+DungeonId=4 Weight=1
+DungeonId=5 Weight=1
+DungeonId=6 Weight=1
+ItemId=900000001 ItemCount=10000
+ItemId=400000203 ItemCount=2000
+1 2 3 4 5 6 7 8 9 10 11 12 
+
+Id=2 LeagueLevel=1 LigeanceCount=12 DungeonReward=610100323 ActivityEmailId=159 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=7 Weight=1
+DungeonId=8 Weight=1
+DungeonId=9 Weight=1
+DungeonId=10 Weight=1
+DungeonId=11 Weight=1
+DungeonId=12 Weight=1
+ItemId=900000001 ItemCount=12000
+ItemId=400000203 ItemCount=2500
+1 2 3 4 5 6 7 8 9 10 11 12 
+
+Id=3 LeagueLevel=2 LigeanceCount=11 DungeonReward=610100324 ActivityEmailId=160 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=13 Weight=1
+DungeonId=14 Weight=1
+DungeonId=15 Weight=1
+DungeonId=16 Weight=1
+DungeonId=17 Weight=1
+DungeonId=18 Weight=1
+ItemId=900000001 ItemCount=14000
+ItemId=400000203 ItemCount=3000
+1 2 3 4 5 6 7 8 9 10 11 
+
+Id=4 LeagueLevel=2 LigeanceCount=11 DungeonReward=610100325 ActivityEmailId=161 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=19 Weight=1
+DungeonId=20 Weight=1
+DungeonId=21 Weight=1
+DungeonId=22 Weight=1
+DungeonId=23 Weight=1
+DungeonId=24 Weight=1
+ItemId=900000001 ItemCount=16000
+ItemId=400000203 ItemCount=3500
+1 2 3 4 5 6 7 8 9 10 11 
+
+Id=5 LeagueLevel=3 LigeanceCount=10 DungeonReward=610100326 ActivityEmailId=162 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=25 Weight=1
+DungeonId=26 Weight=1
+DungeonId=27 Weight=1
+DungeonId=28 Weight=1
+DungeonId=29 Weight=1
+DungeonId=30 Weight=1
+ItemId=900000001 ItemCount=18000
+ItemId=400000203 ItemCount=5000
+1 2 3 4 5 6 7 8 9 10 
+
+Id=6 LeagueLevel=3 LigeanceCount=10 DungeonReward=610100327 ActivityEmailId=163 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=31 Weight=1
+DungeonId=32 Weight=1
+DungeonId=33 Weight=1
+DungeonId=34 Weight=1
+DungeonId=35 Weight=1
+DungeonId=36 Weight=1
+ItemId=900000001 ItemCount=20000
+ItemId=400000203 ItemCount=5500
+1 2 3 4 5 6 7 8 9 10 
+
+Id=7 LeagueLevel=4 LigeanceCount=9 DungeonReward=610100328 ActivityEmailId=164 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=37 Weight=1
+DungeonId=38 Weight=1
+DungeonId=39 Weight=1
+DungeonId=40 Weight=1
+DungeonId=41 Weight=1
+ItemId=900000001 ItemCount=30000
+ItemId=400000203 ItemCount=6000
+1 2 3 4 5 6 7 8 9 
+
+Id=8 LeagueLevel=4 LigeanceCount=9 DungeonReward=610100329 ActivityEmailId=165 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=42 Weight=1
+DungeonId=43 Weight=1
+DungeonId=44 Weight=1
+DungeonId=45 Weight=1
+DungeonId=46 Weight=1
+ItemId=900000001 ItemCount=34000
+ItemId=400000203 ItemCount=6500
+1 2 3 4 5 6 7 8 9 
+
+Id=9 LeagueLevel=5 LigeanceCount=8 DungeonReward=610100330 ActivityEmailId=166 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=47 Weight=1
+DungeonId=48 Weight=1
+DungeonId=49 Weight=1
+DungeonId=50 Weight=1
+DungeonId=51 Weight=1
+ItemId=900000001 ItemCount=38000
+ItemId=400000203 ItemCount=8000
+1 2 3 4 5 6 7 8 
+
+Id=10 LeagueLevel=5 LigeanceCount=8 DungeonReward=610100331 ActivityEmailId=167 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=52 Weight=1
+DungeonId=53 Weight=1
+DungeonId=54 Weight=1
+DungeonId=55 Weight=1
+DungeonId=56 Weight=1
+ItemId=900000001 ItemCount=42000
+ItemId=400000203 ItemCount=8800
+1 2 3 4 5 6 7 8 
+
+Id=11 LeagueLevel=6 LigeanceCount=6 DungeonReward=610100332 ActivityEmailId=168 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+ItemId=900000001 ItemCount=46000
+ItemId=400000203 ItemCount=9600
+1 2 3 4 5 6 
+
+Id=12 LeagueLevel=6 LigeanceCount=6 DungeonReward=610100333 ActivityEmailId=169 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+ItemId=900000001 ItemCount=50000
+ItemId=400000203 ItemCount=10400
+1 2 3 4 5 6 
+
+Id=13 LeagueLevel=7 LigeanceCount=5 DungeonReward=610100334 ActivityEmailId=170 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+ItemId=900000001 ItemCount=54000
+ItemId=400000203 ItemCount=13000
+1 2 3 4 5 
+
+Id=14 LeagueLevel=7 LigeanceCount=5 DungeonReward=610100335 ActivityEmailId=171 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+ItemId=900000001 ItemCount=58000
+ItemId=400000203 ItemCount=14000
+1 2 3 4 5 
+
+Id=15 LeagueLevel=8 LigeanceCount=5 DungeonReward=610100336 ActivityEmailId=172 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+ItemId=900000001 ItemCount=75000
+ItemId=400000203 ItemCount=15000
+1 2 3 4 5 
+
+Id=16 LeagueLevel=8 LigeanceCount=5 DungeonReward=610100337 ActivityEmailId=173 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+ItemId=900000001 ItemCount=80000
+ItemId=400000203 ItemCount=16000
+1 2 3 4 5 
+
+Id=17 LeagueLevel=9 LigeanceCount=5 DungeonReward=610100338 ActivityEmailId=174 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+ItemId=900000001 ItemCount=85000
+ItemId=400000203 ItemCount=17000
+1 2 3 4 5 
+
+Id=18 LeagueLevel=9 LigeanceCount=5 DungeonReward=610100339 ActivityEmailId=175 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=12
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+ItemId=900000001 ItemCount=90000
+ItemId=400000203 ItemCount=18000
+1 2 3 4 5 
+
+Id=19 LeagueLevel=10 LigeanceCount=5 DungeonReward=610100340 ActivityEmailId=176 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=11
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+1 2 3 4 5 
+
+Id=20 LeagueLevel=10 LigeanceCount=5 DungeonReward=610100341 ActivityEmailId=177 ActivityMoney=500 ActivityContribution=500 Abandoned=False Version=11
+DungeonId=1 Weight=1
+DungeonId=2 Weight=1
+1 2 3 4 5 
+

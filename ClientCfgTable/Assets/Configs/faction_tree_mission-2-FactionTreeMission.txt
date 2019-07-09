@@ -1,0 +1,483 @@
+Id=1 DifficityDegree=大吉 Desc=天开地辟结良缘　日吉时良万事全 Probability=1 EventType=15 CompleteDesc=参悟{0}/1次技能 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=41
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=2 DifficityDegree=平稳 Desc=若得此签非小可　人行中正帝王宣 Probability=1 EventType=116 CompleteDesc=领取每日灵丹{0}/1次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=216
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=3 DifficityDegree=凶 Desc=鲸鱼未化守江湖　未许升腾离碧波 Probability=1 EventType=61 CompleteDesc=参加{0}/1次藏经阁 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=20
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=4 DifficityDegree=大吉 Desc=异日峥嵘身变态　从教一跃禹门过 Probability=1 EventType=15 CompleteDesc=参悟{0}/1次技能 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=41
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=5 DifficityDegree=平稳 Desc=冲风冒南去还归　役役劳身似燕儿 Probability=1 EventType=15 CompleteDesc=参悟{0}/2次技能 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=41
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+2 
+
+Id=6 DifficityDegree=凶 Desc=衔得泥来成叠後　到头叠坏复成泥 Probability=1 EventType=15 CompleteDesc=参悟{0}/3次技能 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=41
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+3 
+
+Id=7 DifficityDegree=大吉 Desc=菱花镜破复重圆　自此门闾重改换 Probability=1 EventType=53 CompleteDesc=拥有{0}/5个好友 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=17
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+5 
+
+Id=8 DifficityDegree=平稳 Desc=女再求夫男再婚　更添福棱与儿孙 Probability=1 EventType=53 CompleteDesc=拥有{0}/7个好友 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=17
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+7 
+
+Id=9 DifficityDegree=凶 Desc=一锄掘地要求泉　努力求之得最先 Probability=1 EventType=53 CompleteDesc=拥有{0}/10个好友 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=17
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+10 
+
+Id=10 DifficityDegree=大吉 Desc=无意俄然遇知己　相逢携手上青天 Probability=1 EventType=55 CompleteDesc=拥有{0}/1个称号 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=19
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=11 DifficityDegree=平稳 Desc=投身岩下饲於菟　须是还他大丈夫 Probability=1 EventType=55 CompleteDesc=拥有{0}/2个称号 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=19
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+2 
+
+Id=12 DifficityDegree=凶 Desc=舍己也应难再得　通行天下此人无 Probability=1 EventType=55 CompleteDesc=拥有{0}/3个称号 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=19
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+3 
+
+Id=13 DifficityDegree=大吉 Desc=奔波役役重重险　带水拖泥又渡山 Probability=1 EventType=103 CompleteDesc=通关{0}/2个关卡 BuildNum=50 FactionMoney=50 Abandoned=False Version=7
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=47
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+2 
+
+Id=14 DifficityDegree=平稳 Desc=更虑他方求别用　千山万水未能还 Probability=1 EventType=103 CompleteDesc=通关{0}/3个关卡 BuildNum=50 FactionMoney=50 Abandoned=False Version=7
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=47
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+3 
+
+Id=15 DifficityDegree=凶 Desc=岁寒松柏古栽培　雨雪风霜总不摧 Probability=1 EventType=103 CompleteDesc=通关{0}/4个关卡 BuildNum=50 FactionMoney=50 Abandoned=False Version=7
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=47
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+4 
+
+Id=16 DifficityDegree=大吉 Desc=异日必当成大用　功名作个栋梁材 Probability=1 EventType=60 CompleteDesc=完成{0}/1次江湖寻访 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=22
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=17 DifficityDegree=平稳 Desc=劳君问我心中事　此意偏宜说向公 Probability=1 EventType=60 CompleteDesc=完成{0}/2次江湖寻访 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=22
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+2 
+
+Id=18 DifficityDegree=凶 Desc=一片灵台明以镜　恰如明月正当空 Probability=1 EventType=60 CompleteDesc=完成{0}/3次江湖寻访 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=22
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+3 
+
+Id=19 DifficityDegree=大吉 Desc=椟蔽无价宝和珍　只管他乡外处寻 Probability=1 EventType=62 CompleteDesc=藏经阁到{0}/8层 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=20
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+8 
+
+Id=20 DifficityDegree=平稳 Desc=好似将灯来觅火　不如安静莫劳心 Probability=1 EventType=62 CompleteDesc=藏经阁到{0}/10层 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=20
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+10 
+
+Id=21 DifficityDegree=凶 Desc=欲求好事喜非常　争奈姻婚只暂忙 Probability=1 EventType=62 CompleteDesc=藏经阁到{0}/12层 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=20
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+12 
+
+Id=22 DifficityDegree=大吉 Desc=毕竟到头成好事　贵人接引贵人乡 Probability=1 EventType=81 CompleteDesc=参加{0}/1次擂台战斗 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=37
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=23 DifficityDegree=平稳 Desc=时临否极泰当来　抖擞从君出暗埃 Probability=1 EventType=81 CompleteDesc=参加{0}/3次擂台战斗 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=37
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+3 
+
+Id=24 DifficityDegree=凶 Desc=若遇卯寅佳信至　管教立志事和谐 Probability=1 EventType=82 CompleteDesc=擂台战斗胜利{0}/2 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=37
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+2 
+
+Id=25 DifficityDegree=大吉 Desc=自小生身富贵家　眼前万事总奢华 Probability=1 EventType=94 CompleteDesc=参加{0}/2次行侠仗义 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=21
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+2 
+
+Id=26 DifficityDegree=平稳 Desc=要君赐受金鱼袋　四海传名足可夸 Probability=1 EventType=59 CompleteDesc=行侠仗义胜利{0}/1次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=21
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=27 DifficityDegree=凶 Desc=宛如仙鹤出樊笼　脱却羁縻处处通 Probability=1 EventType=59 CompleteDesc=行侠仗义胜利{0}/2次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=21
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+2 
+
+Id=28 DifficityDegree=大吉 Desc=南北东西无障碍　任君直上九霄中 Probability=1 EventType=112 CompleteDesc=进行好友切磋{0}/1次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=17
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+1 
+
+Id=29 DifficityDegree=平稳 Desc=触人口气最难吞　忽有灾危祸到门 Probability=1 EventType=112 CompleteDesc=进行好友切磋{0}/3次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=17
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+3 
+
+Id=30 DifficityDegree=凶 Desc=卵破巢空无宿处　深为稳便把心存 Probability=1 EventType=112 CompleteDesc=进行好友切磋{0}/5次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=17
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+
+5 
+
+Id=31 DifficityDegree=大吉 Desc=天开地辟结良缘　日吉时良万事全 Probability=1 EventType=15 CompleteDesc=参悟{0}/1次技能 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=41
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=32 DifficityDegree=平稳 Desc=若得此签非小可　人行中正帝王宣 Probability=1 EventType=116 CompleteDesc=领取每日灵丹{0}/1次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=216
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=33 DifficityDegree=凶 Desc=鲸鱼未化守江湖　未许升腾离碧波 Probability=1 EventType=61 CompleteDesc=参加{0}/1次藏经阁 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=20
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=34 DifficityDegree=大吉 Desc=异日峥嵘身变态　从教一跃禹门过 Probability=1 EventType=53 CompleteDesc=拥有{0}/5个好友 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=17
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+5 
+
+Id=35 DifficityDegree=平稳 Desc=冲风冒南去还归　役役劳身似燕儿 Probability=1 EventType=53 CompleteDesc=拥有{0}/7个好友 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=17
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+7 
+
+Id=36 DifficityDegree=凶 Desc=衔得泥来成叠後　到头叠坏复成泥 Probability=1 EventType=53 CompleteDesc=拥有{0}/10个好友 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=17
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+10 
+
+Id=37 DifficityDegree=大吉 Desc=菱花镜破复重圆　自此门闾重改换 Probability=1 EventType=55 CompleteDesc=拥有{0}/1个称号 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=19
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=38 DifficityDegree=平稳 Desc=女再求夫男再婚　更添福棱与儿孙 Probability=1 EventType=55 CompleteDesc=拥有{0}/2个称号 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=19
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+2 
+
+Id=39 DifficityDegree=凶 Desc=一锄掘地要求泉　努力求之得最先 Probability=1 EventType=55 CompleteDesc=拥有{0}/3个称号 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=19
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=40 DifficityDegree=大吉 Desc=无意俄然遇知己　相逢携手上青天 Probability=1 EventType=103 CompleteDesc=通关{0}/2个关卡 BuildNum=50 FactionMoney=50 Abandoned=False Version=7
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=47
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+2 
+
+Id=41 DifficityDegree=平稳 Desc=投身岩下饲於菟　须是还他大丈夫 Probability=1 EventType=103 CompleteDesc=通关{0}/3个关卡 BuildNum=50 FactionMoney=50 Abandoned=False Version=7
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=47
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=42 DifficityDegree=凶 Desc=舍己也应难再得　通行天下此人无 Probability=1 EventType=103 CompleteDesc=通关{0}/4个关卡 BuildNum=50 FactionMoney=50 Abandoned=False Version=7
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=47
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+4 
+
+Id=43 DifficityDegree=大吉 Desc=奔波役役重重险　带水拖泥又渡山 Probability=1 EventType=60 CompleteDesc=完成{0}/1次江湖寻访 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=22
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=44 DifficityDegree=平稳 Desc=更虑他方求别用　千山万水未能还 Probability=1 EventType=60 CompleteDesc=完成{0}/2次江湖寻访 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=22
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+2 
+
+Id=45 DifficityDegree=凶 Desc=岁寒松柏古栽培　雨雪风霜总不摧 Probability=1 EventType=60 CompleteDesc=完成{0}/3次江湖寻访 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=22
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=46 DifficityDegree=大吉 Desc=异日必当成大用　功名作个栋梁材 Probability=1 EventType=62 CompleteDesc=藏经阁到{0}/12层 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=20
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+12 
+
+Id=47 DifficityDegree=平稳 Desc=劳君问我心中事　此意偏宜说向公 Probability=1 EventType=62 CompleteDesc=藏经阁到{0}/15层 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=20
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+15 
+
+Id=48 DifficityDegree=凶 Desc=一片灵台明以镜　恰如明月正当空 Probability=1 EventType=62 CompleteDesc=藏经阁到{0}/18层 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=20
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+18 
+
+Id=49 DifficityDegree=大吉 Desc=椟蔽无价宝和珍　只管他乡外处寻 Probability=1 EventType=81 CompleteDesc=参加{0}/1次擂台战斗 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=37
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=50 DifficityDegree=平稳 Desc=好似将灯来觅火　不如安静莫劳心 Probability=1 EventType=81 CompleteDesc=参加{0}/3次擂台战斗 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=37
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=51 DifficityDegree=凶 Desc=欲求好事喜非常　争奈姻婚只暂忙 Probability=1 EventType=81 CompleteDesc=参加{0}/5次擂台战斗 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=37
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+5 
+
+Id=52 DifficityDegree=大吉 Desc=毕竟到头成好事　贵人接引贵人乡 Probability=1 EventType=82 CompleteDesc=擂台战斗胜利{0}/1 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=37
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=53 DifficityDegree=平稳 Desc=时临否极泰当来　抖擞从君出暗埃 Probability=1 EventType=82 CompleteDesc=擂台战斗胜利{0}/2 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=37
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+2 
+
+Id=54 DifficityDegree=凶 Desc=若遇卯寅佳信至　管教立志事和谐 Probability=1 EventType=82 CompleteDesc=擂台战斗胜利{0}/3 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=37
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=55 DifficityDegree=大吉 Desc=自小生身富贵家　眼前万事总奢华 Probability=1 EventType=94 CompleteDesc=参加{0}/2次行侠仗义 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=21
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+2 
+
+Id=56 DifficityDegree=平稳 Desc=要君赐受金鱼袋　四海传名足可夸 Probability=1 EventType=94 CompleteDesc=参加{0}/3次行侠仗义 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=21
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=57 DifficityDegree=凶 Desc=宛如仙鹤出樊笼　脱却羁縻处处通 Probability=1 EventType=94 CompleteDesc=参加{0}/4次行侠仗义 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=21
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+4 
+
+Id=58 DifficityDegree=大吉 Desc=南北东西无障碍　任君直上九霄中 Probability=1 EventType=59 CompleteDesc=行侠仗义胜利{0}/1次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=21
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=59 DifficityDegree=平稳 Desc=触人口气最难吞　忽有灾危祸到门 Probability=1 EventType=59 CompleteDesc=行侠仗义胜利{0}/2次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=21
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+2 
+
+Id=60 DifficityDegree=凶 Desc=卵破巢空无宿处　深为稳便把心存 Probability=1 EventType=59 CompleteDesc=行侠仗义胜利{0}/3次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=21
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=61 DifficityDegree=大吉 Desc=攒眉思虑暂时开　尺尺云开见日来 Probability=1 EventType=115 CompleteDesc=天工作坊成功兑换{0}/1次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=217
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=62 DifficityDegree=平稳 Desc=宛似污泥中片玉　良工一举出尘埃 Probability=1 EventType=115 CompleteDesc=天工作坊成功兑换{0}/3次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=217
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=63 DifficityDegree=凶 Desc=莫听闲言与是非　晨昏只好念阿弥 Probability=1 EventType=115 CompleteDesc=天工作坊成功兑换{0}/5次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=217
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+5 
+
+Id=64 DifficityDegree=大吉 Desc=若将妄语为真实　画饼如何疗得饥 Probability=1 EventType=112 CompleteDesc=进行好友切磋{0}/1次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=17
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=65 DifficityDegree=平稳 Desc=金乌西坠兔东临　日夜循环恒古今 Probability=1 EventType=112 CompleteDesc=进行好友切磋{0}/3次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=17
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+
+Id=66 DifficityDegree=凶 Desc=僧道得之无不利　工商农士各开心 Probability=1 EventType=112 CompleteDesc=进行好友切磋{0}/5次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=17
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+5 
+
+Id=67 DifficityDegree=大吉 Desc=急水滩头放艇时　狂风作浪欲何为 Probability=1 EventType=105 CompleteDesc=多人关卡胜利{0}/1次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=920000001 ItemCount=20
+GainType=1 GainDesc=0 GainPara=212
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+1 
+
+Id=68 DifficityDegree=平稳 Desc=待他浪静风停後　稳载船归过不危 Probability=1 EventType=105 CompleteDesc=多人关卡胜利{0}/2次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=10000
+GainType=1 GainDesc=0 GainPara=212
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+2 
+
+Id=69 DifficityDegree=凶 Desc=当春久雨喜初晴　玉兔金乌渐渐明 Probability=1 EventType=105 CompleteDesc=多人关卡胜利{0}/3次 BuildNum=50 FactionMoney=50 Abandoned=False Version=6
+ItemId=900000001 ItemCount=1000
+GainType=1 GainDesc=0 GainPara=212
+36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 
+
+3 
+

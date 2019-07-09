@@ -65,6 +65,12 @@
     <Reference Include="System.Data">
       <HintPath>Assets/Plugins/Common/Sql/System.Data.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>D:/software/unity/unity538/application/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/software/unity/unity538/application/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>D:/software/unity/unity538/application/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
@@ -84,12 +90,14 @@
     <Compile Include="Assets\Scripts\ClientCommon\Generate\ActivityAward\ActivityAward.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\AlertMessage\AlertMessage.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\ConfigDataBaseGenerated.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\ConstValueGenerated.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\ConstValue\ConstValueGenerated.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\ConstValue\ConstValueName.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\AttributeList.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\AttributeType.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\Dattribute.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\FactionTreeMission.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\GainData.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\FactionTreeMission\FactionTreeMission.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\FactionTreeMission\GainData.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\FactionTreeMission\Rewards.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\LeagueBoss\ActivityReward.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\LeagueBoss\DungeonWeight.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\LeagueBoss\LeagueBoss.cs" />
@@ -97,13 +105,11 @@
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster\Monster.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster\MonsterList.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Monster\MonsterType.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaption.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaptionList.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\Rewards.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\SaleGroup.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\SaleGroupList.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\ConstValueName.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\Type\MonsterSelfAdaptionType.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaption\MonsterSelfAdaption.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaption\MonsterSelfAdaptionList.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\MonsterSelfAdaption\MonsterSelfAdaptionType.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\SaleGroup\SaleGroup.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\SaleGroup\SaleGroupList.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\SqliteAccessor\SqliteAccessor.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\SqliteAccessor\SqliteAccessorFactory.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\TypeNameContainer.cs" />
@@ -128,6 +134,14 @@
     <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\WWWUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Configs\alert_message-2-AlertMessage.txt" />
+    <None Include="Assets\Configs\dattribute-2-Dattribute.txt" />
+    <None Include="Assets\Configs\editor_ability-2-Ability.txt" />
+    <None Include="Assets\Configs\faction_tree_mission-2-FactionTreeMission.txt" />
+    <None Include="Assets\Configs\league_boss-2-LeagueBoss.txt" />
+    <None Include="Assets\Configs\monster-2-Monster.txt" />
+    <None Include="Assets\Configs\monster_self_adaption-2-MonsterSelfAdaption.txt" />
+    <None Include="Assets\Configs\sale_group-2-SaleGroup.txt" />
     <None Include="Assets\StreamingAssets\Configs\ConfigsVersion.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

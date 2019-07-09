@@ -1,0 +1,2292 @@
+Id=AUTH_LOGIN_SUCCESS Code=1114115 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=登录成功 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_SUCCESS Code=1114117 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建并登陆成功 Abandoned=False Version=1
+
+Id=AUTH_BIND_ACCOUNT_SUCCESS Code=1114119 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=绑定并登陆成功 Abandoned=False Version=1
+
+Id=AUTH_CHANGE_PASSWORD_SUCCESS Code=1114121 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=修改密码成功 Abandoned=False Version=4
+
+Id=AUTH_ACTIVE_CODE_SUCCESS Code=1114123 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=激活成功 Abandoned=False Version=1
+
+Id=GAME_LOGIN_SUCCESS Code=1179651 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=登陆成功 Abandoned=False Version=1
+
+Id=GAME_LOGOUT_SUCCESS Code=1179653 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=登出成功 Abandoned=False Version=1
+
+Id=QUERY_LOGIN_GAME_DATA_SUCCESS Code=1179655 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=游戏登陆数据查询成功 Abandoned=False Version=1
+
+Id=TABLE_VERSION_CHECK_SUCCESS Code=1179658 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=版本号检查成功 Abandoned=False Version=1
+
+Id=GAME_CREATE_ROLE_SUCCESS Code=1179660 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建角色成功 Abandoned=False Version=1
+
+Id=GAME_ENTER_SCENE_SUCCESS Code=1179664 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=进入场景成功 Abandoned=False Version=1
+
+Id=ACTIVE_ACUPOINT_SUCCESS Code=1179670 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=疏通穴道成功 Abandoned=False Version=1
+
+Id=REALM_PROMOTE_SUCCESS Code=1179672 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=修为提升成功 Abandoned=False Version=1
+
+Id=GM_COMMAND_SUCCESS Code=1179674 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=GM命令成功 Abandoned=False Version=1
+
+Id=ADD_EXP_SUCCESS Code=1179676 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=增加经验成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_PUTON_SUCCESS Code=1179678 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿装备成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_TAKEOFF_SUCCESS Code=1179680 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿装备成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_DECOMPOSE_SUCCESS Code=1179682 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=分解装备成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_SUCCESS Code=1179684 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=神铸装备成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_INHERIT_SUCCESS Code=1179686 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=精炼继承成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_SLOT_STATE_CHANGE_SUCCESS Code=1179688 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备孔状态设定成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_SUCCESS Code=1179690 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_SAVE_SUCCESS Code=1179692 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练保留成功 Abandoned=False Version=1
+
+Id=EQUIPMENT_TRANSFER_PROPERTY_SUCCESS Code=1179694 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练转移成功 Abandoned=False Version=1
+
+Id=CHAT_SUCCESS Code=1179696 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=聊天成功 Abandoned=False Version=1
+
+Id=QUERY_CHAT_MESSAGE_LIST_SUCCESS Code=1179698 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询聊天信息列表成功 Abandoned=False Version=1
+
+Id=Notify_FlowMessages_SUCCESS Code=1179699 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=下发跑马灯信息成功 Abandoned=False Version=1
+
+Id=HEARTPOWER_PROMOTE_SUCCESS Code=1179701 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=心法提升成功 Abandoned=False Version=1
+
+Id=HEARTSTAR_PROMOTE_SUCCESS Code=1179703 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=心法化境成功 Abandoned=False Version=1
+
+Id=HEARTCHEATS_ACTIVE_SUCCESS Code=1179705 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=心法残页激活成功 Abandoned=False Version=4
+
+Id=JEWEL_INLAY_SUCCESS Code=1179707 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石镶嵌成功 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_SUCCESS Code=1179709 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石摘除成功 Abandoned=False Version=1
+
+Id=JEWEL_A_KEY_REPLACEMENT_SUCCESS Code=1179711 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石一键替换成功 Abandoned=False Version=1
+
+Id=EMAIL_ALL_ACTIVE_SUCCESS Code=1179713 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=所有邮件发送成功 Abandoned=False Version=1
+
+Id=EMAIL_DETAIL_ACTIVE_SUCCESS Code=1179715 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件详情请求成功 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ALL_ACTIVE_SUCCESS Code=1179717 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=删除所有邮件成功 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ACTIVE_SUCCESS Code=1179719 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=删除邮件成功 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ACTIVE_SUCCESS Code=1179721 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取附件成功 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ALL_ACTIVE_SUCCESS Code=1179723 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取所有附件成功 Abandoned=False Version=1
+
+Id=TUTOR_SUCCESS Code=1179725 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=拜师成功 Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_SUCCESS Code=1179727 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石合成成功 Abandoned=False Version=1
+
+Id=JEWEL_A_KEY_COMPOSE_SUCCESS Code=1179729 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石一键合成成功 Abandoned=False Version=1
+
+Id=HIRE_SUCCESS Code=1179731 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=招募成功 Abandoned=False Version=1
+
+Id=SKILL_STRENGTHEN_SUCCESS Code=1179733 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=技能强化成功 Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_SUCCESS Code=1179735 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=技能升品成功 Abandoned=False Version=1
+
+Id=SKILL_EXCLUSIVE_SUCCESS Code=1179737 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=秘术更换成功 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_SUCCESS Code=1179739 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请求副本战斗成功 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_RESULT_SUCCESS Code=1179741 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本战斗结果通知成功 Abandoned=False Version=1
+
+Id=COMBAT_GET_REWARD_SUCCESS Code=1179743 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本领奖成功 Abandoned=False Version=1
+
+Id=ACQUIRE_MISSION_REWARD_SUCCESS Code=1179747 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取任务奖励成功 Abandoned=False Version=1
+
+Id=ACQUIRE_MISSION_BLOCK_REWARD_SUCCESS Code=1179749 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取任务组奖励成功 Abandoned=False Version=1
+
+Id=UPDATE_MISSION_BLOCK_SUCCESS Code=1179751 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=更新任务组成功 Abandoned=False Version=1
+
+Id=SELL_ITEM_SUCCESS Code=1179753 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=出售物品成功 Abandoned=False Version=1
+
+Id=CHANGE_HERO_SUCCESS Code=1179756 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄上下阵成功 Abandoned=False Version=1
+
+Id=USE_ITEM_SUCCESS Code=1179758 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=使用道具成功 Abandoned=False Version=1
+
+Id=DECOMPOSE_TREASURE_SUCCESS Code=1179760 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=分解成功 Abandoned=False Version=1
+
+Id=DECOMPOSE_TREASURE_REEL_SUCCESS Code=1179762 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=分解成功 Abandoned=False Version=1
+
+Id=EQUIP_TREASURE_SUCCESS Code=1179764 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备奇宝成功 Abandoned=False Version=1
+
+Id=REPAIR_TREASURE_SUCCESS Code=1179766 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=修复成功！ Abandoned=False Version=1
+
+Id=QUERY_RANKLIST_SUCCESS Code=1179768 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=排行榜查询成功 Abandoned=False Version=1
+
+Id=QUERY_RANK_DATA_SUCCESS Code=1179770 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=排行榜玩家数据查询成功 Abandoned=False Version=1
+
+Id=BARRAGES_SUCCESS Code=1179772 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=排行榜玩家发言成功 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_SUCCESS Code=1179774 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商品列表获取成功 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_SUCCESS Code=1179776 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买商品成功 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_SUCCESS Code=1179779 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取下个运营活动奖励成功 Abandoned=False Version=1
+
+Id=TRIAL_INFO_SUCCESS Code=1179781 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄挑战信息获取成功 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_SUCCESS Code=1179783 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄挑战战斗发起成功 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_RESULT_SUCCESS Code=1179785 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄挑战战斗结算成功 Abandoned=False Version=1
+
+Id=QUERY_FRIENDS_INFO_LIST_SUCCESS Code=1179787 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友列表成功 Abandoned=False Version=1
+
+Id=QUERY_ROLE_INFO_SUCCESS Code=1179789 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友详细信息成功 Abandoned=False Version=1
+
+Id=APPLY_FRIENDS_SUCCESS Code=1179791 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友添加申请成功 Abandoned=False Version=1
+
+Id=ADD_OR_REFUSE_FRIENDS_SUCCESS Code=1179793 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=同意或拒绝好友申请成功 Abandoned=False Version=1
+
+Id=REMOVE_FRIENDS_SUCCESS Code=1179795 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=删除好友成功 Abandoned=False Version=1
+
+Id=QUERY_PURCHASE_SUCCESS Code=1179797 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请求充值商品列表成功 Abandoned=False Version=1
+
+Id=PURCHASE_SUCCESS Code=1179799 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=充值成功 Abandoned=False Version=1
+
+Id=QUERY_PRIVATE_CHAR_MESSAGE_LIST_SUCCESS Code=1179801 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友聊天记录成功 Abandoned=False Version=1
+
+Id=TITLE_INFO_SUCCESS Code=1179803 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=称号信息获取成功 Abandoned=False Version=1
+
+Id=TITLE_SUCCESS Code=1179805 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=称号操作成功 Abandoned=False Version=1
+
+Id=QUERY_DART_SUCCESS Code=1179808 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访任务信息获取成功 Abandoned=False Version=4
+
+Id=DART_BEGIN_SUCCESS Code=1179810 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访发起成功 Abandoned=False Version=1
+
+Id=DART_COMPLETE_SUCCESS Code=1179812 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访完成 Abandoned=False Version=1
+
+Id=DART_GET_REWARD_SUCCESS Code=1179814 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访领奖成功 Abandoned=False Version=1
+
+Id=DART_COMBAT_SUCCESS Code=1179816 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访任务发起战斗成功 Abandoned=False Version=1
+
+Id=DART_COMBAT_RESULT_SUCCESS Code=1179818 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访任务战斗结算成功 Abandoned=False Version=1
+
+Id=LEAGUE_CREATE_SUCCESS Code=1179820 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建帮派成功 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_SUCCESS Code=1179822 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=申请帮派成功 Abandoned=False Version=1
+
+Id=LEAGUE_AGREE_SUCCESS Code=1179824 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=同意加入帮派成功 Abandoned=False Version=1
+
+Id=LEAGUE_INVITE_SUCCESS Code=1179826 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邀请加入帮派成功 Abandoned=False Version=1
+
+Id=LEAGUE_ACCEPT_SUCCESS Code=1179828 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=接受加入帮派成功 Abandoned=False Version=1
+
+Id=LEAGUE_LEAVE_SUCCESS Code=1179830 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=离开帮派成功 Abandoned=False Version=1
+
+Id=LEAGUE_KICKOUT_SUCCESS Code=1179832 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=踢出帮派成功 Abandoned=False Version=1
+
+Id=LEAGUE_TITLE_CHANGE_SUCCESS Code=1179834 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=头衔变更成功 Abandoned=False Version=1
+
+Id=LEAGUE_INFO_SUCCESS Code=1179836 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询帮派信息成功 Abandoned=False Version=1
+
+Id=LEAGUE_SEARCH_SUCCESS Code=1179838 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查找帮派信息成功 Abandoned=False Version=1
+
+Id=LEAGUE_LIST_SUCCESS Code=1179840 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询帮派列表成功 Abandoned=False Version=1
+
+Id=LEAGUE_LEVELUP_SUCCESS Code=1179842 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派升级成功 Abandoned=False Version=1
+
+Id=LEAGUE_APPLICANT_LIST_SUCCESS Code=1179844 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询帮派申请人列表成功 Abandoned=False Version=1
+
+Id=LEAGUE_MODIFY_NOTICATION_SUCCESS Code=1179846 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=修改帮派宣言成功 Abandoned=False Version=1
+
+Id=LEAGUE_SPIRITTREE_SUCCESS Code=1179849 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派灵木浇灌成功 Abandoned=False Version=4
+
+Id=LEAGUE_SPIRITTREE_MOW_SUCCESS Code=1179851 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派修剪灵木成功 Abandoned=False Version=4
+
+Id=LEAGUE_AUGURY_SUCCESS Code=1179853 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派卜卦吉凶成功 Abandoned=False Version=4
+
+Id=TIME_LIMIT_DUNGEON_INFO_SUCCESS Code=1179855 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁信息获取成功 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_SUCCESS Code=1179857 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁战斗发起成功 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_RESULT_SUCCESS Code=1179859 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁战斗结算成功 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_RANK_SUCCESS Code=1179861 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁排行榜请求成功 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_PICK_REWARD_SUCCESS Code=1179863 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁领取奖励成功 Abandoned=False Version=1
+
+Id=GUARD_TOWER_REFRESH_TASK_SUCCESS Code=1179865 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=行侠仗义任务刷新成功 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_RESULT_SUCCESS Code=1179867 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=行侠仗义任务战斗结算成功 Abandoned=False Version=1
+
+Id=GUARD_TOWET_BATTLE_SUCCESS Code=1179869 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=行侠仗义任务战斗发起成功 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_INFO_SUCCESS Code=1179871 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿任务信息获取成功 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_REFRESH_SUCCESS Code=1179873 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿任务刷新成功 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_RECEIVE_SUCCESS Code=1179875 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=接取江湖缉拿任务成功 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_COMPLETE_SUCCESS Code=1179877 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=完成江湖缉拿任务成功 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_GIVEUP_SUCCESS Code=1179879 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=接取江湖缉拿任务成功 Abandoned=False Version=1
+
+Id=ANYWHERETRADE_SUCCESS Code=1179882 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=直接购买成功 Abandoned=False Version=1
+
+Id=STAMINA_BUY_INFO_SUCCESS Code=1179885 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家购买体力信息成功 Abandoned=False Version=1
+
+Id=RENAME_SUCCESS Code=1179888 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=改名成功 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_RANK_SUCCESS Code=1179890 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑详细排名获取成功 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_INFO_SUCCESS Code=1179892 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑信息获取成功 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_MATCH_SUCCESS Code=1179894 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑匹配发起成功 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_LOG_SUCCESS Code=1179896 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑战斗日志请求成功 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_CLEAR_COOLDOWN_SUCCESS Code=1179898 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑清除冷却成功 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_ENTER_SUCCESS Code=1179902 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=进入擂台成功 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_REFRESH_COMPETITOR_SUCCESS Code=1179904 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=刷新成功 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_LINEUP_ADJUST_SUCCESS Code=1179906 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵容调整成功 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_QUERY_RANK_SUCCESS Code=1179908 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请求查看成功 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_REPORT_SUCCESS Code=1179910 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台战斗报告成功 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_SUCCESS Code=1179912 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=操作成功 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_START_SUCCESS Code=1179914 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台挑战请求成功 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_RESULT_SUCCESS Code=1179916 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台挑战结果成功 Abandoned=False Version=1
+
+Id=WORLDBOSSINFO_SUCCESS Code=1179918 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成功 Abandoned=False Version=1
+
+Id=PREPAREBATTLESTART_SUCCESS Code=1179920 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成功 Abandoned=False Version=1
+
+Id=PREPAREBATTLEEND_SUCCESS Code=1179922 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成功 Abandoned=False Version=1
+
+Id=BOSSBATTLESTART_SUCCESS Code=1179925 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成功 Abandoned=False Version=1
+
+Id=BOSSBATTLEEND_SUCCESS Code=1179927 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=Boss战斗结束，成功 Abandoned=False Version=1
+
+Id=MAKEHURT_SUCCESS Code=1179929 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成功 Abandoned=False Version=1
+
+Id=BOSSBATTLEREVIVE_SUCCESS Code=1179934 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买复活成功 Abandoned=False Version=1
+
+Id=BOSSBATTLEPLAYERDEAD_SUCCESS Code=1179936 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=Boss战斗中玩家战死，成功 Abandoned=False Version=1
+
+Id=BATTLEUSEITEM_SUCCESS Code=1179940 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗中使用道具成功 Abandoned=False Version=1
+
+Id=BOSS_BATTLE_CLEAR_CD_SUCCESS Code=1179942 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成功 Abandoned=False Version=1
+
+Id=VIP_BUY_DUNGEON_TIME_SUCCESS Code=1179944 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP购买副本次数成功 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_SUCCESS Code=1179947 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本扫荡成功 Abandoned=False Version=1
+
+Id=SILVER_BUY_INFO_SUCCESS Code=1179949 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家购买银两信息成功 Abandoned=False Version=1
+
+Id=TRIAL_REFRESH_SUCCESS Code=1179951 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄挑战刷新成功 Abandoned=False Version=1
+
+Id=TRIAL_BUY_COUNT_SUCCESS Code=1179953 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄挑战购买次数成功 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BUY_BATTLE_COUNT_SUCCESS Code=1179955 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=行侠仗义任务购买战斗次数成功 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_BUY_COUNT_SUCCESS Code=1179957 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁购买次数成功 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_SUCCESS Code=1179959 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换码使用成功 Abandoned=False Version=1
+
+Id=CREATE_BATTLE_SERVER_INSTANCE_SUCCESS Code=1179961 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=客户端创建战斗服副本成功 Abandoned=False Version=1
+
+Id=CHANGE_GUIDE_ID_SUCCESS Code=1179965 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=修改指引ID成功 Abandoned=False Version=1
+
+Id=DAILY_SIGN_SUCCESS Code=1179967 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=每日签到成功 Abandoned=False Version=1
+
+Id=SIGN_RETROACTIVE_SUCCESS Code=1179969 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=补签成功 Abandoned=False Version=1
+
+Id=DRESS_PUTON_SUCCESS Code=1179972 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿时装成功 Abandoned=False Version=1
+
+Id=DRESS_TAKE_OFF_SUCCESS Code=1179974 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=脱下时装成功 Abandoned=False Version=1
+
+Id=CHANGE_DRESS_DISPLAY_STATUS_SUCCESS Code=1179976 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=改变时装是否显示成功 Abandoned=False Version=1
+
+Id=NOTIFY_SERVER_DELELET_DRESS_SUCCESS Code=1179978 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=告知服务器可以删除过期的时装成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_QUERY_SUCCESS Code=1179980 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人关卡主查询请求成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_BUY_AWARD_COUNT_SUCCESS Code=1179982 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买可获得奖励次数成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_CREATE_GROUP_SUCCESS Code=1179984 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建队伍成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_JOIN_GROUP_SUCCESS Code=1179986 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加入队伍成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_INVITE_PLAYER_SUCCESS Code=1179988 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人关卡邀请成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_KICK_PLAYER_SUCCESS Code=1179990 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=踢出玩家成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_READY_CHANGE_SUCCESS Code=1179992 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=切换准备状态成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_LEAVE_GROUP_SUCCESS Code=1179994 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=离开队伍成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_COMBAT_SUCCESS Code=1179996 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=开始战斗成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_QUERY_GROUPINFO_SUCCESS Code=1179998 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询队伍信息成功 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_COMBAT_END_SYNC_SUCCESS Code=1180000 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人关卡战斗胜利 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_BUY_COUNT_SUCCESS Code=1180004 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿完成次数上限购买成功 Abandoned=False Version=1
+
+Id=DECOMPOSE_DRESS_SUCCESS Code=1180007 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=时装分解成功 Abandoned=False Version=1
+
+Id=MISSION_SENCE_COMBAT_SUCCESS Code=1180009 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=任务场景战斗成功 Abandoned=False Version=1
+
+Id=MISSION_SENCE_COMBAT_RESULT_SUCCESS Code=1180011 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=任务场景战斗结算成功 Abandoned=False Version=1
+
+Id=QUERY_DAILY_BENEFIT_SUCCESS Code=1180013 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询每日福利成功 Abandoned=False Version=1
+
+Id=PICK_DAILY_BENEFIT_SUCCESS Code=1180015 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取每日福利成功 Abandoned=False Version=1
+
+Id=EXCHANGE_QUERY_SUCCESS Code=1180017 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换查询成功 Abandoned=False Version=1
+
+Id=EXCHANGE_ITEM_SUCCESS Code=1180019 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换成功！ Abandoned=False Version=1
+
+Id=DAILY_MISSION_INFO_SUCCESS Code=1180023 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务信息获取成功 Abandoned=False Version=1
+
+Id=DAILY_MISSION_PICK_REWARD_SUCCESS Code=1180025 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务领奖成功 Abandoned=False Version=1
+
+Id=PICK_MONTHCARD_REWARD_SUCCESS Code=1180028 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=月卡每日领奖成功 Abandoned=False Version=1
+
+Id=CREATE_BATTLE_ERROR_SYNC_NO_ERROR Code=1180029 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建战斗实例成功，无异常 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_INFO_SUCCESS Code=1180031 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务信息获取成功 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_PICK_REWARD_SUCCESS Code=1180033 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务领奖成功 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_BLOCK_PICK_REWARD_SUCCESS Code=1180035 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务块一键领奖成功 Abandoned=False Version=1
+
+Id=TRADE_QUERY_SUCCESS Code=1180038 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队查询成功 Abandoned=False Version=1
+
+Id=TRADE_BUY_SUCCESS Code=1180040 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队购买成功 Abandoned=False Version=1
+
+Id=QUERY_APPLY_FRIENDS_SUCCESS Code=1180042 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友申请列表成功 Abandoned=False Version=1
+
+Id=FRIENDS_BLESS_GAIN_STAMINA_SUCCESS Code=1180044 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友祝福成功 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_COMBAT_SUCCESS Code=1180046 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=1v1战斗请求成功 Abandoned=False Version=1
+
+Id=FRIENDS_COMPARE_STATR_SUCCESS Code=1180048 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友切磋请求成功 Abandoned=False Version=1
+
+Id=FRIENDS_COMPARE_RESULT_SUCCESS Code=1180050 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友切磋成功 Abandoned=False Version=1
+
+Id=FRIENDS_FIND_AROUND_SUCCESS Code=1180052 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=搜索附近好友成功 Abandoned=False Version=1
+
+Id=CHANGE_TRAINING_SESSION_SUCCESS Code=1180054 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=教学关设置成功 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_QUERY_SUCCESS Code=1180056 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派boss主查询成功 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_SUCCESS Code=1180058 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=开始战斗成功 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_SUCCESS Code=1180059 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派boss战斗胜利 Abandoned=False Version=1
+
+Id=BATTLE_INSTANCE_RESULT_SYNC_SUCCESS Code=1180060 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗结算成功 Abandoned=False Version=1
+
+Id=RECAST_MATRIX_CENTRE_SUCCESS Code=1180064 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵眼融会成功 Abandoned=False Version=1
+
+Id=REINFORCE_MATRIX_CENTRE_SUCCESS Code=1180066 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵眼巩固成功 Abandoned=False Version=1
+
+Id=FAST_REINFORCE_MATRIX_CENTRE_SUCCESS Code=1180068 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵眼一键巩固成功 Abandoned=False Version=1
+
+Id=BUY_VIP_REWARD_SUCCESS Code=1180070 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买vip礼包成功 Abandoned=False Version=1
+
+Id=PICK_ROLE_LEVEL_REWARD_SUCCESS Code=1180072 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取新手等级礼包成功 Abandoned=False Version=1
+
+Id=PICK_ROLE_ONLINE_TIME_REWARD_SUCCESS Code=1180074 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取在线时长礼包成功 Abandoned=False Version=1
+
+Id=ROLE_LEVEL_REWARD_INFO_SUCCESS Code=1180076 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取新手等级礼包信息成功 Abandoned=False Version=1
+
+Id=GROWTH_FUND_MISSION_INFO_SUCCESS Code=1180078 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取成长基金任务信息成功 Abandoned=False Version=1
+
+Id=GROWTH_FUND_PICK_REWARD_SUCCESS Code=1180080 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成长基金任务领奖成功 Abandoned=False Version=1
+
+Id=BUY_GROWTH_FUND_SUCCESS Code=1180082 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买成长基金成功 Abandoned=False Version=1
+
+Id=QUERY_TOTAL_LOGIN_DAY_SUCCESS Code=1180085 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询累计登陆天数成功 Abandoned=False Version=1
+
+Id=PICK_TOTAL_LOGIN_DAY_REWARD_SUCCESS Code=1180087 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取累计登陆奖励成功 Abandoned=False Version=1
+
+Id=PICK_RED_PACKETS_SUCCESS Code=1180089 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=红包领取成功 Abandoned=False Version=1
+
+Id=FRIEND_ASSISTANCE_SUCCESS Code=1180091 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友助力成功 Abandoned=False Version=1
+
+Id=FRIEND_QUERY_ASSISTANCE_LIST_SUCCESS Code=1180093 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友助力列表成功 Abandoned=False Version=1
+
+Id=SEND_OUT_FRIEND_ASSISTANCE_SUCCESS Code=1180095 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=发起好友助力成功 Abandoned=False Version=1
+
+Id=NEW_1VS1_QUERY_SUCCESS Code=1180097 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武主查询成功 Abandoned=False Version=1
+
+Id=NEW_1VS1_MATCH_SUCCESS Code=1180099 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武匹配敌人成功 Abandoned=False Version=1
+
+Id=NEW_1VS1_COMBAT_SUCCESS Code=1180102 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武战斗请求成功 Abandoned=False Version=1
+
+Id=FRIEND_ONE_KEY_BLESS_SUCCESS Code=1180106 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键祝福成功 Abandoned=False Version=1
+
+Id=QUERY_FRIEND_LIST_SUCCESS Code=1180108 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人副本查询好友列表成功 Abandoned=False Version=1
+
+Id=BATTLE_MESSAGE_SUCCESS Code=1245186 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗消息成功 Abandoned=False Version=1
+
+Id=BATTLE_INSTANCE_RESULT_SUCCESS Code=1245190 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家购买银两信息成功 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LOGIN_SUCCESS Code=1245192 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=客户端登陆战斗服务器成功 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_ENTER_INSTANCE_SUCCESS Code=1245194 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=客户端进入副本成功 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LEAVE_INSTANCE_SUCCESS Code=1245196 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=客户端离开副本成功 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_KICKOUT_INSTANCE_SUCCESS Code=1245197 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=客户端被踢出副本成功 Abandoned=False Version=1
+
+Id=E_REGISTER_SERVER_SUCCESS Code=1310723 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=注册服务器成功 Abandoned=False Version=1
+
+Id=E_NOTIFY_DATA_SYN_SUCCESS Code=1310730 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=异步通知修改成功 Abandoned=False Version=1
+
+Id=REGISTER_SERVER_SUCCESS Code=1310732 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=注册服务器成功 Abandoned=False Version=1
+
+Id=CREATE_BATTLE_INSTANCE_SUCCESS Code=1310734 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建战斗副本成功 Abandoned=False Version=1
+
+Id=BATTLE_PLAYER_QUIT_SYNC_SUCCESS Code=1310737 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家主动退出 Abandoned=False Version=1
+
+Id=BATTLE_INSTANCE_INVAILE_SYNC_SUCCESS Code=1310738 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗实例验证发送成功 Abandoned=False Version=1
+
+Id=PLATFORM_PURCHASE_SUCCESS Code=1310740 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=充值成功 Abandoned=False Version=1
+
+Id=FORBID_PLAYER_LOGIN_SUCCESS Code=1310742 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=封号成功 Abandoned=False Version=1
+
+Id=GAME_LOGIN_SUCCESS_ROLE_NOT_EXIST Code=2228227 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=需要创建角色 Abandoned=False Version=1
+
+Id=GAME_LOGOUT_FAILED_NO_ROLEID Code=2228229 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=登出失败， 缺少RoleID Abandoned=False Version=1
+
+Id=TABLE_VERSION_CHECK_SUCCESS_UPDATE Code=2228234 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=版本号检查成功 Abandoned=False Version=1
+
+Id=CHAT_SUCCESS_WORLD_SUCCESS Code=2228272 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=世界聊天成功 Abandoned=False Version=1
+
+Id=Notify_WorldChatMessages_SUCCESS Code=2228275 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=下发世界聊天信息成功 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ALL_ACTIVE_SUCCESS_PART Code=2228293 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=部分成功 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ALL_ACTIVE_SUCCESS_PART Code=2228299 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=部分成功 Abandoned=False Version=1
+
+Id=TUTOR_AND_RETURN_REWARD_SUCCESS Code=2228301 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=拜师成功，并成功返回材料 Abandoned=False Version=1
+
+Id=SKILL_STRENGTHEN_SUCCESS_MATERIAL_NOT_ENOUGH Code=2228309 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键强化合成部分成功 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_RESULT_NOT_WIN Code=2228317 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗失败 Abandoned=False Version=1
+
+Id=LEAGUE_AGREE_ONEKEY_SUCCESS Code=2228400 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键清空申请列表成功 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_MATCH_CANCEL_SUCCESS Code=2228470 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑匹配取消成功 Abandoned=False Version=1
+
+Id=NEW_1VS1_MATCH_CANCEL_SUCESS Code=2228675 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武取消匹配请求成功 Abandoned=False Version=1
+
+Id=E_REGISTER_SERVER_INVALID_SERVER_NAME Code=2359299 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=无效的服务器名 Abandoned=False Version=1
+
+Id=GAME_LOGIN_TABLE_VERSION_CHECK_SUCCESS_UPDATE Code=3276803 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=版本号检查成功， 需要更新 Abandoned=False Version=1
+
+Id=GAME_LOGOUT_LOGIN_FROM_OTHERS Code=3276805 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=重复登录 Abandoned=False Version=1
+
+Id=Notify_SystemMessages_SUCCESS Code=3276851 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=下发系统消息成功 Abandoned=False Version=1
+
+Id=Notify_PrivateMessages_SUCCESS Code=4325427 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=下发私聊消息成功 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED Code=16842755 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_FAILED Code=16842757 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=AUTH_CHANGE_PASSWORD_FAILED Code=16842761 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=AUTH_ACTIVE_CODE_FAILED Code=16842763 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=GAME_LOGIN_FAIL Code=16908291 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=验证失败 Abandoned=False Version=1
+
+Id=GAME_LOGOUT_LOGOUT_FAILED Code=16908293 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=QUERY_LOGIN_GAME_DATA_FAILED Code=16908295 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=TABLE_VERSION_CHECK_FAIL Code=16908298 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=版本号检查失败，未知错误 Abandoned=False Version=1
+
+Id=GAME_CREATE_ROLE_FAILED Code=16908300 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建角色失败，内部错误 Abandoned=False Version=1
+
+Id=GAME_ENTER_SCENE_FAIL Code=16908304 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=数据版本号检查失败，需要更新最新数据 Abandoned=False Version=1
+
+Id=ACTIVE_ACUPOINT_FAILED Code=16908310 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=REALM_PROMOTE_FAILED Code=16908312 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=境界提升失败，未知错误 Abandoned=False Version=1
+
+Id=GM_COMMAND_INAVAILABLE Code=16908314 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=GM命令无法使用 Abandoned=False Version=1
+
+Id=ADD_EXP_FAILED Code=16908316 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能成功增加经验 Abandoned=False Version=4
+
+Id=EQUIPMENT_PUTON_FAILED Code=16908318 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_TAKEOFF_FAILED Code=16908320 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿装备失败，未知错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_DECOMPOSE_FAILED Code=16908322 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=分解装备失败，未知错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_FAILED Code=16908324 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=神铸失败，请继续努力 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_INHERIT_FAILED Code=16908326 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=精炼继承失败，未知错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_SLOT_STATE_CHANGE_FAILED Code=16908328 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备孔状态设定失败，未知错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_FAILED Code=16908330 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练失败，未知错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_SAVE_FAILED Code=16908332 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练保留失败，未知错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_TRANSFER_PROPERTY_FAILED Code=16908334 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练转移失败，未知错误 Abandoned=False Version=1
+
+Id=CHAT_FAILED Code=16908336 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=QUERY_CHAT_MESSAGE_LIST_FAILED Code=16908338 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询聊天信息列表失败，未知错误 Abandoned=False Version=1
+
+Id=HEARTPOWER_PROMOTE_FAILED Code=16908341 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=心法提升失败，未知错误 Abandoned=False Version=1
+
+Id=HEARTSTAR_PROMOTE_FAILED Code=16908343 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=心法化境提升失败，内部错误 Abandoned=False Version=1
+
+Id=HEARTCHEATS_ACTIVE_FAILED_ID Code=16908345 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=JEWEL_INLAY_FAILED_INVAILD_POSITION Code=16908347 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=镶嵌位置不合法 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_LOAD_SERVICE Code=16908349 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载服务失败 Abandoned=False Version=1
+
+Id=JEWEL_A_KEY_REPLACEMENT_FAILED_LOAD_SERVICE Code=16908351 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载服务失败 Abandoned=False Version=1
+
+Id=EMAIL_ALL_ACTIVE_FAILED Code=16908353 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，未知错误 Abandoned=False Version=1
+
+Id=EMAIL_DETAIL_ACTIVE_FAILED Code=16908355 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，未知错误 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ALL_ACTIVE_FAILED Code=16908357 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，未知错误 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ACTIVE_FAILED_NOT_PICK Code=16908359 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未领取附件 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ACTIVE_FAILED Code=16908361 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，未知错误 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ALL_ACTIVE_FAILED Code=16908363 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，未知错误 Abandoned=False Version=1
+
+Id=TUTOR_FAILED_TUTOR_NOT_OPEN Code=16908365 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=拜师未开启 Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_ILLEGAL_COMPOSE_NUMBER Code=16908367 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=合成数量不合法 Abandoned=False Version=1
+
+Id=JEWEL_A_KEY_COMPOSE_FAILED_LOAD_SERVICE Code=16908369 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载服务失败 Abandoned=False Version=1
+
+Id=HIRE_FAILED_HIRE_NOT_OPEN Code=16908371 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=拜师未开启 Abandoned=False Version=1
+
+Id=SKILL_STRENGTHEN_FAILED_LOAD_CONFIG Code=16908373 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_FAILED Code=16908375 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=技能升品失败， 未知错误 Abandoned=False Version=1
+
+Id=SKILL_EXCLUSIVE_FAILED_NO_SKILL Code=16908377 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家身上没有这个技能 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_FAILED_ZONE_NOT_OPEN Code=16908379 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本未开启 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_RESULT_FAILED_ZONE_NOT_OPEN Code=16908381 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本尚未开启 Abandoned=False Version=4
+
+Id=COMBAT_GET_REWARD_FAILED_ZONE_NOT_OPEN Code=16908383 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本未开启 Abandoned=False Version=1
+
+Id=ACQUIRE_MISSION_REWARD_FAILED_NOT_DONE Code=16908387 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=任务未完成 Abandoned=False Version=1
+
+Id=ACQUIRE_MISSION_BLOCK_REWARD_FAILED_NOT_DONE Code=16908389 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=任务组未完成 Abandoned=False Version=1
+
+Id=UPDATE_MISSION_BLOCK_FAILED Code=16908391 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=更新任务组失败，未知错误 Abandoned=False Version=1
+
+Id=SELL_ITEM__FAILED Code=16908393 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=出售物品失败，未知错误 Abandoned=False Version=1
+
+Id=CHANGE_HERO_FAILED Code=16908396 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄上下阵失败，内部错误 Abandoned=False Version=1
+
+Id=USE_ITEM_FAILED Code=16908398 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=数据错误 Abandoned=False Version=1
+
+Id=DECOMPOSE_TREASURE_FAILED_TREASURE_NOT_OPEN Code=16908400 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=DECOMPOSE_TREASURE_REEL_FAILED Code=16908402 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=EQUIP_TREASURE_FAILED_TREASURE_NOT_OPEN Code=16908404 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=REPAIR_TREASURE_FAILED Code=16908406 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=QUERY_RANKLIST_FAILED_LEVEL_NOT_ENOUGH Code=16908408 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的等级不足，无法查看！ Abandoned=False Version=1
+
+Id=QUERY_RANK_DATA_FAILED_LEVEL_NOT_ENOUGH Code=16908410 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的等级不足，无法查看！ Abandoned=False Version=1
+
+Id=BARRAGES_FAILED_INVAILD Code=16908412 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的发言内容 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED Code=16908414 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED Code=16908416 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED Code=16908419 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=TRIAL_INFO_FAILED Code=16908421 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_FAILED_LOCKED Code=16908423 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄挑战未解锁 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_RESULT_FAILED_COMBAT_FAILED Code=16908425 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗失败 Abandoned=False Version=1
+
+Id=QUERY_FRIENDS_INFO_LIST_FAILED_NOT_OPEN Code=16908427 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友列表，功能未开启 Abandoned=False Version=1
+
+Id=QUERY_ROLE_INFO_FAILED_NOT_OPEN Code=16908429 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=APPLY_FRIENDS_FAILED_NOT_OPEN Code=16908431 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=ADD_OR_REFUSE_FRIENDS_FAILED_NOT_OPEN Code=16908433 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=REMOVE_FRIENDS_FAILED_NOT_OPEN Code=16908435 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=QUERY_PURCHASE_FAILED Code=16908437 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=PURCHASE_FAILED_DATA_ERROR Code=16908439 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=充值订单ID不存在 Abandoned=False Version=1
+
+Id=QUERY_PRIVATE_CHAR_MESSAGE_LIST_FAILED Code=16908441 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友聊天记录，未知错误 Abandoned=False Version=1
+
+Id=TITLE_INFO_FAILED Code=16908443 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=TITLE_FAILED Code=16908445 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=QUERY_DART_FAILED Code=16908448 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=DART_BEGIN_FAILED_INVAILD_STATUS Code=16908450 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访未开启 Abandoned=False Version=1
+
+Id=DART_COMPLETE_FAILED_INVAILD_TASK_ID Code=16908452 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的寻访ID Abandoned=False Version=1
+
+Id=DART_GET_REWARD_FAILED_INVAILD_TASK_ID Code=16908454 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法 Abandoned=False Version=1
+
+Id=DART_COMBAT_FAILED_INVAILD_TASK_ID Code=16908456 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的寻访ID Abandoned=False Version=1
+
+Id=DART_COMBAT_RESULT_FAILED_INVAILD_TASK_ID Code=16908458 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的寻访ID Abandoned=False Version=1
+
+Id=LEAGUE_CREATE_FAILED Code=16908460 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_FAILED Code=16908462 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=LEAGUE_AGREE_FAILED Code=16908464 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=LEAGUE_INVITE_FAILED Code=16908466 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=LEAGUE_ACCEPT_FAILED Code=16908468 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=LEAGUE_LEAVE_FAILED Code=16908470 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_KICKOUT_FAILED Code=16908472 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_TITLE_CHANGE_FAILED Code=16908474 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_INFO_FAILED Code=16908476 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_SEARCH_FAILED Code=16908478 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_LIST_FAILED Code=16908480 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_LEVELUP_FAILED Code=16908482 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_APPLICANT_LIST_FAILED Code=16908484 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_MODIFY_NOTICATION_FAILED Code=16908486 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_SPIRITTREE_FAILED Code=16908489 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_SPIRITTREE_MOW_FAILED Code=16908491 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=LEAGUE_AUGURY_FAILED Code=16908493 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_INFO_FAILED Code=16908495 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_FAILED_TIMES_NOT_ENOUGH Code=16908497 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=次数已用光 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_RESULT_FAILED_COMBAT_FAILED Code=16908499 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗失败 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_RANK_FAILED Code=16908501 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_PICK_REWARD_FAILED Code=16908503 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=没有跳关奖励 Abandoned=False Version=1
+
+Id=GUARD_TOWER_REFRESH_TASK_FAILED_LOAD_CONFIG Code=16908505 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=随机任务为空，加载配置文件失败 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_RESULT_FAILED_TASK_IS_NULL Code=16908507 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=行侠仗义任务不存在 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_FAILED_TASK_IS_NULL Code=16908509 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=行侠仗义任务不存在 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_INFO_FAILED Code=16908511 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_REFRESH_FAILED Code=16908513 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_RECEIVE_FAILED Code=16908515 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_COMPLETE_FAILED Code=16908517 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_GIVEUP_FAILED Code=16908519 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=ANYWHERETRADE_FAILED Code=16908522 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=STAMINA_BUY_INFO_FAILED Code=16908525 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=RENAME_FAILED Code=16908528 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能改名，未知异常 Abandoned=False Version=4
+
+Id=ONEVSONE_ARENA_RANK_FAILED_CLOSED Code=16908530 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑已关闭 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_INFO_FAILED Code=16908532 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑信息获取失败，未知异常 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_MATCH_FAILED_CLOSED Code=16908534 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑已关闭 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_LOG_FAILED_CLOSED Code=16908536 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑已关闭 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_CLEAR_COOLDOWN_FAILED_CLOSED Code=16908538 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑已关闭 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_ENTER_FAILED_FUNCTION_NOT_OPEN Code=16908542 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台功能未开启 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_REFRESH_COMPETITOR_FAILED_FUNCTION_NOT_OPEN Code=16908544 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台功能未开启 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_LINEUP_ADJUST_FAILED_FUNCTION_NOT_OPEN Code=16908546 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台功能未开启 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_QUERY_RANK_FAILED_FUNCTION_NOT_OPEN Code=16908548 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台功能未开启 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_REPORT_FAILED_FUNCTION_NOT_OPEN Code=16908550 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台功能未开启 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_FAILED_FUNCTION_NOT_OPEN Code=16908552 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台功能未开启 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_START_FAILED_FUNCTION_NOT_OPEN Code=16908554 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台功能未开启 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_RESULT_FAILED_FUNCTION_NOT_OPEN Code=16908556 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=擂台功能未开启 Abandoned=False Version=1
+
+Id=WORLDBOSSINFO_FAILED Code=16908558 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=PREPAREBATTLESTART_FAILED Code=16908560 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=PREPAREBATTLEEND_FAILED Code=16908562 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=BOSSBATTLESTART_FAILED Code=16908565 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=BOSSBATTLEEND_FAILED Code=16908567 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=Boss战斗结束，未知异常 Abandoned=False Version=1
+
+Id=MAKEHURT_FAILED Code=16908569 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=BOSSBATTLEREVIVE_FAILED Code=16908574 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买复活失败，未知异常 Abandoned=False Version=1
+
+Id=BOSSBATTLEPLAYERDEAD_FAILED Code=16908576 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=Boss战斗中玩家战死，未知异常 Abandoned=False Version=1
+
+Id=BATTLEUSEITEM_FAILED Code=16908580 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗中使用道具失败 Abandoned=False Version=1
+
+Id=VIP_BUY_DUNGEON_TIME_FAILED Code=16908584 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=内部原因 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED Code=16908587 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，内部原因 Abandoned=False Version=4
+
+Id=SILVER_BUY_INFO_FAILED Code=16908589 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家购买银两信息失败，未知异常 Abandoned=False Version=1
+
+Id=TRIAL_REFRESH_FAILED Code=16908591 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=TRIAL_BUY_COUNT_FAILED_LOCKED Code=16908593 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未解锁 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BUY_BATTLE_COUNT_FAILED_NO_BUY_COUNT Code=16908595 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买次数已用完 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_BUY_COUNT_FAILED_LOCKED Code=16908597 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=Vip等级不足，功能未解锁 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_FAILED Code=16908599 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换码使用失败，请重试 Abandoned=False Version=1
+
+Id=CREATE_BATTLE_SERVER_INSTANCE_FAILED Code=16908601 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=CHANGE_GUIDE_ID_FAILED Code=16908605 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=DAILY_SIGN_FAILED_LOAD_CONFIG Code=16908607 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=SIGN_RETROACTIVE_FAILED_LOAD_CONFIG Code=16908609 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=DRESS_PUTON_FAILED_LOAD_CONFIG Code=16908612 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=DRESS_TAKE_OFF_FAILED_LOAD_CONFIG Code=16908614 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=CHANGE_DRESS_DISPLAY_STATUS_FAILED_LOAD_CONFIG Code=16908616 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=NOTIFY_SERVER_DELELET_DRESS_FAILED_NOT_ONBAG Code=16908618 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家身上没有可删除的时装 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_QUERY_FAILED Code=16908620 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人关卡主查询请求失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_BUY_AWARD_COUNT_FAILED Code=16908622 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买可获得奖励次数失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_CREATE_GROUP_FAILED Code=16908624 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建队伍失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_JOIN_GROUP_FAILED Code=16908626 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加入队伍失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_INVITE_PLAYER_FAILED Code=16908628 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人关卡邀请失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_KICK_PLAYER_FAILED Code=16908630 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=踢出玩家失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_READY_CHANGE_FAILED Code=16908632 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=切换准备状态失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_LEAVE_GROUP_FAILED Code=16908634 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=离开队伍失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_COMBAT_FAILED Code=16908636 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=开始战斗失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_QUERY_GROUPINFO_FAILED Code=16908638 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询队伍信息失败 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_COMBAT_END_SYNC_FAILED_COMBAT_LOSE Code=16908640 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人关卡战斗失败 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_BUY_COUNT_FAILED_LOAD_CONFIG Code=16908644 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=DECOMPOSE_DRESS_FAILED_LOAD_CONFIG Code=16908647 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=MISSION_SENCE_COMBAT_FAILED_INVAILD_SENCE_ID Code=16908649 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的场景ID Abandoned=False Version=1
+
+Id=MISSION_SENCE_COMBAT_RESULT_FAILED_LOAD_CONFIG Code=16908651 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=QUERY_DAILY_BENEFIT_FAILED_FUNCTION_NOT_OPEN Code=16908653 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能暂未开启 Abandoned=False Version=1
+
+Id=PICK_DAILY_BENEFIT_FAILED_FUNCTION_NOT_OPEN Code=16908655 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能暂未开启 Abandoned=False Version=1
+
+Id=EXCHANGE_QUERY_FAILED_FUNCTION_NOT_OPEN Code=16908657 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能暂未开启 Abandoned=False Version=1
+
+Id=EXCHANGE_ITEM_FAILED_FUNCTION_NOT_OPEN Code=16908659 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能暂未开启 Abandoned=False Version=1
+
+Id=DAILY_MISSION_INFO_FAILED_LOAD_CONFIG Code=16908663 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务信息获取失败，加载配置文件失败 Abandoned=False Version=1
+
+Id=DAILY_MISSION_PICK_REWARD_FAILED_LACK_OF_LIVENESS Code=16908665 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务领奖失败，活跃度不足不能领取 Abandoned=False Version=1
+
+Id=PICK_MONTHCARD_REWARD_FAILED_TIMEOUT Code=16908668 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=月卡每日领奖失败，月卡已到期 Abandoned=False Version=1
+
+Id=CREATE_BATTLE_ERROR_SYNC_CANNOT_FIND_BATTLESERVER Code=16908669 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建战斗实例失败，战斗服获取失败 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_INFO_FAILED_LOAD_CONFIG Code=16908671 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务信息获取失败，加载配置文件失败 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_PICK_REWARD_FAILED_NO_COMPLETE Code=16908673 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务领奖失败，暂时未完成，请先完成任务 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_BLOCK_PICK_REWARD_FAILED_CREATREWARD_ERROR Code=16908675 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务块一键领奖失败，奖励包未知错误 Abandoned=False Version=1
+
+Id=TRADE_QUERY_FAILED_FUNCTION_NOT_OPEN Code=16908678 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队查询失败，功能暂未开启 Abandoned=False Version=1
+
+Id=TRADE_BUY_FAILED_FUNCTION_NOT_OPEN Code=16908680 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队购买失败，功能暂未开启 Abandoned=False Version=1
+
+Id=QUERY_APPLY_FRIENDS_FAILED_FUNCTION_NOT_OPEN Code=16908682 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友申请列表失败，功能暂未开启 Abandoned=False Version=1
+
+Id=FRIENDS_BLESS_GAIN_STAMINA_FAILED_FUNCTION_NOT_OPEN Code=16908684 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友祝福失败，功能暂未开启 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_COMBAT_FAILED_NO_MATCH Code=16908686 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=1v1战斗请求失败，加载对手失败 Abandoned=False Version=1
+
+Id=FRIENDS_COMPARE_STATR_FAILED_INVAILD_FRIENDS_ID Code=16908688 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友切磋请求失败，不合法的好友id Abandoned=False Version=1
+
+Id=FRIENDS_COMPARE_RESULT_FAILED_INVAILD_FRIENDS_ID Code=16908690 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友切磋失败，不合法的好友id Abandoned=False Version=1
+
+Id=FRIENDS_FIND_AROUND_FAILED Code=16908692 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=搜索附近好友失败 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_QUERY_FAILED Code=16908696 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派boss主查询失败 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED Code=16908698 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=开始战斗失败 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_COMBAT_LOSE Code=16908699 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派boss战斗失败 Abandoned=False Version=1
+
+Id=BATTLE_INSTANCE_RESULT_SYNC_FAILED Code=16908700 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=RECAST_MATRIX_CENTRE_FAILED Code=16908704 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵眼融会失败 Abandoned=False Version=1
+
+Id=REINFORCE_MATRIX_CENTRE_FAILED Code=16908706 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵眼巩固失败 Abandoned=False Version=1
+
+Id=FAST_REINFORCE_MATRIX_CENTRE_FAILED Code=16908708 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵眼巩固失败 Abandoned=False Version=1
+
+Id=BUY_VIP_REWARD_FAILED_VIPLEVEL_NOTENOUGH Code=16908710 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买vip礼包失败，vip等级不足 Abandoned=False Version=1
+
+Id=PICK_ROLE_LEVEL_REWARD_FAILED_LEVEL_NOTENOUGH Code=16908712 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取新手等级礼包失败，等级不足 Abandoned=False Version=1
+
+Id=PICK_ROLE_ONLINE_TIME_REWARD_REWARD_FAILED_TIME_NOTENOUGH Code=16908714 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取在线时长礼包失败，在线时间不足 Abandoned=False Version=1
+
+Id=ROLE_LEVEL_REWARD_INFO_FAILED Code=16908716 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取新手等级礼包信息失败，未知原因 Abandoned=False Version=1
+
+Id=GROWTH_FUND_MISSION_INFO_FAILED Code=16908718 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取成长基金任务信息失败，未知原因 Abandoned=False Version=1
+
+Id=GROWTH_FUND_PICK_REWARD_FAILED_MISSION_NOT_COMPLETED Code=16908720 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成长基金任务领奖失败，任务未完成不能领取 Abandoned=False Version=1
+
+Id=BUY_GROWTH_FUND_FAILED_VIPLEVEL_NOTENOUGH Code=16908722 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买成长基金失败，vip等级不足 Abandoned=False Version=1
+
+Id=QUERY_TOTAL_LOGIN_DAY_FAILED Code=16908725 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询累计登陆天数失败 Abandoned=False Version=1
+
+Id=PICK_TOTAL_LOGIN_DAY_REWARD_FAILED Code=16908727 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取累计登陆奖励失败 Abandoned=False Version=1
+
+Id=PICK_RED_PACKETS_FAILED_INVAILD_PACKETS_ID Code=16908729 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=红包领取失败，不合法的红包ID Abandoned=False Version=1
+
+Id=FRIEND_ASSISTANCE_FAILED_TIME_OUT Code=16908731 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友助力失败，助力链接已失效 Abandoned=False Version=1
+
+Id=FRIEND_QUERY_ASSISTANCE_LIST_FAILED Code=16908733 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友助力列表失败 Abandoned=False Version=1
+
+Id=SEND_OUT_FRIEND_ASSISTANCE_FAILED_TIME_OUT_RANGE Code=16908735 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=发起好友助力失败，不在可发起时间内 Abandoned=False Version=1
+
+Id=NEW_1VS1_QUERY_FAILED Code=16908737 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武主查询失败 Abandoned=False Version=1
+
+Id=NEW_1VS1_MATCH_FAILED Code=16908739 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武匹配敌人失败 Abandoned=False Version=1
+
+Id=NEW_1VS1_COMBAT_FAILED Code=16908742 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武战斗请求失败 Abandoned=False Version=1
+
+Id=FRIEND_ONE_KEY_BLESS_FAILED_NO_COUNT Code=16908746 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键祝福失败，没有剩余的祝福次数了 Abandoned=False Version=1
+
+Id=QUERY_FRIEND_LIST_FAILED Code=16908748 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人副本查询好友列表失败 Abandoned=False Version=1
+
+Id=BATTLE_INSTANCE_RESULT_FAILED Code=16973830 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家购买银两信息失败，未知异常 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LOGIN_FAILED Code=16973832 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=客户端登陆战斗服务器失败，未知异常 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_ENTER_INSTANCE_FAILED Code=16973834 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LEAVE_INSTANCE_FAILED Code=16973836 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_KICKOUT_INSTANCE_FAILED Code=16973837 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=E_NOTIFY_DATA_SYN_FAILED Code=17039370 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=异步通知修改失败 Abandoned=False Version=1
+
+Id=REGISTER_SERVER_FAILED Code=17039372 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=注册服务器失败，内部错误 Abandoned=False Version=1
+
+Id=CREATE_BATTLE_INSTANCE_FAILED Code=17039374 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建战斗服副本失败，内部错误 Abandoned=False Version=1
+
+Id=BATTLE_PLAYER_QUIT_SYNC_FAILED Code=17039377 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=PLATFORM_PURCHASE_FAILD Code=17039380 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=充值失败 Abandoned=False Version=1
+
+Id=FORBID_PLAYER_LOGIN_FAILD Code=17039382 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=封号失败 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_INCORRECT_NAME_OR_PASSWORD Code=17891331 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=用户名或密码不正确，请重新输入 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_FAILED_EMAIL_EXSIT Code=17891333 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=账号已被注册，请重新输入 Abandoned=False Version=1
+
+Id=AUTH_CHANGE_PASSWORD_FAILED_OLD_PASSWORD_ERROR Code=17891337 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=原密码错误 Abandoned=False Version=1
+
+Id=AUTH_ACTIVE_CODE_FAILED_ACCOUNT_NOT_EXIST Code=17891339 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=账号不存在 Abandoned=False Version=1
+
+Id=GAME_LOGIN_FROM_OTHERS Code=17956867 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=重复登录 Abandoned=False Version=1
+
+Id=GAME_CREATE_ROLE_FAIL_NAME_EXSIT Code=17956876 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=角色名已存在 Abandoned=False Version=1
+
+Id=ACTIVE_ACUPOINT_ITEM_NOT_ENOUGH Code=17956886 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=所需材料不足 Abandoned=False Version=1
+
+Id=REALM_PROMOTE_FAILED_ID Code=17956888 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=GM_COMMAND_EXECUTE_FAILED Code=17956890 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=GM命令执行错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_PUTON_FAILED_CRAFT Code=17956894 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿装备失败，战斗分工类型错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_TAKEOFF_FUNCTION_UNLOCK Code=17956896 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿装备失败，功能未解锁 Abandoned=False Version=1
+
+Id=EQUIPMENT_DECOMPOSE_FAILED_FUNCTION_LOCK Code=17956898 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=分解装备失败，功能未开启 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_FAILED_NO_REDUCE Code=17956900 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备精炼失败，不允许使用保底符 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_INHERIT_FAILED_LEVEL Code=17956902 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=精炼继承失败， 精炼等级错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_SLOT_STATE_CHANGE_FAILED_SLOT_COUNT Code=17956904 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备孔状态设定失败，锁定已达上限 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_FAILED_ITEM Code=17956906 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练失败，材料不足 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_SAVE_FAILED_NO_TEMP Code=17956908 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练保留失败，需要先洗练 Abandoned=False Version=1
+
+Id=EQUIPMENT_TRANSFER_PROPERTY_FAILED_QUALITY_MATCHED Code=17956910 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练转移失败，品质不匹配 Abandoned=False Version=1
+
+Id=CHAT_ERROR_CHAT_TYPE_INVALID Code=17956912 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=聊天类型不合法 Abandoned=False Version=1
+
+Id=HEARTPOWER_PROMOTE_FAILED_ID Code=17956917 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=HEARTSTAR_PROMOTE_FAILED_LOAD_HERO Code=17956919 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取英雄信息失败 Abandoned=False Version=1
+
+Id=JEWEL_INLAY_FAILED_POS_INACTIVE Code=17956923 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=镶嵌位没有激活 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_INVAILD_POSITION Code=17956925 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=镶嵌位置不合法 Abandoned=False Version=1
+
+Id=JEWEL_A_KEY_REPLACEMENT_FAILED_LOAD_CONFIG Code=17956927 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=EMAIL_ALL_ACTIVE_FAILED_LOAD_FAILED Code=17956929 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=个人邮件获取失败 Abandoned=False Version=1
+
+Id=EMAIL_DETAIL_ACTIVE_FAILED_LOCKED Code=17956931 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件系统未开启 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ALL_ACTIVE_FAILED_LOAD_FAILED Code=17956933 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=个人邮件获取失败 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ACTIVE_FAILED_NOT_FOUND Code=17956935 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件不存在 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ACTIVE_FAILED_ATTACHMENT_ERROR Code=17956937 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=附件错误 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ALL_ACTIVE_FAILED_LOAD_FAILED Code=17956939 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=个人邮件获取失败 Abandoned=False Version=1
+
+Id=TUTOR_FAILED_TUTOR_NOT_MEET Code=17956941 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=所需的信物不足 Abandoned=False Version=4
+
+Id=JEWEL_COMPOSE_FAILED_INVAILD_POSITION Code=17956943 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备的宝石镶嵌位不合法 Abandoned=False Version=1
+
+Id=JEWEL_A_KEY_COMPOSE_FAILED_NO_COMPOSE Code=17956945 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=没有能够合成的宝石 Abandoned=False Version=1
+
+Id=HIRE_FAILED_HIRE_NOT_MEET Code=17956947 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=招募条件不满足 Abandoned=False Version=1
+
+Id=SKILL_STRENGTHEN_FAILED_LOAD_SERVICE Code=17956949 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载服务失败 Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_FAILED_LOAD_CONFIG Code=17956951 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置数据失败 Abandoned=False Version=1
+
+Id=SKILL_EXCLUSIVE_FAILED_SAME_TO_BODY Code=17956953 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=预装备残页与当前装备残页一样 Abandoned=False Version=4
+
+Id=COMBAT_ZONE_FAILED_DUNGEON_NOT_OPEN Code=17956955 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=关卡未开启 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_RESULT_FAILED_DUNGEON_NOT_OPEN Code=17956957 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=关卡尚未开启 Abandoned=False Version=4
+
+Id=COMBAT_GET_REWARD_FAILED_ID_NOT_FOUND Code=17956959 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领奖ID不存在 Abandoned=False Version=1
+
+Id=ACQUIRE_MISSION_REWARD_FAILED Code=17956963 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=ACQUIRE_MISSION_BLOCK_REWARD_FAILED Code=17956965 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知错误 Abandoned=False Version=1
+
+Id=SELL_ITEM__FAILED_CANNT_SELL Code=17956969 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=物品不允许出售 Abandoned=False Version=1
+
+Id=CHANGE_HERO_FAILED_ROLE_DOWN Code=17956972 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=上下阵失败，主角不允许下阵 Abandoned=False Version=1
+
+Id=USE_ITEM_FAILED_TREASURE_NOT_OPEN Code=17956974 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝功能未开启 Abandoned=False Version=1
+
+Id=DECOMPOSE_TREASURE_FAILED_NOT_EXIST Code=17956976 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝不存在 Abandoned=False Version=1
+
+Id=EQUIP_TREASURE_FAILED_NOT_EXIST Code=17956980 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝不存在 Abandoned=False Version=1
+
+Id=REPAIR_TREASURE_FAILED_TREASURE_NOT_OPEN Code=17956982 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=QUERY_RANKLIST_FAILED_INVALIILD_ROLEID Code=17956984 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的玩家ID Abandoned=False Version=1
+
+Id=QUERY_RANK_DATA_FAILED_INVALIILD_ROLEID Code=17956986 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的玩家ID Abandoned=False Version=1
+
+Id=BARRAGES_FAILED_LEVEL_NOT_ENOUGH Code=17956988 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=等级不足 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_REFRESH Code=17956990 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_NOT_HAVE_ENOUGH_MONEY Code=17956992 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的银两不足！ Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED_PICKED Code=17956995 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已领取 Abandoned=False Version=1
+
+Id=TRIAL_INFO_FAILED_LOCKED Code=17956997 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄挑战未解锁 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_FAILED_TIMES_NOT_ENOUGH Code=17956999 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=次数已用光 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_RESULT_FAILED_LOCKED Code=17957001 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄挑战未解锁 Abandoned=False Version=1
+
+Id=QUERY_ROLE_INFO_FAILED_NON_EXIST Code=17957005 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该玩家不存在 Abandoned=False Version=1
+
+Id=APPLY_FRIENDS_FAILED_HAS_APPLY Code=17957007 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经申请过了，在等待回复中。。。 Abandoned=False Version=1
+
+Id=ADD_OR_REFUSE_FRIENDS_FAILED_ALREADY_FRIENDS Code=17957009 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经是好友了！ Abandoned=False Version=1
+
+Id=REMOVE_FRIENDS_FAILED_NOT_FRIENDS Code=17957011 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=你们不是好友 Abandoned=False Version=1
+
+Id=PURCHASE_FAILED_MONTHCARD_NOT_EXIST Code=17957015 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=月卡不存在 Abandoned=False Version=1
+
+Id=TITLE_INFO_FAILED_LOCKED Code=17957019 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=称号系统未开启 Abandoned=False Version=1
+
+Id=TITLE_FAILED_NOT_FOUND Code=17957021 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未找到称号 Abandoned=False Version=1
+
+Id=QUERY_DART_FAILED_LOAD_CONFIG Code=17957024 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=DART_BEGIN_FAILED_INVAILD_TASK_ID Code=17957026 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的寻访ID Abandoned=False Version=1
+
+Id=DART_COMPLETE_FAILED_HAS_COMPLETED Code=17957028 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访已经完成 Abandoned=False Version=1
+
+Id=DART_GET_REWARD_FAILED_NOT_COMPLETED Code=17957030 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的寻访ID Abandoned=False Version=1
+
+Id=DART_COMBAT_FAILED_NO_BATTLE Code=17957032 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该次寻访没有战斗事件发生 Abandoned=False Version=1
+
+Id=DART_COMBAT_RESULT_FAILED_FUNCTION_NOT_OPEN Code=17957034 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖寻访系统未开启 Abandoned=False Version=4
+
+Id=LEAGUE_CREATE_IS_IN_LEAGUE Code=17957036 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经在帮派中 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_LEVEL Code=17957038 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=申请帮派等级不够 Abandoned=False Version=1
+
+Id=LEAGUE_AGREE_NOT_EXIST Code=17957040 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=找不到申请者 Abandoned=False Version=1
+
+Id=LEAGUE_INVITE_NOT_EXIST Code=17957042 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=找不到申请者 Abandoned=False Version=1
+
+Id=LEAGUE_ACCEPT_NOT_EXIST Code=17957044 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=找不到被邀请者 Abandoned=False Version=1
+
+Id=LEAGUE_LEAVE_NOT_EXIST Code=17957046 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不存在该成员 Abandoned=False Version=1
+
+Id=LEAGUE_KICKOUT_PRIVILEGE Code=17957048 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=LEAGUE_TITLE_CHANGE_PRIVILEGE Code=17957050 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=LEAGUE_INFO_PRIVILEGE Code=17957052 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=LEAGUE_SEARCH_NOT_FOUND Code=17957054 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=没找到 Abandoned=False Version=1
+
+Id=LEAGUE_LEVELUP_PRIVILEGE Code=17957058 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=没有权限 Abandoned=False Version=1
+
+Id=LEAGUE_APPLICANT_LIST_PRIVILEGE Code=17957060 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=LEAGUE_MODIFY_NOTICATION_PRIVILEGE Code=17957062 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=LEAGUE_SPIRITTREE_MOWED Code=17957067 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=今天已修剪过 Abandoned=False Version=1
+
+Id=LEAGUE_AUGURY_LEVEL_LACK Code=17957069 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派等级不足 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_INFO_FAILED_LOCKED Code=17957071 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁功能未开启 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_FAILED_ID_ERROR Code=17957073 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请求副本ID异常 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_RESULT_FAILED_TIMES_NOT_ENOUGH Code=17957075 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=次数已用光 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_RANK_FAILED_LOCKED Code=17957077 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁功能未开启 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_PICK_REWARD_FAILED_LOCKED Code=17957079 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁功能未开启 Abandoned=False Version=1
+
+Id=GUARD_TOWER_REFRESH_TASK_FAILED_IS_BATTLE Code=17957081 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=当前任务正在战斗中 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_RESULT_FAILED_INVAILD_TASK_ID Code=17957083 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的行侠仗义任务 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_FAILED_INVAILD_TASK_ID Code=17957085 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的行侠仗义任务 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_INFO_FAILED_LOCKED Code=17957087 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿系统未开启 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_REFRESH_FAILED_NOT_ENOUGH_MONEY Code=17957089 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_RECEIVE_FAILED_NOT_FOUND_IN_LIST Code=17957091 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不在任务列表中 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_COMPLETE_FAILED_NOT_DONE Code=17957093 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未完成 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_GIVEUP_FAILED_NOT_FOUND_IN_LIST Code=17957095 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不在接受任务列表中 Abandoned=False Version=1
+
+Id=ANYWHERETRADE_REAL_MONEY_LACK Code=17957098 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝数量不足 Abandoned=False Version=1
+
+Id=RENAME_ITEM_LACK Code=17957104 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能改名，改名所需道具不足 Abandoned=False Version=4
+
+Id=ONEVSONE_ARENA_RANK_FAILED_WAITING Code=17957106 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑等待开启 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_INFO_FAILE_LOCKED Code=17957108 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑功能未开启 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_MATCH_FAILED_WAITING Code=17957110 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑等待开启 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_LOG_FAILED_WAITING Code=17957112 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑等待开启 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_CLEAR_COOLDOWN_FAILED_WAITING Code=17957114 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑等待开启 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_ENTER_FAILED_LOAD_COMPETITORS Code=17957118 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取对手失败 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_REFRESH_COMPETITOR_FAILED_MONEY_NOT_ENOUGH Code=17957120 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_LINEUP_ADJUST_FAILED_INVAILD_HERO_ID Code=17957122 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的英雄ID Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_FAILED_BATTLE_VIP_NOT_ENOUGH Code=17957128 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_START_FAILED_INVAILD_COMPETITOR Code=17957130 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的对手数据 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_RESULT_FAILED_INVAILD_COMPETITOR Code=17957132 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的对手数据 Abandoned=False Version=1
+
+Id=PREPAREBATTLESTART_FAILED_FUCTION_NOT_OPEN Code=17957136 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=PREPAREBATTLEEND_FAILED_FUNCTION_NOT_OPEN Code=17957138 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=WORLDBOSS_ACTIVITY_OFF Code=17957141 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=天下围攻活动未开启 Abandoned=False Version=1
+
+Id=VIP_BUY_DUNGEON_TIME_FAILED_REAL_MONEY Code=17957160 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED_DUNGEON_NOT_OPEN Code=17957163 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，关卡未开启 Abandoned=False Version=4
+
+Id=TRIAL_REFRESH_FAILED_LOCKED Code=17957167 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未解锁 Abandoned=False Version=1
+
+Id=TRIAL_BUY_COUNT_FAILED_MONEY_NOT_ENOUGH Code=17957169 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BUY_BATTLE_COUNT_FAILED_FUNCTION_NOT_OPEN Code=17957171 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_BUY_COUNT_FAILED_MONEY_NOT_ENOUGH Code=17957173 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_FAILED_NO_EXCHANGE_CODE Code=17957175 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请输入兑换码 Abandoned=False Version=1
+
+Id=DAILY_SIGN_FAILED_HAS_SIGN Code=17957183 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经签到过了 Abandoned=False Version=1
+
+Id=SIGN_RETROACTIVE_FAILED_INVAILD_PARAM Code=17957185 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的请求参数 Abandoned=False Version=1
+
+Id=DRESS_PUTON_FAILED_NOt_ONBAG Code=17957188 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=背包中没有该时装 Abandoned=False Version=1
+
+Id=DRESS_TAKE_OFF_FAILED_NOT_ONWEAR Code=17957190 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您身上没有该时装 Abandoned=False Version=1
+
+Id=CHANGE_DRESS_DISPLAY_STATUS_FAILED_FUNCTION_UNLOCK Code=17957192 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=改变时装是否显示失败，功能未解锁 Abandoned=False Version=1
+
+Id=NOTIFY_SERVER_DELELET_DRESS_FAILED_NOT_OUTDATE Code=17957194 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该时装没有过期 Abandoned=False Version=1
+
+Id=COMBAT_FAILED_IN_MULTIDUNGEON_GROUP_NOW Code=17957196 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您在多人关卡队伍中，请先退出队伍后再尝试 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_BUY_AWARD_COUNT_FAILED_WRONG_NUMBER Code=17957198 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请输入正确的购买次数 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_JOIN_GROUP_FAILED_INVALID_JOINTYPE Code=17957202 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加入类型错误 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_INVITE_PLAYER_FAILED_INVALID_INVITETYPE Code=17957204 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邀请类型错误 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_KICK_PLAYER_FAILED_CANT_KICK_SELF Code=17957206 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不能踢掉自己 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_READY_CHANGE_FAILED_LEADER_CANT_CHANGE Code=17957208 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=队长不能切换 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_COMBAT_FAILED_GROUP_ALREADY_IN_COMBAT Code=17957212 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已在多人关卡战斗中 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_BUY_COUNT_FAILED_COUNT_REMAIN Code=17957220 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=还有完成次数未使用完，无需购买 Abandoned=False Version=1
+
+Id=DECOMPOSE_DRESS_FAILED_NOT_ONBAG Code=17957223 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您背包上没有该时装 Abandoned=False Version=1
+
+Id=MISSION_SENCE_COMBAT_FAILED_NO_BATTLE Code=17957225 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该任务没有战斗事件发生 Abandoned=False Version=1
+
+Id=QUERY_DAILY_BENEFIT_FAILED_CONFIG_EXCEPTION Code=17957229 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=配置文件配置不合法 Abandoned=False Version=1
+
+Id=PICK_DAILY_BENEFIT_FAILED_CONFIG_EXCEPTION Code=17957231 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=配置文件配置不合法 Abandoned=False Version=1
+
+Id=EXCHANGE_QUERY_FAILED_INVALID_TYPE Code=17957233 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询类型无效 Abandoned=False Version=1
+
+Id=EXCHANGE_ITEM_FAILED_EXCHANGE_NOT_EXIST Code=17957235 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=所选兑换不存在！ Abandoned=False Version=1
+
+Id=DAILY_MISSION_INFO_FAILED_FUNCTION_UNLOCK Code=17957239 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务信息获取失败，功能未解锁 Abandoned=False Version=1
+
+Id=DAILY_MISSION_PICK_REWARD_FAILED_PICK_RWARD_LIMITED Code=17957241 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务领奖失败，领奖次数已达上限 Abandoned=False Version=1
+
+Id=PICK_MONTHCARD_REWARD_FAILED_INVAILD_MONTHCARD_ID Code=17957244 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=月卡每日领奖失败，不合法的月卡Id Abandoned=False Version=1
+
+Id=CREATE_BATTLE_ERROR_SYNC_CANNOT_FIND_BATTLESERVER_CONIG Code=17957245 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建战斗实例失败，战斗服配置获取失败 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_PICK_REWARD_FAILED_LOAD_CONFIG Code=17957249 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务领奖失败，加载配置文件失败 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_BLOCK_PICK_REWARD_FAILED_LOAD_CONFIG Code=17957251 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务块一键领奖失败，加载配置文件失败 Abandoned=False Version=1
+
+Id=TRADE_BUY_FAILED_TRADE_NOT_EXIST Code=17957256 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队购买失败，所选商队不存在 Abandoned=False Version=1
+
+Id=FRIENDS_BLESS_GAIN_STAMINA_FAILED_INVAILD_FRIENDS_ID Code=17957260 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友祝福失败，该玩家已不是你的好友 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_QUERY_FAILED_FUNCTION_NOT_OPEN Code=17957272 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=操作失败，帮派boss暂未开启 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_LEAGUE_NOT_EXIST Code=17957274 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=开始战斗失败，所在帮派未找到 Abandoned=False Version=4
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_NO_LIGEANCE_CAN_HOLD Code=17957275 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派boss战斗失败，所有领土已被占领 Abandoned=False Version=1
+
+Id=RECAST_MATRIX_CENTRE_FAILED_UNLOCK_FUNCTION Code=17957280 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=融会失败， 功能未解锁 Abandoned=False Version=1
+
+Id=REINFORCE_MATRIX_CENTRE_FAILED_RECAST Code=17957282 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=巩固失败，请先融会该阵眼！ Abandoned=False Version=1
+
+Id=FAST_REINFORCE_MATRIX_CENTRE_FAILED_NOTHING_TODO Code=17957284 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=超出人物等级，无法一键巩固阵眼 Abandoned=False Version=1
+
+Id=BUY_VIP_REWARD_FAILED_LOAD_CONFIG Code=17957286 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买vip礼包失败，加载配置文件失败 Abandoned=False Version=1
+
+Id=PICK_ROLE_LEVEL_REWARD_FAILED_LOAD_CONFIG Code=17957288 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取新手等级礼包失败，加载配置文件失败 Abandoned=False Version=1
+
+Id=PICK_ROLE_ONLINE_TIME_REWARD_FAILED_LOAD_CONFIG Code=17957290 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取在线时长礼包失败，加载配置文件失败 Abandoned=False Version=1
+
+Id=GROWTH_FUND_PICK_REWARD_FAILED_MISSION_NO_FOUND Code=17957296 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成长基金任务领奖失败，任务id不存在 Abandoned=False Version=1
+
+Id=BUY_GROWTH_FUND_FAILED_LOAD_CONFIG Code=17957298 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买成长基金失败，加载配置文件失败 Abandoned=False Version=1
+
+Id=QUERY_TOTAL_LOGIN_DAY_FAILED_FUNCTION_NOT_OPEN Code=17957301 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询累计登陆天数失败，功能暂未解锁 Abandoned=False Version=1
+
+Id=PICK_TOTAL_LOGIN_DAY_REWARD_FAILED_FUNCTION_NOT_OPEN Code=17957303 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取累计登陆奖励失败，功能暂未解锁 Abandoned=False Version=1
+
+Id=PICK_RED_PACKETS_FAILED_TIME_OUT Code=17957305 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=红包领取失败，红包失效 Abandoned=False Version=1
+
+Id=FRIEND_ASSISTANCE_FAILED_HAS_ASSISTANCE Code=17957307 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友助力失败，已经助力过了 Abandoned=False Version=1
+
+Id=SEND_OUT_FRIEND_ASSISTANCE_FAILED_HAS_ASSISTANCE Code=17957311 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=发起好友助力失败，已经发起过了 Abandoned=False Version=1
+
+Id=NEW_1VS1_QUERY_FAILED_FUNCTION_NOT_OPEN Code=17957313 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武主查询失败，功能暂未解锁 Abandoned=False Version=1
+
+Id=NEW_1VS1_MATCH_FAILED_FUNCTION_NOT_OPEN Code=17957315 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武匹配敌人失败，功能暂未解锁 Abandoned=False Version=1
+
+Id=NEW_1VS1_COMBAT_FAILED_FUNCTION_NOT_OPEN Code=17957318 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武战斗请求失败，功能暂未解锁 Abandoned=False Version=1
+
+Id=FRIEND_ONE_KEY_BLESS_FAILED_FUNCTION_NOT_OPEN Code=17957322 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键祝福失败，好友功能未开启 Abandoned=False Version=1
+
+Id=QUERY_FRIEND_LIST_FAILED_FRIEND_NOT_OPEN Code=17957324 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询好友列表失败，好友功能暂未开启 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LOGIN_FAILED_INSTANCE_ID Code=18022408 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=客户端登陆战斗服务器失败，副本ID错误 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_ENTER_INSTANCE_INSTANCE_ID Code=18022410 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本ID错误 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LEAVE_INSTANCE_INSTANCE_ID Code=18022412 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本ID错误 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_PASSWORD_IS_NULL Code=18939907 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=密码不能为空，请重新输入 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_FAILED_PASSWORD_IS_NULL Code=18939909 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=密码不能为空，请重新输入 Abandoned=False Version=1
+
+Id=AUTH_ACTIVE_CODE_FAILED_CODE_IS_EMPTY Code=18939915 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请输入激活码 Abandoned=False Version=1
+
+Id=GAME_LOGIN_FAIL_NEED_ACTIVECODE Code=19005443 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=账号需要激活码激活 Abandoned=False Version=1
+
+Id=GAME_CREATE_ROLE_FAIL_NAME_INVALID Code=19005452 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=角色名非法 Abandoned=False Version=1
+
+Id=ACTIVE_ACUPOINT_LEVEL_NOT_ENOUGH Code=19005462 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的等级还不够，努力升级吧！ Abandoned=False Version=1
+
+Id=REALM_PROMOTE_FAILED_LOAD_HERO Code=19005464 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载英雄信息失败 Abandoned=False Version=1
+
+Id=GM_COMMAND_PARAMS_LENGTH Code=19005466 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=GM命令参数数量错误 Abandoned=False Version=1
+
+Id=EQUIPMENT_PUTON_FAILED_PUTON_LEVEL Code=19005470 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=等级不足，无法穿戴此装备 Abandoned=False Version=1
+
+Id=EQUIPMENT_TAKEOFF_EQUIPMENT_NOT_FOUND Code=19005472 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿装备失败，装备未找到 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_FAILED_REINFORCE Code=19005476 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备精炼失败，不允许使用精炼符 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_INHERIT_FAILED_UNLOCK Code=19005478 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=精炼继承失败， 功能未解锁 Abandoned=False Version=1
+
+Id=EQUIPMENT_SLOT_STATE_CHANGE_FAILED_LOCKED Code=19005480 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备孔状态设定失败，功能未开启 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_FAILED_SLOT_COUNT Code=19005482 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练失败，锁定已达上限 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_SAVE_FAILED_UNLOCK Code=19005484 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练保留失败，功能未开启 Abandoned=False Version=1
+
+Id=EQUIPMENT_TRANSFER_PROPERTY_FAILED_CRAFT_MATCHED Code=19005486 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练转移失败，职业不匹配 Abandoned=False Version=1
+
+Id=CHAT_FAILED_WORLD_FAILED_IN_GAGINGTIME Code=19005488 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=仍在禁言状态中 Abandoned=False Version=4
+
+Id=HEARTPOWER_PROMOTE_FAILED_LOAD_HERO Code=19005493 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取英雄信息失败 Abandoned=False Version=1
+
+Id=HEARTSTAR_PROMOTE_FAILED_LOAD_CONFIG Code=19005495 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取配置文件失败 Abandoned=False Version=1
+
+Id=JEWEL_INLAY_FAILED_QUALITY_OVERPROOF Code=19005499 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石品质超过该装备的最高品质，请先熔炼装备 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_GET_EQUIPMENT Code=19005501 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取玩家装备失败 Abandoned=False Version=1
+
+Id=JEWEL_A_KEY_REPLACEMENT_FAILED_NO_JEWEL_REPLACE Code=19005503 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=没有可以替换的宝石 Abandoned=False Version=1
+
+Id=EMAIL_ALL_ACTIVE_FAILED_PARAM_ERROR Code=19005505 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，内部参数错误 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ALL_ACTIVE_FAILED_PARAM_ERROR Code=19005509 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，内部参数错误 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ACTIVE_FAILED_LOCKED Code=19005511 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件系统未开启 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ACTIVE_FAILED_NOT_FOUND Code=19005513 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件不存在 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ALL_ACTIVE_FAILED_PARAM_ERROR Code=19005515 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=失败，内部参数错误 Abandoned=False Version=1
+
+Id=TUTOR_FAILED_CONFIG_ERROR Code=19005517 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=配置文件错误 Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_GET_JEWEL_DATA Code=19005519 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取宝石信息失败 Abandoned=False Version=1
+
+Id=JEWEL_A_KEY_COMPOSE_FAILED_NOT_OPEN Code=19005521 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石一键合成失败，宝石合成未开启 Abandoned=False Version=1
+
+Id=HIRE_FAILED_HERO_HAS_HIRED Code=19005523 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您已经招募过这名英雄了 Abandoned=False Version=1
+
+Id=SKILL_STRENGTHEN_FAILED_LOAD_SKILLDATA Code=19005525 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载技能数据失败 Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_FAILED_ALREADY_HIGHEST Code=19005527 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=技能已提升到最高品质 Abandoned=False Version=1
+
+Id=SKILL_EXCLUSIVE_FAILED_FUNCTION_NOT_OPEN Code=19005529 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=技能功能未开启 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_FAILED_LEVEL_NOT_ENOUGH Code=19005531 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=等级不足，无法进入 Abandoned=False Version=4
+
+Id=COMBAT_ZONE_RESULT_FAILED_COMBAT_FAILED Code=19005533 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗失败 Abandoned=False Version=1
+
+Id=COMBAT_GET_REWARD_FAILED_CONDITION_NOT_MEET Code=19005535 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=条件不满足 Abandoned=False Version=1
+
+Id=SELL_ITEM__FAILED_MONEY_CROSS Code=19005545 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=角色银两达到上限，不能出售物品 Abandoned=False Version=1
+
+Id=CHANGE_HERO_FAILED_NOT_OPEN Code=19005548 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=USE_ITEM_FAILED_ALREADY_HAS Code=19005550 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝已拥有 Abandoned=False Version=1
+
+Id=DECOMPOSE_TREASURE_FAILED_ALREADY_EQUIP Code=19005552 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝已装备 Abandoned=False Version=1
+
+Id=EQUIP_TREASURE_FAILED_ALREADY_EQUIP Code=19005556 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝已装备 Abandoned=False Version=1
+
+Id=REPAIR_TREASURE_FAILED_NOT_EXIST Code=19005558 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝不存在 Abandoned=False Version=1
+
+Id=QUERY_RANKLIST_FAILED_IS_UPDATING Code=19005560 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=排行榜正在更新中... Abandoned=False Version=1
+
+Id=QUERY_RANK_DATA_FAILED_IS_UPDATING Code=19005562 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=排行榜正在更新中... Abandoned=False Version=1
+
+Id=BARRAGES_FAILED_IS_NULL Code=19005564 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=发言内容不能为空 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_REFRESH_NOT_ENOUGH_MONEY Code=19005566 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商品列表刷新失败，元宝不足 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_NOT_ENOUGH Code=19005568 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=库存不足 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED_CONFIG_READ_FAILED Code=19005571 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奖励配置读取失败 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_FAILED_KILLED Code=19005575 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已击杀 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_RESULT_FAILED_TIMES_NOT_ENOUGH Code=19005577 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=次数已用光 Abandoned=False Version=1
+
+Id=APPLY_FRIENDS_FAILED_NOT_EXIST Code=19005583 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=无法搜索到该玩家，请检查ID或昵称是否正确 Abandoned=False Version=1
+
+Id=ADD_OR_REFUSE_FRIENDS_FAILED_NOT_EXIST Code=19005585 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=数据异常，该玩家不存在 Abandoned=False Version=1
+
+Id=PURCHASE_FAILED_MONTHCARD_BUY_TIMES_OVER_LIMIT Code=19005591 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=月卡购买次数已达上限 Abandoned=False Version=1
+
+Id=TITLE_FAILED_NOT_ACTIVE Code=19005597 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未激活称号 Abandoned=False Version=1
+
+Id=QUERY_DART_FAILED_FUNCTION_NOT_OPEN Code=19005600 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖寻访系统未开启 Abandoned=False Version=4
+
+Id=DART_BEGIN_FAILED_PERSONS_NOT_ENOUGH Code=19005602 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访人员不足 Abandoned=False Version=1
+
+Id=DART_COMPLETE_FAILED_NOT_EXECUTION Code=19005604 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访不是正在执行状态 Abandoned=False Version=1
+
+Id=DART_GET_REWARD_FAILED_LOAD_CONFIG Code=19005606 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=DART_COMBAT_FAILED_BATTLE_HAS_HAPPEN Code=19005608 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=你已经进行过这场战斗了！ Abandoned=False Version=1
+
+Id=LEAGUE_CREATE_LEVEL Code=19005612 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建帮派等级不足 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_IS_IN_LEAGUE Code=19005614 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=申请帮派等级不够 Abandoned=False Version=1
+
+Id=LEAGUE_AGREE_IS_IN_LEAGUE Code=19005616 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经是帮派成员了 Abandoned=False Version=1
+
+Id=LEAGUE_INVITE_LEVEL Code=19005618 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=被邀请玩家等级不足 Abandoned=False Version=1
+
+Id=LEAGUE_ACCEPT_LEVEL Code=19005620 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=接受帮派等级不够 Abandoned=False Version=1
+
+Id=LEAGUE_LEAVE_CHAIRMAN Code=19005622 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮主离开帮派需要先禅让 Abandoned=False Version=1
+
+Id=LEAGUE_KICKOUT_NOT_FOUND Code=19005624 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=找不到帮派成员 Abandoned=False Version=1
+
+Id=LEAGUE_TITLE_CHANGE_MYSELF Code=19005626 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不能对自己操作 Abandoned=False Version=1
+
+Id=LEAGUE_LEVELUP_NOT_ENOUGH Code=19005634 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=材料不足 Abandoned=False Version=1
+
+Id=LEAGUE_MODIFY_NOTICATION_LENGTH Code=19005638 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=超长了 Abandoned=False Version=1
+
+Id=LEAGUE_SPIRITTREE_MOW_REAL_MONEY_LACK Code=19005643 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=LEAGUE_AUGURY_HAVE_NO_DONE_MISSION Code=19005645 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=还有未完成的任务 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_FAILED Code=19005649 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_RESULT_FAILED_ID_ERROR Code=19005651 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请求副本ID异常 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_PICK_REWARD_FAILED_ALREADY Code=19005655 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奖励已经领取 Abandoned=False Version=1
+
+Id=GUARD_TOWER_REFRESH_TASK_FAILED_TASK_IS_NULL Code=19005657 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=行侠仗义任务不存在 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_RESULT_FAILED_LOAD_CONFIG Code=19005659 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=行侠仗义任务配置文件加载失败 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_FAILED_BATTLE_COUNT_NOT_ENOUGH Code=19005661 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗次数不足 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_REFRESH_FAILED_LOCKED Code=19005665 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿系统未开启 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_RECEIVE_FAILED_LIST_IS_FULL Code=19005667 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=先完成已有任务再领取吧！ Abandoned=False Version=1
+
+Id=RANDOM_MISSION_COMPLETE_FAILED_NOT_ENOUGH_COUNT Code=19005669 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=次数不足 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_GIVEUP_FAILED_LOCKED Code=19005671 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿系统未开启 Abandoned=False Version=1
+
+Id=ANYWHERETRADE_NOT_ENOUGH_COUNT Code=19005674 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=今日购买次数不足 Abandoned=False Version=1
+
+Id=RENAME_NAME_EXSIT Code=19005680 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能改名，角色名已存在 Abandoned=False Version=4
+
+Id=ONEVSONE_ARENA_RANK_FAILED_LOCKED Code=19005682 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑功能未开启 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_MATCH_FAILED_IS_NOT_CHALLENGE_TIME Code=19005686 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑不在比赛时间 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_LOG_FAILED Code=19005688 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=华山论剑战斗日志请求失败，未知异常 Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_CLEAR_COOLDOWN_FAILED_NOT_COOLDOWN Code=19005690 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不在冷却期间 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_REFRESH_COMPETITOR_FAILED_VIP_NOT_ENOUGH Code=19005696 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_LINEUP_ADJUST_FAILED_LOAD_DATA Code=19005698 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取玩家阵容数据失败 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_FAILED_COOL_VIP_NOT_ENOUGH Code=19005704 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_START_FAILED_BATTLE_COUNT_NOT_ENOUGH Code=19005706 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗次数不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_RESULT_FAILED_LOAD_CONFIG Code=19005708 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=PREPAREBATTLEEND_FAILED_REGISTER_ERROR Code=19005714 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=无法找到注册信息 Abandoned=False Version=1
+
+Id=BOSSBATTLE_INVALID Code=19005717 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该操作无效 Abandoned=False Version=1
+
+Id=VIP_BUY_DUNGEON_TIME_FAILED_TIME Code=19005736 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买次数不足 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED_ZONE_NOT_OPEN Code=19005739 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，章节未开启 Abandoned=False Version=4
+
+Id=TRIAL_REFRESH_FAILED_VIP_NOT_ENOUGH_S Code=19005743 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=vip等级不足 Abandoned=False Version=1
+
+Id=TRIAL_BUY_COUNT_FAILED_COUNT_NOT_ENOUGH Code=19005745 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已购买次数达到上限 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BUY_BATTLE_COUNT_FAILED_MONEY_NOT_ENOUGH Code=19005747 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_BUY_COUNT_FAILED_COUNT_NOT_ENOUGH Code=19005749 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已购买次数达到上限 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_FAILED_ERROR_FORMAT Code=19005751 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换码格式错误 Abandoned=False Version=1
+
+Id=SIGN_RETROACTIVE_FAILED_HAS_SIGN Code=19005761 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经补签过了 Abandoned=False Version=1
+
+Id=DRESS_PUTON_FAILED_OUT_DATE Code=19005764 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该时装已经过期 Abandoned=False Version=1
+
+Id=DRESS_TAKE_OFF_FAILED_OUT_DATE Code=19005766 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该时装已经过期 Abandoned=False Version=1
+
+Id=NOTIFY_SERVER_DELELET_DRESS_FAILED_NOT_ONWEAR Code=19005770 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=背包没有可删除的时装 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_FAILED_FUNCTION_NOT_OPEN Code=19005772 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=多人关卡暂未开启 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_BUY_AWARD_COUNT_FAILED_TOTAL_REMAIN_MAX Code=19005774 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=剩余可获得奖励次数已达上限 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_JOIN_GROUP_FAILED_NOT_MATCHED Code=19005778 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未匹配到可加入的队伍 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_INVITE_PLAYER_FAILED_ALL_FRIEND_IN_GROUP Code=19005780 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=所有被邀请好友都已在其他队伍中 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_KICK_PLAYER_FAILED_OTHER_NOT_IN_GROUP Code=19005782 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=被踢玩家已不在本队伍内 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_COMBAT_FAILED_READY_NOT_ENOUGH Code=19005788 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=准备人数不足 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_BUY_COUNT_FAILED_FUNCTION_LOCKED Code=19005796 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=DECOMPOSE_DRESS_FAILED_OUT_DATE Code=19005799 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该时装已经过期 Abandoned=False Version=1
+
+Id=MISSION_SENCE_COMBAT_FAILED_MISSION_COMPLETE Code=19005801 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=任务已完成 Abandoned=False Version=1
+
+Id=PICK_DAILY_BENEFIT_FAILED_NOT_IN_PICK_TIME Code=19005807 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取每日福利失败，不在可领取时间段内 Abandoned=False Version=1
+
+Id=EXCHANGE_ITEM_FAILED_STILL_IN_CD Code=19005811 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换失败！还在冷却中无法使用 Abandoned=False Version=1
+
+Id=DAILY_MISSION_PICK_REWARD_FAILED_FUNCTION_UNLOCK Code=19005817 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务领奖失败，功能未解锁 Abandoned=False Version=1
+
+Id=PICK_MONTHCARD_REWARD_FAILED_HAS_PICKED Code=19005820 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=月卡每日领奖失败，今日已经领取过去 Abandoned=False Version=1
+
+Id=CREATE_BATTLE_ERROR_SYNC_QUERY_PLAYER_DATE_TIME_OUT Code=19005821 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建战斗实例失败，获取队友信息超时 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_PICK_REWARD_FAILED_NOT_RECEVIED Code=19005825 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务领奖失败，没有该任务 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_BLOCK_PICK_REWARD_FAILED_BLOCK_NOTACTIVATED Code=19005827 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务块一键领奖失败，活动任务块未激活 Abandoned=False Version=1
+
+Id=TRADE_BUY_FAILED_COST_NOT_ENOUGH Code=19005832 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=大侠，银两不足啦 Abandoned=False Version=1
+
+Id=FRIENDS_BLESS_GAIN_STAMINA_FAILED_HAS_NO_BLESS_COUNT Code=19005836 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友祝福失败，祝福次数已用完 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_QUERY_FAILED_LEAGUE_NOT_EXIST Code=19005848 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询失败，所在帮派未找到 Abandoned=False Version=4
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_LEAGUE_CFG_NOT_FOUND Code=19005850 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=开始战斗失败，帮派配置文件异常 Abandoned=False Version=4
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_LEAGUE_NOT_EXIST Code=19005851 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=结算失败，所在帮派未找到 Abandoned=False Version=4
+
+Id=RECAST_MATRIX_CENTRE_FAILED_CLIENT_ARGUMENTS Code=19005856 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=融会失败， 客户端参数错误 Abandoned=False Version=1
+
+Id=REINFORCE_MATRIX_CENTRE_FAILED_ITEM_IS_NOT_ENOUGH Code=19005858 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=巩固失败，银两不足 Abandoned=False Version=1
+
+Id=FAST_REINFORCE_MATRIX_CENTRE_FAILED_VIP_LEVEL Code=19005860 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵眼一键巩固失败， vip等级不足 Abandoned=False Version=1
+
+Id=BUY_VIP_REWARD_FAILED_FAILED_ALREADY_BUY Code=19005862 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买vip礼包失败，该礼包已经购买不能重复获得 Abandoned=False Version=1
+
+Id=PICK_ROLE_LEVEL_REWARD_FAILED_FAILED_ALREADY_BUY Code=19005864 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取新手等级礼包失败，该礼包不能重复领取 Abandoned=False Version=1
+
+Id=PICK_ROLE_ONLINE_TIME_REWARD_FAILED_FAILED_ALREADY_BUY Code=19005866 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取在线时长礼包失败，该礼包不能重复领取 Abandoned=False Version=1
+
+Id=GROWTH_FUND_PICK_REWARD_FAILED_NOT_REWARD_AVAILABLE Code=19005872 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成长基金任务领奖失败，当前进度不可领奖 Abandoned=False Version=1
+
+Id=BUY_GROWTH_FUND_FAILED_FAILED_ALREADY_BUY Code=19005874 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买成长基金失败，不能重复购买 Abandoned=False Version=1
+
+Id=PICK_TOTAL_LOGIN_DAY_REWARD_FAILED_CONFIG_NOT_FOUND Code=19005879 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取累计登陆奖励失败，配置文件异常 Abandoned=False Version=1
+
+Id=PICK_RED_PACKETS_FAILED_HAS_PICK_OVER Code=19005881 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=红包领取失败，红包已经领取完了 Abandoned=False Version=1
+
+Id=FRIEND_ASSISTANCE_FAILED_INVAILD_FRIENDS_ID Code=19005883 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友助力失败，非好友关系 Abandoned=False Version=1
+
+Id=SEND_OUT_FRIEND_ASSISTANCE_FAILED_FIREND_FUNCTION_NOT_OPEN Code=19005887 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=发起好友助力失败，好友功能未开启 Abandoned=False Version=1
+
+Id=NEW_1VS1_MATCH_FAILED_FIRST_COMBAT_DUMMY_ERROR Code=19005891 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武首次挑战匹配假人数据失败 Abandoned=False Version=1
+
+Id=NEW_1VS1_COMBAT_FAILED_NO_MATCH Code=19005894 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武战斗请求失败，加载对手失败 Abandoned=False Version=1
+
+Id=FRIEND_ONE_KEY_BLESS_FAILED_NO_FRIENDS Code=19005898 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键祝福失败，没有可祝福的好友 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LOGIN_FAILED_TOKEN_ID Code=19070984 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=客户端登陆战斗服务器失败，TOKEN错误 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_ENTER_INSTANCE_FAILED_PRIVILEGE Code=19070986 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LEAVE_INSTANCE_FAILED_NOTEXIST_INROOM Code=19070988 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不在副本中 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_EMAIL_FORMAT_NOT_VALID Code=19988483 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮箱格式不正确，请重新输入 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_FAILED_EMAIL_FORMAT_NOT_VALID Code=19988485 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮箱格式不正确，请重新输入 Abandoned=False Version=1
+
+Id=AUTH_ACTIVE_CODE_FAILED_ACCOUNT_ALREADY_ACTIVED Code=19988491 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请勿重复激活 Abandoned=False Version=1
+
+Id=GAME_LOGIN_TABLE_VERSION_CHECK_FAIL Code=20054019 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=版本号检查失败，未知错误 Abandoned=False Version=1
+
+Id=GAME_CREATE_ROLE_FAIL_NAME_NULL Code=20054028 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=角色名为空 Abandoned=False Version=1
+
+Id=ACTIVE_ACUPOINT_IS_FULL_NOW Code=20054038 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经激活当前所有穴道 Abandoned=False Version=1
+
+Id=REALM_PROMOTE_FAILED_LOAD_CONFIG Code=20054040 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=GM_COMMAND_NOT_FOUND Code=20054042 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=GM命令没发现 Abandoned=False Version=1
+
+Id=EQUIPMENT_PUTON_EQUIPMENT_NOT_FOUND Code=20054046 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备未找到 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_FAILED_PUTON_LEVLE Code=20054052 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿戴等级不满足 Abandoned=False Version=1
+
+Id=EQUIPMENT_CHANGE_PROPERTY_FAILED_UNLOCK Code=20054058 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练失败，功能未开启 Abandoned=False Version=1
+
+Id=EQUIPMENT_TRANSFER_PROPERTY_FAILED_TYPE_MATCHED Code=20054062 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练转移失败，类型不匹配 Abandoned=False Version=1
+
+Id=CHAT_FAILED_WORLD_FAILED_ALREADY_GAGED Code=20054064 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=重复发送屏蔽内容，已经被被禁言 Abandoned=False Version=4
+
+Id=HEARTPOWER_PROMOTE_FAILED_LOAD_CONFIG Code=20054069 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取配置文件失败 Abandoned=False Version=1
+
+Id=HEARTSTAR_PROMOTE_FAILED_HIGHEST_PROMOTE Code=20054071 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=心法已经化境至最高级 Abandoned=False Version=4
+
+Id=JEWEL_INLAY_FAILED_LOAD_CONFIG Code=20054075 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_POS_INACTIVE Code=20054077 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=镶嵌位没有激活 Abandoned=False Version=1
+
+Id=EMAIL_ALL_ACTIVE_FAILED_LOCKED Code=20054081 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件系统未开启 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ALL_ACTIVE_FAILED_LOCKED Code=20054085 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件系统未开启 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ACTIVE_FAILED_LOCKED Code=20054089 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件系统未开启 Abandoned=False Version=1
+
+Id=EMAIL_PICK_REWARD_ALL_ACTIVE_FAILED_LOCKED Code=20054091 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮件系统未开启 Abandoned=False Version=1
+
+Id=TUTOR_FAILED_REPUTATION_NOT_MEET Code=20054093 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=拜师所需声望不足 Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_LOAD_SERVICE Code=20054095 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载服务失败 Abandoned=False Version=1
+
+Id=HIRE_FAILED_CONFIG_ERROR Code=20054099 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=配置文件错误 Abandoned=False Version=1
+
+Id=SKILL_STRENGTHEN_FAILED_NOTHING_TO_STRENGTHEN Code=20054101 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=没有可强化的技能 Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_FAILED_LOAD_SERVICE Code=20054103 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载服务失败 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_FAILED_TIMES_NOT_ENOUGH Code=20054107 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=进入次数已用光 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_RESULT_FAILED Code=20054109 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=数据错误 Abandoned=False Version=1
+
+Id=COMBAT_GET_REWARD_FAILED_REWARD_HAS_PICKED Code=20054111 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奖励已经领取 Abandoned=False Version=4
+
+Id=SELL_ITEM__FAILED_TIMEOUT Code=20054121 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=限时物品超时 Abandoned=False Version=1
+
+Id=CHANGE_HERO_FAILED_HERO_NOT_EXIST Code=20054124 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄不存在 Abandoned=False Version=1
+
+Id=USE_ITEM_FAILED_ARGUMENTS_ERROR Code=20054126 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=使用道具失败，参数错误 Abandoned=False Version=1
+
+Id=REPAIR_TREASURE_FAILED_NOT_EQUIP Code=20054134 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝未装备 Abandoned=False Version=1
+
+Id=QUERY_RANKLIST_FAILED_FUNCTION_NOT_OPEN Code=20054136 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启... Abandoned=False Version=1
+
+Id=QUERY_ROLE_DATA_FAILED_INVAILDE_ID Code=20054138 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该玩家十分神秘，不能查询该玩家的信息 Abandoned=False Version=1
+
+Id=BARRAGES_FAILED_FUNCTION_NOT_OPEN Code=20054140 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启... Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_LOCKED Code=20054142 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商店未解锁 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_LOCKED Code=20054144 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商店未解锁 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED_PARAM_DIFFERENT Code=20054147 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=待领取礼包与下一级不同 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_FAILED Code=20054151 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_RESULT_FAILED_KILLED Code=20054153 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已击杀 Abandoned=False Version=1
+
+Id=APPLY_FRIENDS_FAILED_FRIENDS_NUMBER_LIMIT Code=20054159 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友数量到达上限 Abandoned=False Version=1
+
+Id=ADD_OR_REFUSE_FRIENDS_FAILED_LOAD_CONFIG Code=20054161 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=TITLE_FAILED_LOCKED Code=20054173 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=称号系统未开启 Abandoned=False Version=1
+
+Id=DART_BEGIN_FAILED_INVAILD_PERSONS Code=20054178 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=寻访者已经寻访过了 Abandoned=False Version=1
+
+Id=DART_COMPLETE_FAILED_NOT_COMPLETED Code=20054180 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=还在寻访中 Abandoned=False Version=1
+
+Id=DART_GET_REWARD_FAILED_FUNCTION_NOT_OPEN Code=20054182 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖寻访系统未开启 Abandoned=False Version=4
+
+Id=DART_COMBAT_FAILED_FUNCTION_NOT_OPEN Code=20054184 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖寻访系统未开启 Abandoned=False Version=4
+
+Id=LEAGUE_CREATE_MONEY Code=20054188 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建帮派元宝不足 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_IS_EXIST Code=20054190 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经申请过该帮派了 Abandoned=False Version=1
+
+Id=LEAGUE_AGREE_PRIVILEGE Code=20054192 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=LEAGUE_INVITE_CD Code=20054194 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=退出帮派后，请2小时以后再申请 Abandoned=False Version=1
+
+Id=LEAGUE_ACCEPT_CD Code=20054196 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=退出帮派后，请2小时以后再申请 Abandoned=False Version=1
+
+Id=LEAGUE_KICKOUT_MEMBER_COUNT Code=20054200 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=超出今日踢人上限 Abandoned=False Version=1
+
+Id=LEAGUE_TITLE_CHANGE_MEMBER Code=20054202 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=找不到成员 Abandoned=False Version=1
+
+Id=LEAGUE_LEVELUP_LEVEL_FULL Code=20054210 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派已满级，升级失败 Abandoned=False Version=1
+
+Id=LEAGUE_MODIFY_NOTICATION_STRING Code=20054214 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=含有屏蔽字 Abandoned=False Version=1
+
+Id=LEAGUE_SPIRITTREE_MOW_GAME_MONEY_LACK Code=20054219 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=银两不足 Abandoned=False Version=1
+
+Id=LEAGUE_AUGURY_SHAKED Code=20054221 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经摇过了 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_FAILED_LOCKED Code=20054225 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_RESULT_FAILED Code=20054227 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知异常 Abandoned=False Version=1
+
+Id=GUARD_TOWER_REFRESH_TASK_FAILED_COST_IS_LOWWER Code=20054233 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=刷新消耗不能为负 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_RESULT_FAILED_FUNCTION_NOT_OPEN Code=20054235 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_FAILED_FUNCTION_NOT_OPEN Code=20054237 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_REFRESH_FAILED_NOT_COUNT Code=20054241 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿任务刷新失败，刷新次数不足 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_RECEIVE_FAILED_LOCKED Code=20054243 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿系统未开启 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_COMPLETE_FAILED_NOT_FOUND_IN_LIST Code=20054245 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不在接受任务列表中 Abandoned=False Version=1
+
+Id=ANYWHERETRADE_STAMINA_MAXIMUM Code=20054250 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=体力已满，不能再购买了! Abandoned=False Version=4
+
+Id=RENAME_NAME_NULL Code=20054256 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能改名，角色名为空 Abandoned=False Version=4
+
+Id=ONEVSONE_ARENA_MATCH_FAILED_IS_COOLDOWN Code=20054262 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=冷却中…… Abandoned=False Version=1
+
+Id=ONEVSONE_ARENA_CLEAR_COOLDOWN_FAILED_NOT_ENOUGH_MONEY Code=20054266 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_REFRESH_COMPETITOR_FAILED_INVAILD_REQ_TYPR Code=20054272 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的请求类型 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_FAILED_BATTLE_MONEY_NOT_ENOUGH Code=20054280 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BATTLE_START_FAILED_INSIDE_COOL_TIME Code=20054282 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=在战斗冷却中，无法战斗 Abandoned=False Version=1
+
+Id=PREPAREBATTLEEND_FAILED_TIME_ERROR Code=20054290 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=当前时间不在范围之内 Abandoned=False Version=1
+
+Id=PREPAREBATTLE_ONCE Code=20054293 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=只能参加一次筹备战斗 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED_ZONE_ID_INVALID Code=20054315 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，无效的章节ID Abandoned=False Version=4
+
+Id=TRIAL_REFRESH_FAILED_VIP_NOT_ENOUGH_F Code=20054319 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=vip等级不足 Abandoned=False Version=1
+
+Id=TRIAL_BUY_COUNT_FAILED_COUNT_REMAIN Code=20054321 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=次数未用尽 Abandoned=False Version=1
+
+Id=GUARD_TOWER_BUY_BATTLE_COUNT_FAILED_HAS_FREE_COUNT Code=20054323 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=还有免费次数，不能购买 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_BUY_COUNT_FAILED_COUNT_REMAIN Code=20054325 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=还有挑战次数，无需购买 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_FAILED_ERROR_CODE Code=20054327 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换码错误 Abandoned=False Version=1
+
+Id=SIGN_RETROACTIVE_FAILED_MONEY_NOT_ENOUGH Code=20054337 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=补签消耗不足 Abandoned=False Version=1
+
+Id=DRESS_PUTON_FAILED_GENDER_NOTMATCH Code=20054340 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=性别不对哟~ Abandoned=False Version=1
+
+Id=DRESS_TAKE_OFF_FAILED_FUNCTION_UNLOCK Code=20054342 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=脱下时装失败，功能未解锁 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_FAILED_DUNGEONID_NOT_EXIST Code=20054348 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该多人关卡不存在 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_BUY_AWARD_COUNT_FAILED_BUY_MAX Code=20054350 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=当日购买次数已达上限 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_JOIN_GROUP_FAILED_MEMBER_MAX Code=20054354 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=队伍已满员 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_INVITE_PLAYER_FAILED_PART_FRIEND_IN_GROUP Code=20054356 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=部分被邀请好友已在其他队伍中 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_COMBAT_FAILED_PLAYER_TOO_MANY Code=20054364 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=人数太多 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_BUY_COUNT_FAILED_TIME_LIMITED Code=20054372 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=vip购买次数已经上限 Abandoned=False Version=1
+
+Id=DECOMPOSE_DRESS_FAILED_FUNCTION_UNLOCK Code=20054375 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=分解时装时装失败，功能未解锁 Abandoned=False Version=1
+
+Id=MISSION_SENCE_COMBAT_FAILED_LOAD_CONFIG Code=20054377 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=PICK_DAILY_BENEFIT_FAILED_ALREADY_PICKED Code=20054383 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=当前时间段已领取，请勿重复领取 Abandoned=False Version=1
+
+Id=EXCHANGE_ITEM_FAILED_COST_NOT_ENOUGH Code=20054387 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=原材料不足！ Abandoned=False Version=1
+
+Id=DAILY_MISSION_PICK_REWARD_FAILED_POSITION_INVALID Code=20054393 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务领奖失败，领奖位置非法 Abandoned=False Version=1
+
+Id=PICK_MONTHCARD_REWARD_FAILED_LOAD_REWARD_CONFIG Code=20054396 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=月卡每日领奖失败，获取奖励配置失败 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_PICK_REWARD_FAILED_CREATREWARD_ERROR Code=20054401 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务领奖失败，奖励包未知错误 Abandoned=False Version=1
+
+Id=ACTIVITY_MISSION_BLOCK_PICK_REWARD_FAILED_NOREWARD Code=20054403 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动任务块一键领奖失败，没有活动可以领奖 Abandoned=False Version=1
+
+Id=TRADE_BUY_FAILED_TRADE_CONFIG_ERROR Code=20054408 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队购买失败，商队配置异常 Abandoned=False Version=1
+
+Id=FRIENDS_BLESS_GAIN_STAMINA_FAILED_HAS_BEEN_BLESSED Code=20054412 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友祝福失败，该好友已经祝福过了 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_QUERY_FAILED_LEAGUE_CFG_NOT_FOUND Code=20054424 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=查询失败，帮派配置文件异常 Abandoned=False Version=4
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_ACTIVITY_NOT_OPEN Code=20054426 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=活动暂未开启，请耐心等候 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_LEAGUE_CFG_NOT_FOUND Code=20054427 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=结算失败，帮派配置文件异常 Abandoned=False Version=4
+
+Id=RECAST_MATRIX_CENTRE_FAILED_ITEM_IS_NOT_ENOUGH Code=20054432 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=融会失败，所需材料不足 Abandoned=False Version=1
+
+Id=REINFORCE_MATRIX_CENTRE_FAILED_UNLOCK Code=20054434 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=巩固失败，未解锁 Abandoned=False Version=1
+
+Id=FAST_REINFORCE_MATRIX_CENTRE_FAILED_UNLOCK Code=20054436 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=阵眼一键巩固失败， 未解锁 Abandoned=False Version=1
+
+Id=BUY_VIP_REWARD_FAILED_CREATREWARD_ERROR Code=20054438 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买vip礼包失败，奖励包未知错误 Abandoned=False Version=1
+
+Id=PICK_ROLE_LEVEL_REWARD_FAILED_CREATREWARD_ERROR Code=20054440 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取新手等级礼包失败，奖励包未知错误 Abandoned=False Version=1
+
+Id=PICK_ROLE_ONLINE_TIME_REWARD_FAILED_CREATREWARD_ERROR Code=20054442 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取在线时长礼包失败，奖励包未知错误 Abandoned=False Version=1
+
+Id=GROWTH_FUND_PICK_REWARD_FAILED_CREATREWARD_ERROR Code=20054448 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=成长基金任务领奖失败，奖励包未知错误 Abandoned=False Version=1
+
+Id=BUY_GROWTH_FUND_FAILED_COST_NOTENOUGH Code=20054450 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买成长基金失败，消耗不足 Abandoned=False Version=1
+
+Id=PICK_TOTAL_LOGIN_DAY_REWARD_FAILED_ALREADY_PICKED Code=20054455 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已领取过该档奖励，请勿重复领取 Abandoned=False Version=1
+
+Id=PICK_RED_PACKETS_FAILED_NO_TIMES_TO_PICK Code=20054457 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=红包领取失败，今日红包领取次数已使用完 Abandoned=False Version=2
+
+Id=FRIEND_ASSISTANCE_FAILED_CANNOT_ASSIST_YOURSELF Code=20054459 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友助力失败，不能助力自己 Abandoned=False Version=1
+
+Id=SEND_OUT_FRIEND_ASSISTANCE_FAILED_NO_FRIENDS Code=20054463 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您还没有好友呢，请先前往好友界面添加好友 Abandoned=False Version=1
+
+Id=NEW_1VS1_MATCH_FAILED_NOT_IN_OPEN_TIME Code=20054467 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=襄阳演武匹配失败，活动暂未开启 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LOGIN_FAILED_ID Code=20119560 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本ID错误 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_ENTER_INSTANCE_FAILED_ALREADY_INROOM Code=20119562 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经在房间中了 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_EMAIL_LENGTH_NOT_VALID Code=21037059 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮箱长度不正确，请重新输入 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_FAILED_EMAIL_LENGTH_NOT_VALID Code=21037061 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=邮箱长度不正确，请重新输入 Abandoned=False Version=1
+
+Id=AUTH_ACTIVE_CODE_FAILED_CODE_NOT_EXIST Code=21037067 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=激活码不存在 Abandoned=False Version=1
+
+Id=GAME_CREATE_ROLE_FAIL_GENDER_FAILD Code=21102604 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=性别错误 Abandoned=False Version=1
+
+Id=REALM_PROMOTE_FAILED_ALREADY_HIGHEST Code=21102616 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=修为提升已至最高级 Abandoned=False Version=1
+
+Id=GM_COMMAND_FAILED_NO_PRIVILEGE Code=21102618 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=GM命令失败，没有权限 Abandoned=False Version=1
+
+Id=EQUIPMENT_PUTON_LEVEL_NOT_ENOUGH Code=21102622 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的等级还不够，努力升级吧！ Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_ITEM_NOT_ENOUGH Code=21102628 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=所需材料不足 Abandoned=False Version=1
+
+Id=EQUIPMENT_TRANSFER_PROPERTY_FAILED_UNLOCK Code=21102638 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备洗练转移失败，功能未开启 Abandoned=False Version=1
+
+Id=CHAT_FAILED_WORLD_FAILED_LEVEL_OR_VIP_TOO_LOW Code=21102640 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的等级和VIP权限不足 Abandoned=False Version=1
+
+Id=HEARTPOWER_PROMOTE_FAILED_HIGH_LEVEL Code=21102645 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的等级还不够，努力升级吧！ Abandoned=False Version=1
+
+Id=HEARTSTAR_PROMOTE_FAILED_LEVEL_ONT_ENOUGH Code=21102647 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的心法等级太低了，快去参悟吧！ Abandoned=False Version=1
+
+Id=JEWEL_INLAY_FAILED_GET_JEWEL_DATA Code=21102651 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取宝石信息失败 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_REMOVE_JEWEL Code=21102653 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=镶嵌位没有宝石可被移除 Abandoned=False Version=1
+
+Id=EMAIL_DELETE_ALL_ACTIVE_FAILED_NO_EMAIL Code=21102661 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=删除所有邮件失败，当前并无邮件可以删除 Abandoned=False Version=1
+
+Id=TUTOR_FAILED_HEART_STAR_NOT_MEET Code=21102669 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=心法化境不符合要求 Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_LOAD_EQUIPMENT Code=21102671 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取玩家装备信息失败 Abandoned=False Version=1
+
+Id=HIRE_FAILED_REPUTATION_NOT_MEET Code=21102675 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=声望不足，无法招募英雄 Abandoned=False Version=4
+
+Id=SKILL_STRENGTHEN_FAILED_SILVER_NOT_ENOUGH Code=21102677 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的银两不够了! Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_FAILED_INVAILD_CONFIG_ID Code=21102679 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不合法的参数 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_FAILED_STAMINA_NOT_ENOUGH Code=21102683 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家体力不足 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_RESULT_FAILED_DUNGEON_COUNT Code=21102685 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=挑战次数不足 Abandoned=False Version=1
+
+Id=COMBAT_GET_REWARD_FAILED_ZONE_ID_INVLID Code=21102687 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本领奖失败，章节ID错误 Abandoned=False Version=1
+
+Id=CHANGE_HERO_FAILED_HERO_DOWN_FAILED Code=21102700 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄不在阵上 Abandoned=False Version=1
+
+Id=USE_ITEM_FAILED_ARGUMENTS_LEVEL_NOT_ENOUGH Code=21102702 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家等级不足 Abandoned=False Version=1
+
+Id=REPAIR_TREASURE_FAILED_DURABILITY_FULL Code=21102710 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=这个奇宝完好如新，无需修复！ Abandoned=False Version=1
+
+Id=QUERY_ROLE_DATA_FAILED_MIRROR_INVAILDE_ID Code=21102714 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=玩家十分神秘，不能查看玩家信息 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_LOCKED_VIP Code=21102718 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=vip等级不足，商店未解锁 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_CLOSED Code=21102720 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商店关闭 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED_CAN_NOT_REACHED Code=21102723 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未达到领取条件 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_FAILED_IS_COOLDOWN Code=21102727 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=冷却中 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_RESULT_FAILED Code=21102729 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知原因 Abandoned=False Version=1
+
+Id=APPLY_FRIENDS_FAILED_FRIENDS_LOAD_CONFIG Code=21102735 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=ADD_OR_REFUSE_FRIENDS_FAILED_NUMBER_LIMIT Code=21102737 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友数量达到上限 Abandoned=False Version=1
+
+Id=DART_BEGIN_FAILED_FUNCTION_NOT_OPEN Code=21102754 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖寻访系统未开启 Abandoned=False Version=4
+
+Id=DART_COMPLETE_FAILED_LOAD_CONFIG Code=21102756 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件失败 Abandoned=False Version=1
+
+Id=LEAGUE_CREATE_NAME Code=21102764 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派名字不能全是数字，不含非法字符，最多六字 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_COUNT Code=21102766 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=今天申请次数不足 Abandoned=False Version=1
+
+Id=LEAGUE_AGREE_CD Code=21102768 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=退出帮派后，请2小时以后再申请 Abandoned=False Version=1
+
+Id=LEAGUE_INVITE_IS_IN_LEAGUE Code=21102770 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经是帮派成员了 Abandoned=False Version=1
+
+Id=LEAGUE_ACCEPT_IS_IN_LEAGUE Code=21102772 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经是帮派成员了 Abandoned=False Version=1
+
+Id=LEAGUE_AUGURY_RESETED Code=21102797 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已重置过了 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_FAILED_DONE Code=21102801 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=藏经阁战斗发起失败，已完成 Abandoned=False Version=1
+
+Id=TIME_LIMIT_DUNGEON_COMBAT_RESULT_FAILED_LOCKED Code=21102803 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=GUARD_TOWER_REFRESH_TASK_FAILED_COST_IS_NOT_ENOUGH Code=21102809 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您没有足够的元宝了！ Abandoned=False Version=1
+
+Id=GUARD_TOWER_BATTLE_RESULT_FAILED Code=21102811 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗失败 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_COMPLETE_FAILED_LOCKED Code=21102821 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖缉拿系统未开启 Abandoned=False Version=1
+
+Id=RENAME_NAME_TOO_LENGTH Code=21102832 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能改名，角色名不能超过6个字符 Abandoned=False Version=4
+
+Id=ONEVSONE_ARENA_CLEAR_COOLDOWN_FAILED_NOT_OPEN Code=21102842 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_FAILED_COOL_MONEY_NOT_ENOUGH Code=21102856 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=PREPAREBATTLEEND_FAILED_TREASURE_TIMES Code=21102866 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description= 奇宝使用次数错误 Abandoned=False Version=1
+
+Id=BOSSBATTLE_NOT_BATTLE_TIME Code=21102869 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不在战斗阶段时间内 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED_DUNGEON_ID_INVALID Code=21102891 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，无效的副本ID Abandoned=False Version=4
+
+Id=TRIAL_REFRESH_FAILED_MONEY_NOT_ENOUGH Code=21102895 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_FAILED_INVALID_TIME Code=21102903 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换码不在兑换时间内 Abandoned=False Version=1
+
+Id=DRESS_PUTON_FAILED_FUNCTION_UNLOCK Code=21102916 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=穿时装失败，功能未解锁 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_FAILED_DUNGEON_NOT_UNLOCK Code=21102924 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该多人关卡暂未解锁 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_BUY_AWARD_COUNT_FAILED_CANT_GET_BUYTIME_CFG Code=21102926 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取购买价格数据异常 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_COMBAT_FAILED_CREATE_COMBAT_INSTANCE Code=21102940 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=初始化战斗数据异常 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_BUY_COUNT_FAILED_LOAD_BUYTIMECONFIG Code=21102948 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=加载配置文件错误 Abandoned=False Version=1
+
+Id=PICK_DAILY_BENEFIT_FAILED_REWARD_CONFIG_ERROR Code=21102959 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奖励配置异常 Abandoned=False Version=1
+
+Id=EXCHANGE_ITEM_FAILED_CAN_ONLY_HAVE_ONE Code=21102963 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已拥有该道具，无法重复获得！ Abandoned=False Version=1
+
+Id=DAILY_MISSION_PICK_REWARD_FAILED_ALREADLY_PICKED Code=21102969 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务领奖失败，已经领奖无法再次领取 Abandoned=False Version=1
+
+Id=TRADE_BUY_FAILED_REWARD_CONFIG_ERROR Code=21102984 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队购买失败，商队奖励配置异常 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_NO_LIGEANCE_CAN_HOLD Code=21103002 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=当前已无领地可以占领 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_ACTIVITY_NOT_OPEN Code=21103003 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=非常抱歉，活动已结束 Abandoned=False Version=1
+
+Id=RECAST_MATRIX_CENTRE_FAILED_LEVEL Code=21103008 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=融会失败，巩固等级不足 Abandoned=False Version=1
+
+Id=REINFORCE_MATRIX_CENTRE_FAILED_LEVEL Code=21103010 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=巩固失败，人物等级不足 Abandoned=False Version=1
+
+Id=FAST_REINFORCE_MATRIX_CENTRE_FAILED_CLIENT_ARGUMENTS Code=21103012 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键巩固失败， 客户端参数错误 Abandoned=False Version=1
+
+Id=BUY_VIP_REWARD_FAILED_COST_NOTENOUGH Code=21103014 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买vip礼包失败，消耗不足 Abandoned=False Version=1
+
+Id=PICK_ROLE_LEVEL_REWARD_FAILED_ALREADY_PICKED Code=21103016 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取新手等级礼包失败，该礼包不能重复领取 Abandoned=False Version=1
+
+Id=PICK_ROLE_ONLINE_TIME_REWARD_FAILED_ALREADY_PICKED Code=21103018 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取在线时长礼包失败，该礼包不能重复领取 Abandoned=False Version=1
+
+Id=PICK_TOTAL_LOGIN_DAY_REWARD_FAILED_DAY_NOT_ENOUGH Code=21103031 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=累计登陆天数不足 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LOGIN_FAILED_PRIVILEGE Code=21168136 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_RANDOM_SEED_LENGTH_INVALID Code=22085635 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请重试 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_FAILED_RANDOM_SEED_LENGTH_INVALID Code=22085637 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=随机种子长度无效 Abandoned=False Version=1
+
+Id=AUTH_ACTIVE_CODE_FAILED_CODE_ALREADY_USED Code=22085643 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=激活码已被使用 Abandoned=False Version=1
+
+Id=GAME_CREATE_ROLE_FAIL_NAME_LENGTH_NOT_VALID Code=22151180 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不能超过6个字 Abandoned=False Version=1
+
+Id=REALM_PROMOTE_FAILED_LEVEL_NOT_ENOUGH Code=22151192 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的等级还不够，努力升级吧！ Abandoned=False Version=1
+
+Id=EQUIPMENT_PUTON_FUNCTION_UNLOCK Code=22151198 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未解锁 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_LEVEL_NOT_ENOUGH Code=22151204 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=角色等级不足 Abandoned=False Version=1
+
+Id=CHAT_FAILED_FRIEND_FAILED_NOT_FRIENDS Code=22151216 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=你与该玩家非好友关系，不能进行私聊 Abandoned=False Version=1
+
+Id=HEARTPOWER_PROMOTE_FAILED_GOLE_NOT_ENOUGH Code=22151221 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的银两不足 Abandoned=False Version=4
+
+Id=HEARTSTAR_PROMOTE_FAILED_MATERIAL_NOT_ENOUGH Code=22151223 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=化境材料不足 Abandoned=False Version=1
+
+Id=JEWEL_INLAY_FAILED_INLAY_INVAILD_JEWEL_TYPE Code=22151227 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=镶嵌宝石的类型与装备位允许的宝石类型不同 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_SYSTEM_ERROR Code=22151229 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=系统异常 Abandoned=False Version=1
+
+Id=TUTOR_FAILED_HEART_INVAILD_TUTOR_ID Code=22151245 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=拜师失败，不合法的老师Id Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_POS_INACTIVE Code=22151247 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=该镶嵌位没有激活 Abandoned=False Version=1
+
+Id=HIRE_FAILED_MATERIAL_NOT_ENOUGH Code=22151251 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=没有足够的信物，无法招募英雄 Abandoned=False Version=3
+
+Id=SKILL_STRENGTHEN_FAILED_LEVEL_HIGHER_ROLE_LEVEL Code=22151253 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您的等级还不够，努力升级吧！ Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_FAILED_METERIAL_NOT_ENOUGH Code=22151255 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=材料不足 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_FAILED_ZONE_ID_INVALID Code=22151259 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请求副本战斗失败，无效的章节ID Abandoned=False Version=1
+
+Id=COMBAT_ZONE_RESULT_FAILED_ZONE_ID_INVALID Code=22151261 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本战斗结果通知失败，章节ID无效 Abandoned=False Version=1
+
+Id=COMBAT_GET_REWARD_FAILED_ZONE_REWARD_ID_INVLID Code=22151263 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本领奖失败，奖励ID错误 Abandoned=False Version=1
+
+Id=CHANGE_HERO_FAILED_HERO_UP_FAILED Code=22151276 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=英雄在阵上 Abandoned=False Version=1
+
+Id=USE_ITEM_FAILED_NO_FRIENDS Code=22151278 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=使用道具失败，您还没有好友呢，请选择其他方式吧 Abandoned=False Version=1
+
+Id=REPAIR_TREASURE_FAILED_TIMES_ERROR Code=22151286 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奇宝修复次数错误 Abandoned=False Version=1
+
+Id=QUERY_ROLE_DATA_FAILED_FUNCTION_NOT_OPEN Code=22151290 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启... Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_CLOSED Code=22151294 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商店关闭 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_STORE_HAVE_BEEN_REFRESHED Code=22151296 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商品列表已经刷新 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED_REWARD_PICK_FAILED Code=22151299 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=礼包发放失败 Abandoned=False Version=1
+
+Id=TRIAL_COMBAT_RESULT_FAILED_IS_COOLDOWN Code=22151305 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=冷却中 Abandoned=False Version=1
+
+Id=APPLY_FRIENDS_FAILED_FRIENDS_ADD_OWN Code=22151311 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不能申请自己为好友 Abandoned=False Version=1
+
+Id=ADD_OR_REFUSE_FRIENDS_FAILED_ADD_OWN Code=22151313 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不能添加自己为好友 Abandoned=False Version=1
+
+Id=DART_COMPLETE_FAILED_FUNCTION_NOT_OPEN Code=22151332 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=江湖寻访系统未开启 Abandoned=False Version=4
+
+Id=LEAGUE_CREATE_CD Code=22151340 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=退出帮派后，请2小时以后再申请 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_CD Code=22151342 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=退出帮派后，请2小时以后再申请 Abandoned=False Version=1
+
+Id=LEAGUE_AGREE_LEAGUE_MEMBER Code=22151344 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派成员已满 Abandoned=False Version=1
+
+Id=LEAGUE_INVITE_PRIVILEGE Code=22151346 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=权限不足 Abandoned=False Version=1
+
+Id=LEAGUE_ACCEPT_LEAGUE_MEMBER Code=22151348 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派成员已满 Abandoned=False Version=1
+
+Id=LEAGUE_AUGURY_NO_MISSION Code=22151373 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=没有接受的任务 Abandoned=False Version=1
+
+Id=GUARD_TOWER_REFRESH_TASK_FAILED_FUNCTION_NOT_OPEN Code=22151385 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=RENAME_NAME_ILLEGAL_WORD Code=22151408 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能改名，角色名包含非法信息 Abandoned=False Version=4
+
+Id=ONEVSONE_ARENA_CLEAR_COOLDOWN_FAILED_SUB_MONEY_ERROR Code=22151418 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=扣除元宝失败 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_FAILED_BEYONG_BATTLE_COUNT Code=22151432 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买失败，超出最大次数限制 Abandoned=False Version=1
+
+Id=BOSSBATTLE_BOSSDEAD Code=22151445 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=Boss已经被击杀 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED_LEVEL_NOT_ENOUGH Code=22151467 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，玩家等级不足 Abandoned=False Version=4
+
+Id=TRIAL_REFRESH_FAILED_NOT_COOLDOWN Code=22151471 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不在冷却时间 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_FAILED_INVALID_CHANNEL Code=22151479 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您所在的渠道无法使用 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_FAILED_ALREADY_IN_GROUP Code=22151500 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=上次组队尚未解散，无法再次组队 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_BUY_AWARD_COUNT_FAILED_COST_NOT_ENOUGH Code=22151502 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=消耗不足 Abandoned=False Version=1
+
+Id=RANDOM_MISSION_BUY_COUNT_FAILED_MONEY_NOTENOUGH Code=22151524 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足 Abandoned=False Version=1
+
+Id=PICK_DAILY_BENEFIT_FAILED Code=22151535 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取每日福利失败，内部错误 Abandoned=False Version=1
+
+Id=EXCHANGE_ITEM_FAILED_ADD_REWARD_ERROR Code=22151539 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换物品失败，获取奖励异常 Abandoned=False Version=1
+
+Id=DAILY_MISSION_PICK_REWARD_FAILED_ADDITEMS Code=22151545 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=日常活跃度每日任务领奖失败，领奖奖励包出错 Abandoned=False Version=1
+
+Id=TRADE_BUY_FAILED_ADD_REWARD_ERROR Code=22151560 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队购买失败，获取奖励异常 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_ALREADY_HOLD Code=22151578 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=当前关卡您已占领领地，不可重复占领 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_ALREADY_HOLD Code=22151579 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=当前关卡您已占领领地，不可重复占领 Abandoned=False Version=1
+
+Id=RECAST_MATRIX_CENTRE_FAILED_IS_FULL Code=22151584 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=融会失败，已达最大上限 Abandoned=False Version=1
+
+Id=REINFORCE_MATRIX_CENTRE_FAILED_CLIENT_ARGUMENTS Code=22151586 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=巩固失败，客户端参数错误 Abandoned=False Version=1
+
+Id=FAST_REINFORCE_MATRIX_CENTRE_FAILED_ITEM_IS_NOT_ENOUGH Code=22151588 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键巩固失败，银两不足 Abandoned=False Version=1
+
+Id=BUY_VIP_REWARD_FAILED_NO_REWARD Code=22151590 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买vip礼包失败，该等级的vip没有vip礼包 Abandoned=False Version=1
+
+Id=PICK_ROLE_ONLINE_TIME_REWARD_FAILED_NOT_CURRENTID Code=22151594 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取在线时长礼包失败，领奖id不是当前id Abandoned=False Version=1
+
+Id=PICK_TOTAL_LOGIN_DAY_REWARD_FAILED_REWARD_CFG_NOT_FOUND Code=22151607 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取累计登陆奖励失败，奖励配置异常 Abandoned=False Version=1
+
+Id=BATTLE_SERVER_LOGIN_FAILED_ALREADY_INROOM Code=22216712 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经在副本中 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_GET_CONNECTION_FAILED Code=23134211 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取连接失败，请重试 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_GET_CONNECTION_FAILED Code=23134213 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取连接失败，请重试 Abandoned=False Version=1
+
+Id=REALM_PROMOTE_FAILED_MATERIAL_NOT_ENOUGH Code=23199768 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=所需材料不足 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_IS_FULL_NOW Code=23199780 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=装备神铸等级满 Abandoned=False Version=1
+
+Id=CHAT_FAILED_FRIEND_FAILED_IN_CD_TIME Code=23199792 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=好友邀请在cd时间内，不能进行邀请发言 Abandoned=False Version=1
+
+Id=HEARTPOWER_PROMOTE_FAILED_NOT_OPEN Code=23199797 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能参悟心法，心法功能未开启 Abandoned=False Version=4
+
+Id=HEARTSTAR_PROMOTE_FAILED_NOT_OPEN Code=23199799 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能化境心法，心法功能未开启 Abandoned=False Version=4
+
+Id=JEWEL_INLAY_FAILED_QUANTITY_NOT_ENOUGH Code=23199803 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石数量不足 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_FUNCTION_NOT_OPEN Code=23199805 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_JEWEL_QUANTITY_NOT_ENOUGH Code=23199823 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石数量不足 Abandoned=False Version=1
+
+Id=SKILL_STRENGTHEN_FAILED_LEVEL_HIGHEST Code=23199829 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=技能等级不能高于人物等级哦 Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_FAILED_SKILL_LEVEL_NOT_ENOUGH Code=23199831 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=等级不足 Abandoned=False Version=1
+
+Id=COMBAT_ZONE_FAILED_DUNGEON_ID_INVALID Code=23199835 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请求副本战斗失败，无效的副本ID Abandoned=False Version=1
+
+Id=COMBAT_ZONE_RESULT_FAILED_DUNGEON_ID_INVALID Code=23199837 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本战斗结果通知失败，关卡ID无效 Abandoned=False Version=1
+
+Id=CHANGE_HERO_FAILED_HERO_UP_FULL Code=23199852 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=上阵英雄已满 Abandoned=False Version=4
+
+Id=USE_ITEM_FAILED_FRIENDS_FUNCTION_NOT_OPEN Code=23199854 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=使用道具失败，好友功能未开启 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_VIP_LEVEL_B Code=23199870 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_VIP_LEVEL_B Code=23199872 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED_ACTIVITY_TYPE_ERROR Code=23199875 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奖励类型错误 Abandoned=False Version=1
+
+Id=APPLY_FRIENDS_FAILED_FRIENDS_ALREADY_FRIENDS Code=23199887 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经是好友了！ Abandoned=False Version=1
+
+Id=LEAGUE_CREATE_IS_EXIST Code=23199916 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=名字已经存在 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_LEAGUE_MEMBER Code=23199918 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派成员已满 Abandoned=False Version=1
+
+Id=LEAGUE_INVITE_LEAGUE_MEMBER Code=23199922 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派成员已满 Abandoned=False Version=1
+
+Id=LEAGUE_ACCEPT_IS_IN_APPLICANT Code=23199924 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能接受加入帮派，已经申请过该帮派了 Abandoned=False Version=4
+
+Id=LEAGUE_AUGURY_MISSION_DOING Code=23199949 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=任务进行中 Abandoned=False Version=1
+
+Id=GUARD_TOWER_REFRESH_TASK_FAILED_VIP_NOT_ENOUGH Code=23199961 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=vip等级不足 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_FAILED_INVAILD_REQ_TYPE Code=23200008 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未知的请求类型 Abandoned=False Version=1
+
+Id=BOSSBATTLE_HAS_STARTED Code=23200021 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已经发起战斗 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED_TIMES_NOT_ENOUGH Code=23200043 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，进入次数已用光 Abandoned=False Version=4
+
+Id=TRIAL_REFRESH_FAILED_KILLED Code=23200047 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已击杀 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_FAILED_INVALID_AREA Code=23200055 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您所在的区无法使用 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_FAILED_NOT_IN_GROUP Code=23200076 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请先加入队伍 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_BUY_AWARD_COUNT_FAILED_TOTAL_MAX Code=23200078 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买失败，剩余可获奖次数已达上限 Abandoned=False Version=1
+
+Id=EXCHANGE_ITEM_FAILED_COST_ITEM_ERROR Code=23200115 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换物品失败，扣除消耗异常 Abandoned=False Version=1
+
+Id=TRADE_BUY_FAILED_COSI_ITEM_ERROR Code=23200136 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=商队购买失败，扣除消耗异常 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_VIP_CFG_NOT_FOUND Code=23200154 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP配置文件异常 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_BOSS_CFG_ERROR Code=23200155 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=结算失败，当前关卡配置异常 Abandoned=False Version=1
+
+Id=FAST_REINFORCE_MATRIX_CENTRE_FAILED_RECAST Code=23200164 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=一键巩固失败，已达融会等级 Abandoned=False Version=1
+
+Id=BUY_VIP_REWARD_FAILED_SUB_MONEY_ERROR Code=23200166 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=购买vip礼包失败，扣钱时出现未知错误 Abandoned=False Version=1
+
+Id=PICK_TOTAL_LOGIN_DAY_REWARD_FAILED_ADD_REWARD_ERROR Code=23200183 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取失败，获取奖励异常 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_GET_AREA_LIST_FAILED Code=24182787 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取区列表失败 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_GET_AREA_LIST_FAILED Code=24182789 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=获取区列表失败 Abandoned=False Version=1
+
+Id=REALM_PROMOTE_FAILED_NOT_OPEN Code=24248344 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=修为功能未开启 Abandoned=False Version=1
+
+Id=EQUIPMENT_REFINE_UNLOCK_FUNCTION Code=24248356 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未解锁 Abandoned=False Version=1
+
+Id=CHAT_FAILED_LEAGUE_FAILED_IN_CD_TIME Code=24248368 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派聊天失败，帮派邀请在cd时间内，不能进行邀请发言 Abandoned=False Version=4
+
+Id=HEARTPOWER_PROMOTE_FAILED_NOT_ACTIVE Code=24248373 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=心法未达到激活条件 Abandoned=False Version=1
+
+Id=JEWEL_INLAY_FAILED_SYSTEM_ERROR Code=24248379 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=系统异常 Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_INVAILD_MATRIX_ID Code=24248381 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石镶嵌失败，不合法的阵法id Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_JEWEL_LEVEL_HIGHEST Code=24248399 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石达到最高级 Abandoned=False Version=1
+
+Id=SKILL_STRENGTHEN_FAILED_FUNCTION_NOT_OPEN Code=24248405 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=技能功能未开启 Abandoned=False Version=1
+
+Id=SKILL_UP_GRADE_FAILED_FUNCTION_NOT_OPEN Code=24248407 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=技能功能未开启 Abandoned=False Version=1
+
+Id=CHANGE_HERO_FAILED_OPERATION_TYPE_ERROR Code=24248428 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=操作类型错误 Abandoned=False Version=1
+
+Id=USE_ITEM_FAILED_NO_LEAGUE Code=24248430 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=使用道具失败，您还没有加入帮派，请选择其他方式吧 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_VIP_LEVEL_D Code=24248446 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_VIP_LEVEL_D Code=24248448 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED_NO_CHARGE Code=24248451 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未充值 Abandoned=False Version=1
+
+Id=LEAGUE_APPLY_FAILED_LEAGUE_NOT_FOUND Code=24248494 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派不存在 Abandoned=False Version=4
+
+Id=LEAGUE_ACCEPT_LEAGUE_NOT_FOUND Code=24248500 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派不存在 Abandoned=False Version=4
+
+Id=LEAGUE_AUGURY_MISSION_DONE Code=24248525 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=奖励已领取 Abandoned=False Version=1
+
+Id=MIRROR_ARENA_BUY_COUNT_OR_CLEAR_COOL_FAILED_BATTLE_HAS_NOT_VIP_COUNT Code=24248584 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=vip可购买战斗次数已用完 Abandoned=False Version=1
+
+Id=BOSSBATTLE_CD Code=24248597 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=挑战CD中(或等待复活中) Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED_STAMINA_NOT_ENOUGH Code=24248619 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，玩家体力不足 Abandoned=False Version=4
+
+Id=EXCHANGE_CODE_USE_FAILED_ALREADY_USED_SAME_PREFIX Code=24248631 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您已经使用过相同类型的兑换码 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_FAILED_IS_NOT_LEADER Code=24248652 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=您不是队长 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_MAX_PAY_COMBAT Code=24248730 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已达当前VIP等级可付费挑战次数上限 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_VIP_CFG_NOT_FOUND Code=24248731 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=结算失败，VIP配置文件异常 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_UDID_IS_NULL Code=25231363 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=设备ID为空 Abandoned=False Version=1
+
+Id=AUTH_CREATE_ACCOUNT_FAILED_UDID_IS_NULL Code=25231365 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=设备ID为空 Abandoned=False Version=1
+
+Id=CHAT_FAILED_LEAGUE_CONTENT_INVLAID Code=25296944 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派聊天失败，内容不合法 Abandoned=False Version=4
+
+Id=JEWEL_INLAY_FAILED_INVAILD_MATRIX_ID Code=25296955 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石镶嵌失败，不合法的阵法id Abandoned=False Version=1
+
+Id=JEWEL_REMOVE_FAILED_INVAILD_MATRIX_CENTRE_ID Code=25296957 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石镶嵌失败，不合法的阵眼id Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_JEWEL_NOT_OPEN Code=25296975 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石合成失败，宝石合成未开启 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_REFRESH_ERRANTRY_VIP_LEVEL Code=25297022 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=侠义商店手动刷新所需VIP等级不足 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_VIP_LEVEL Code=25297024 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=VIP等级不足 Abandoned=False Version=1
+
+Id=ACQUIRED_NEXT_ACTIVITY_AWARD_FAILED_IS_NOT_WEEKEND Code=25297027 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不是周末 Abandoned=False Version=1
+
+Id=LEAGUE_AUGURY_INVALID_MISSION Code=25297101 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=无效任务 Abandoned=False Version=1
+
+Id=BOSSBATTLE_NO_BATTLE Code=25297173 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=战斗不存在 Abandoned=False Version=1
+
+Id=CLEAN_DUNGEON_FAILED_VIP_NOT_ENOUGH Code=25297195 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=未能进行扫荡，玩家VIP等级不足 Abandoned=False Version=4
+
+Id=EXCHANGE_CODE_USE_FAILED_ALREADY_USED Code=25297207 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换码已被使用 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_FAILED_GROUP_NOT_EXIST Code=25297228 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=队伍不存在 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_COST_NOT_ENOUGH Code=25297306 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=付费挑战失败，元宝不足 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_MAX_PAY_COMBAT Code=25297307 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=结算失败，已达当前VIP等级可付费挑战次数上限 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_TOKEN_CERTIFICATE Code=26279939 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=平台token认证失败 Abandoned=False Version=1
+
+Id=CHAT_FAILED_WORLD_FAILED_WITHIN_CD_TIME Code=26345520 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=帮派聊天失败，世界聊天cd时间内，不能进行发言 Abandoned=False Version=4
+
+Id=JEWEL_INLAY_FAILED_INVAILD_MATRIX_CENTRE_ID Code=26345531 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石镶嵌失败，不合法的阵眼id Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_JEWEL_MATRIX_NO_JEWEL Code=26345551 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石合成失败，该阵眼位没有宝石 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_ITEMS_FAILED_STORE_ITEM_NOT_ENOUGH Code=26345598 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=当前不可以刷出其他商品了 Abandoned=False Version=1
+
+Id=ACQUIRED_STORE_BUY_ITEM_FAILED_ALEARDY_HAVE Code=26345600 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=已拥有该道具，无法重复获得！ Abandoned=False Version=1
+
+Id=LEAGUE_AUGURY_AWARD_FAILED Code=26345677 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=领取失败 Abandoned=False Version=1
+
+Id=BOSSBATTLE_REVIVE_NEED_VIP Code=26345749 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=需要更高的vip等级 Abandoned=False Version=1
+
+Id=EXCHANGE_CODE_USE_FAILED_FUNCTION_NOT_OPEN Code=26345783 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=兑换码使用失败，功能暂未开启 Abandoned=False Version=1
+
+Id=MULTI_DUNGEON_FAILED_GROUP_IS_IN_COMBAT Code=26345804 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=队伍正在战斗中 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_DUNGEON_CFG_NOT_FOUND Code=26345882 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=副本配置异常 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_COST_NOT_ENOUGH Code=26345883 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=付费挑战失败，元宝不足 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_TOO_MANY_CONN Code=27328515 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=请稍后重试 Abandoned=False Version=1
+
+Id=JEWEL_INLAY_FAILED_FUNCTION_NOT_OPEN Code=27394107 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=功能未开启 Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_JEWEL_INVAILD_JEWEL_ID Code=27394127 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石合成失败，不合法的宝石ID Abandoned=False Version=1
+
+Id=BOSSBATTLE_NO_NEED_CLEAR Code=27394325 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=不需要清除CD Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_FAILED_BATTLE_SERVER_ERROR Code=27394458 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=创建战斗失败，战斗服异常 Abandoned=False Version=1
+
+Id=LEAGUE_BOSS_COMBAT_END_SYNC_FAILED_COST_ITEM_ERROR Code=27394459 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=付费挑战失败，消耗扣除异常 Abandoned=False Version=1
+
+Id=AUTH_LOGIN_FAILED_FORBID_LOGIN Code=28377091 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=登录失败， 账号封停 Abandoned=False Version=1
+
+Id=JEWEL_COMPOSE_FAILED_JEWEL_QUALITY_THAN_MATRIX Code=28442703 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=宝石合成失败，宝石品质不能超过阵眼品质 Abandoned=False Version=1
+
+Id=BOSSBATTLE_REVIVE_NEED_REAL_MONEY Code=28442901 Type=0 Content=0 OkLabel=0 CancelLabel=0 YesLabel=0 NoLabel=0 Description=元宝不足，复活失败 Abandoned=False Version=1
+
