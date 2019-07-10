@@ -11,7 +11,7 @@ namespace ClientCommon
     public class TypeNameContainer<Type>
     {
         protected static bool initialized = false;
-        private static string textSectionName = "Enum_Block";
+        private static string textSectionName = "Enum_Block"; // 部件名, 没实际用处
 
         private static List<int> typeList = new List<int>();
         private static Dictionary<string, KeyValuePair<int, string>> container = new Dictionary<string, KeyValuePair<int, string>>();

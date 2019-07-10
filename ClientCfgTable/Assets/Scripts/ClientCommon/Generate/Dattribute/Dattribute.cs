@@ -7,29 +7,21 @@ namespace ClientCommon
 	[DbTable("dattribute", "Dattribute", "Attribute", "attribute")]
     public sealed class Dattribute : AutoCreateConfigElem
 	{
-		private int _dattribute_id = 0;
+		private int dattributeId = 0;
 		[DbColumn(true, "dattribute_id")]
-		public int DattributeId { get { return _dattribute_id; } set { _dattribute_id = value; } }
+		public int DattributeId { get { return dattributeId; } set { dattributeId = value; } }
 
-		private List<AttributeList> _attribute_list = new List<AttributeList>();
+		private List<AttributeList> attributeLists = new List<AttributeList>();
 		[DbMergeColumn(typeof(AttributeList), "AttributeList")]
-		public List<AttributeList> AttributeLists { get { return _attribute_list; } }
+		public List<AttributeList> AttributeLists { get { return attributeLists; } }
 
-
-		private bool _abandoned = false;
+		private bool abandoned = false;
 		[DbColumn(false, "abandoned")]
-		public bool Abandoned { get { return _abandoned; } set { _abandoned = value; } }
+		public bool Abandoned { get { return abandoned; } set { abandoned = value; } }
 
-		private int _version = 0;
+		private int version = 0;
 		[DbColumn(false, "version")]
-		public int Version { get { return _version; } set { _version = value; } }
-
-#if UNITY_EDITOR
-		private string _comment = "";
-		[DbColumn(false, "comment")]
-		public string Comment { get { return _comment; } set { _comment = value; } }
-
-#endif
+		public int Version { get { return version; } set { version = value; } }
 	}
 
 	public class DattributeConfig : Configuration

@@ -7,6 +7,7 @@ namespace ClientCommon
         public static AbilityConfig AbilityConfig { get { return Instance.GetConfiguration<AbilityConfig>(); } }
         public static ActivityAwardConfig ActivityAwardConfig { get { return Instance.GetConfiguration<ActivityAwardConfig>(); } }
         public static AlertMessageConfig AlertMessageConfig { get { return Instance.GetConfiguration<AlertMessageConfig>(); } }
+        public static AcupointConfig AcupointConfig { get { return Instance.GetConfiguration<AcupointConfig>(); } }
         public static LeagueBossConfig LeagueBossConfig { get { return Instance.GetConfiguration<LeagueBossConfig>(); } }
         public static DattributeConfig DattributeConfig { get { return Instance.GetConfiguration<DattributeConfig>(); } }
         public static MonsterConfig MonsterConfig { get { return Instance.GetConfiguration<MonsterConfig>(); } }

@@ -28,7 +28,7 @@ namespace ClientCommon
         public string ToClassName { get { return toClassName; } }
 
         /// <summary>
-        /// toClassName成员注释, 为了不引入复杂的转换规则, 故加入该注解
+        /// toClassName成员前缀
         /// </summary>
         private string toNameStr = string.Empty;
         public string ToNameStr { get { return toNameStr; } }

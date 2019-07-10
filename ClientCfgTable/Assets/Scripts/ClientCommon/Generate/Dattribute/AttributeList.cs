@@ -2,21 +2,21 @@
 {
     public sealed class AttributeList
 	{
-		private int _attribute_type = 0;
+		private int attributeType = 0;
 		[DbColumn(false, "attribute_type", typeof(AttributeType))]
-		public int AttributeType { get { return _attribute_type; } set { _attribute_type = value; } }
+		public int AttributeType { get { return attributeType; } set { attributeType = value; } }
 
-		private float _attribute_value = 0;
+		private float attributeValue = 0;
 		[DbColumn(false, "attribute_value", null, true)]
-		public float AttributeValue { get { return _attribute_value; } set { _attribute_value = value; } }
+		public float AttributeValue { get { return attributeValue; } set { attributeValue = value; } }
 
-		private float _attribute_base = 0;
+		private float attributeBase = 0;
 		[DbColumn(false, "attribute_base", null, true)]
-		public float AttributeBase { get { return _attribute_base; } set { _attribute_base = value; } }
+		public float AttributeBase { get { return attributeBase; } set { attributeBase = value; } }
 
-		private float _attribute_growth = 0;
+		private float attributeGrowth = 0;
 		[DbColumn(false, "attribute_growth", null, true)]
-		public float AttributeGrowth { get { return _attribute_growth; } set { _attribute_growth = value; } }
+		public float AttributeGrowth { get { return attributeGrowth; } set { attributeGrowth = value; } }
 
 	}
 }

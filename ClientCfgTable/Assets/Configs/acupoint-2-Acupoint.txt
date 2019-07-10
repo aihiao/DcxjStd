@@ -1,0 +1,384 @@
+Id=1 Name=长强 ChannelId=1 IconAssert=没用了 AtributeGroupId=43 CritActivePercent=500 NextAcupointId=2 Abandoned=False Version=7
+ItemId=400000153 ItemCount=3
+ItemId=400000148 ItemCount=3
+1 2 
+2 3 
+
+Id=2 Name=陶道 ChannelId=1 IconAssert=没用了 AtributeGroupId=44 CritActivePercent=500 NextAcupointId=3 Abandoned=False Version=7
+ItemId=400000153 ItemCount=3
+ItemId=400000148 ItemCount=3
+1 2 
+2 3 
+
+Id=3 Name=哑门 ChannelId=1 IconAssert=没用了 AtributeGroupId=45 CritActivePercent=500 NextAcupointId=4 Abandoned=False Version=8
+ItemId=400000153 ItemCount=3
+ItemId=400000148 ItemCount=3
+1 2 
+2 3 
+
+Id=4 Name=风府 ChannelId=1 IconAssert=没用了 AtributeGroupId=46 CritActivePercent=500 NextAcupointId=5 Abandoned=False Version=8
+ItemId=400000153 ItemCount=3
+ItemId=400000148 ItemCount=3
+1 2 
+2 3 
+
+Id=5 Name=商曲 ChannelId=1 IconAssert=没用了 AtributeGroupId=47 CritActivePercent=500 NextAcupointId=6 Abandoned=False Version=7
+ItemId=400000153 ItemCount=3
+ItemId=400000148 ItemCount=3
+1 2 
+2 3 
+
+Id=6 Name=百会 ChannelId=1 IconAssert=没用了 AtributeGroupId=48 CritActivePercent=500 NextAcupointId=7 Abandoned=False Version=7
+ItemId=400000153 ItemCount=3
+ItemId=400000148 ItemCount=3
+1 2 
+2 3 
+
+Id=7 Name=大椎 ChannelId=1 IconAssert=没用了 AtributeGroupId=49 CritActivePercent=500 NextAcupointId=8 Abandoned=False Version=8
+ItemId=400000153 ItemCount=3
+ItemId=400000148 ItemCount=3
+1 2 
+2 3 
+
+Id=8 Name=神庭 ChannelId=1 IconAssert=没用了 AtributeGroupId=50 CritActivePercent=500 NextAcupointId=9 Abandoned=False Version=8
+ItemId=400000153 ItemCount=3
+ItemId=400000148 ItemCount=3
+2 3 
+3 4 
+
+Id=9 Name=阴跷 ChannelId=2 IconAssert=没用了 AtributeGroupId=51 CritActivePercent=500 NextAcupointId=10 Abandoned=False Version=8
+ItemId=400000153 ItemCount=5
+ItemId=400000149 ItemCount=5
+2 6 
+3 9 
+
+Id=10 Name=申脉 ChannelId=2 IconAssert=没用了 AtributeGroupId=52 CritActivePercent=500 NextAcupointId=11 Abandoned=False Version=8
+ItemId=400000153 ItemCount=5
+ItemId=400000149 ItemCount=5
+2 6 
+3 9 
+
+Id=11 Name=五枢 ChannelId=2 IconAssert=没用了 AtributeGroupId=53 CritActivePercent=500 NextAcupointId=12 Abandoned=False Version=8
+ItemId=400000153 ItemCount=5
+ItemId=400000149 ItemCount=5
+1 6 
+2 8 
+
+Id=12 Name=府舍 ChannelId=2 IconAssert=没用了 AtributeGroupId=54 CritActivePercent=500 NextAcupointId=13 Abandoned=False Version=8
+ItemId=400000153 ItemCount=5
+ItemId=400000149 ItemCount=5
+1 6 
+2 8 
+
+Id=13 Name=阳交 ChannelId=2 IconAssert=没用了 AtributeGroupId=55 CritActivePercent=500 NextAcupointId=14 Abandoned=False Version=8
+ItemId=400000153 ItemCount=5
+ItemId=400000149 ItemCount=5
+1 6 
+2 9 
+
+Id=14 Name=交信 ChannelId=2 IconAssert=没用了 AtributeGroupId=56 CritActivePercent=500 NextAcupointId=15 Abandoned=False Version=8
+ItemId=400000153 ItemCount=5
+ItemId=400000149 ItemCount=5
+1 6 
+2 9 
+
+Id=15 Name=阳跷 ChannelId=2 IconAssert=没用了 AtributeGroupId=57 CritActivePercent=500 NextAcupointId=16 Abandoned=False Version=8
+ItemId=400000153 ItemCount=5
+ItemId=400000149 ItemCount=5
+1 5 
+2 8 
+
+Id=16 Name=筑宾 ChannelId=2 IconAssert=没用了 AtributeGroupId=58 CritActivePercent=500 NextAcupointId=17 Abandoned=False Version=8
+ItemId=400000153 ItemCount=5
+ItemId=400000149 ItemCount=5
+2 8 
+3 12 
+
+Id=17 Name=中极 ChannelId=3 IconAssert=没用了 AtributeGroupId=59 CritActivePercent=500 NextAcupointId=18 Abandoned=False Version=8
+ItemId=400000154 ItemCount=10
+ItemId=400000149 ItemCount=10
+2 9 
+4 13 
+
+Id=18 Name=气冲 ChannelId=3 IconAssert=没用了 AtributeGroupId=60 CritActivePercent=500 NextAcupointId=19 Abandoned=False Version=8
+ItemId=400000154 ItemCount=10
+ItemId=400000149 ItemCount=10
+2 9 
+4 13 
+
+Id=19 Name=期门 ChannelId=3 IconAssert=没用了 AtributeGroupId=61 CritActivePercent=500 NextAcupointId=20 Abandoned=False Version=8
+ItemId=400000154 ItemCount=10
+ItemId=400000149 ItemCount=10
+2 8 
+3 11 
+
+Id=20 Name=睛明 ChannelId=3 IconAssert=没用了 AtributeGroupId=62 CritActivePercent=500 NextAcupointId=21 Abandoned=False Version=8
+ItemId=400000154 ItemCount=10
+ItemId=400000149 ItemCount=10
+2 8 
+3 11 
+
+Id=21 Name=内关 ChannelId=3 IconAssert=没用了 AtributeGroupId=63 CritActivePercent=500 NextAcupointId=22 Abandoned=False Version=8
+ItemId=400000154 ItemCount=10
+ItemId=400000149 ItemCount=10
+2 8 
+3 12 
+
+Id=22 Name=阴维 ChannelId=3 IconAssert=没用了 AtributeGroupId=64 CritActivePercent=500 NextAcupointId=23 Abandoned=False Version=8
+ItemId=400000154 ItemCount=10
+ItemId=400000149 ItemCount=10
+2 8 
+3 12 
+
+Id=23 Name=金门 ChannelId=3 IconAssert=没用了 AtributeGroupId=65 CritActivePercent=500 NextAcupointId=24 Abandoned=False Version=8
+ItemId=400000154 ItemCount=10
+ItemId=400000149 ItemCount=10
+2 8 
+3 11 
+
+Id=24 Name=关元 ChannelId=3 IconAssert=没用了 AtributeGroupId=66 CritActivePercent=500 NextAcupointId=25 Abandoned=False Version=8
+ItemId=400000154 ItemCount=10
+ItemId=400000149 ItemCount=10
+3 11 
+5 16 
+
+Id=25 Name=横骨 ChannelId=4 IconAssert=没用了 AtributeGroupId=67 CritActivePercent=500 NextAcupointId=26 Abandoned=False Version=8
+ItemId=400000154 ItemCount=15
+ItemId=400000150 ItemCount=15
+2 9 
+4 13 
+
+Id=26 Name=维道 ChannelId=4 IconAssert=没用了 AtributeGroupId=68 CritActivePercent=500 NextAcupointId=27 Abandoned=False Version=8
+ItemId=400000154 ItemCount=15
+ItemId=400000150 ItemCount=15
+2 9 
+4 13 
+
+Id=27 Name=石关 ChannelId=4 IconAssert=没用了 AtributeGroupId=69 CritActivePercent=500 NextAcupointId=28 Abandoned=False Version=8
+ItemId=400000154 ItemCount=15
+ItemId=400000150 ItemCount=15
+2 8 
+3 11 
+
+Id=28 Name=四满 ChannelId=4 IconAssert=没用了 AtributeGroupId=70 CritActivePercent=500 NextAcupointId=29 Abandoned=False Version=8
+ItemId=400000154 ItemCount=15
+ItemId=400000150 ItemCount=15
+2 8 
+3 11 
+
+Id=29 Name=仆参 ChannelId=4 IconAssert=没用了 AtributeGroupId=71 CritActivePercent=500 NextAcupointId=30 Abandoned=False Version=8
+ItemId=400000154 ItemCount=15
+ItemId=400000150 ItemCount=15
+2 8 
+3 12 
+
+Id=30 Name=阳维 ChannelId=4 IconAssert=没用了 AtributeGroupId=72 CritActivePercent=500 NextAcupointId=31 Abandoned=False Version=8
+ItemId=400000154 ItemCount=15
+ItemId=400000150 ItemCount=15
+2 8 
+3 12 
+
+Id=31 Name=会阴 ChannelId=4 IconAssert=没用了 AtributeGroupId=73 CritActivePercent=500 NextAcupointId=32 Abandoned=False Version=8
+ItemId=400000154 ItemCount=15
+ItemId=400000150 ItemCount=15
+2 8 
+3 11 
+
+Id=32 Name=幽门 ChannelId=4 IconAssert=没用了 AtributeGroupId=74 CritActivePercent=500 NextAcupointId=33 Abandoned=False Version=8
+ItemId=400000154 ItemCount=15
+ItemId=400000150 ItemCount=15
+3 11 
+5 16 
+
+Id=33 Name=大赫 ChannelId=5 IconAssert=没用了 AtributeGroupId=75 CritActivePercent=500 NextAcupointId=34 Abandoned=False Version=8
+ItemId=400000155 ItemCount=20
+ItemId=400000150 ItemCount=20
+4 13 
+6 20 
+
+Id=34 Name=下脘 ChannelId=5 IconAssert=没用了 AtributeGroupId=76 CritActivePercent=500 NextAcupointId=35 Abandoned=False Version=8
+ItemId=400000155 ItemCount=20
+ItemId=400000150 ItemCount=20
+4 13 
+6 20 
+
+Id=35 Name=阴都 ChannelId=5 IconAssert=没用了 AtributeGroupId=77 CritActivePercent=500 NextAcupointId=36 Abandoned=False Version=8
+ItemId=400000155 ItemCount=20
+ItemId=400000150 ItemCount=20
+3 11 
+5 17 
+
+Id=36 Name=腹哀 ChannelId=5 IconAssert=没用了 AtributeGroupId=78 CritActivePercent=500 NextAcupointId=37 Abandoned=False Version=8
+ItemId=400000155 ItemCount=20
+ItemId=400000150 ItemCount=20
+3 11 
+5 17 
+
+Id=37 Name=头维 ChannelId=5 IconAssert=没用了 AtributeGroupId=79 CritActivePercent=500 NextAcupointId=38 Abandoned=False Version=8
+ItemId=400000155 ItemCount=20
+ItemId=400000150 ItemCount=20
+3 12 
+5 18 
+
+Id=38 Name=通谷 ChannelId=5 IconAssert=没用了 AtributeGroupId=80 CritActivePercent=500 NextAcupointId=39 Abandoned=False Version=8
+ItemId=400000155 ItemCount=20
+ItemId=400000150 ItemCount=20
+3 12 
+5 18 
+
+Id=39 Name=冲脉 ChannelId=5 IconAssert=没用了 AtributeGroupId=81 CritActivePercent=500 NextAcupointId=40 Abandoned=False Version=8
+ItemId=400000155 ItemCount=20
+ItemId=400000150 ItemCount=20
+3 11 
+5 16 
+
+Id=40 Name=中注 ChannelId=5 IconAssert=没用了 AtributeGroupId=82 CritActivePercent=500 NextAcupointId=41 Abandoned=False Version=8
+ItemId=400000155 ItemCount=20
+ItemId=400000150 ItemCount=20
+5 16 
+7 24 
+
+Id=41 Name=气海 ChannelId=6 IconAssert=没用了 AtributeGroupId=83 CritActivePercent=500 NextAcupointId=42 Abandoned=False Version=8
+ItemId=400000155 ItemCount=30
+ItemId=400000151 ItemCount=30
+4 13 
+6 20 
+
+Id=42 Name=神阙 ChannelId=6 IconAssert=没用了 AtributeGroupId=84 CritActivePercent=500 NextAcupointId=43 Abandoned=False Version=8
+ItemId=400000155 ItemCount=30
+ItemId=400000151 ItemCount=30
+4 13 
+6 20 
+
+Id=43 Name=承灵 ChannelId=6 IconAssert=没用了 AtributeGroupId=85 CritActivePercent=500 NextAcupointId=44 Abandoned=False Version=8
+ItemId=400000155 ItemCount=30
+ItemId=400000151 ItemCount=30
+3 11 
+5 17 
+
+Id=44 Name=膻中 ChannelId=6 IconAssert=没用了 AtributeGroupId=86 CritActivePercent=500 NextAcupointId=45 Abandoned=False Version=8
+ItemId=400000155 ItemCount=30
+ItemId=400000151 ItemCount=30
+3 11 
+5 17 
+
+Id=45 Name=玉堂 ChannelId=6 IconAssert=没用了 AtributeGroupId=87 CritActivePercent=500 NextAcupointId=46 Abandoned=False Version=8
+ItemId=400000155 ItemCount=30
+ItemId=400000151 ItemCount=30
+3 12 
+5 18 
+
+Id=46 Name=华盖 ChannelId=6 IconAssert=没用了 AtributeGroupId=88 CritActivePercent=500 NextAcupointId=47 Abandoned=False Version=8
+ItemId=400000155 ItemCount=30
+ItemId=400000151 ItemCount=30
+3 12 
+5 18 
+
+Id=47 Name=璇玑 ChannelId=6 IconAssert=没用了 AtributeGroupId=89 CritActivePercent=500 NextAcupointId=48 Abandoned=False Version=8
+ItemId=400000155 ItemCount=30
+ItemId=400000151 ItemCount=30
+3 11 
+5 16 
+
+Id=48 Name=任脉 ChannelId=6 IconAssert=没用了 AtributeGroupId=90 CritActivePercent=500 NextAcupointId=49 Abandoned=False Version=8
+ItemId=400000155 ItemCount=30
+ItemId=400000151 ItemCount=30
+5 16 
+7 24 
+
+Id=49 Name=命门 ChannelId=7 IconAssert=没用了 AtributeGroupId=91 CritActivePercent=500 NextAcupointId=50 Abandoned=False Version=8
+ItemId=400000156 ItemCount=40
+ItemId=400000151 ItemCount=40
+5 17 
+8 26 
+
+Id=50 Name=悬枢 ChannelId=7 IconAssert=没用了 AtributeGroupId=92 CritActivePercent=500 NextAcupointId=51 Abandoned=False Version=8
+ItemId=400000156 ItemCount=40
+ItemId=400000151 ItemCount=40
+5 17 
+8 26 
+
+Id=51 Name=至阳 ChannelId=7 IconAssert=没用了 AtributeGroupId=93 CritActivePercent=500 NextAcupointId=52 Abandoned=False Version=8
+ItemId=400000156 ItemCount=40
+ItemId=400000151 ItemCount=40
+4 15 
+7 22 
+
+Id=52 Name=灵台 ChannelId=7 IconAssert=没用了 AtributeGroupId=94 CritActivePercent=500 NextAcupointId=53 Abandoned=False Version=8
+ItemId=400000156 ItemCount=40
+ItemId=400000151 ItemCount=40
+4 15 
+7 22 
+
+Id=53 Name=目窗 ChannelId=7 IconAssert=没用了 AtributeGroupId=95 CritActivePercent=500 NextAcupointId=54 Abandoned=False Version=8
+ItemId=400000156 ItemCount=40
+ItemId=400000151 ItemCount=40
+5 16 
+7 24 
+
+Id=54 Name=正营 ChannelId=7 IconAssert=没用了 AtributeGroupId=96 CritActivePercent=500 NextAcupointId=55 Abandoned=False Version=8
+ItemId=400000156 ItemCount=40
+ItemId=400000151 ItemCount=40
+5 16 
+7 24 
+
+Id=55 Name=上星 ChannelId=7 IconAssert=没用了 AtributeGroupId=97 CritActivePercent=500 NextAcupointId=56 Abandoned=False Version=8
+ItemId=400000156 ItemCount=40
+ItemId=400000151 ItemCount=40
+4 15 
+7 22 
+
+Id=56 Name=风池 ChannelId=7 IconAssert=没用了 AtributeGroupId=98 CritActivePercent=500 NextAcupointId=57 Abandoned=False Version=8
+ItemId=400000156 ItemCount=40
+ItemId=400000151 ItemCount=40
+7 21 
+10 32 
+
+Id=57 Name=承泣 ChannelId=8 IconAssert=没用了 AtributeGroupId=99 CritActivePercent=500 NextAcupointId=58 Abandoned=False Version=8
+ItemId=400000156 ItemCount=50
+ItemId=400000152 ItemCount=50
+5 17 
+8 26 
+
+Id=58 Name=本神 ChannelId=8 IconAssert=没用了 AtributeGroupId=815 CritActivePercent=500 NextAcupointId=59 Abandoned=False Version=8
+ItemId=400000156 ItemCount=50
+ItemId=400000152 ItemCount=50
+5 17 
+8 26 
+
+Id=59 Name=地仓 ChannelId=8 IconAssert=没用了 AtributeGroupId=816 CritActivePercent=500 NextAcupointId=60 Abandoned=False Version=8
+ItemId=400000156 ItemCount=50
+ItemId=400000152 ItemCount=50
+4 15 
+7 22 
+
+Id=60 Name=然谷 ChannelId=8 IconAssert=没用了 AtributeGroupId=817 CritActivePercent=500 NextAcupointId=61 Abandoned=False Version=8
+ItemId=400000156 ItemCount=50
+ItemId=400000152 ItemCount=50
+4 15 
+7 22 
+
+Id=61 Name=照海 ChannelId=8 IconAssert=没用了 AtributeGroupId=818 CritActivePercent=500 NextAcupointId=62 Abandoned=False Version=8
+ItemId=400000156 ItemCount=50
+ItemId=400000152 ItemCount=50
+5 16 
+7 24 
+
+Id=62 Name=天突 ChannelId=8 IconAssert=没用了 AtributeGroupId=819 CritActivePercent=500 NextAcupointId=63 Abandoned=False Version=8
+ItemId=400000156 ItemCount=50
+ItemId=400000152 ItemCount=50
+5 16 
+7 24 
+
+Id=63 Name=承浆 ChannelId=8 IconAssert=没用了 AtributeGroupId=820 CritActivePercent=500 NextAcupointId=64 Abandoned=False Version=8
+ItemId=400000156 ItemCount=50
+ItemId=400000152 ItemCount=50
+4 15 
+7 22 
+
+Id=64 Name=廉泉 ChannelId=8 IconAssert=没用了 AtributeGroupId=821 CritActivePercent=500 NextAcupointId=0 Abandoned=False Version=8
+ItemId=400000156 ItemCount=50
+ItemId=400000152 ItemCount=50
+7 21 
+10 32 
+

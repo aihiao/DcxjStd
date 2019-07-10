@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ClientCommon
@@ -9,26 +8,26 @@ namespace ClientCommon
 		/// <summary>
 		/// 伤害属性价值
 		/// </summary>
-		private static float _AttributeValueAP;
-		public static float AttributeValueAP { get { return _AttributeValueAP; } }
+		private static float attributeValueAP;
+		public static float AttributeValueAP { get { return attributeValueAP; } }
 
 		/// <summary>
 		/// 攻击速度属性价值
 		/// </summary>
-		private static float _AttributeValueASP;
-		public static float AttributeValueASP { get { return _AttributeValueASP; } }
+		private static float attributeValueASP;
+		public static float AttributeValueASP { get { return attributeValueASP; } }
 
 		/// <summary>
 		/// 会心伤害属性价值
 		/// </summary>
-		private static float _AttributeValueCDP;
-		public static float AttributeValueCDP { get { return _AttributeValueCDP; } }
+		private static float attributeValueCDP;
+		public static float AttributeValueCDP { get { return attributeValueCDP; } }
 
 		/// <summary>
 		/// 会心属性价值
 		/// </summary>
-		private static float _AttributeValueCP;
-		public static float AttributeValueCP { get { return _AttributeValueCP; } }
+		private static float attributeValueCP;
+		public static float AttributeValueCP { get { return attributeValueCP; } }
 
 		/// <summary>
 		/// 韧性属性价值
@@ -2496,7 +2495,7 @@ namespace ClientCommon
 			try
 			{
 #endif
-				_AttributeValueAP = Convert.ToSingle(GetValue("AttributeValueAP"));
+				attributeValueAP = Convert.ToSingle(GetValue("AttributeValueAP"));
 #if UNITY_EDITOR
 			}
 			catch
@@ -2508,7 +2507,7 @@ namespace ClientCommon
 			try
 			{
 #endif
-				_AttributeValueASP = Convert.ToSingle(GetValue("AttributeValueASP"));
+				attributeValueASP = Convert.ToSingle(GetValue("AttributeValueASP"));
 #if UNITY_EDITOR
 			}
 			catch
@@ -2520,7 +2519,7 @@ namespace ClientCommon
 			try
 			{
 #endif
-				_AttributeValueCDP = Convert.ToSingle(GetValue("AttributeValueCDP"));
+				attributeValueCDP = Convert.ToSingle(GetValue("AttributeValueCDP"));
 #if UNITY_EDITOR
 			}
 			catch
@@ -2532,7 +2531,7 @@ namespace ClientCommon
 			try
 			{
 #endif
-				_AttributeValueCP = Convert.ToSingle(GetValue("AttributeValueCP"));
+				attributeValueCP = Convert.ToSingle(GetValue("AttributeValueCP"));
 #if UNITY_EDITOR
 			}
 			catch

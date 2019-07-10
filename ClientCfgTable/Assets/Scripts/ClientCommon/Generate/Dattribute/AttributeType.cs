@@ -126,7 +126,9 @@
         public static void Initialize()
         {
             if (initialized)
+            {
                 return;
+            }
 
             SetTextSectionName("TypeDef_AttributeType");
 
