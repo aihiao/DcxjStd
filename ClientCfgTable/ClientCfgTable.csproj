@@ -65,12 +65,6 @@
     <Reference Include="System.Data">
       <HintPath>Assets/Plugins/Common/Sql/System.Data.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>D:/software/unity/unity538/application/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/software/unity/unity538/application/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>D:/software/unity/unity538/application/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
@@ -78,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ClientCommon\AutoCreateConfigElem.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\ConfigDataBase.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\ConfigDataBaseCfg.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Configuration.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\DbBase\CustomDbClass.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\DbBase\DbClass.cs" />
@@ -88,10 +83,10 @@
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Ability\AbilityComponent.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Ability\AbilityParameter.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\ActivityAward\ActivityAward.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Acupoint\Acupoint.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Generate\Acupoint\AcupointRequireItem.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\AlertMessage\AlertMessage.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\ConfigDataBaseGenerated.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\ConstValue\ConstValueGenerated.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\Generate\ConstValue\ConstValueName.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\AttributeList.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\AttributeType.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Generate\Dattribute\Dattribute.cs" />
@@ -113,9 +108,9 @@
     <Compile Include="Assets\Scripts\ClientCommon\SqliteAccessor\SqliteAccessor.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\SqliteAccessor\SqliteAccessorFactory.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\TypeNameContainer.cs" />
-    <Compile Include="Assets\Scripts\ClientCommon\UnpackFile2PersistentPath.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Utility\ConstValue.cs" />
     <Compile Include="Assets\Scripts\ClientCommon\Utility\SplitColumnValueParser.cs" />
+    <Compile Include="Assets\Scripts\ClientCommon\Utility\UnpackFile2PersistentPath.cs" />
     <Compile Include="Assets\Scripts\Constants\Defines.cs" />
     <Compile Include="Assets\Scripts\GameMain.cs" />
     <Compile Include="Assets\Scripts\GameStateMachine\GameStateBase.cs" />
@@ -132,8 +127,112 @@
     <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\PathUtility.cs" />
     <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\WWWRequestChecker.cs" />
     <Compile Include="Assets\Scripts\Plugins\LywGame\Utility\WWWUtility.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\LanguageSelection.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\TypewriterEffect.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIButton.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIButtonActivate.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIButtonColor.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIButtonKeys.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIButtonMessage.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIButtonOffset.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIButtonRotation.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIButtonScale.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UICenterOnChild.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UICenterOnClick.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIDragCamera.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIDragDropContainer.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIDragDropItem.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIDragDropRoot.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIDragObject.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIDragResize.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIDragScrollView.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIDraggableCamera.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIEventTrigger.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIForwardEvents.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIGrid.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIImageButton.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIKeyBinding.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIKeyNavigation.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIPlayAnimation.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIPlaySound.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIPlayTween.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIPopupList.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIProgressBar.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UISavedOption.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIScrollBar.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIScrollView.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UISlider.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UISoundVolume.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UITable.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIToggle.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIToggledComponents.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIToggledObjects.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIWidgetContainer.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Interaction\UIWrapContent.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\ActiveAnimation.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\AnimationOrTween.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\BMFont.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\BMGlyph.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\BMSymbol.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\BetterList.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\ByteReader.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\EventDelegate.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\Localization.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\NGUIDebug.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\NGUIMath.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\NGUIText.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\NGUITools.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\PropertyBinding.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\PropertyReference.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\RealTime.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\SpringPanel.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\UIBasicSprite.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\UIDrawCall.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\UIEventListener.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\UIGeometry.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\UIRect.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\UISnapshotPoint.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Internal\UIWidget.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\AnimatedAlpha.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\AnimatedColor.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\AnimatedWidget.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\SpringPosition.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenAlpha.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenColor.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenFOV.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenHeight.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenOrthoSize.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenPosition.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenRotation.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenScale.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenTransform.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenVolume.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\TweenWidth.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\Tweening\UITweener.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UI2DSprite.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UI2DSpriteAnimation.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIAnchor.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIAtlas.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UICamera.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIFont.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIInput.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIInputOnGUI.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UILabel.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UILocalize.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIOrthoCamera.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIPanel.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIRoot.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UISprite.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UISpriteAnimation.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UISpriteData.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIStretch.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UITextList.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UITexture.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UITooltip.cs" />
+    <Compile Include="Assets\Scripts\Plugins\NGUI\Scripts\UI\UIViewport.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Configs\acupoint-2-Acupoint.txt" />
     <None Include="Assets\Configs\alert_message-2-AlertMessage.txt" />
     <None Include="Assets\Configs\dattribute-2-Dattribute.txt" />
     <None Include="Assets\Configs\editor_ability-2-Ability.txt" />
@@ -142,6 +241,27 @@
     <None Include="Assets\Configs\monster-2-Monster.txt" />
     <None Include="Assets\Configs\monster_self_adaption-2-MonsterSelfAdaption.txt" />
     <None Include="Assets\Configs\sale_group-2-SaleGroup.txt" />
+    <None Include="Assets\Scripts\Plugins\NGUI\ReadMe - 3.7.7.txt" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Text.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+    <None Include="Assets\Scripts\Plugins\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
     <None Include="Assets\StreamingAssets\Configs\ConfigsVersion.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
