@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace LywGames
+﻿namespace LywGames
 {
     /// <summary>
     /// 基于MonoBehaviour的单例基类

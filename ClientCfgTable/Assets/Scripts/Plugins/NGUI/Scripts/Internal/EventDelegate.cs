@@ -482,7 +482,7 @@ public class EventDelegate
  #if UNITY_4_3 || UNITY_4_5 || UNITY_4_6
 				object[] objs = type.GetCustomAttributes(typeof(ExecuteInEditMode), true);
  #else
-				object[] objs = type.GetCustomAttributes(typeof(ExecuteInEditModeAttribute), true);
+				object[] objs = type.GetCustomAttributes(typeof(ExecuteInEditMode), true);
  #endif
 				if (objs != null && objs.Length > 0) mCachedCallback();
 			}
@@ -500,7 +500,7 @@ public class EventDelegate
  #if UNITY_4_3 || UNITY_4_5 || UNITY_4_6
 				object[] objs = type.GetCustomAttributes(typeof(ExecuteInEditMode), true);
  #else
-				object[] objs = type.GetCustomAttributes(typeof(ExecuteInEditModeAttribute), true);
+				object[] objs = type.GetCustomAttributes(typeof(ExecuteInEditMode), true);
  #endif
 				if (objs == null || objs.Length == 0) return true;
 			}
