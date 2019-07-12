@@ -87,6 +87,23 @@ namespace LywGames
             return true;
         }
 
+        public static bool CreateFile(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                return true;
+            }
+            if (CreateDirectory(Path.GetDirectoryName(filePath)))
+            {
+                using (File.Create(filePath))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         /** 1. Directory.Exists(String) 确定给定路径是否引用磁盘上的现有目录。
          *  2. File.Exists(String) 确定指定的文件是否存在。
          *  string path = "E:/Client/Assets/Scripts";
