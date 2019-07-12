@@ -60,6 +60,16 @@ public class LoggerManager
         Log(LogLevel.Debug, logger.Debug(msg), color);
     }
 
+    public void Debug(string format, params object[] args)
+    {
+        Debug(format, string.Empty, null, args);
+    }
+
+    public void Debug(string format, string color = "", params object[] args)
+    {
+        Debug(format, color, null, args);
+    }
+
     public void Debug(string format, string color = "", Object context = null, params object[] args)
     {
         Log(LogLevel.Debug, logger.Debug(format, args), color);
@@ -68,6 +78,16 @@ public class LoggerManager
     public void Info(object msg, string color = "", Object context = null)
     {
         Log(LogLevel.Info, logger.Info(msg), color);
+    }
+
+    public void Info(string format, params object[] args)
+    {
+        Info(format, string.Empty, null, args);
+    }
+
+    public void Info(string format, string color = "", params object[] args)
+    {
+        Info(format, color, null, args);
     }
 
     public void Info(string format, string color = "", Object context = null, params object[] args)
@@ -80,6 +100,16 @@ public class LoggerManager
         Log(LogLevel.Warning, logger.Warn(msg), color);
     }
 
+    public void Warn(string format, params object[] args)
+    {
+        Warn(format, string.Empty, null, args);
+    }
+
+    public void Warn(string format, string color = "", params object[] args)
+    {
+        Warn(format, color, null, args);
+    }
+
     public void Warn(string format, string color = "", Object context = null, params object[] args)
     {
         Log(LogLevel.Warning, logger.Warn(format, args), color);
@@ -88,6 +118,16 @@ public class LoggerManager
     public void Error(object msg, string color = "", Object context = null)
     {
         Log(LogLevel.Error, logger.Error(msg), color);
+    }
+
+    public void Error(string format, params object[] args)
+    {
+        Error(format, string.Empty, null, args);
+    }
+
+    public void Error(string format, string color = "", params object[] args)
+    {
+        Error(format, color, null, args);
     }
 
     public void Error(string format, string color = "", Object context = null, params object[] args)
