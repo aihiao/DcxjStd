@@ -323,7 +323,7 @@ public class UiAutoDepth
         {
             if (depthSpaceDic[layer].space <= 1)
             {
-                LoggerManager.Instance.Error("UiAutoDepth's UILayer {0} space is out of range.", string.Empty, null, layer.ToString());
+                LoggerManager.Instance.Error("UiAutoDepth's UILayer {0} space is out of range.", layer);
             }
             else
             {

@@ -14,6 +14,7 @@ public class LoggerManager
 { 
     private ILywLogger logger;
     private static Dictionary<LogLevel, bool> logLevelEnabledDic = new Dictionary<LogLevel, bool>();
+    public Dictionary<LogLevel, bool> LogLevelEnabledDic { get { return logLevelEnabledDic; } }
 
     private static LoggerManager instance = null;
     public static LoggerManager Instance
@@ -55,84 +56,64 @@ public class LoggerManager
         }
     }
 
-    public void Debug(object msg, string color = "", Object context = null)
-    {
-        Log(LogLevel.Debug, logger.Debug(msg), color);
-    }
-
     public void Debug(string format, params object[] args)
     {
-        Debug(format, string.Empty, null, args);
+        DebugColor(format, string.Empty, null, args);
     }
 
-    public void Debug(string format, string color = "", params object[] args)
+    public void DebugColor(string format, string color, params object[] args)
     {
-        Debug(format, color, null, args);
+        DebugColor(format, color, null, args);
     }
 
-    public void Debug(string format, string color = "", Object context = null, params object[] args)
+    public void DebugColor(string format, string color, Object context, params object[] args)
     {
-        Log(LogLevel.Debug, logger.Debug(format, args), color);
-    }
-
-    public void Info(object msg, string color = "", Object context = null)
-    {
-        Log(LogLevel.Info, logger.Info(msg), color);
+        Log(LogLevel.Debug, logger.Debug(format, args), color, context);
     }
 
     public void Info(string format, params object[] args)
     {
-        Info(format, string.Empty, null, args);
+        InfoColor(format, string.Empty, null, args);
     }
 
-    public void Info(string format, string color = "", params object[] args)
+    public void InfoColor(string format, string color, params object[] args)
     {
-        Info(format, color, null, args);
+        InfoColor(format, color, null, args);
     }
 
-    public void Info(string format, string color = "", Object context = null, params object[] args)
+    public void InfoColor(string format, string color, Object context = null, params object[] args)
     {
-        Log(LogLevel.Info, logger.Info(format, args), color);
-    }
-
-    public void Warn(object msg, string color = "", Object context = null)
-    {
-        Log(LogLevel.Warning, logger.Warn(msg), color);
+        Log(LogLevel.Info, logger.Info(format, args), color, context);
     }
 
     public void Warn(string format, params object[] args)
     {
-        Warn(format, string.Empty, null, args);
+        WarnColor(format, string.Empty, null, args);
     }
 
-    public void Warn(string format, string color = "", params object[] args)
+    public void WarnColor(string format, string color, params object[] args)
     {
-        Warn(format, color, null, args);
+        WarnColor(format, color, null, args);
     }
 
-    public void Warn(string format, string color = "", Object context = null, params object[] args)
+    public void WarnColor(string format, string color, Object context, params object[] args)
     {
-        Log(LogLevel.Warning, logger.Warn(format, args), color);
-    }
-
-    public void Error(object msg, string color = "", Object context = null)
-    {
-        Log(LogLevel.Error, logger.Error(msg), color);
+        Log(LogLevel.Warning, logger.Warn(format, args), color, context);
     }
 
     public void Error(string format, params object[] args)
     {
-        Error(format, string.Empty, null, args);
+        ErrorColor(format, string.Empty, null, args);
     }
 
-    public void Error(string format, string color = "", params object[] args)
+    public void ErrorColor(string format, string color, params object[] args)
     {
-        Error(format, color, null, args);
+        ErrorColor(format, color, null, args);
     }
 
-    public void Error(string format, string color = "", Object context = null, params object[] args)
+    public void ErrorColor(string format, string color, Object context, params object[] args)
     {
-        Log(LogLevel.Error, logger.Error(format, args), color);
+        Log(LogLevel.Error, logger.Error(format, args), color, context);
     }
 
     private bool IsLogLevelEnabled(LogLevel logLevel)
