@@ -11,15 +11,14 @@ public class UiAutoDepth
         public int index; // layer的下标
         public int startDepth; // layer的起始深度
         public int endDepth; // layer的结束深度
-        public int space;
+        public int space; // 同一曾经Panel深度间隔
     }
 
-    private const int DefaultLayerInnerDepthSpace = 1;
-    private const int DefaultDepthSpace = 100;
-    private const int DefaultLayerDepth = 1000;
+    private const int DefaultPanelsInnerDepthSpace = 1; // Panel内部Panel深度间隔
+    private const int DefaultPanelDepthSpace = 100; // 同一曾经Panel深度间隔
+    private const int DefaultLayerDepth = 1000; // 不同层级深度间隔
 
     private Dictionary<UiLayer, LayerData> depthSpaceDic;
-    private int depthMax;
 
     private Dictionary<UiLayer, List<UIPanel>> uiDic;
     private Dictionary<UIPanel, UiLayer> layerDic;
@@ -33,7 +32,6 @@ public class UiAutoDepth
         uiDic = new Dictionary<UiLayer, List<UIPanel>>();
         layerDic = new Dictionary<UIPanel, UiLayer>();
         depthSpaceDic = new Dictionary<UiLayer, LayerData>();
-        depthMax = layers.Length * DefaultLayerDepth;
         this.layers = layers;
 
         InitDepth();
@@ -54,7 +52,7 @@ public class UiAutoDepth
                 layerData.index = i;
                 layerData.startDepth = i * DefaultLayerDepth + 1;
                 layerData.endDepth = (i + 1) * DefaultLayerDepth;
-                layerData.space = DefaultDepthSpace;
+                layerData.space = DefaultPanelDepthSpace;
                 depthSpaceDic[layers[i]] = layerData;
                 if (!uiDic.ContainsKey(layers[i]))
                 {
@@ -121,11 +119,8 @@ public class UiAutoDepth
         }
     }
 
-    private int SortPanel(UIPanel p1, UIPanel p2)
-    {
-        return p1.depth - p2.depth;
-    }
-
+    #region 对一个Panel内部Panel进行深度排序
+    private int depthCache = 0;
     protected void ResetPanelsDepthInPanel(Transform ts, int depth)
     {
         if (ts != null && ts.gameObject.activeSelf)
@@ -135,67 +130,77 @@ public class UiAutoDepth
         }
     }
 
-    private int depthCache = 0;
     private void SetPanelDepth(Transform target, int depth)
     {
         UIPanel panel = target.GetComponent<UIPanel>();
         if (panel != null)
         {
-            panel.depth = depthCache + DefaultLayerInnerDepthSpace;
-            depthCache += DefaultLayerInnerDepthSpace;
+            panel.depth = depthCache + DefaultPanelsInnerDepthSpace;
+            depthCache += DefaultPanelsInnerDepthSpace;
         }
         for (int i = 0; i < target.childCount; i++)
         {
             SetPanelDepth(target.GetChild(i), depthCache);
         }
     }
+    #endregion
 
-    public void SortShowingUi(List<BaseUi> uiList)
+    #region 对同一层级内的所有Panel进行深度排序
+    private void AutoResetDepth(UiLayer layer = UiLayer.All)
     {
-        var sortingUis = new List<BaseUi>();
-        for (int i = 0; i < layers.Length; i++)
+        if (layer == UiLayer.All)
         {
-            UiLayer layer = layers[i];
-            sortingUis.Clear();
-            for (int j = 0; j < uiList.Count; j++)
+            for (int i = 0; i < layers.Length; i++)
             {
-                BaseUi ui = uiList[i];
-                if (ui.layer == layer)
-                {
-                    sortingUis.Add(ui);
-                }
+                ResetSingleDepth(layers[i]);
             }
-            SortLayerUi(sortingUis);
+        }
+        else
+        {
+            ResetSingleDepth(layer);
         }
     }
 
-    private void SortLayerUi(List<BaseUi> uiList)
+    private void ResetSingleDepth(UiLayer layer)
     {
-        for (int i = uiList.Count; i > 1; i--)
+        if (uiDic.ContainsKey(layer))
         {
-            for (int j = 0; j < i - 1; j++)
+            List<UIPanel> list = uiDic[layer];
+            if (list != null && list.Count > 0)
             {
-                UIPanel ui1 = GetUiPanel(uiList[j]);
-                UIPanel ui2 = GetUiPanel(uiList[j + 1]);
-
-                if (ui1.depth > ui2.depth)
+                int start = (int)layer * DefaultLayerDepth + 1;
+                for (int i = 0; i < list.Count; i++)
                 {
-                    int tempDepth = ui1.depth;
-
-                    ui1.depth = ui2.depth;
-                    ResetUiModelBackgroundDepth(uiList[j], ui1.depth);
-
-                    ui2.depth = tempDepth;
-                    ResetUiModelBackgroundDepth(uiList[j + 1], ui2.depth);
-
-                    int index = ui1.gameObject.transform.GetSiblingIndex();
-                    ui1.gameObject.transform.SetSiblingIndex(ui2.gameObject.transform.GetSiblingIndex());
-                    ui2.gameObject.transform.SetSiblingIndex(index);
+                    list[i].depth = start;
+                    ResetPanelsDepthInPanel(list[i].transform, list[i].depth);
+                    ResetUiModelBackgroundDepth(list[i], list[i].depth);
+                    start += depthSpaceDic[layer].space;
                 }
             }
         }
     }
 
+    /// <summary>
+    /// 每次重置把深度距离缩小10倍
+    /// </summary>
+    /// <param name="layer"></param>
+    private void ResetSpace(UiLayer layer)
+    {
+        if (depthSpaceDic.ContainsKey(layer))
+        {
+            if (depthSpaceDic[layer].space <= 1)
+            {
+                LoggerManager.Instance.Error("UiAutoDepth's UILayer {0} space is out of range.", layer);
+            }
+            else
+            {
+                depthSpaceDic[layer].space /= 10;
+            }
+        }
+    }
+    #endregion
+
+    #region 对Panel的modelBackground进行深度排序
     public void ResetUiModelBackgroundDepth(UIPanel ui, int uiDepth)
     {
         ResetUiModelBackgroundDepth(ui.GetComponent<BaseUi>(), uiDepth);
@@ -208,6 +213,7 @@ public class UiAutoDepth
             ui.modelBackground.depth = uiDepth - 1;
         }
     }
+    #endregion
 
     public UIPanel GetUiPanel(GameObject ui)
     {
@@ -279,55 +285,48 @@ public class UiAutoDepth
         }
     }
 
-    private void AutoResetDepth(UiLayer layer = UiLayer.All)
+    public void SortShowingUi(List<BaseUi> uiList)
     {
-        if (layer == UiLayer.All)
+        var sortingUis = new List<BaseUi>();
+        for (int i = 0; i < layers.Length; i++)
         {
-            for (int i = 0; i < layers.Length; i++)
+            UiLayer layer = layers[i];
+            sortingUis.Clear();
+            for (int j = 0; j < uiList.Count; j++)
             {
-                ResetSingleDepth(layers[i]);
-            }
-        }
-        else
-        {
-            ResetSingleDepth(layer);
-        }
-    }
-
-    private void ResetSingleDepth(UiLayer layer)
-    {
-        if (uiDic.ContainsKey(layer))
-        {
-            List<UIPanel> list = uiDic[layer];
-            if (list != null && list.Count > 0)
-            {
-                int start = (int)layer * DefaultLayerDepth + 1;
-                for (int i = 0; i < list.Count; i++)
+                BaseUi ui = uiList[i];
+                if (ui.layer == layer)
                 {
-                    list[i].depth = start;
-                    ResetPanelsDepthInPanel(list[i].transform, list[i].depth);
-                    ResetUiModelBackgroundDepth(list[i], list[i].depth);
-                    start += depthSpaceDic[layer].space;
+                    sortingUis.Add(ui);
                 }
             }
+            SortLayerUi(sortingUis);
         }
     }
 
-    /// <summary>
-    /// 每次重置把深度距离缩小10倍
-    /// </summary>
-    /// <param name="layer"></param>
-    private void ResetSpace(UiLayer layer)
+    private void SortLayerUi(List<BaseUi> uiList)
     {
-        if (depthSpaceDic.ContainsKey(layer))
+        for (int i = uiList.Count; i > 1; i--)
         {
-            if (depthSpaceDic[layer].space <= 1)
+            for (int j = 0; j < i - 1; j++)
             {
-                LoggerManager.Instance.Error("UiAutoDepth's UILayer {0} space is out of range.", layer);
-            }
-            else
-            {
-                depthSpaceDic[layer].space /= 10;
+                UIPanel ui1 = GetUiPanel(uiList[j]);
+                UIPanel ui2 = GetUiPanel(uiList[j + 1]);
+
+                if (ui1.depth > ui2.depth)
+                {
+                    int tempDepth = ui1.depth;
+
+                    ui1.depth = ui2.depth;
+                    ResetUiModelBackgroundDepth(uiList[j], ui1.depth);
+
+                    ui2.depth = tempDepth;
+                    ResetUiModelBackgroundDepth(uiList[j + 1], ui2.depth);
+
+                    int index = ui1.gameObject.transform.GetSiblingIndex();
+                    ui1.gameObject.transform.SetSiblingIndex(ui2.gameObject.transform.GetSiblingIndex());
+                    ui2.gameObject.transform.SetSiblingIndex(index);
+                }
             }
         }
     }

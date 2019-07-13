@@ -36,10 +36,10 @@ public class GameObjectUtility
             {
                 Transform tr = child.transform;
                 Vector3 position = tr.position;
-                Vector3 scale = tr.localScale;
+                Vector3 localScale = tr.localScale;
                 tr.SetParent(parent.transform);
                 tr.position = Vector3.zero; // position
-                tr.localScale = scale;
+                tr.localScale = localScale;
             }
         }
     }

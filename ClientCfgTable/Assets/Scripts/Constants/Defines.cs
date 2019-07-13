@@ -3,15 +3,15 @@
 public class Defines
 {
     // Default ui screen size
-    public static readonly Vector2 uiDefaultScreenSize = new Vector2(960, 640); 
+    public const int ScreenWidth = 960;
+    public const int ScreenHeight = 640;
+
+    public const string UIRoot = "UI Root";
 
     // Game config extension
     public const string ConfigFileExtension = "lyw";
-
     public const string ConfigsFolder = "Configs";
-
     public const string ConfigVersionFileName = "ConfigsVersion.txt";
-
 
     public const string Green = "green";
     public const string Orange = "orange";
