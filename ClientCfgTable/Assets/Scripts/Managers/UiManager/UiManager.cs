@@ -14,11 +14,7 @@ public class UiManager : AbsManager<UiManager>
 
     public void AddShowingDic(Type type, BaseUi ui)
     {
-        if (firstUiList.Contains(type))
-        {
-            return;
-        }
-        if (showingUiDic.ContainsKey(type))
+        if (firstUiList.Contains(type) || showingUiDic.ContainsKey(type))
         {
             return;
         }
@@ -114,7 +110,7 @@ public class UiManager : AbsManager<UiManager>
         else
         {
             ui.UiPanelName = typeName;
-            initUi(ui);
+            InitUi(ui);
         }
 
         // 若没命中cache,根据名字load对应的prefab
@@ -122,7 +118,7 @@ public class UiManager : AbsManager<UiManager>
         {
             ui = LoadUiPerfabByName(typeName);
             ui.UiPanelName = typeName;
-            initUi(ui);
+            InitUi(ui);
         }
         return Show(ui, ui.layer, dataList);
     }
@@ -162,6 +158,7 @@ public class UiManager : AbsManager<UiManager>
         {
             return Show(t, dataList);
         }
+        LoggerManager.Instance.Error("UiManager Show method cannot get type: {0} from typeName.", typeName);
         return null;
     }
 
@@ -177,6 +174,7 @@ public class UiManager : AbsManager<UiManager>
         {
             return Hide(t);
         }
+        LoggerManager.Instance.Error("UiManager Hide method cannot get type: {0} from typeName.", typeName);
         return null;
     }
 
@@ -239,12 +237,110 @@ public class UiManager : AbsManager<UiManager>
 
     public BaseUi GetTopestShowingUi(Func<BaseUi, bool> addationCheckCondation = null)
     {
-        return null;
+        BaseUi currentSelected = null;
+        int currentDepth = 0;
+
+        var enumerator = UiRelations.Instance.UiDic.GetEnumerator();
+        do
+        {
+            var tmpUi = enumerator.Current.Value;
+            if (tmpUi != null)
+            {
+                // 过滤不显示的ui
+                if (!tmpUi.IsShowing)
+                {
+                    continue;
+                }
+
+                bool muchToper = false;
+                if (currentSelected == null)
+                {
+                    muchToper = true;
+                }
+                else
+                {
+                    if (tmpUi.layer > currentSelected.layer)
+                    {
+                        muchToper = true;
+                    }
+                    else if (tmpUi.layer == currentSelected.layer)
+                    {
+                        var tmpPanel = tmpUi.GetComponent<UIPanel>();
+                        if (tmpPanel != null)
+                        {
+                            muchToper = tmpPanel.depth > currentDepth;
+                        }
+                    }
+                    else
+                    {
+                        muchToper = false;
+                    }
+                }
+
+                // 自定义的额外过滤条件
+                if (muchToper)
+                {
+                    if (addationCheckCondation != null && (!addationCheckCondation(tmpUi)))
+                    {
+                        muchToper = false;
+                    }
+                }
+
+                if (muchToper)
+                {
+                    currentSelected = tmpUi;
+                    var currentSelectedPanel = currentSelected.GetComponent<UIPanel>();
+                    if (currentSelectedPanel != null)
+                    {
+                        currentDepth = currentSelectedPanel.depth;
+                    }
+                }
+            }
+        } while (enumerator.MoveNext());
+
+        return currentSelected;
     }
 
     public void DestroyAll(bool iscludeShowings = false)
     {
+        List<BaseUi> toBeRemoveUis = new List<BaseUi>();
+        List<string> removeds = new List<string>();
+        foreach (var uiPair in UiRelations.Instance.UiDic)
+        {
+            if (uiPair.Value.ignoreDestory)
+            {
+                continue;
+            }
+            if (uiPair.Value.MarkedNotDestroyWhenDestroyAll)
+            {
+                uiPair.Value.MarkedNotDestroyWhenDestroyAll = false;
+            }
+            else
+            {
+                toBeRemoveUis.Add(uiPair.Value);
+                removeds.Add(uiPair.Key);
+            }
+        }
 
+        for (int i = 0; i < removeds.Count; i++)
+        {
+            if (UiRelations.Instance.UiDic.ContainsKey(removeds[i]))
+            {
+                UiRelations.Instance.UiDic.Remove(removeds[i]);
+            }
+        }
+
+        foreach (var baseUi in toBeRemoveUis)
+        {
+            if (baseUi != null)
+            {
+                if (baseUi.gameObject.activeSelf)
+                {
+                    baseUi.Hide();
+                }
+                baseUi.Destroy();
+            }
+        }
     }
 
     public void CloseAllUiByUiLayer(params UiLayer[] layers)
@@ -260,7 +356,7 @@ public class UiManager : AbsManager<UiManager>
         List<BaseUi> boBeHideUi = null;
         foreach (var ui in UiRelations.Instance.UiDic.Values)
         {
-            if (ui.layer == layer && ui.IsShowing && ui.IsShowing && ui.IsVisible)
+            if (ui.layer == layer && ui.IsShowing && ui.IsVisible)
             {
                 if (boBeHideUi == null)
                 {
@@ -286,6 +382,7 @@ public class UiManager : AbsManager<UiManager>
         {
             if (layers.Contains(ui.layer) && ui.IsShowing)
             {
+                // 有的界面关闭时会关闭多个, 保存后一起关
                 if (toBeHideUi == null)
                 {
                     toBeHideUi = new List<BaseUi>();
@@ -319,37 +416,100 @@ public class UiManager : AbsManager<UiManager>
 
     private BaseUi Create(Type type)
     {
-        return null;
+        UiRelationData relation = UiRelations.Instance.GetUiRelationData(type);
+        if (relation == null)
+        {
+            LoggerManager.Instance.Error("Create ui type: {0} cannot find.", type);
+            return null;
+        }
+        BaseUi ui = UiUtility.LoadUiPerfab(relation.type, relation.resourceName);
+        if (ui != null)
+        {
+            ui.UiPanelName = relation.resourceName;
+        }
+        InitUi(ui);
+        return ui;
     }
 
     private BaseUi Show(Type type, UiLayer layer = UiLayer.Normal, params object[] dataList)
     {
-        return null;
+        HideMutex(type, layer);
+
+        List<Type> linkedList = UiRelations.Instance.GetLinkedList(type);
+        if (linkedList == null || linkedList.Count <= 0)
+        {
+            return null;
+        }
+        BaseUi mainUi = null;
+        Type tempType = linkedList[0];
+        linkedList.RemoveAt(0);
+        linkedList.Add(tempType);
+        for (int i = 0; i < linkedList.Count; i++)
+        {
+            BaseUi ui = GetUiCreateWhenNotFind(linkedList[i]);
+            if (ui != null)
+            {
+                if (ui.GetType() == type)
+                {
+                    if (layer != UiLayer.Normal)
+                    {
+                        ui.layer = layer;
+                    }
+                    mainUi = ui;
+                }
+                ui.Show(dataList);
+            }
+        }
+        return mainUi;
     }
 
     private BaseUi Show(BaseUi ui, UiLayer layer = UiLayer.Normal, params object[] dataList)
     {
-        return null;
+        HideMutex(ui.GetType(), layer);
+        if (ui != null)
+        {
+            if (layer != UiLayer.Normal)
+            {
+                ui.layer = layer;
+            }
+            ui.Show(dataList);
+        }
+        return ui;
     }
 
     public override void Initialize(params object[] parameters)
     {
-        base.Initialize(parameters);
+        uiShell.Initialize();
+        firstUiList = new List<Type>
+        {
+
+        };
     }
 
     public override void Dispose()
     {
-        base.Dispose();
+        DestroyAll(true);
     }
 
-    private void initUi(BaseUi ui)
+    private void InitUi(BaseUi ui)
     {
-
+        if (ui != null)
+        {
+            UiRelations.Instance.AddUi(ui);
+            ui.OnShow = uiShell.OnShow;
+            ui.OnHide = uiShell.OnHide;
+            ui.OnBeDestroy = OnDestroyUi;
+            ui.RunInitialize();
+        }
     }
 
     private void OnDestroyUi(BaseUi ui)
     {
-
+        if (ui != null)
+        {
+            UiRelations.Instance.RemoveUi(ui);
+            uiShell.OnUiDestroy(ui);
+        }
     }
 
 }
