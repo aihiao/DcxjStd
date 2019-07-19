@@ -16,4 +16,5 @@ public class Defines
     public const string Green = "green";
     public const string Orange = "orange";
     public const string Cyan = "cyan"; // 青蓝色
+    public const string Fuchsia = "fuchsia";
 }

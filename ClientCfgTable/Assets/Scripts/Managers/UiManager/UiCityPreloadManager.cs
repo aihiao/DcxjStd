@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using ClientCommon;
 
 public class UiCityPreloadManager : AbsManager<UiCityPreloadManager>
 {
+    // 预加载状态
     protected enum PreloadState
     {
         Init, // 初始化
@@ -31,7 +33,12 @@ public class UiCityPreloadManager : AbsManager<UiCityPreloadManager>
         base.Initialize(parameters);
         cityPreloadList = new List<PreloadData>
         {
-
+            new PreloadData(typeof(UiPnlTipIndicator)),
+            new PreloadData(typeof(UiPnlTextTip)),
+            new PreloadData(typeof(UiPnlBag)),
+            new PreloadData(typeof(UiPnlShop)),
+            new PreloadData(typeof(UiPnlFaction)),
+            new PreloadData(typeof(UiPnlMeridian))
         };
     }
 
@@ -50,18 +57,51 @@ public class UiCityPreloadManager : AbsManager<UiCityPreloadManager>
         curLoadIndex = 0;
         for (int i = 0; i < cityPreloadList.Count; i++)
         {
-
+            var list = ConfigDataBase.MenuNavigationConfig.MenuNavigations;
+            for (int j = 0; j < list.Count; j++)
+            {
+                if (cityPreloadList[i].uiType.Name.Equals(list[j].UiRegisterName))
+                {
+                    if (UiNavigationTool.IsUnlockPanel(list[j].Id))
+                    {
+                        PreloadData data = cityPreloadList[i];
+                        data.baseUi = UiManager.Instance.CreateUiNotShow(data.uiType);
+                    }
+                }
+            }
         }
     }
 
     [System.Reflection.Obfuscation(Exclude = true, Feature = "renaming")]
     public IEnumerator StartPreloadAsync()
     {
+        curLoadIndex = 0;
+        for (int i = 0; i < cityPreloadList.Count; i++)
+        {
+            if (CheckFuncUnlock(cityPreloadList[i].uiType.Name))
+            {
+                PreloadData data = cityPreloadList[i];
+                data.baseUi = UiManager.Instance.CreateUiNotShow(data.uiType);
+            }
+            yield return null;
+        }
+
         yield return null;
     }
 
     private bool CheckFuncUnlock(string name)
     {
+        var list = ConfigDataBase.MenuNavigationConfig.MenuNavigations;
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (name.Equals(list[i].UiRegisterName))
+            {
+                if (UiNavigationTool.IsUnlockPanel(list[i].Id))
+                {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 

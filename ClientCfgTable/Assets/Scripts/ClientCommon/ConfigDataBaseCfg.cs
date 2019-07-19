@@ -14,6 +14,10 @@ namespace ClientCommon
         public static MonsterSelfAdaptionConfig MonsterSelfAdaptionConfig { get { return Instance.GetConfiguration<MonsterSelfAdaptionConfig>(); } }
         public static SaleGroupConfig SaleGroupConfig { get { return Instance.GetConfiguration<SaleGroupConfig>(); } }
         public static FactionTreeMissionConfig FactionTreeMissionConfig { get { return Instance.GetConfiguration<FactionTreeMissionConfig>(); } }
+        public static MenuNavigationConfig MenuNavigationConfig { get { return Instance.GetConfiguration<MenuNavigationConfig>(); } }
+        public static TreasureReelConfig TreasureReelConfig { get { return Instance.GetConfiguration<TreasureReelConfig>(); } }
+        public static TextConfig TextConfig { get { return Instance.GetConfiguration<TextConfig>(); } }
+        public static DungeonConfig DungeonConfig { get { return Instance.GetConfiguration<DungeonConfig>(); } }
 
         public static Dictionary<string, string> dbNameDic = new Dictionary<string, string>()
         {
