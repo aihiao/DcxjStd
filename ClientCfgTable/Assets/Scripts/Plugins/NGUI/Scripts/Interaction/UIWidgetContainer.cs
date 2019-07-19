@@ -11,4 +11,10 @@ using System.Collections;
 /// </summary>
 
 [AddComponentMenu("NGUI/Interaction/Widget Container")]
-public class UIWidgetContainer : MonoBehaviour { }
+public class UIWidgetContainer : MonoBehaviour
+{
+    public UIEventListener events
+    {
+        get { return UIEventListener.Get(gameObject); }
+    }
+}
