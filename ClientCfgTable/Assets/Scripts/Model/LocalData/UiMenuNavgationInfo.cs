@@ -17,5 +17,12 @@ public class MenuParentId
 
 public class UiMenuNavgationInfo
 {
-
+    /// <summary>
+	/// 是否面板解锁了
+	/// </summary>
+	public bool IsPanelUnlocked(string uiRegisterName)
+    {
+        
+        return false;
+    }
 }

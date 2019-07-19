@@ -17,7 +17,7 @@ public class UiNavigationTool
 	/// </summary>
     public static BaseUi Navigation2Ui(int navId)
     {
-        if (navId == ClientCommon.IdSeg.InvalidId)
+        if (navId == IdSeg.InvalidId)
         {
             LoggerManager.Instance.Info("无效的跳转!!!");
             return null;
@@ -107,6 +107,36 @@ public class UiNavigationTool
 	/// </summary>
     public static bool IsUnlockPanel(MenuNavigation nav, bool showTip = false)
     {
+        bool isParentUnlock = true;
+        if (nav.ParentMenuId != -1 && (!MenuParentId.IsMenuIgnore(nav.ParentMenuId))) // 有父菜单
+        {
+            isParentUnlock = IsUnlockPanel(nav.ParentMenuId);
+        }
+        bool isUnlocked = false;
+        switch (nav.MenuUnlockType)
+        {
+            case MenuUnlockType.DungeonUnlock:
+                break;
+            case MenuUnlockType.Dungeon:
+            case MenuUnlockType.VIPLevel:
+            case MenuUnlockType.Level:
+                isUnlocked = DataModelManager.Instance.UIMenuNavgation.IsPanelUnlocked(nav.UiRegisterName);
+                break;
+            default:
+                isUnlocked = DataModelManager.Instance.UIMenuNavgation.IsPanelUnlocked(nav.UiRegisterName);
+                break;
+        }
+
+        if (isParentUnlock && isUnlocked)
+        {
+            return true;
+        }
+
+        if (showTip)
+        {
+            ShowUnlockCondition(nav.MenuUnlockType, nav.MenuUnlockPara);
+        }
+
         return false;
     }
 
@@ -142,7 +172,9 @@ public class UiNavigationTool
                 code = "DungeonUnlockText";
                 Dungeon dung = ConfigDataBase.DungeonConfig.Get(arg);
                 if (dung != null)
+                {
                     formatArg = dung.DungeonName;
+                }
                 break;
             default:
                 code = "FunctionNotOpen";
@@ -159,7 +191,9 @@ public class UiNavigationTool
             string errormsg = "";
             Text content = ConfigDataBase.TextConfig.Get(code);
             if (string.IsNullOrEmpty(content.Content))
+            {
                 content.Content = code;
+            }
             errormsg = string.Format(content.Content, formatArg);
             AlertMessageManager.Instance.ShowPop(errormsg);
         }
@@ -173,8 +207,53 @@ public class UiNavigationTool
 	/// <param name="navArgs"></param>
     public static BaseUi Navigation2Ui(string uiRegisterName, List<string> openArgs, List<string> navArgs)
     {
+        if (string.IsNullOrEmpty(uiRegisterName))
+        {
+            LoggerManager.Instance.Error("data error uiRegisterName is null");
+            return null;
+        }
+
         Type t = Type.GetType(uiRegisterName, false, true);
+#if UNITY_EDITOR
+        if (t != null)
+        {
+            if (t.ToString() != uiRegisterName) // 防止大小写问题
+            {
+                LoggerManager.Instance.Info("try to get type for NavigationToUI, type : {0}",  uiRegisterName);
+                AssertHelper.Check(false, "can't get type of " + uiRegisterName);
+                return null;
+            }
+        }
+        else
+        {
+            AssertHelper.AssertFalse(false, "数据配置错误", "跳转界面名=" + uiRegisterName + "不存在");
+        }
+#endif
         BaseUi ui = UiRelations.Instance.GetUi(t);
+        if (ui == null || (!ui.IsShowing))
+        {
+            // 多人副本需要做更多的判断
+            if (uiRegisterName.Equals(UiPrefabNames.UiPnlTeamDungeon))
+            {
+                if (DataModelManager.Instance.TeamDungeonInfo.IsInTeam)
+                {
+                    UiManager.Instance.ShowByName(UiPrefabNames.UiPnlTeamDungeonTeam);
+                }
+                else
+                {
+                    UiManager.Instance.ShowByName(UiPrefabNames.UiPnlTeamDungeon);
+                }
+            }
+            else
+            {
+                ui = UiManager.Instance.ShowByName(uiRegisterName, openArgs.ToArray());
+            }
+        }
+
+        if (ui != null && ui.IsShowing && navArgs != null && navArgs.Count > 0)
+        {
+            ui.MenuNavigation(navArgs);
+        }
 
         return ui;
     }
