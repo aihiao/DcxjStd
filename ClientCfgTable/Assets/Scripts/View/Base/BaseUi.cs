@@ -44,17 +44,25 @@ public abstract class BaseUi : BaseMonoBehaviour
     protected Dictionary<string, UITexture> descUiIcons = new Dictionary<string, UITexture>();
 
     private bool hasInitedGameObjectLink = false;
-   
-    // 界面中显示的小红点是否需要刷新
-    private bool isRedDotShowingDirty = false;
-    private int checkRedDotShowingCounter = 0;
-  
+       
+    private bool isRedDotShowingDirty = false; // 界面中显示的小红点是否需要刷新
+    private int redDotShowingFrame = 0; // 每10帧刷新一次小红点
+
     // 运行时的界面名, 和界面的.cs类型一致
     private string uiPanelName;
     public string UiPanelName
     {
         get { return uiPanelName; }
         set { uiPanelName = value; }
+    }
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        if (OnInitialize != null)
+        {
+            OnInitialize(this);
+        }
     }
 
     /// <summary>
@@ -97,28 +105,56 @@ public abstract class BaseUi : BaseMonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ui的显示
+    /// </summary>
+    /// <param name="dataList"></param>
+    public virtual void Show(params object[] dataList)
+    {
+        BlandGameObjectLinkIfDidnt();
+
+        if (!isShowing)
+        {
+            ExecuteEvent(UiEvent.OnShow);
+            if (OnShow != null)
+            {
+                OnShow(this);
+            }
+            UiManager.Instance.AddShowingDic(GetType(), this);
+
+            if (selectedToggles != null)
+            {
+                for (int i = 0; i < selectedToggles.Count; i++)
+                {
+                    if (selectedToggles[i] != null)
+                    {
+                        selectedToggles[i].value = true;
+                    }
+                }
+            }
+        }
+
+        int layer = gameObject.layer;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).gameObject.layer != layer)
+            {
+                transform.GetChild(i).gameObject.layer = layer;
+            }
+        }
+        gameObject.SetActive(false);
+        isVisible = false;
+        isShowing = true;
+        ChangeVisible();
+    }
+
+    /// <summary>
+    /// 返回键的操作
+    /// </summary>
+    /// <param name="obj"></param>
     public virtual void OnReturn(GameObject obj)
     {
         Hide();
-    }
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        if (OnInitialize != null)
-        {
-            OnInitialize(this);
-        }
-    }
-
-    public override void Destroy()
-    {
-        base.Destroy();
-        if (OnDestroyUi != null)
-        {
-            OnDestroyUi(this);
-        }
-        Destroy(gameObject);
     }
 
     // 关闭一个界面后发消息 执行一些特殊操作
@@ -127,6 +163,9 @@ public abstract class BaseUi : BaseMonoBehaviour
 
     }
 
+    /// <summary>
+    /// ui的隐藏
+    /// </summary>
     [System.Reflection.Obfuscation(Exclude = true, Feature = "renaming")]
     public virtual void Hide()
     {
@@ -155,6 +194,27 @@ public abstract class BaseUi : BaseMonoBehaviour
     }
 
     /// <summary>
+	/// 从别的界面返回
+	/// </summary>
+    public virtual void OnBack()
+    {
+
+    }
+
+    /// <summary>
+    /// ui的销毁
+    /// </summary>
+    public override void Destroy()
+    {
+        base.Destroy();
+        if (OnDestroyUi != null)
+        {
+            OnDestroyUi(this);
+        }
+        Destroy(gameObject);
+    }
+
+    /// <summary>
 	/// 是否该界面允许指引, 如果某些事儿需要做完之后才允许指引
 	/// </summary>
 	/// <returns></returns>
@@ -172,14 +232,6 @@ public abstract class BaseUi : BaseMonoBehaviour
     public virtual void Guide(int guideType, GuideChild child, Action<Transform> foundCallBack)
     {
         
-    }
-
-    /// <summary>
-	/// 从别的界面返回
-	/// </summary>
-    public virtual void OnBack()
-    {
-
     }
 
     public void BlandGameObjectLinkIfDidnt()
@@ -234,45 +286,6 @@ public abstract class BaseUi : BaseMonoBehaviour
     static void LoadAudioRes(Transform trans)
     {
        
-    }
-
-    public virtual void Show(params object[] dataList)
-    {
-        BlandGameObjectLinkIfDidnt();
-
-        if (!isShowing)
-        {
-            ExecuteEvent(UiEvent.OnShow);
-            if (OnShow != null)
-            {
-                OnShow(this);
-            }
-            UiManager.Instance.AddShowingDic(GetType(), this);
-
-            if (selectedToggles != null)
-            {
-                for (int i = 0; i < selectedToggles.Count; i++)
-                {
-                    if (selectedToggles[i] != null)
-                    {
-                        selectedToggles[i].value = true;
-                    }
-                }
-            }
-        }
-
-        int layer = gameObject.layer;
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            if (transform.GetChild(i).gameObject.layer != layer)
-            {
-                transform.GetChild(i).gameObject.layer = layer;
-            }
-        }
-        gameObject.SetActive(false);
-        isVisible = false;
-        isShowing = true;
-        ChangeVisible();
     }
 
     /// <summary>
@@ -439,15 +452,15 @@ public abstract class BaseUi : BaseMonoBehaviour
     protected void CheckToUpdateRedDotShowing()
     {
         // 每10帧刷新一次小红点
-        checkRedDotShowingCounter++;
-        if (checkRedDotShowingCounter >= 10)
+        redDotShowingFrame++;
+        if (redDotShowingFrame >= 10)
         {
             if (isRedDotShowingDirty)
             {
                 UpdateRedDotShowingInPanel();
             }
             isRedDotShowingDirty = false;
-            checkRedDotShowingCounter = 0;
+            redDotShowingFrame = 0;
         }
     }
 
@@ -469,10 +482,5 @@ public class MenuOnBackManager
         {
             menuList.Push(menu); // 将对象插入 Stack 的顶部。
         }
-    }
-
-    public static BaseUi GetCurrentUi()
-    {
-        return menuList.Peek(); // 返回位于 Stack 顶部的对象但不将其移除。
     }
 }
