@@ -11,10 +11,10 @@ public enum UiEvent : int
 
 public abstract class BaseUi : BaseMonoBehaviour
 {
-    public Action<BaseUi> OnShow;
-    public Action<BaseUi> OnHide;
-    public Action<BaseUi> OnBeDestroy;
-    public Action<BaseUi> OnInitialize;
+    public Action<BaseUi> OnInitialize; // ui的初始化事件
+    public Action<BaseUi> OnShow; // ui的显示事件, 这里在BaseUi里反向调用UiManager辅助类UiShell的显示方法
+    public Action<BaseUi> OnHide; // ui的隐藏事件, 这里在BaseUi里反向调用UiManager辅助类UiShell的隐藏方法
+    public Action<BaseUi> OnDestroyUi; // ui的销毁事件, 这里在BaseUi里反向调用UiManager类的销毁方法
 
     [HideInInspector]
     [SerializeField]
@@ -25,7 +25,7 @@ public abstract class BaseUi : BaseMonoBehaviour
     public bool destroyOnClose = false; // 关闭时是否销毁, 默认没销毁
 
     [HideInInspector]
-    public UIPanel modelBackground;
+    public UIPanel modelBackground; // UIPnlModelBackground
 
     protected bool isMainUI = false;
 
@@ -114,9 +114,9 @@ public abstract class BaseUi : BaseMonoBehaviour
     public override void Destroy()
     {
         base.Destroy();
-        if (OnBeDestroy != null)
+        if (OnDestroyUi != null)
         {
-            OnBeDestroy(this);
+            OnDestroyUi(this);
         }
         Destroy(gameObject);
     }
@@ -163,11 +163,20 @@ public abstract class BaseUi : BaseMonoBehaviour
         return true;
     }
 
-    public virtual void Guide(int guideType, Action<Transform> foundCallBack)
+    /// <summary>
+	/// 指引目标
+	/// </summary>
+	/// <param name="guideType">指引类型ClientCommon.GuideTargetType</param>
+	/// <param name="child">指引参数，child.TargetParam</param>
+	/// <returns></returns>
+    public virtual void Guide(int guideType, GuideChild child, Action<Transform> foundCallBack)
     {
-
+        
     }
 
+    /// <summary>
+	/// 从别的界面返回
+	/// </summary>
     public virtual void OnBack()
     {
 
@@ -189,20 +198,35 @@ public abstract class BaseUi : BaseMonoBehaviour
     {
         int layer = gameObject.layer;
         UiLayer logicLayer = UiLayer.Normal;
-        if (layer == LayerMask.NameToLayer("TopMost"))
+
+        if (layer == LayerMask.NameToLayer(UiLayer.TopMost.ToString()))
+        {
             logicLayer = UiLayer.TopMost;
-        else if (layer == LayerMask.NameToLayer("Top"))
+        }
+        else if (layer == LayerMask.NameToLayer(UiLayer.Top.ToString()))
+        {
             logicLayer = UiLayer.Top;
-        else if (layer == LayerMask.NameToLayer("ShelterModel"))
+        }
+        else if (layer == LayerMask.NameToLayer(UiLayer.ShelterModel.ToString()))
+        {
             logicLayer = UiLayer.ShelterModel;
-        else if (layer == LayerMask.NameToLayer("UiModel"))
+        }
+        else if (layer == LayerMask.NameToLayer(UiLayer.UiModel.ToString()))
+        {
             logicLayer = UiLayer.UiModel;
-        else if (layer == LayerMask.NameToLayer("Normal"))
+        }
+        else if (layer == LayerMask.NameToLayer(UiLayer.Normal.ToString()))
+        {
             logicLayer = UiLayer.Normal;
-        else if (layer == LayerMask.NameToLayer("Bottom"))
+        }
+        else if (layer == LayerMask.NameToLayer(UiLayer.Bottom.ToString()))
+        {
             logicLayer = UiLayer.Bottom;
-        else if (layer == LayerMask.NameToLayer("BottomMost"))
+        }
+        else if (layer == LayerMask.NameToLayer(UiLayer.BottomMost.ToString()))
+        {
             logicLayer = UiLayer.BottomMost;
+        }
 
         this.layer = logicLayer;
     }
@@ -251,6 +275,9 @@ public abstract class BaseUi : BaseMonoBehaviour
         ChangeVisible();
     }
 
+    /// <summary>
+	/// 检测新手指引
+	/// </summary>
     protected virtual void CheckGuide()
     {
 
@@ -269,6 +296,9 @@ public abstract class BaseUi : BaseMonoBehaviour
         CheckGuide();
     }
 
+    /// <summary>
+	/// 主城检查解锁, 获得经验之后, 开了这个菜单, 关了之后, 有可能会触发解锁等事件
+	/// </summary> 
     protected void AddToBackList()
     {
         MenuOnBackManager.AddMenu(this);
@@ -343,11 +373,17 @@ public abstract class BaseUi : BaseMonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Ui被覆盖时, 覆盖操作
+    /// </summary>
     public virtual void Overlaid()
     {
 
     }
 
+    /// <summary>
+    /// Ui被移除覆盖时, 移除覆盖操作
+    /// </summary>
     public virtual void RemoveOverlay()
     {
 
@@ -431,12 +467,12 @@ public class MenuOnBackManager
     {
         if (menu != null)
         {
-            menuList.Push(menu);
+            menuList.Push(menu); // 将对象插入 Stack 的顶部。
         }
     }
 
     public static BaseUi GetCurrentUi()
     {
-        return menuList.Peek();
+        return menuList.Peek(); // 返回位于 Stack 顶部的对象但不将其移除。
     }
 }
