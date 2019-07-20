@@ -7,12 +7,12 @@ using LywGames;
 /// </summary>
 public class UiShell : AutoCreateSingleton<UiShell>
 {
-    private GameObject uiRootGo;
+    private GameObject uiRootGo; // uiRoot游戏物体
 
-    private Dictionary<UiLayer, GameObject> layerDic;
-    private Dictionary<string, Camera> layerCameraDic;
+    private Dictionary<UiLayer, GameObject> layerGoDic; // 每一层的游戏物体集合, 层对应游戏物体
+    private Dictionary<string, Camera> layerCameraDic; // 每一层的摄像机集合, 层名称对应摄像机
 
-    private UiAutoDepth autoDepth;
+    private UiAutoDepth autoDepth; // Ui深度控制
 
     public void Initialize()
     {
@@ -27,6 +27,11 @@ public class UiShell : AutoCreateSingleton<UiShell>
         UIRoot.list.Add(uiRoot);
     }
 
+    /// <summary>
+    /// 初始化UiRoot
+    /// </summary>
+    /// <param name="uiRoot"></param>
+    /// <returns></returns>
     private GameObject InitUiRoot(out UIRoot uiRoot)
     {
         GameObject go = GameObjectUtility.CreateGameObject();
@@ -41,9 +46,12 @@ public class UiShell : AutoCreateSingleton<UiShell>
         return go;
     }
 
+    /// <summary>
+    /// 初始化所有层
+    /// </summary>
     private void InitLayers()
     {
-        layerDic = new Dictionary<UiLayer, GameObject>();
+        layerGoDic = new Dictionary<UiLayer, GameObject>();
         layerCameraDic = new Dictionary<string, Camera>();
         List<UiLayer> layers = new List<UiLayer>();
         for (UiLayer i = UiLayer.TopMost; i >= UiLayer.BottomMost; i--)
@@ -54,6 +62,12 @@ public class UiShell : AutoCreateSingleton<UiShell>
         autoDepth = new UiAutoDepth(layers.ToArray());
     }
 
+    /// <summary>
+    /// 创建层
+    /// </summary>
+    /// <param name="layer"></param>
+    /// <param name="goParent"></param>
+    /// <param name="depthStart"></param>
     private void CreateNewLayer(UiLayer layer, GameObject goParent, int depthStart)
     {
         GameObject go = GameObjectUtility.CreateGameObject();
@@ -61,10 +75,16 @@ public class UiShell : AutoCreateSingleton<UiShell>
         go.AddComponent<UIPanel>().depth = depthStart;
         GameObjectUtility.AddUiChild(goParent, go);
         go.layer = LayerMask.NameToLayer(layer.ToString());
-        layerDic[layer] = go;
+        layerGoDic[layer] = go;
         CreateLayerCamera(layer, LayerMask.NameToLayer(layer.ToString()), go);
     }
 
+    /// <summary>
+    ///  创建每一层的摄像机
+    /// </summary>
+    /// <param name="layer"></param>
+    /// <param name="layerMask"></param>
+    /// <param name="cameraParent"></param>
     private void CreateLayerCamera(UiLayer layer, int layerMask, GameObject cameraParent)
     {
         GameObject go = GameObjectUtility.CreateGameObject();
@@ -85,7 +105,30 @@ public class UiShell : AutoCreateSingleton<UiShell>
         layerCameraDic.Add(layer.ToString(), camera);
     }
 
-    private void addClickEvent(BaseUi ui)
+    /// <summary>
+    /// 给Ui添加UiPnlModelBackground
+    /// </summary>
+    /// <param name="ui"></param>
+    private void AddBackground(BaseUi ui)
+    {
+        if (ui.model && ui.modelBackground == null)
+        {
+            GameObject go = GameObjectUtility.CreateGameObject(UiPrefabNames.UiPnlModelBackground);
+            go.SetActive(false);
+            UiPnlModelBackground modelBackground = go.GetComponent<UiPnlModelBackground>();
+
+            UiUtility.SetParent(modelBackground.gameObject, ui.gameObject);
+            modelBackground.transform.SetAsFirstSibling();
+            modelBackground.gameObject.SetActive(true);
+            ui.modelBackground = modelBackground.GetComponent<UIPanel>();
+        }
+    }
+
+    /// <summary>
+    /// 给UiPnlModelBackground添加点击事件
+    /// </summary>
+    /// <param name="ui"></param>
+    private void AddClickEvent(BaseUi ui)
     {
         if (ui.model && ui.autoClickHide)
         {
@@ -98,34 +141,10 @@ public class UiShell : AutoCreateSingleton<UiShell>
         }
     }
 
-    private void addBackground(BaseUi ui)
-    {
-        if (ui.model && ui.modelBackground == null)
-        {
-            GameObject go = GameObjectUtility.CreateGameObject("UiPnlModelBackground");
-            go.SetActive(false);
-            UiPnlModelBackground modelBackground = go.GetComponent<UiPnlModelBackground>();
-
-            UiUtility.SetParent(modelBackground.gameObject, ui.gameObject);
-            modelBackground.transform.SetAsFirstSibling();
-            modelBackground.gameObject.SetActive(true);
-            ui.modelBackground = modelBackground.GetComponent<UIPanel>();
-        }
-    }
-
-    private UIPanel GetPanel(BaseUi ui)
-    {
-        return autoDepth == null ? null : autoDepth.GetUiPanel(ui);
-    }
-
-    public void OnUiDestroy(BaseUi ui)
-    {
-        if (ui != null)
-        {
-            autoDepth.Remove(GetPanel(ui));
-        }
-    }
-
+    /// <summary>
+    /// ui的显示事件, 通过BaseUi的显示方法调用过来的
+    /// </summary>
+    /// <param name="ui"></param>
     public void OnShow(BaseUi ui)
     {
         if (!GetLayerCamera(ui.layer.ToString()).transform.parent.gameObject.activeSelf)
@@ -133,18 +152,22 @@ public class UiShell : AutoCreateSingleton<UiShell>
             GetLayerCamera(ui.layer.ToString()).transform.parent.gameObject.SetActive(true);
         }
         ui.gameObject.SetActive(true);
-        addBackground(ui);
-        addClickEvent(ui);
-        if (layerDic.ContainsKey(ui.layer))
+        AddBackground(ui);
+        AddClickEvent(ui);
+        if (layerGoDic.ContainsKey(ui.layer))
         {
-            GameObjectUtility.AddUiChild(layerDic[ui.layer], ui.gameObject);
+            GameObjectUtility.AddUiChild(layerGoDic[ui.layer], ui.gameObject);
         }
-        autoDepth.Add(GetPanel(ui), ui.layer);
+        autoDepth.Add(autoDepth.GetUiPanel(ui), ui.layer);
     }
 
+    /// <summary>
+    /// ui的隐藏事件, 通过BaseUi的隐藏方法调用过来的
+    /// </summary>
+    /// <param name="ui"></param>
     public void OnHide(BaseUi ui)
     {
-        autoDepth.Remove(GetPanel(ui));
+        autoDepth.Remove(autoDepth.GetUiPanel(ui));
         if (ui.destroyOnClose)
         {
             ui.Destroy();
@@ -155,9 +178,21 @@ public class UiShell : AutoCreateSingleton<UiShell>
         }
     }
 
+    /// <summary>
+    /// ui的销毁事件, 通过UiManager调用过来的
+    /// </summary>
+    /// <param name="ui"></param>
+    public void OnDestroyUi(BaseUi ui)
+    {
+        if (ui != null)
+        {
+            autoDepth.Remove(autoDepth.GetUiPanel(ui));
+        }
+    }
+
     public GameObject GetLayerGameObject(UiLayer uiLayer)
     {
-        return layerDic.ContainsKey(uiLayer) ? layerDic[uiLayer].gameObject : null;
+        return layerGoDic.ContainsKey(uiLayer) ? layerGoDic[uiLayer].gameObject : null;
     }
 
     public Camera GetLayerCamera(string uiLayer)
