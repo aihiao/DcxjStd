@@ -33,7 +33,7 @@ public class UiAutoDepth
         uiDic = new Dictionary<UiLayer, List<UIPanel>>();
         layerDic = new Dictionary<UIPanel, UiLayer>();
 
-        InitDepth();
+        InitLayerData();
     }
 
     public UiLayer[] GetLayers()
@@ -41,7 +41,7 @@ public class UiAutoDepth
         return layers;
     }
 
-    protected void InitDepth()
+    protected void InitLayerData()
     {
         if (layers != null)
         {
@@ -73,6 +73,11 @@ public class UiAutoDepth
         return 0;
     }
 
+    /// <summary>
+    /// 添加一个显示的ui
+    /// </summary>
+    /// <param name="ui"></param>
+    /// <param name="layer"></param>
     public void Add(UIPanel ui, UiLayer layer)
     {
         if (ui != null && uiDic.ContainsKey(layer) && (!uiDic[layer].Contains(ui)))
@@ -267,7 +272,7 @@ public class UiAutoDepth
         {
             layerDic.Clear();
         }
-        InitDepth();
+        InitLayerData();
         if (layer == UiLayer.All)
         {
             foreach (var item in uiDic)
