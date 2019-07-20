@@ -6,33 +6,32 @@ using UnityEngine;
 /// </summary>
 public class UiAutoDepth
 {
+    /// <summary>
+    /// 封装层级的一些层次数据
+    /// </summary>
     class LayerData
     {
         public int index; // layer的下标
         public int startDepth; // layer的起始深度
         public int endDepth; // layer的结束深度
-        public int space; // 同一曾经Panel深度间隔
+        public int space; // 同一层2个同级Panel深度间隔
     }
 
     private const int DefaultPanelsInnerDepthSpace = 1; // Panel内部Panel深度间隔
-    private const int DefaultPanelDepthSpace = 100; // 同一曾经Panel深度间隔
+    private const int DefaultPanelDepthSpace = 100; // 同一层2个同级Panel深度间隔
     private const int DefaultLayerDepth = 1000; // 不同层级深度间隔
 
-    private Dictionary<UiLayer, LayerData> depthSpaceDic;
-
-    private Dictionary<UiLayer, List<UIPanel>> uiDic;
-    private Dictionary<UIPanel, UiLayer> layerDic;
-    private UiLayer[] layers;
-
-    private List<UIPanel> cachePanels; // 这个成员缓存显示的面板，用做实现overlay和remover overlay
+    private UiLayer[] layers; // 所有层的容器
+    private Dictionary<UiLayer, LayerData> layerDataDic; // 每一层对应的层次数据的集合
+    private Dictionary<UiLayer, List<UIPanel>> uiDic; // 每一层对应的Panel的集合
+    private Dictionary<UIPanel, UiLayer> layerDic; // Panel对应层的集合
 
     public UiAutoDepth(params UiLayer[] layers)
     {
-        cachePanels = new List<UIPanel>();
+        this.layers = layers;
+        layerDataDic = new Dictionary<UiLayer, LayerData>();
         uiDic = new Dictionary<UiLayer, List<UIPanel>>();
         layerDic = new Dictionary<UIPanel, UiLayer>();
-        depthSpaceDic = new Dictionary<UiLayer, LayerData>();
-        this.layers = layers;
 
         InitDepth();
     }
@@ -53,7 +52,7 @@ public class UiAutoDepth
                 layerData.startDepth = i * DefaultLayerDepth + 1;
                 layerData.endDepth = (i + 1) * DefaultLayerDepth;
                 layerData.space = DefaultPanelDepthSpace;
-                depthSpaceDic[layers[i]] = layerData;
+                layerDataDic[layers[i]] = layerData;
                 if (!uiDic.ContainsKey(layers[i]))
                 {
                     uiDic[layers[i]] = new List<UIPanel>();
@@ -89,8 +88,8 @@ public class UiAutoDepth
             }
             ui.transform.SetAsLastSibling();
 
-            LayerData layerData = depthSpaceDic[layer];
-            if (uiDic[layer].Count > 1)
+            LayerData layerData = layerDataDic[layer];
+            if (uiDic[layer].Count > 1) // 一层2个Ui的深度初始化
             {
                 ui.depth = uiDic[layer][uiDic[layer].Count - 2].depth + layerData.space;
                 if (ui.depth >= layerData.endDepth)
@@ -100,7 +99,7 @@ public class UiAutoDepth
             }
             else
             {
-                ui.depth = layerData.startDepth;
+                ui.depth = layerData.startDepth; // 一层1个Ui的深度初始化
             }
 
             ResetPanelsDepthInPanel(ui.transform, ui.depth);
@@ -113,7 +112,7 @@ public class UiAutoDepth
                 BaseUi baseUi = GetBaseUiByPanel(panelListInLayer[count - 2]);
                 if (baseUi != null)
                 {
-                    baseUi.Overlaid();
+                    baseUi.Overlaid(); // 被覆盖的Ui进行覆盖操作
                 }
             }
         }
@@ -174,7 +173,7 @@ public class UiAutoDepth
                     list[i].depth = start;
                     ResetPanelsDepthInPanel(list[i].transform, list[i].depth);
                     ResetUiModelBackgroundDepth(list[i], list[i].depth);
-                    start += depthSpaceDic[layer].space;
+                    start += layerDataDic[layer].space;
                 }
             }
         }
@@ -186,15 +185,15 @@ public class UiAutoDepth
     /// <param name="layer"></param>
     private void ResetSpace(UiLayer layer)
     {
-        if (depthSpaceDic.ContainsKey(layer))
+        if (layerDataDic.ContainsKey(layer))
         {
-            if (depthSpaceDic[layer].space <= 1)
+            if (layerDataDic[layer].space <= 1)
             {
                 LoggerManager.Instance.Error("UiAutoDepth's UILayer {0} space is out of range.", layer);
             }
             else
             {
-                depthSpaceDic[layer].space /= 10;
+                layerDataDic[layer].space /= 10;
             }
         }
     }
