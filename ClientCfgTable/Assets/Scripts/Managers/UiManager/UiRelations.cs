@@ -21,13 +21,22 @@ public class UiRelationData
 /// </summary>
 public class UiRelations : AutoCreateSingleton<UiRelations>
 {
-    // 保存当前已显示的ui, 以prefab的名字作为key
+    // 保存当前已显示或已隐藏, 被创建过没有销毁的ui, 以prefab的名字作为key
     private Dictionary<string, BaseUi> uiDic = new Dictionary<string, BaseUi>();
     public Dictionary<string, BaseUi> UiDic { get { return uiDic; } }
 
+    // 所有ui实例容器
     private List<UiRelationData> relationList = new List<UiRelationData>();
     private Dictionary<Type, UiRelationData> relationDic = new Dictionary<Type, UiRelationData>();
-
+    /// <summary>
+    /// 注册所有的ui实例
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="resourceName"></param>
+    /// <param name="linkedTypes"></param>
+    /// <param name="hideOtherModules"></param>
+    /// <param name="igoreMutexTypes"></param>
+    /// <returns></returns>
     public bool Register(Type type, string resourceName, Type[] linkedTypes, bool hideOtherModules, Type[] igoreMutexTypes)
     {
         if (relationDic.ContainsKey(type))
@@ -83,6 +92,11 @@ public class UiRelations : AutoCreateSingleton<UiRelations>
         return uiDic.ContainsKey(prefabName) ? uiDic[prefabName] : null;
     }
 
+    /// <summary>
+    /// 添加已创建的ui
+    /// </summary>
+    /// <param name="ui"></param>
+    /// <returns></returns>
     public bool AddUi(BaseUi ui)
     {
         if (ui != null)
@@ -102,6 +116,7 @@ public class UiRelations : AutoCreateSingleton<UiRelations>
         return ui == null ? false : uiDic.Remove(ui.GetType().ToString());
     }
 
+    #region 获取关联Ui
     public List<Type> GetLinkedList(Type type, List<Type> list = null)
     {
         UiRelationData relation = GetUiRelationData(type);
@@ -147,5 +162,6 @@ public class UiRelations : AutoCreateSingleton<UiRelations>
             }
         }
     }
+    #endregion 获取关联Ui
 
 }
