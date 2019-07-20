@@ -8,10 +8,21 @@ using UnityEngine;
 /// </summary>
 public class UiManager : AbsManager<UiManager>
 {
+    private UiShell uiShell = UiShell.Instance; // UiManager的辅助类
+    public UiShell UiShell { get { return uiShell; } }
+
     private List<Type> firstUiList; // 记录固定显示的界面, 不添加到显示列表
+
+    #region 显示的ui
+    // 显示ui的容器
     private Dictionary<Type, BaseUi> showingUiDic = new Dictionary<Type, BaseUi>();
     private List<Type> showingList = new List<Type>();
-
+  
+    /// <summary>
+    /// 添加显示ui, 从BaseUi的显示方法里调用过来
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="ui"></param>
     public void AddShowingDic(Type type, BaseUi ui)
     {
         if (firstUiList.Contains(type) || showingUiDic.ContainsKey(type))
@@ -22,6 +33,10 @@ public class UiManager : AbsManager<UiManager>
         showingUiDic.Add(type, ui);
     }
 
+    /// <summary>
+    /// 移除显示ui, 从BaseUi的隐藏方法调用过来
+    /// </summary>
+    /// <param name="type"></param>
     public void RemoveShowingDic(Type type)
     {
         if (showingList.Count == 0 || type == null || (!showingUiDic.ContainsKey(type)))
@@ -35,12 +50,20 @@ public class UiManager : AbsManager<UiManager>
         }
         else
         {
-
+            // 界面没打开时不能触发。这地方关联有点多, 有空要优化下。
+            if (GetUi<UiPnlMainCityMenu>() != null)
+            {
+                GetUi<UiPnlMainCityMenu>().OnPopUi();
+            }
         }
         showingList.Remove(type);
         showingUiDic.Remove(type);
     }
 
+    /// <summary>
+    /// 获取当前显示的ui
+    /// </summary>
+    /// <returns></returns>
     public BaseUi GetCurShowingUi()
     {
         if (showingList.Count == 0)
@@ -67,6 +90,9 @@ public class UiManager : AbsManager<UiManager>
         return null;
     }
 
+    /// <summary>
+    /// 关闭所有显示的ui
+    /// </summary>
     public void CloseAllShowingUi()
     {
         for (int i = 0; i < showingList.Count; i++)
@@ -84,9 +110,7 @@ public class UiManager : AbsManager<UiManager>
             Hide(firstUiList[i]);
         }
     }
-
-    private UiShell uiShell = UiShell.Instance;
-    public UiShell UiShell { get { return uiShell; } }
+    #endregion 显示的ui
 
     public T SetIsShowing<T>(bool isShowing) where T : BaseUi
     {
@@ -98,9 +122,16 @@ public class UiManager : AbsManager<UiManager>
         return Hide<T>();
     }
 
+    /// <summary>
+    /// 通过名字显示ui
+    /// </summary>
+    /// <param name="typeName"></param>
+    /// <param name="dataList"></param>
+    /// <returns></returns>
     public BaseUi ShowByName(string typeName, params object[] dataList)
     {
         Type t = Type.GetType(typeName, false, true);
+      
         // 检查cache
         BaseUi ui = UiCityPreloadManager.Instance.GetCacheUi(t);
         if (ui == null)
@@ -109,20 +140,27 @@ public class UiManager : AbsManager<UiManager>
         }
         else
         {
+            // 在UiCityPreloadManager预加载的需要进行这一步
             ui.UiPanelName = typeName;
             InitUi(ui);
         }
 
-        // 若没命中cache,根据名字load对应的prefab
+        // 若没有cache, 根据名字load对应的prefab
         if (ui == null)
         {
             ui = LoadUiPerfabByName(typeName);
             ui.UiPanelName = typeName;
             InitUi(ui);
         }
+
         return Show(ui, ui.layer, dataList);
     }
 
+    /// <summary>
+    /// 通过名字加载ui prefab
+    /// </summary>
+    /// <param name="typeName"></param>
+    /// <returns></returns>
     private BaseUi LoadUiPerfabByName(string typeName)
     {
         GameObject go = GameObjectUtility.CreateGameObject(typeName);
@@ -228,11 +266,6 @@ public class UiManager : AbsManager<UiManager>
     public bool GetIsShowing<T>()
     {
         return UiRelations.Instance.GetIsShowing(typeof(T));
-    }
-
-    public override void OnUpdate()
-    {
-        base.OnUpdate();
     }
 
     public BaseUi GetTopestShowingUi(Func<BaseUi, bool> addationCheckCondation = null)
@@ -426,8 +459,8 @@ public class UiManager : AbsManager<UiManager>
         if (ui != null)
         {
             ui.UiPanelName = relation.resourceName;
+            InitUi(ui);
         }
-        InitUi(ui);
         return ui;
     }
 
@@ -477,19 +510,30 @@ public class UiManager : AbsManager<UiManager>
         return ui;
     }
 
+    #region 框架方法
     public override void Initialize(params object[] parameters)
     {
         uiShell.Initialize();
         firstUiList = new List<Type>
         {
-
+            typeof(UiPnlMainCityMenu),
+            typeof(UiPnlRoleInfo),
+            typeof(UiPnlCentralCityMessage),
+            typeof(UiPnlDialogSystem)
         };
+    }
+
+    public override void OnUpdate()
+    {
+        base.OnUpdate();
     }
 
     public override void Dispose()
     {
+        UiModelTool.DeleteAllModel(); // 销毁所有界面模型
         DestroyAll(true);
     }
+    #endregion 框架方法
 
     private void InitUi(BaseUi ui)
     {
@@ -498,17 +542,17 @@ public class UiManager : AbsManager<UiManager>
             UiRelations.Instance.AddUi(ui);
             ui.OnShow = uiShell.OnShow;
             ui.OnHide = uiShell.OnHide;
-            ui.OnBeDestroy = OnDestroyUi;
+            ui.OnDestroyUi = OnDestroyUi;
             ui.RunInitialize();
         }
     }
 
-    private void OnDestroyUi(BaseUi ui)
+    public void OnDestroyUi(BaseUi ui)
     {
         if (ui != null)
         {
             UiRelations.Instance.RemoveUi(ui);
-            uiShell.OnUiDestroy(ui);
+            uiShell.OnDestroyUi(ui);
         }
     }
 
