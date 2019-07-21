@@ -598,7 +598,7 @@ public class UiManager : AbsManager<UiManager>
                 }
                 else
                 {
-
+                    Platform.Instance.Exit(GameUtility.GetUiString("UIPnlMessage"), GameUtility.GetUiString("UIPnlMessage_Exit"), GameUtility.GetUiString("UIPnlMessage_Ok"), GameUtility.GetUiString("UIPnlMessage_Cancel"));
                 }
             }
         }
