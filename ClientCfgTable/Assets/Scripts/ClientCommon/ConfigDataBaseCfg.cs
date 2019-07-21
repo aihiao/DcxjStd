@@ -21,6 +21,8 @@ namespace ClientCommon
         public static MeshAssemblyConfig MeshAssemblyConfig { get { return Instance.GetConfiguration<MeshAssemblyConfig>(); } }
         public static GuideChildConfig GuideChildConfig { get { return Instance.GetConfiguration<GuideChildConfig>(); } }
         public static UiPannelConfig UiPannelConfig { get { return Instance.GetConfiguration<UiPannelConfig>(); } }
+        public static AssetPathConfig AssetPathConfig { get { return Instance.GetConfiguration<AssetPathConfig>(); } }
+        
 
         public static Dictionary<string, string> dbNameDic = new Dictionary<string, string>()
         {
