@@ -20,6 +20,7 @@ namespace ClientCommon
         public static DungeonConfig DungeonConfig { get { return Instance.GetConfiguration<DungeonConfig>(); } }
         public static MeshAssemblyConfig MeshAssemblyConfig { get { return Instance.GetConfiguration<MeshAssemblyConfig>(); } }
         public static GuideChildConfig GuideChildConfig { get { return Instance.GetConfiguration<GuideChildConfig>(); } }
+        public static UiPannelConfig UiPannelConfig { get { return Instance.GetConfiguration<UiPannelConfig>(); } }
 
         public static Dictionary<string, string> dbNameDic = new Dictionary<string, string>()
         {
