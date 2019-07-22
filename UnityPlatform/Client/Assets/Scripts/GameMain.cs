@@ -12,7 +12,14 @@ public class GameMain : MonoBehaviour
         GetRuntimePlatform();
         GetBuildTarget();
 	}
-
+    /// <summary>
+    /// 1. 在Windows编辑器模式下, 切换到Web Player、PC, Mac & Linux Standalone或者Android平台, 输出的都是WindowsEditor
+    /// 2. 在Mac编辑器模式下, 切换到PC, Mac & Linux Standalone或者ios平台, 输出的都是OSXEditor
+    /// 3. 在Windows编辑器模式下, 切换到Web Player、PC, Mac平台, Build工程, 运行exe, 输出的都是WindowsPlayer
+    /// 4. 在Mac编辑器模式下, 切换到Web Player、PC, Mac平台, Build工程, 运行app, 输出的都是OSXPlayer
+    /// 5. 在Windows编辑器模式下, 切换到Android平台, Build的出apk, 真机运行, 输出的都是Android
+    /// 6. 在Mac编辑器模式下, 切换到ios平台, Build的出xcode工程, 真机运行, 输出的都是IPhonePlayer
+    /// </summary>
     void GetRuntimePlatform()
     {
         if (Application.platform == RuntimePlatform.WindowsEditor)
@@ -45,6 +52,14 @@ public class GameMain : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 只有在编辑器模式下才可以使用, 构建exe、app、ipa或者apk均不能使用
+    /// 1. 在Windows编辑器模式下, 切换到Web Player平台, 输出的都是WebPlayer
+    /// 2. 在Windows编辑器模式下, 切换到PC, Mac & Linux Standalone平台, 输出的都是StandaloneWindows
+    /// 3. 在Windows编辑器模式下, 切换到Android平台, 输出的都是Android
+    /// 4. 在Mac编辑器模式下, 切换到PC, Mac & Linux Standalone平台, 输出的都是StandaloneOSXIntel
+    /// 5. 在Mac编辑器模式下, 切换到ios平台, 输出的都是ios
+    /// </summary>
     void GetBuildTarget()
     {
 #if UNITY_EDITOR
