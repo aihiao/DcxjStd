@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class UiModelTool
 {
+    public static void DeleteAllModel()
+    {
+
+    }
+
     public static void ChangeTransformLayer(GameObject go, string uiLayer)
     {
         if (go == null)
