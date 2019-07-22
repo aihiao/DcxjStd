@@ -6,7 +6,7 @@ using LywGames;
 
 public class ResourceManager : AbsManager<ResourceManager>
 {
-    private Dictionary<string, UnityEngine.Object> _cacheDic = new Dictionary<string, UnityEngine.Object>();
+    private Dictionary<string, UnityEngine.Object> cacheDic = new Dictionary<string, UnityEngine.Object>();
 
     private const string AssetBundleIdPrefix = "assets/resources/";
 
@@ -17,7 +17,7 @@ public class ResourceManager : AbsManager<ResourceManager>
 
     public void Clear()
     {
-        _cacheDic.Clear();
+        cacheDic.Clear();
     }
 
     public void Unload(bool unloadAllLoadedobjects = false)
@@ -61,7 +61,7 @@ public class ResourceManager : AbsManager<ResourceManager>
         }
 
         assetId = assetId.Trim();
-        var assetPath = ClientCommon.AssetPathUtility.GetAssetPath(assetType, assetId);
+        var assetPath = AssetPathUtility.GetAssetPath(assetType, assetId);
 
         if (detiledLog)
         {
@@ -71,13 +71,13 @@ public class ResourceManager : AbsManager<ResourceManager>
         UnityEngine.Object ob = null;
 
         bool matchDic = false;
-        if (_cacheDic.ContainsKey(assetPath))
+        if (cacheDic.ContainsKey(assetPath))
         {
-            ob = _cacheDic[assetPath];
+            ob = cacheDic[assetPath];
 
             if (detiledLog)
             {
-                LoggerManager.Instance.Info("log reload:  ob is null ? " + ((ob == null || ob.IsNull()) ? "true" : "false"));
+                LoggerManager.Instance.Info("log reload:  ob is null ? " + ((ob == null) ? "true" : "false"));
             }
             if (ob != null)
             {
@@ -86,7 +86,7 @@ public class ResourceManager : AbsManager<ResourceManager>
             }
             else
             {
-                _cacheDic.Remove(assetPath);
+                cacheDic.Remove(assetPath);
             }
         }
 
@@ -110,7 +110,7 @@ public class ResourceManager : AbsManager<ResourceManager>
             {
                 if (isCache)
                 {
-                    _cacheDic[assetPath] = ob;
+                    cacheDic[assetPath] = ob;
                 }
             }
         }
