@@ -1,6 +1,7 @@
 ﻿using System.IO;
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using LywGames;
 
 /** 
     * 1. Application.dataPath 包含游戏数据文件夹的路径(apk的安装路径)
@@ -33,19 +34,49 @@ using System.Collections;
 
 public class FileManager : AbsManager<FileManager>
 {
-
-    public static string GetDataPath(string subPath)
+    public static string GetPath(string path, string subPath)
     {
-        return Application.dataPath + Path.AltDirectorySeparatorChar + subPath;
+        if (!string.IsNullOrEmpty(subPath))
+        {
+            return path + Path.AltDirectorySeparatorChar + subPath;
+        }
+        return path;
     }
 
-    public static string GetStreamingPath(string subPath)
+    public static string GetDataPath(string subPath, bool is4WWW = false)
     {
-        return Application.streamingAssetsPath + Path.AltDirectorySeparatorChar + subPath;
+        if (is4WWW)
+        {
+            return PathUtility.GetLocalUrl4WWW(GetPath(Application.dataPath, subPath));
+        }
+        return GetPath(Application.dataPath, subPath);
     }
 
-    public static string GetPersistentPath(string subPath)
+    public static string GetStreamingAssetsPath(string subPath, bool is4WWW = false)
     {
-        return Application.persistentDataPath + Path.AltDirectorySeparatorChar + subPath;
+        if (is4WWW)
+        {
+            return PathUtility.GetLocalUrl4WWW(GetPath(Application.streamingAssetsPath, subPath));
+        }
+        return GetPath(Application.streamingAssetsPath, subPath);
     }
+
+    public static string GetTemporaryCachePath(string subPath, bool is4WWW = false)
+    {
+        if (is4WWW)
+        {
+            return PathUtility.GetLocalUrl4WWW(GetPath(Application.temporaryCachePath, subPath));
+        }
+        return GetPath(Application.temporaryCachePath, subPath);
+    }
+
+    public static string GetPersistentDataPath(string subPath, bool is4WWW = false)
+    {
+        if (is4WWW)
+        {
+            return PathUtility.GetLocalUrl4WWW(GetPath(Application.persistentDataPath, subPath));
+        }
+        return GetPath(Application.persistentDataPath, subPath);
+    }
+
 }

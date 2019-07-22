@@ -66,7 +66,7 @@ namespace LywGames
             return UnifyPath(path, toLower);
         }
 
-        public static string GetLocalFileUrl(string url)
+        public static string GetLocalUrl4WWW(string url)
         {
             if (!url.Contains("file:///"))
             {

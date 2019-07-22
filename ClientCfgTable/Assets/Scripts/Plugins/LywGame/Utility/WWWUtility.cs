@@ -14,7 +14,7 @@ namespace LywGames
          **/
         public static void GetLocalTextureByWWW(string url, System.Action<Texture> onLoad, MonoBehaviour mb)
         {
-            GetTextureByWWW(PathUtility.GetLocalFileUrl(url), onLoad, mb);
+            GetTextureByWWW(PathUtility.GetLocalUrl4WWW(url), onLoad, mb);
         }
 
         public static void GetTextureByWWW(string url, System.Action<Texture> onLoad, MonoBehaviour mb)
@@ -24,7 +24,7 @@ namespace LywGames
 
         public static void GetLocalSpriteByWWW(string url, System.Action<Sprite> onLoad, MonoBehaviour mb)
         {
-            GetSpriteByWWW(PathUtility.GetLocalFileUrl(url), onLoad, mb);
+            GetSpriteByWWW(PathUtility.GetLocalUrl4WWW(url), onLoad, mb);
         }
 
         public static void GetSpriteByWWW(string url, System.Action<Sprite> onLoad, MonoBehaviour mb)
@@ -78,7 +78,7 @@ namespace LywGames
 
         public static void GetLocalAudioClipByWWW(string url, bool threeD, System.Action<AudioClip> onLoad, MonoBehaviour mb)
         {
-            GetAudioClipByWWW(PathUtility.GetLocalFileUrl(url), threeD, onLoad, mb);
+            GetAudioClipByWWW(PathUtility.GetLocalUrl4WWW(url), threeD, onLoad, mb);
         }
 
         public static void GetAudioClipByWWW(string url, bool threeD, System.Action<AudioClip> onLoad, MonoBehaviour mb)
@@ -118,7 +118,7 @@ namespace LywGames
 
         public static void GetLocalTextByWWW(string url, System.Action<string> onLoad, MonoBehaviour mb)
         {
-            GetTextByWWW(PathUtility.GetLocalFileUrl(url), onLoad, mb);
+            GetTextByWWW(PathUtility.GetLocalUrl4WWW(url), onLoad, mb);
         }
 
         public static void GetTextByWWW(string url, System.Action<string> onLoad, MonoBehaviour mb)
@@ -158,7 +158,7 @@ namespace LywGames
 
         public static void GetLocalAbByWWW(string url, System.Action<AssetBundle> onLoad, MonoBehaviour mb)
         {
-            GetAbByWWW(PathUtility.GetLocalFileUrl(url), onLoad, mb);
+            GetAbByWWW(PathUtility.GetLocalUrl4WWW(url), onLoad, mb);
         }
 
         public static void GetAbByWWW(string url, System.Action<AssetBundle> onLoad, MonoBehaviour mb)

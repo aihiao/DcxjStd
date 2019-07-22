@@ -59,7 +59,7 @@ namespace ClientCommon
             }
             inited = true;
 
-            defaultPath = FileManager.GetPersistentPath(subPath);
+            defaultPath = FileManager.GetPersistentDataPath(subPath);
 
             ConstructConfigDbPath();
             SetAccessorFactory(dbAccessorFactory);

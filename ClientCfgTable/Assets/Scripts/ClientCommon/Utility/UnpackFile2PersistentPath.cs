@@ -34,7 +34,7 @@ namespace ClientCommon
             {
                 long oldVersion = long.MinValue;
 
-                string markFilePath = PathUtility.GetLocalFileUrl(FileManager.GetStreamingPath(subPath)) + Path.AltDirectorySeparatorChar + existMarkFile;
+                string markFilePath = PathUtility.GetLocalUrl4WWW(FileManager.GetStreamingAssetsPath(subPath)) + Path.AltDirectorySeparatorChar + existMarkFile;
                 WWW loader = new WWW(markFilePath);
                 yield return loader;
                 
@@ -47,10 +47,10 @@ namespace ClientCommon
                     Debug.LogError(e.StackTrace);
                 }
 
-                markFilePath = FileManager.GetPersistentPath(subPath) + Path.AltDirectorySeparatorChar + existMarkFile;
+                markFilePath = FileManager.GetPersistentDataPath(subPath) + Path.AltDirectorySeparatorChar + existMarkFile;
                 if (File.Exists(markFilePath))
                 {
-                    loader = new WWW(PathUtility.GetLocalFileUrl(markFilePath));
+                    loader = new WWW(PathUtility.GetLocalUrl4WWW(markFilePath));
                     yield return loader;
                     try
                     {
@@ -74,7 +74,7 @@ namespace ClientCommon
             }
             else
             {
-                string checkPath = FileManager.GetPersistentPath(subPath) + Path.AltDirectorySeparatorChar + existMarkFile;
+                string checkPath = FileManager.GetPersistentDataPath(subPath) + Path.AltDirectorySeparatorChar + existMarkFile;
                 needCache = !File.Exists(checkPath);
             }
 
@@ -84,8 +84,8 @@ namespace ClientCommon
             {
                 foreach (var filePath in filePathList)
                 {
-                    string persistentFilePath = FileManager.GetPersistentPath(subPath + Path.AltDirectorySeparatorChar + filePath);
-                    string streamingFilePath = FileManager.GetStreamingPath(subPath + Path.AltDirectorySeparatorChar + filePath);
+                    string persistentFilePath = FileManager.GetPersistentDataPath(subPath + Path.AltDirectorySeparatorChar + filePath);
+                    string streamingFilePath = FileManager.GetStreamingAssetsPath(subPath + Path.AltDirectorySeparatorChar + filePath);
 
                     /// <summary>
                     /// warning!!!!!
@@ -95,7 +95,7 @@ namespace ClientCommon
                     /// 所以在外边套了一层wwwChecker
                     /// coroutineMono 也是为了能开启这个协程
                     /// </summary>
-                    WWW www = new WWW(PathUtility.GetLocalFileUrl(streamingFilePath));
+                    WWW www = new WWW(PathUtility.GetLocalUrl4WWW(streamingFilePath));
                     WWWRequestChecker wwwChecker = new WWWRequestChecker(www);
                     yield return coroutineMb.StartCoroutine(wwwChecker);
                     if (wwwChecker.IsError)
@@ -134,7 +134,7 @@ namespace ClientCommon
                 bool executeSuccess = copyAllFileSuccess && (copyFileCount == filePathList.Count);
                 if (executeSuccess)
                 {
-                    string persistentMarkFilePath = FileManager.GetPersistentPath(subPath) + Path.AltDirectorySeparatorChar + existMarkFile;
+                    string persistentMarkFilePath = FileManager.GetPersistentDataPath(subPath) + Path.AltDirectorySeparatorChar + existMarkFile;
                     PathUtility.CreateDirectory(Path.GetDirectoryName(persistentMarkFilePath));
 
                     try
@@ -181,7 +181,7 @@ namespace ClientCommon
             }
             else
             {
-                Debug.LogWarning("Version checked pass, not copy file from " + FileManager.GetStreamingPath(subPath) + "  to  " + FileManager.GetPersistentPath(subPath));
+                Debug.LogWarning("Version checked pass, not copy file from " + FileManager.GetStreamingAssetsPath(subPath) + "  to  " + FileManager.GetPersistentDataPath(subPath));
             }
 
             if (onFinishDelegate != null)

@@ -12,7 +12,7 @@ namespace LywGames
         {
             logFilePath += DateTime.Now.Ticks;
             logFilePath += logFileExtension;
-            logFilePath = FileManager.GetPersistentPath(logFilePath);
+            logFilePath = FileManager.GetPersistentDataPath(logFilePath);
         }
 
         public string Debug(string format, params object[] args)
