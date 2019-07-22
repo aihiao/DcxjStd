@@ -234,6 +234,9 @@ public abstract class BaseUi : BaseMonoBehaviour
         
     }
 
+    /// <summary>
+    /// ui GameObject关联的初始化
+    /// </summary>
     public void BlandGameObjectLinkIfDidnt()
     {
         if (!hasInitedGameObjectLink)
