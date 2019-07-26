@@ -54,7 +54,7 @@ public class AssetBundleLoadLevelOperation : AssetBundleLoadOperation
         this.loadingProgress = loadingProgress;
     }
 
-    public override bool IsDone()
+    public override bool Update()
     {
         if (request != null)
         {
@@ -64,7 +64,7 @@ public class AssetBundleLoadLevelOperation : AssetBundleLoadOperation
         LoadedAssetBundle bundle = AssetBundleManager.GetLoadedAssetBundle(assetBundleName, out downloadingError);
         if (bundle != null)
         {
-            SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
+            request = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
             return false;
         }
         else
@@ -73,7 +73,7 @@ public class AssetBundleLoadLevelOperation : AssetBundleLoadOperation
         }
     }
 
-    public override bool Update()
+    public override bool IsDone()
     {
         if (request == null && downloadingError != null)
         {
