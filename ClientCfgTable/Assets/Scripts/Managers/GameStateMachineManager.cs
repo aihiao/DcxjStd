@@ -5,7 +5,7 @@ using UnityEngine;
 /// 状态机控制器
 /// 用于游戏大状态的切换, 比如登录, 选区, 主城等.
 /// </summary>
-public class GameStateMachineManager : AbsManager<GameStateMachineManager>
+public class GameStateMachineManager : AbsManager<GameStateMachineManager>, SceneManager.ISceneManagerListener
 {
     private GameStateBase currentState;
     // 有时, 某些状态只是被临时stop, 有个更高的状态被处理, 此时不销毁, 而是把它压栈, 再高级状态结束后再出栈
@@ -223,5 +223,18 @@ public class GameStateMachineManager : AbsManager<GameStateMachineManager>
     {
         return currentState != null ? currentState.StateType : GameStateBase.GameStateType.InValid;
     }
+
+    #region ISceneManagerListener
+    public void OnSceneWillChange(SceneManager manager, string currentScene, string newScene)
+    {
+        // 切换场景之前, 进行一次无效资源的释放
+        GameShellManager.Instance.FreeMemory();
+    }
+
+    public void OnSceneChanged(SceneManager manager, string oldScene, string currentScene)
+    {
+        System.GC.Collect();
+    }
+    #endregion
 
 }
