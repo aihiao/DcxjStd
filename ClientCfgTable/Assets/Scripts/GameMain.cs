@@ -12,11 +12,12 @@ public class GameMain : MonoSingleton<GameMain>
         Application.backgroundLoadingPriority = ThreadPriority.BelowNormal;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
     }
     
     private void Start()
     {
+        DontDestroyOnLoad(this);
         Initialize();
     }
 
@@ -37,5 +38,15 @@ public class GameMain : MonoSingleton<GameMain>
         GlobalManager.Instance.OnGUI();
     }
 #endif
+
+    public void CreatePlatform()
+    {
+        if (GetComponent<Platform>() != null)
+        {
+            return;
+        }
+        IPlatformListener platformListener = PlatformListener.Instance;
+        Platform.CreateOnGameObject(gameObject, platformListener);
+    }
 
 }
