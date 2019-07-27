@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public abstract class AssetBundleLoadOperation : IEnumerator
 {
@@ -64,7 +63,7 @@ public class AssetBundleLoadLevelOperation : AssetBundleLoadOperation
         LoadedAssetBundle bundle = AssetBundleManager.GetLoadedAssetBundle(assetBundleName, out downloadingError);
         if (bundle != null)
         {
-            request = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
+            request = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(levelName, UnityEngine.SceneManagement.LoadSceneMode.Single);
             return false;
         }
         else
