@@ -33,4 +33,10 @@ public class DataModelManager : AbsManager<DataModelManager>
         }
     }
 
+    private long roleId = long.MaxValue;
+    public long RoleId
+    {
+        get { return roleId; }
+        set { roleId = value; }
+    }
 }
