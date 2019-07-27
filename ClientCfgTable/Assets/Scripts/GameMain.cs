@@ -23,6 +23,8 @@ public class GameMain : MonoSingleton<GameMain>
 
     private void Initialize()
     {
+        TimeEx.Initialize();
+
         GlobalManager.Instance.Initialize(gameObject);
         GlobalManager.Instance.Add<GameStateMachineManager>().EnterState<GameStateInitializing>();
     }
