@@ -1,25 +1,26 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
+using System.Reflection;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 切换关卡只有两种形式
-/// ChangeScene: 异步
-/// ChangeSceneSync: 同步
+/// 场景管理器
+/// 切换关卡只有两种形式: ChangeScene(异步); ChangeSceneSync(同步)
 /// </summary>
 public class SceneManager : AbsManager<SceneManager>
 {
     public interface ISceneManagerListener
     {
-        void OnSceneWillChange(SceneManager manager, string currentScene, string newScene);
-        void OnSceneChanged(SceneManager manager, string oldScene, string currentScene);
+        void OnSceneWillChange(SceneManager manager, string currentSceneName, string newSceneName);
+        void OnSceneChanged(SceneManager manager, string oldSceneName, string currentSceneName);
     }
 
-    private string startScene = "";
-    public string StartScene { get { return startScene; } }
+    private string startSceneName = "";
+    public string StartSceneName { get { return startSceneName; } }
 
-    public string CurrentScene { get { return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name; } }
+    public string CurrentSceneName { get { return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name; } }
 
     public List<ISceneManagerListener> sceneManagerListeners = new List<ISceneManagerListener>();
 
@@ -61,29 +62,32 @@ public class SceneManager : AbsManager<SceneManager>
     public override void Initialize(params object[] parameters)
     {
         base.Initialize(parameters);
-       
-        startScene = CurrentScene;
+
+        // Save start scene and current scene
+        startSceneName = CurrentSceneName;
     }
 
     public bool IsSceneLoaded(string sceneName)
     {
-        return CurrentScene.Equals(GetSceneName(sceneName), StringComparison.InvariantCultureIgnoreCase);
+        return CurrentSceneName.Equals(GetSceneName(sceneName), StringComparison.InvariantCultureIgnoreCase);
     }
 
 
     /// <summary>
-    /// 切换关卡前的判断，检查切换是否合法
+    /// 切换关卡前的判断, 检查切换是否合法
     /// </summary>
     private bool CheckSceneChanging(string sceneName, bool forceLoad)
     {
-        if (sceneName == startScene)
+        if (sceneName == startSceneName)
         {
             LoggerManager.Instance.Error("Can not reload start scene.");
             return false;
         }
 
-        if (forceLoad == false && sceneName.Equals(CurrentScene))
+        if (forceLoad == false && sceneName.Equals(CurrentSceneName))
+        {
             return false;
+        }
 
         return true;
     }
@@ -113,105 +117,61 @@ public class SceneManager : AbsManager<SceneManager>
         sceneName = GetSceneName(sceneName);
 
         if (CheckSceneChanging(sceneName, forceLoad) == false)
+        {
             return;
+        }
 
         // Notice listener scene will change
         for (int i = 0; i < sceneManagerListeners.Count; ++i)
-            sceneManagerListeners[i].OnSceneWillChange(this, CurrentScene, sceneName);
+        {
+            sceneManagerListeners[i].OnSceneWillChange(this, CurrentSceneName, sceneName);
+        }
 
         // Load level
         LoggerManager.Instance.Info("LoadLevel : " + sceneName);
-        string oldScene = CurrentScene;
-        // Application.LoadLevel(sceneName);
+
+        string oldSceneName = CurrentSceneName;
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
 
-        OnChangeSceneCompleted(oldScene);
-
-        selfLoadingProgress = 1f;
+        OnChangeSceneCompleted(oldSceneName);
     }
 
-    // 切换到空场景，用于释放内存
+    /// <summary>
+    /// 切换到空场景, 用于释放内存
+    /// </summary>
     public void ChangeToEmptyLevelForMemoryRelease()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(Application.loadedLevelName == "empty01" ? "empty02" : "empty01", UnityEngine.SceneManagement.LoadSceneMode.Single);
-        //Application.LoadLevel(Application.loadedLevelName == "empty01" ? "empty02" : "empty01");
     }
 
-    public Coroutine ChangeSceneAsync(string sceneName, bool forceLoad = true)
-    {
-        //Application.LoadLevel(Application.loadedLevelName == "empty01" ? "empty02" : "empty01");
-
-        selfLoadingProgress = 0f;
-        StopCoroutine("DoChangeSceneAsync");
-        return StartCoroutine("DoChangeSceneAsync", new object[] { sceneName, forceLoad });
-    }
-
-    public System.Collections.IEnumerator ChangeSceneAsyncByAssetBundle(string assetbundleName, string sceneName, ILoadingProgress loadingBar, bool forceLoad = true)
-    {
-        //Application.LoadLevel(Application.loadedLevelName == "empty01" ? "empty02" : "empty01");
-        //yield return null;
-
-        Debug.LogWarning("-----sync load " + assetbundleName);
-        selfLoadingProgress = 0f;
-        //ProcessBeforeChangeScene(sceneName, forceLoad);
-        sceneName = GetSceneName(sceneName);
-
-        // Previous action maybe stop, Wait for previous loading finished
-        while (Application.isLoadingLevel)
-        {
-            Debug.LogWarning("Waiting for previous loading finished");
-            yield return null;
-        }
-
-        if (CheckSceneChanging(sceneName, forceLoad) == false)
-            yield break;
-
-        // Notice listener scene will change
-        for (int i = 0; i < sceneManagerListeners.Count; ++i)
-            sceneManagerListeners[i].OnSceneWillChange(this, CurrentScene, sceneName);
-
-        yield return null;
-        yield return null;
-
-        yield return StartCoroutine(AssetBundleManager.LoadLevelAsync(assetbundleName, sceneName, false, loadingBar));
-
-
-        string oldScene = CurrentScene;
-        OnChangeSceneCompleted(oldScene);
-
-        AssetBundleManager.UnloadAssetBundle(assetbundleName);
-
-
-        yield return null;
-        yield return null;
-    }
-
-    [System.Reflection.Obfuscation(Exclude = true, Feature = "renaming")]
-    private System.Collections.IEnumerator DoChangeSceneAsync(object[] param)
+    [Obfuscation(Exclude = true, Feature = "renaming")]
+    private IEnumerator DoChangeSceneAsync(object[] param)
     {
         string sceneName = param[0] as string;
         bool forceLoad = (bool)param[1];
-        //yield return StartCoroutine(ProcessBeforeChangeScene(sceneName, forceLoad));
+
         sceneName = GetSceneName(sceneName);
 
         // Previous action maybe stop, Wait for previous loading finished
         while (Application.isLoadingLevel)
         {
-            Debug.LogWarning("Waiting for previous loading finished");
+            LoggerManager.Instance.Warn("Waiting for previous loading finished");
             yield return null;
         }
 
         if (CheckSceneChanging(sceneName, forceLoad) == false)
+        {
             yield break;
+        }
 
         // Notice listener scene will change
         for (int i = 0; i < sceneManagerListeners.Count; ++i)
-            sceneManagerListeners[i].OnSceneWillChange(this, CurrentScene, sceneName);
+        {
+            sceneManagerListeners[i].OnSceneWillChange(this, CurrentSceneName, sceneName);
+        }
         selfLoadingProgress = 0.05f;
         yield return null;
 
-
-        // AsyncOperation operation = Application.LoadLevelAsync(sceneName);
         AsyncOperation operation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
         curentAysncOperation = operation;
         selfLoadingProgress = 0.1f;
@@ -222,26 +182,65 @@ public class SceneManager : AbsManager<SceneManager>
         }
 
         // Load unity level and save the destination scene.
-        string oldScene = CurrentScene;
-        OnChangeSceneCompleted(oldScene);
+        string oldSceneName = CurrentSceneName;
+        OnChangeSceneCompleted(oldSceneName);
+
         yield return null;
-        selfLoadingProgress = 1f;
         yield return null;
     }
 
-    private void OnChangeSceneCompleted(string oldScene)
+    public Coroutine ChangeSceneAsync(string sceneName, bool forceLoad = true)
+    {
+        selfLoadingProgress = 0f;
+        StopCoroutine("DoChangeSceneAsync");
+        return StartCoroutine("DoChangeSceneAsync", new object[] { sceneName, forceLoad });
+    }
+
+    public IEnumerator ChangeSceneAsyncByAssetBundle(string assetbundleName, string sceneName, ILoadingProgress loadingBar, bool forceLoad = true)
+    {
+        LoggerManager.Instance.Warn("-----sync load " + assetbundleName);
+        selfLoadingProgress = 0f;
+        sceneName = GetSceneName(sceneName);
+
+        // Previous action maybe stop, Wait for previous loading finished
+        while (Application.isLoadingLevel)
+        {
+            LoggerManager.Instance.Warn("Waiting for previous loading finished");
+            yield return null;
+        }
+
+        if (CheckSceneChanging(sceneName, forceLoad) == false)
+        {
+            yield break;
+        }
+
+        // Notice listener scene will change
+        for (int i = 0; i < sceneManagerListeners.Count; ++i)
+        {
+            sceneManagerListeners[i].OnSceneWillChange(this, CurrentSceneName, sceneName);
+        }
+
+        yield return null;
+        yield return null;
+
+        yield return StartCoroutine(AssetBundleManager.LoadLevelAsync(assetbundleName, sceneName, false, loadingBar));
+
+        string oldSceneName = CurrentSceneName;
+        OnChangeSceneCompleted(oldSceneName);
+
+        AssetBundleManager.UnloadAssetBundle(assetbundleName);
+
+        yield return null;
+        yield return null;
+    }
+
+    private void OnChangeSceneCompleted(string oldSceneName)
     {
         // Notice listener scene changed
         for (int i = 0; i < sceneManagerListeners.Count; ++i)
-            sceneManagerListeners[i].OnSceneChanged(this, CurrentScene, oldScene);
-
-        // Player BGM
-        //string currentMusic = ClientServerCommon.ConfigDatabase.DefaultCfg.SceneConfig.GetBgMusicBySceneName(CurrentScene);
-        //if (!AudioManager.Instance.IsMusicPlaying(currentMusic))
-        //{
-        //    AudioManager.Instance.StopMusic();
-        //    AudioManager.Instance.PlayMusic(currentMusic, true);
-        //}
+        {
+            sceneManagerListeners[i].OnSceneChanged(this, CurrentSceneName, oldSceneName);
+        }
         selfLoadingProgress = 1f;
         curentAysncOperation = null;
     }
