@@ -22,4 +22,10 @@ public class PlatformListener : AutoCreateSingleton<PlatformListener>, IPlatform
     {
         
     }
+
+    public void ProcessLogout()
+    {
+
+    }
+
 }
