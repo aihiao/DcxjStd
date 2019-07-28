@@ -26,9 +26,7 @@ public class GameStateInitializing : GameStateBase
         GameObject panel = Instantiate(prefab) as GameObject;
         panel.transform.localPosition = Vector3.zero;
         float a = 1, b = 320, c = a / b;
-        panel.transform.localScale = new UnityEngine.Vector3(c, c, c);
-
-        GlobalManager.Instance.Add<GameShellManager>();
+        panel.transform.localScale = new Vector3(c, c, c);
 
         StartCoroutine(ConfigDataBase.Instance.ConstructLocalConfigDbFile(Defines.ConfigsFolder, this));
     }
@@ -55,7 +53,7 @@ public class GameStateInitializing : GameStateBase
 
         ConfigDataBase.Instance.Initialize(new SqliteAccessorFactory(), Defines.ConfigsFolder);
         AddCounter();
-
+        
         GlobalManager.Instance.Add<DataModelManager>();
         AddCounter();
 

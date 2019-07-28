@@ -26,6 +26,7 @@ public class GameMain : MonoSingleton<GameMain>
         TimeEx.Initialize();
 
         GlobalManager.Instance.Initialize(gameObject);
+        GlobalManager.Instance.Add<GameShellManager>();
         GlobalManager.Instance.Add<GameStateMachineManager>().EnterState<GameStateInitializing>();
     }
 
