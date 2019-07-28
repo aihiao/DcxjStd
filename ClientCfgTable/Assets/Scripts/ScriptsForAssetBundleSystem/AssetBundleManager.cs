@@ -437,6 +437,15 @@ public class AssetBundleManager : AbsManager<AssetBundleManager>
         return false;
     }
 
+    public static void Reset()
+    {
+        downloadingErrorDic.Clear();
+        downloadingWWWDic.Clear();
+        loadedAssetBundleDic.Clear();
+        inProgressOperationList.Clear();
+        dependencyDic.Clear();
+    }
+
 }
 
 public interface ILoadingProgress
