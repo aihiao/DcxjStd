@@ -1,44 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 public class GameConfigManager : AbsManager<GameConfigManager>
 {
     // cheat level name
-    static string debugDungeonName = "";
+    private static string debugDungeonName = "";
     public static string DebugDungeonName
     {
-        get { return GameConfigManager.debugDungeonName; }
-        set { GameConfigManager.debugDungeonName = value; }
+        get { return debugDungeonName; }
+        set { debugDungeonName = value; }
     }
 
     // cheat level id
-    static int debugDungeonId = -1;
+    private static int debugDungeonId = -1;
     public static int DebugDungeonId
     {
-        get { return GameConfigManager.debugDungeonId; }
-        set { GameConfigManager.debugDungeonId = value; }
+        get { return debugDungeonId; }
+        set { debugDungeonId = value; }
     }
 
-
-
-    static bool isDebugingUiPnl;
-
+    private static bool isDebugingUiPnl;
     public static bool IsDebugingUiPnl
     {
         get { return isDebugingUiPnl; }
         set { isDebugingUiPnl = value; }
     }
-    static string debugingUiPnlName;
 
+    private static string debugingUiPnlName;
     public static string DebugingUiPnlName
     {
         get { return debugingUiPnlName; }
         set { debugingUiPnlName = value; }
     }
 
-    static bool debugForceAllowEnterDungeon = false;
+    private static bool debugForceAllowEnterDungeon = false;
     public static bool DebugForceAllowEnterDungeon
     {
         get { return debugForceAllowEnterDungeon; }
@@ -46,57 +40,48 @@ public class GameConfigManager : AbsManager<GameConfigManager>
     }
 
     // end of cheat
-
-    static bool usingAssetToLoadResource = !true;
-
+    private static bool usingAssetToLoadResource = !true;
     public static bool UsingAssetToLoadResource
     {
-        get { return GameConfigManager.usingAssetToLoadResource; }
-        set { GameConfigManager.usingAssetToLoadResource = value; }
+        get { return usingAssetToLoadResource; }
+        set { usingAssetToLoadResource = value; }
     }
 
     // 优化想干选项
-    static bool optAllowShadow = true;
-
+    private static bool optAllowShadow = true;
     public static bool OptAllowShadow
     {
-        get { return GameConfigManager.optAllowShadow; }
-        set { GameConfigManager.optAllowShadow = value; }
+        get { return optAllowShadow; }
+        set { optAllowShadow = value; }
     }
 
-    static bool optAllowNpcShadow = true;
-
+    private static bool optAllowNpcShadow = true;
     public static bool OptAllowNpcShadow
     {
-        get { return GameConfigManager.optAllowNpcShadow && OptAllowShadow; }
-        set { GameConfigManager.optAllowNpcShadow = value; }
+        get { return optAllowNpcShadow && OptAllowShadow; }
+        set { optAllowNpcShadow = value; }
     }
 
-    static bool optAllowOtherPlayerShadow = true;
-
+    private static bool optAllowOtherPlayerShadow = true;
     public static bool OptAllowOtherPlayerShadow
     {
-        get { return GameConfigManager.optAllowOtherPlayerShadow && OptAllowShadow; }
-        set { GameConfigManager.optAllowOtherPlayerShadow = value; }
+        get { return optAllowOtherPlayerShadow && OptAllowShadow; }
+        set { optAllowOtherPlayerShadow = value; }
     }
-
-
 
     private static bool debugShowMainCityDebugGui = false;
-
     public static bool DebugShowMainCityDebugGui
     {
-        get { return GameConfigManager.debugShowMainCityDebugGui; }
-        set { GameConfigManager.debugShowMainCityDebugGui = value; }
+        get { return debugShowMainCityDebugGui; }
+        set { debugShowMainCityDebugGui = value; }
     }
-    private static bool debugEnableGuide = false;
 
+    private static bool debugEnableGuide = false;
     public static bool DebugEnableGuide
     {
-        get { return GameConfigManager.debugEnableGuide; }
-        set { GameConfigManager.debugEnableGuide = value; }
+        get { return debugEnableGuide; }
+        set { debugEnableGuide = value; }
     }
-
 
     private static int gloableFxPropertyLevel = -1;
     public static int GloableFxPropertyLevel
@@ -104,23 +89,32 @@ public class GameConfigManager : AbsManager<GameConfigManager>
         get
         {
             if (!PlayerSaveData.CanUseLocalData())
+            {
                 return 7;
+            }
             if (gloableFxPropertyLevel == -1)
             {
                 if (!int.TryParse(PlayerSaveData.Instance.GetValueInDic(PlayerSaveData.SaveDataKeys.FxPropertyLevel), out gloableFxPropertyLevel))
+                {
                     gloableFxPropertyLevel = 7;
+
+                }
             }
+
             return gloableFxPropertyLevel;
         }
+
         set
         {
             gloableFxPropertyLevel = value;
             if (PlayerSaveData.CanUseLocalData())
+            {
                 PlayerSaveData.Instance.AddToDic(PlayerSaveData.SaveDataKeys.FxPropertyLevel, gloableFxPropertyLevel.ToString());
+            }
         }
     }
 
     //界面选项索引和特效等级的映射  因为值比较特殊  这样存下
-    public static Dictionary<int, int> FxIndexAndLevelDic = new Dictionary<int, int>() { { 1, 1 }, { 2, 4 }, { 3, 7 } };
-    public static Dictionary<int, int> FxLevelAndIndexDic = new Dictionary<int, int>() { { 1, 0 }, { 4, 1 }, { 7, 2 } };
+    public static Dictionary<int, int> fxIndexAndLevelDic = new Dictionary<int, int>() { { 1, 1 }, { 2, 4 }, { 3, 7 } };
+    public static Dictionary<int, int> fxLevelAndIndexDic = new Dictionary<int, int>() { { 1, 0 }, { 4, 1 }, { 7, 2 } };
 }
