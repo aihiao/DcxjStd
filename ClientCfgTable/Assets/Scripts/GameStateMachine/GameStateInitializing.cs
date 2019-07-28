@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using ClientCommon;
+using LywGames;
 
 /// <summary>
 /// 游戏进入的第一个状态, 这个状态在游戏整个生命周期只会进入一次
@@ -48,6 +49,10 @@ public class GameStateInitializing : GameStateBase
         }
         isInited = true;
 
+        // 初始化随机工具的seed，int在这里没作用，所有的模板都使用同一个seed
+        RandomExt<int>.RandomizeSeed();
+        AddCounter();
+
         LywInt.SetKey(Random.Range(1, int.MaxValue - 1));
         AddCounter();
 
@@ -73,10 +78,19 @@ public class GameStateInitializing : GameStateBase
         GlobalManager.Instance.Add<ResourceManager>();
         AddCounter();
 
+        GlobalManager.Instance.Add<HotFixManager>();
+        AddCounter();
+
         GlobalManager.Instance.Add<FileManager>();
         AddCounter();
 
+        GlobalManager.Instance.Add<InputManager>("InResource/Constants/EasyTouch"); // TODO : 从配置文件读取路径
+        AddCounter();
+
         GlobalManager.Instance.Add<UiManager>();
+        AddCounter();
+
+        GlobalManager.Instance.Add<UiQueueManager>();
         AddCounter();
 
         GlobalManager.Instance.Add<UiCityPreloadManager>();
