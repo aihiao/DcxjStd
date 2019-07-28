@@ -1,5 +1,5 @@
 ﻿using LywGames;
-using LywGames.Message;
+using LywGames.Messages;
 
 public class ReConnectManager : AbsManager<ReConnectManager>
 {
