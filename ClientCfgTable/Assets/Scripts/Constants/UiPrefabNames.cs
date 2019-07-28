@@ -6,4 +6,5 @@
     public const string UiPnlTeamDungeon = "UiPnlTeamDungeon";
     public const string UiPnlTeamDungeonTeam = "UiPnlTeamDungeonTeam";
     public const string UiPnlModelBackground = "UiPnlModelBackground";
+    public const string UiPnlReconnectMessage = "UiPnlReconnectMessage";
 }
