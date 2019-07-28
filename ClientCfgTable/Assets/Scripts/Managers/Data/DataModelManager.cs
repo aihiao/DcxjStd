@@ -5,6 +5,23 @@ using System.Text;
 
 public class DataModelManager : AbsManager<DataModelManager>
 {
+    /// <summary>
+	/// 登录
+	/// </summary>
+	private LoginInfo loginInfo = null;
+    public LoginInfo LoginInfo
+    {
+        get
+        {
+            if (loginInfo == null)
+            {
+                loginInfo = new LoginInfo();
+                loginInfo.Initialize(); //在这里初始化一下就好了，省的在调用的时候先初始化
+            }
+
+            return loginInfo;
+        }
+    }
 
     //多人副本
     private TeamDungeonInfo teamDungeonInfo;
