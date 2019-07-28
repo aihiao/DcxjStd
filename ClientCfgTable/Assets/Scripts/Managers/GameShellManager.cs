@@ -117,6 +117,11 @@ public class GameShellManager : AbsManager<GameShellManager>
         }
     }
 
+    public void OnRequestManagerBusy(bool busy)
+    {
+
+    }
+
     private bool brokenDlgShown = false;
     public void OnRequestManagerBroken(string brokenMessage)
     {
