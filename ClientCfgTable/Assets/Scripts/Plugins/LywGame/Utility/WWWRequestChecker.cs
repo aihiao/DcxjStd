@@ -20,9 +20,15 @@ namespace LywGames
         private bool isTimeOut = false;
         public bool IsTimeOut { get { return isTimeOut; } }
 
-        public WWWRequestChecker(WWW www, bool enableTimer = false)
+        public WWWRequestChecker(WWW www)
         {
             this.www = www;
+            this.timer = Time.realtimeSinceStartup;
+        }
+
+        public WWWRequestChecker(string url, bool enableTimer = false)
+        {
+            this.www = new WWW(url);
             this.enableTimer = enableTimer;
             this.timer = Time.realtimeSinceStartup;
         }
