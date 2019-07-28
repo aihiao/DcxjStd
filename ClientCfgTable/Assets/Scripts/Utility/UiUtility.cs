@@ -5,6 +5,29 @@ using UnityEngine;
 
 public class UiUtility
 {
+    /// <summary>
+	/// 深度遍历子节点，通过名字获取Gameobject
+	/// </summary>
+	public static GameObject FindChild(GameObject father, string name)
+    {
+        GameObject obj = null;
+        int childCount = father.transform.childCount;
+
+        if (father.name == name)
+        {
+            obj = father;
+            return father;
+        }
+
+        for (int i = 0; i < childCount; i++)
+        {
+            obj = FindChild(father.transform.GetChild(i).gameObject, name);
+            if (obj != null)
+                break;
+        }
+        return obj;
+    }
+
     public static T AddIfMissing<T>(GameObject go) where T : Component
     {
         T component = (T)go.GetComponent(typeof(T));
