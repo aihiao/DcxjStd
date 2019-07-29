@@ -58,8 +58,14 @@ public class GameStateInitializing : GameStateBase
 
         ConfigDataBase.Instance.Initialize(new SqliteAccessorFactory(), Defines.ConfigsFolder);
         AddCounter();
-        
+
+        GlobalManager.Instance.Add<LabelTagManager>();
+        AddCounter();
+
         GlobalManager.Instance.Add<DataModelManager>();
+        AddCounter();
+
+        GlobalManager.Instance.Add<ConfigUpdateManager>();
         AddCounter();
 
         GlobalManager.Instance.Add<SceneManager>().AddSceneManagerListener(MachineManager);
