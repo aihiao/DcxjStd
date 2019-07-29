@@ -1,10 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using ClientCommon;
 using UnityEngine;
 
 public class UiUtility
 {
+    /// <summary>
+	/// 将text附加颜色，用于label显示, colorType 必须是 ClientCommon.ColorType的枚举
+	/// </summary>
+	/// <param name="text">原始文本</param>
+	/// <param name="colorStr">必须是ClientCommon.ColorType的枚举</param>
+    public static string GetTextColorString(string text, int colorType)
+    {
+        return string.Format(ColorType.GetDisplayNameByType(colorType), text);
+    }
+
     /// <summary>
 	/// 深度遍历子节点，通过名字获取Gameobject
 	/// </summary>
