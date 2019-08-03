@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using LywGames.Messages.Proto.Auth;
 
 public class DataModelManager : AbsManager<DataModelManager>
 {
@@ -21,6 +21,13 @@ public class DataModelManager : AbsManager<DataModelManager>
 
             return loginInfo;
         }
+    }
+
+    private LoginRes.AreaPro areaInfo;
+    public LoginRes.AreaPro AreaInfo
+    {
+        get { return areaInfo; }
+        set { areaInfo = value; }
     }
 
     //多人副本
