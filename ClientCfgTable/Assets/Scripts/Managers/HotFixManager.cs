@@ -145,7 +145,7 @@ public class HotFixManager : AbsManager<HotFixManager>
 
 	public string GetDownloadProgress(int maxCount, out int currentCount)
 	{
-		currentCount = Math.Min(downloadedTasks.Count, maxCount);
+		currentCount = System.Math.Min(downloadedTasks.Count, maxCount);
 		return string.Format("{0}/{1}", currentCount, maxCount);
 	}
 
