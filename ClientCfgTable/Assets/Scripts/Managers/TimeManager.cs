@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LywGames;
-using LywGames.Message.Proto.Game;
+using LywGames.Messages.Proto.Game;
 
 public class TimeManager : AbsManager<TimeManager>
 {
