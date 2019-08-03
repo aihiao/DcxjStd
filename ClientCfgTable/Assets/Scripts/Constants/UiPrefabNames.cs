@@ -8,4 +8,5 @@
     public const string UiPnlModelBackground = "UiPnlModelBackground";
     public const string UiPnlReconnectMessage = "UiPnlReconnectMessage";
     public const string UiPnlLogin = "UiPnlLogin";
+    public const string UiPnlTipIndicator = "UiPnlTipIndicator";
 }
