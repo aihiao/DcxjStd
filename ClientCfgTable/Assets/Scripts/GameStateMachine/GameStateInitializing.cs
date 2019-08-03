@@ -108,6 +108,9 @@ public class GameStateInitializing : GameStateBase
         GlobalManager.Instance.Add<IconManager>();
         AddCounter();
 
+        GlobalManager.Instance.Add<FxManager>("AnimationCurve"); // Objects/Other/
+        AddCounter();
+
         GlobalManager.Instance.Add<TimeManager>();
         AddCounter();
 
