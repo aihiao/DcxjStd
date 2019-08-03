@@ -17,4 +17,29 @@ public class Defines
     public const string Orange = "orange";
     public const string Cyan = "cyan"; // 青蓝色
     public const string Fuchsia = "fuchsia";
+
+    //-------------------------------------------------------------------------
+    // Game data key.
+    //-------------------------------------------------------------------------
+    public const string gdHasSvDt = "HasSaveData";
+    public const string gdMscVlm = "MusicVolume";
+    public const string gdSndVlm = "SoundVolume";
+    public const string gdVdoQlt = "vdoQuality";
+    public const string gdMscSwt = "MusicSwitch";
+    public const string gdSndSwt = "SoundSwitch";
+    public const string gdQuickLogin = "QuickLogin";
+    public const string gdAcc = "Account";
+    public const string gdPwdLength = "PasswordLength";
+    public const string gdPwd = "Password";
+    public const string gdisPasswordEncrypted = "IsPasswordEncrypted";
+    public const string gdHasAccountLogined = "HasAccountLogined";
+    public const string gdTtrl = "Tutorial";
+    public const string gdRemoteIcon = "RemoteIcon";
+    public const string gdGameConfigVersion = "GameConfigVersion";
+    public const string gdCampaignCombatFinish = "CampaignCombatFinish";
+    public const string gdQuickEquipHint = "QuickEquipHint";
+    public const string gdConfirm = "ConfirmSwith";
+    public const string gdPlayerName = "PlayerName";
+    public const string gdPlayerId = "PlayerId";
+
 }
