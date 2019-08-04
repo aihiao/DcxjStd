@@ -30,6 +30,7 @@ public class UILabel : UIWidget
 		ClampContent,
 		ResizeFreely,
 		ResizeHeight,
+        ResizeFreelyInRange,
 	}
 
 	public enum Crispness
@@ -38,6 +39,33 @@ public class UILabel : UIWidget
 		OnDesktop,
 		Always,
 	}
+
+    public static Action<UILabel, string> onInit;
+    public static Action<UILabel, object[]> setParams;
+    public static Func<object, uint, string> getParam;
+
+    public bool useTagLabel = true;
+
+    [NonSerialized]
+    [HideInInspector]
+    public bool hasTagTextInited = false;
+
+    public void SetParams(params object[] values)
+    {
+        if (setParams != null && values != null)
+        {
+            SetParams(this, values);
+        }
+    }
+
+    public string GetParam(object value, uint color = default(uint))
+    {
+        if (getParam != null)
+        {
+            return getParam(value, color);
+        }
+        return "";
+    }
 
 	/// <summary>
 	/// Whether the label will keep its content crisp even when shrunk.
@@ -79,6 +107,10 @@ public class UILabel : UIWidget
 	[HideInInspector][SerializeField] float mLineWidth = 0;
 	[HideInInspector][SerializeField] bool mMultiline = true;
 
+    public string tagText;
+    public string runTimeTagText;
+    public string FormatString = "{0}";
+
 #if DYNAMIC_FONT
 	[System.NonSerialized]
 	Font mActiveTTF = null;
@@ -92,6 +124,35 @@ public class UILabel : UIWidget
 	int mPrintedSize = 0;
 	int mLastWidth = 0;
 	int mLastHeight = 0;
+
+    [HideInInspector]
+    [SerializeField]
+    public UiEmojiSlot emojiSlot;
+    public UiEmojiSlot EmojiSlot { get { return emojiSlot; } }
+    public bool HasDynamicEmoji { get { return emojiSlot != null && emojiSlot.IsValid; } }
+
+    [NonSerialized]
+    UiEmojiManager emojiManager = null;
+    public UiEmojiManager EmojiManager
+    {
+        get
+        {
+            if (mSymbols != NGUIText.SymbolStyle.None && HasDynamicEmoji)
+            {
+                if (emojiManager == null)
+                {
+                    emojiManager = new UiEmojiManager(this);
+                }
+            }
+            else if (emojiManager != null)
+            {
+                emojiManager.Destroy();
+                emojiManager = null;
+            }
+
+            return emojiManager;
+        }
+    }
 
 	/// <summary>
 	/// Function used to determine if something has changed (and thus the geometry must be rebuilt)
