@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using LywGames.Messages.Proto.Game;
 
 namespace LywGames.Messages
 {
-    public class CGQueryLoginGameMessage : Message
+    [Message(ProtocolId = 131078, IsRequest = true)]
+    public class CGQueryLoginGameMessage : ProtocolMessage<QueryLoginGameDataREQ>
     {
     }
 }
