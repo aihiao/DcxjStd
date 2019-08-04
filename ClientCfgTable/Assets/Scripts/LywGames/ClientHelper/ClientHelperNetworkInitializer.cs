@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net.Sockets;
-using LywGames.Protocol;
+﻿using System.Net.Sockets;
 using LywGames.Network;
 
 namespace LywGames.ClientHelper
