@@ -20,11 +20,19 @@ static public class NGUITools
 	static bool mLoaded = false;
 	static float mGlobalVolume = 1f;
 
-	/// <summary>
-	/// Globally accessible volume affecting all sounds played via NGUITools.PlaySound().
-	/// </summary>
+    static bool enablePlaySound;
+    public static bool EnablePlaySound
+    {
+        get { return enablePlaySound; }
+        set { enablePlaySound = value; }
+    }
 
-	static public float soundVolume
+
+    /// <summary>
+    /// Globally accessible volume affecting all sounds played via NGUITools.PlaySound().
+    /// </summary>
+
+    static public float soundVolume
 	{
 		get
 		{
