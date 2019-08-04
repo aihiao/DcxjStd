@@ -74,7 +74,7 @@ namespace LywGames.Network
                         num = msgBuffer.GetInt32(offset);
                         goto IL_7A;
                 }
-                throw new CorruptedFrameException("should not reach here");
+                throw new Exception("should not reach here");
                 IL_7A:
                 if (num < 0)
                 {
