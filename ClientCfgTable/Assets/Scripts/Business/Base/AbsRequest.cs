@@ -6,13 +6,34 @@ using LywGames.Messages;
 /// </summary>
 public abstract class BaseRequest
 {
-    // Invalid request id.
-    public const int InvalidID = IdAllocator.InvalidId;
+    // Id分配器
+    private static IdAllocator idAllc = new IdAllocator();
+    public static int GetAnNewId()
+    {
+        return idAllc.NewId();
+    }
 
-    // ID.
-    public virtual int ID { get { return id; } }
+    public BaseRequest()
+    {
+        callBackId = idAllc.NewId();
+    }
 
-    //private KodGames.Messages.Message sendMessage;
+    ~BaseRequest()
+    {
+        // 如果该请求有响应, 当丢弃请求的时候还没有响应应答。保留该Id给接受请求。
+        if (HasResponse && !IsResponded)
+        {
+            // Do nothing
+        }
+        else
+        {
+            idAllc.ReleaseId(callBackId);
+        }
+    }
+
+    // 发生请求的时候携带了一个回调Id, 服务器在响应的时候会返回它。
+    private int callBackId;
+    public virtual int CallBackId { get { return callBackId; } }
 
     // 是否需要回应，默认true，若需要则在收到回应前禁止客户端操作
     protected bool needResponse = true;
@@ -22,16 +43,66 @@ public abstract class BaseRequest
         set { needResponse = value; }
     }
 
+    // 是否有响应
+    public virtual bool HasResponse
+    {
+        get { return true; }
+    }
+
+    // 正在等待响应
+    public virtual bool WaitingResponse
+    {
+        get { return true; }
+    }
+
+    // 该请求是否响应过了
+    private bool isResponded;
+    public bool IsResponded
+    {
+        get { return isResponded; }
+        set { isResponded = value; }
+    }
+
+    // 该请求被丢弃
+    private bool isDiscarded = false;
+    public bool IsDiscarded
+    {
+        get { return isDiscarded; }
+        set { isDiscarded = value; }
+    }
+
+    // 请求是否已经执行过了
+    private bool isExecuted = false;
+    public bool IsExecuted { get { return isExecuted; } }
+
+    // 是否成功执行请求。在执行请求的过程中发生异常, 就是false; 没有发生异常, 就为true。
+    private bool isExecuteSuccess = false;
+    public bool IsExecuteSuccess
+    {
+        get { return isExecuteSuccess; }
+        set { isExecuteSuccess = value; }
+    }
+
+    private bool idCombined = false;
+    public bool IsCombined
+    {
+        get { return idCombined; }
+        set { idCombined = value; }
+    }
+
+    public virtual bool Combinable
+    {
+        get { return false; }
+    }
+
+    public virtual bool CombineWithPrevRequest(BaseRequest request)
+    {
+        return GetType() == request.GetType();
+    }
+
     public virtual Message GetMessage()
     {
         return null;
-    }
-
-    // Information.
-    public override string ToString()
-    {
-        return string.Format("{0} ID:{1:d} Executed:{2} ExecResult:{3} IsResponded:{4} Combined:{5} HasResponse:{6}",
-            this.GetType(), ID, IsExecuted, ExecResult, IsResponded, IsCombined, HasResponse);
     }
 
     public virtual bool CheckTimeout
@@ -44,117 +115,41 @@ public abstract class BaseRequest
         get { return true; }
     }
 
-    // If has response.
-    public virtual bool HasResponse
-    {
-        get { return true; }
-    }
-
-    // Waiting response flag.
-    public virtual bool WaitingResponse
-    {
-        get { return true; }
-    }
-
-    public virtual bool Combinable
-    {
-        get { return false; }
-    }
-
-    private bool combined = false;
-    public bool IsCombined
-    {
-        get { return combined; }
-        set { combined = value; }
-    }
-
-    public virtual bool CombineWithPrevRequest(BaseRequest request)
-    {
-        return this.GetType() == request.GetType();
-    }
-
     public virtual bool Delayable
     {
         get { return false; }
     }
 
-    // Is discarded flag.
-    private bool isDiscarded = false;
-    public bool IsDiscarded
-    {
-        get { return isDiscarded; }
-        set { isDiscarded = value; }
-    }
-
-    // Is executed.
-    private bool executed = false;
-    public bool IsExecuted { get { return executed; } }
-
-    private bool execResult = false;
-    public bool ExecResult
-    {
-        get { return execResult; }
-        set { execResult = value; }
-    }
-
-    // Get responded state, only valid for request that waiting for response. 
-    // The flag to mark response state to this request.
-    private bool responded;
-    public bool IsResponded
-    {
-        get { return responded; }
-        set { responded = value; }
-    }
-
-    public BaseRequest()
-    {
-        id = idAllc.NewId();
-    }
-
-    ~BaseRequest()
-    {
-        // If this request has response and has not been responded when it is discarded,
-        // We keep the id for the response.
-        if (HasResponse && !IsResponded)
-        {
-            // Do nothing.
-        }
-        else
-            idAllc.ReleaseID(id);
-    }
-
     public bool RunExecute(ServerBusiness bsn)
     {
         if (IsExecuted)
-            LoggerManager.Instance.Error("Execute executed request " + this.ToString());
+        {
+            LoggerManager.Instance.Error("Execute executed request " + ToString());
+        }
         if (IsDiscarded)
-            LoggerManager.Instance.Error("Execute discarded request " + this.ToString());
+        {
+            LoggerManager.Instance.Error("Execute discarded request " + ToString());
+        }
         if (IsCombined)
-            LoggerManager.Instance.Error("Execute combined request " + this.ToString());
+        {
+            LoggerManager.Instance.Error("Execute combined request " + ToString());
+        }
 
-        bool executeResult = Execute(bsn);
-        executed = true;
-        return executeResult;
+        isExecuteSuccess = Execute(bsn);
+        isExecuted = true;
+
+        return isExecuteSuccess;
     }
 
-    // Execute.
     public virtual bool Execute(ServerBusiness bsn)
     {
-        /*if (bsn != null)
-		{
-			return bsn.SendMessage(sendMessage);
-		}*/
         return false;
     }
 
-    public static int GetAnNewId()
+    public override string ToString()
     {
-        return idAllc.NewId();
+        return string.Format("Type:{0} CallBackId:{1:d} IsExecuted:{2} IsExecuteSuccess:{3} IsResponded:{4} IsCombined:{5} HasResponse:{6}", GetType(), CallBackId, IsExecuted, IsExecuteSuccess, IsResponded, IsCombined, HasResponse);
     }
-
-    // ID
-    private static IdAllocator idAllc = new IdAllocator();
-    private int id;
 }
 
 public abstract class  AbsRequest<T> : BaseRequest where T : Message, new()
@@ -163,20 +158,21 @@ public abstract class  AbsRequest<T> : BaseRequest where T : Message, new()
 
     public AbsRequest()
     {
-        this.sendMessage.Callback = this.ID;
+        sendMessage.CallBackId = this.CallBackId;
     }
 
     public override Message GetMessage()
     {
-        return this.sendMessage;
+        return sendMessage;
     }
 
     public override bool Execute(ServerBusiness bsn)
     {
         if (bsn != null)
         {
-            return bsn.SendMessage(this.sendMessage);
+            return bsn.SendMessage(sendMessage);
         }
+
         return false;
     }
 
