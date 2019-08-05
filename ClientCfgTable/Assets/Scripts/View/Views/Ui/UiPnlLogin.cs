@@ -13,4 +13,11 @@ public class UiPnlLogin : BaseUi
     private GameObject clickToStart;
     private UIWidget fullScreenClick;
     private UILabel versionText;
+
+    public void OnLoginSuccess()
+    {
+        PlayerSaveData.Destroy();   //登录成功需要使用新号的本地数据  放在这清保险
+        Hide();
+    }
+
 }
