@@ -7,34 +7,33 @@ using LywGames.Corgi.Protocol;
 /// </summary>
 public abstract class BaseResponse
 {
-    public override string ToString()
+    public virtual bool IsSucceed { get; set; }
+    public virtual int ResultCode { get; set; } // 响应结果码
+    public string ErrorMsg { get; set; } // 错误信息
+
+    // 回调Id, 发送请求的时候携带了这个Id, 接收请求的时候服务器原封不动的把它返回了。
+    private int callBackId;
+    public virtual int CallBackId
     {
-        return string.Format("{0} (RequestID:{1}) {2}", this.GetType(), requestID, errorContent);
+        set { callBackId = value; }
+        get { return callBackId; }
     }
 
-    public virtual bool isSucceed { get; set; }
-    public virtual int result { get; set; }
-    public string errorContent { get; set; } // Error message.
-
-    private int _requestId;
-    // The request id to this response.
-    public virtual int requestID { set { _requestId = value; } get { return _requestId; } }
-
-    // IsExecuted state.
-    private bool executed;
+    // 是否已经执行过了
+    private bool isExecuted;
     public bool IsExecuted
     {
-        get { return executed; }
+        get { return isExecuted; }
     }
 
     public bool RunExecute(BaseRequest request)
     {
         if (IsExecuted)
         {
-            LoggerManager.Instance.Error("Execute executed response " + this.ToString());
+            LoggerManager.Instance.Error("Execute executed response " + ToString());
         }
 
-        if (isSucceed)
+        if (IsSucceed)
         {
             try
             {
@@ -49,14 +48,14 @@ public abstract class BaseResponse
         {
             ExectueWithGsError(request);
 #if UNITY_EDITOR
-            LoggerManager.Instance.Warn("Execute response with server error: " + result);
+            LoggerManager.Instance.Warn("Execute response with server error: " + ResultCode);
 #endif
-            ErrorHandler(request, result, errorContent);
+            ErrorHandler(request, ResultCode, ErrorMsg);
         }
 
-        executed = true;
+        isExecuted = true;
 
-        return isSucceed;
+        return IsSucceed;
     }
 
     public abstract void Execute(BaseRequest request);
@@ -66,9 +65,14 @@ public abstract class BaseResponse
 
     }
 
-    protected virtual void ErrorHandler(BaseRequest request, int result, string errMsg)
+    protected virtual void ErrorHandler(BaseRequest request, int resultCode, string errMsg)
     {
-        AlertMessageManager.Instance.Show(result);
+        AlertMessageManager.Instance.Show(resultCode);
+    }
+
+    public override string ToString()
+    {
+        return string.Format("Type:{0} CallBackId:{1} ErrorMsg:{2}", GetType(), CallBackId, ErrorMsg);
     }
 
 }
@@ -79,40 +83,40 @@ public abstract class AbsResponse<T> : BaseResponse where T : Message
 
     public AbsResponse<T> InitMessage(T t)
     {
-        this.receiveMessage = t;
+        receiveMessage = t;
         return this;
     }
 
-    public override int requestID
+    public override int CallBackId
     {
         get
         {
             if (receiveMessage != null)
             {
-                return receiveMessage.Callback;
+                return receiveMessage.CallBackId;
             }
             return 0;
         }
     }
 
-    public override int result
+    public override int ResultCode
     {
         get
         {
             if (receiveMessage != null)
             {
-                return receiveMessage.Result;
+                return receiveMessage.ResultCode;
             }
 
             return 0;
         }
     }
 
-    public override bool isSucceed
+    public override bool IsSucceed
     {
         get
         {
-            return Protocols.isSuccess(result);
+            return Protocols.isSuccess(ResultCode);
         }
     }
 
