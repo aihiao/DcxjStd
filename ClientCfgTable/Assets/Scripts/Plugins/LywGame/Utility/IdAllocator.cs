@@ -1,43 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace LywGames
 {
+    /// <summary>
+    /// Id分配器
+    /// </summary>
     public class IdAllocator
     {
+        public const int InvalidId = 0; // 无效的Id
+        private const int idStart = InvalidId + 1; // 起始Id
+
+        private int idCounter = idStart; // Id计数器
+        private int idLoops = 0; // Id循环条件
+        private List<int> usedIdList = new List<int>(); // 使用过的Id容器
+
+        /// <summary>
+        /// 生成一个新的Id
+        /// </summary>
+        /// <returns></returns>
         public int NewId()
         {
             do
             {
                 idCounter++;
 
-                if (idCounter >= Int32.MaxValue)
+                if (idCounter >= int.MaxValue)
                 {
                     idCounter = idStart;
                     idLoops++;
                 }
 
-            } while (idLoops > 0 && usedIds.Contains(idCounter));
+            } while (idLoops > 0 && usedIdList.Contains(idCounter));
 
-            usedIds.Add(idCounter);
+            usedIdList.Add(idCounter);
 
             return idCounter;
         }
 
-        public void ReleaseID(int id)
+        /// <summary>
+        /// 释放使用过的Id
+        /// </summary>
+        /// <param name="id"></param>
+        public void ReleaseId(int id)
         {
             if (id == InvalidId)
+            {
                 return;
+            }
 
-            usedIds.Remove(id);
+            usedIdList.Remove(id);
         }
 
-        public const int InvalidId = 0;
-        protected const int idStart = InvalidId + 1;
-        protected int idCounter = idStart;
-        protected int idLoops = 0;
-        protected List<int> usedIds = new List<int>();
     }
 }
