@@ -9,4 +9,5 @@
     public const string UiPnlReconnectMessage = "UiPnlReconnectMessage";
     public const string UiPnlLogin = "UiPnlLogin";
     public const string UiPnlTipIndicator = "UiPnlTipIndicator";
+    public const string UiPnlActivationCode = "UiPnlActivationCode";
 }
