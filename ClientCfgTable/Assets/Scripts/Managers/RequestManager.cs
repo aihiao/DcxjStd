@@ -23,12 +23,12 @@ public class RequestManager : AbsManager<RequestManager>
 
     // 中断回调
     private Action<string> brokenDelegate;
-    // 繁忙回调
-    private Action<bool> busyDelegate;
 
-    // Busy flag
-    private int busyNumber;
-    private int lastBusyNumber;
+    // 网络繁忙号码标记
+    private int busyNumber; // 网络繁忙号码, 它是一个动态的, 当有请求的时候就+1, 已经响应完成的时候就-1
+    private int lastBusyNumber; // 最后网络繁忙号码, 使用busyNumber来更新lastBusyNumber
+    // 网络繁忙回调
+    private Action<bool> busyDelegate;
 
     public bool IsBusy
     {
@@ -36,7 +36,7 @@ public class RequestManager : AbsManager<RequestManager>
     }
 
     private const float maxRequestDelayTime = 3.0f; // 最大延迟时间
-    private float lastAddRequestTime = 0; // 最后一次添加请求的时间
+    private float lastAddRequestTime; // 最后一次添加请求的时间
 
     private float responseTimeOut = 10f; // 响应超时时间
     private float lastRequestTime = float.MaxValue; // 最后一次请求的时间
@@ -56,6 +56,7 @@ public class RequestManager : AbsManager<RequestManager>
 
         busyNumber = 0;
         lastBusyNumber = 0;
+        lastAddRequestTime = 0;
 
         business = new ServerBusiness();
         business.Initialize();
@@ -88,7 +89,7 @@ public class RequestManager : AbsManager<RequestManager>
 
     private void OnUpdate(bool excAllRequest)
     {
-        // reset busy flag
+        // 记录一下网络繁忙号码
         lastBusyNumber = busyNumber;
 
         // update business
@@ -103,7 +104,7 @@ public class RequestManager : AbsManager<RequestManager>
         // update request
         UpdateRequest(excAllRequest);
 
-        // if busy change, notice outside
+        // 网络繁忙号码发生了变化, 需要调用网络繁忙的回调函数处理一些事情
         if (lastBusyNumber != busyNumber)
         {
             CallBusyDelegate();
@@ -169,6 +170,7 @@ public class RequestManager : AbsManager<RequestManager>
                 requestList.RemoveAt(i);
                 --i;
 
+                // 可以移除的请求, 这里需要设置一下网络繁忙号
                 if (request.IsExecuteSuccess && request.HasResponse && request.WaitingResponse)
                 {
                     busyNumber = Math.Max(busyNumber - 1, 0);
