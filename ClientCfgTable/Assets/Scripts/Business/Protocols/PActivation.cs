@@ -2,27 +2,26 @@
 using LywGames.Corgi.Protocol;
 
 /// <summary>
-/// 激活码激活请求
-/// 这个是连接的AS，不是GS
+/// 激活码激活请求, 连接AS
 /// </summary>
 public class CAActiveCodeReq : BaseRequest
 {
-    public CAActiveCodeReq(string asHost, int asPort, string activeCode)
-    {
-        host = asHost;
-        port = asPort;
-        callback = CallBackId;
-        code = activeCode;
-        id = DataModelManager.Instance.LoginInfo.AccountId;
-    }
+    private string asHostName, activeCode;
+    private int asHostPort, callBackId;
+    private long accountId;
 
-    private string host, code;
-    private int port, callback;
-    private long id;
+    public CAActiveCodeReq(string asHostName, int asHostPort, string activeCode)
+    {
+        this.asHostName = asHostName;
+        this.asHostPort = asHostPort;
+        this.activeCode = activeCode;
+        callBackId = CallBackId;
+        accountId = DataModelManager.Instance.LoginInfo.AccountId;
+    }
 
     public override bool Execute(ServerBusiness bsn)
     {
-        return bsn.ActiveCodeReq(host, port, callback, id, code);
+        return bsn.ActiveCodeAS(asHostName, asHostPort, callBackId, accountId, activeCode);
     }
 }
 
@@ -33,22 +32,29 @@ public class ACActiveCodeRes : AbsResponse<ACActiveCodeMessage>
 {
     public override void Execute(BaseRequest request)
     {
-        switch (result)
+        switch (ResultCode)
         {
             case Protocols.AuthActiveCodeSuccess:
                 {
-                    UiManager.Instance.Hide<UiPnlActivationCode>();     //关闭激活码界面
+                    // 关闭激活码界面
+                    UiManager.Instance.Hide<UiPnlActivationCode>();
 
-                    if (UiManager.Instance.GetIsShowing<UiPnlLogin>())  //关闭登陆界面
+                    // 关闭登陆界面
+                    if (UiManager.Instance.GetIsShowing<UiPnlLogin>())  
+                    {
                         UiManager.Instance.GetUi<UiPnlLogin>().OnLoginSuccess();
+                    }
 
-                    if (UiManager.Instance.GetIsShowing<UiPnlAreaChoose>()) //关闭选区界面
+                    // 关闭选区界面
+                    if (UiManager.Instance.GetIsShowing<UiPnlAreaChoose>()) 
+                    {
                         UiManager.Instance.Hide<UiPnlAreaChoose>();
+                    }
 
-                    GameStateMachineManager.Instance.EnterState<GameStateSelectArea>().StartUi();  //进入选区界面
+                    // 进入选区界面
+                    GameStateMachineManager.Instance.EnterState<GameStateSelectArea>().StartUi();  
                 }
-                break;
-
+            break;
         }
     }
 }
