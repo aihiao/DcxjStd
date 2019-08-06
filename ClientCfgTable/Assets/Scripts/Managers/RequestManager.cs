@@ -38,8 +38,8 @@ public class RequestManager : AbsManager<RequestManager>
     private const float cMaxRequestDelayTime = 3.0f;
     private float lastAddRequestTime = 0;
 
-    private float responseTimeoutTime = 10f;
-    private float lastRequestTime = float.MaxValue;
+    private float responseTimeOut = 10f; // 响应超时时间
+    private float lastRequestTime = float.MaxValue; // 最后一次请求的时间
 
     private UiPnlTipIndicator indicator;
 
@@ -50,7 +50,7 @@ public class RequestManager : AbsManager<RequestManager>
             return;
         }
 
-        responseTimeoutTime = (float)parameters[0];
+        responseTimeOut = (float)parameters[0];
         brokenDelegate = (Action<string>)parameters[1];
         busyDelegate = (Action<bool>)parameters[2];
 
@@ -68,8 +68,12 @@ public class RequestManager : AbsManager<RequestManager>
 
     public override void OnUpdate()
     {
-        // check time out
-        if (responseTimeoutTime > 0.1f && Time.realtimeSinceStartup - lastRequestTime > responseTimeoutTime)
+        /** 检测超时, 我觉得这个会有问题。
+         *  这里通过当前游戏时间和最后一次请求的时间, 来判断超时。
+         *  在发送请求的时候设置了lastRequestTime为当前游戏时间, 然后在响应的时候更新了lastRequestTime, 通过游戏当前时间-lastRequestTime判断是否响应超时。
+         *  这个设计针对(一次请求, 一次响应)是没有问题的。然而, 一次请求, 还没有响应, 就有了新的请求, 在新的请求里更新了lastRequestTime的时间, 这样判断超时就有问题了。
+         * */
+        if (responseTimeOut > 0.1f && Time.realtimeSinceStartup - lastRequestTime > responseTimeOut)
         {
             if (GameStateMachineManager.Instance.GetCurrentState().IsGamingState)
             {
