@@ -5,11 +5,11 @@ namespace LywGames.Messages
     [Message(ProtocolId = 65541, IsRequest = false)]
     public class ACCreateAccountMessage : ProtocolMessage<CreateAccountRes>
     {
-        public override int Result
+        public override int ResultCode
         {
             get
             {
-                return protocol.result;
+                return protocol.ResultCode;
             }
         }
     }
