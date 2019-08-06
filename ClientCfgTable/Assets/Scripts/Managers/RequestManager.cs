@@ -35,8 +35,8 @@ public class RequestManager : AbsManager<RequestManager>
         get { return busyNumber != 0; }
     }
 
-    private const float cMaxRequestDelayTime = 3.0f;
-    private float lastAddRequestTime = 0;
+    private const float maxRequestDelayTime = 3.0f; // 最大延迟时间
+    private float lastAddRequestTime = 0; // 最后一次添加请求的时间
 
     private float responseTimeOut = 10f; // 响应超时时间
     private float lastRequestTime = float.MaxValue; // 最后一次请求的时间
@@ -82,7 +82,8 @@ public class RequestManager : AbsManager<RequestManager>
             return;
         }
 
-        OnUpdate(Time.realtimeSinceStartup - lastAddRequestTime > cMaxRequestDelayTime);
+        // 这里通过游戏时间 - 最后一次添加请求的时间, 当大于最大延迟时间的时候, 就会执行那些可以延迟执行的请求。
+        OnUpdate(Time.realtimeSinceStartup - lastAddRequestTime > maxRequestDelayTime);
     }
 
     private void OnUpdate(bool excAllRequest)
