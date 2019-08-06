@@ -9,21 +9,21 @@ using LywGames.Messages;
 /// </summary>
 public class RequestManager : AbsManager<RequestManager>
 {
-    // Request & Response List
+    // 请求和响应集合
     private List<BaseRequest> requestList = new List<BaseRequest>();
     private List<BaseResponse> responseList = new List<BaseResponse>();
 
-    // Executing candidate List
+    // 执行请求和响应集合
     private List<BaseRequest> excRequestList = new List<BaseRequest>();
     private List<BaseResponse> excResponseList = new List<BaseResponse>();
 
-    // Business processor
+    // 服务器业务处理器
     private ServerBusiness business;
     public ServerBusiness Business { get { return business; } }
 
-    // Broken Callback
+    // 中断回调
     private Action<string> brokenDelegate;
-    // Busy Callback
+    // 繁忙回调
     private Action<bool> busyDelegate;
 
     // Busy flag
@@ -73,7 +73,7 @@ public class RequestManager : AbsManager<RequestManager>
         {
             if (GameStateMachineManager.Instance.GetCurrentState().IsGamingState)
             {
-                Broke(null);
+                Broken(null);
             }
             return;
         }
@@ -349,7 +349,7 @@ public class RequestManager : AbsManager<RequestManager>
         requestList.Clear();
     }
 
-    public void Broke(string brokenMessage)
+    public void Broken(string brokenMessage)
     {
         DiscardAllRequests();
 
