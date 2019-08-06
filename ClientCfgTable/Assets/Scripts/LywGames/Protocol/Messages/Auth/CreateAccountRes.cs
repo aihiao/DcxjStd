@@ -5,23 +5,26 @@ namespace LywGames.Messages.Proto.Auth
     [ProtoContract(Name = "CreateAccountRes")]
     public class CreateAccountRes : IExtensible
     {
-        private int _result;
+        private int resultCode;
         private IExtension extensionObject;
+
         [ProtoMember(1)]
-        public int result
+        public int ResultCode
         {
             get
             {
-                return this._result;
+                return resultCode;
             }
             set
             {
-                this._result = value;
+                resultCode = value;
             }
         }
+
         IExtension IExtensible.GetExtensionObject(bool createIfMissing)
         {
-            return Extensible.GetExtensionObject(ref this.extensionObject, createIfMissing);
+            return Extensible.GetExtensionObject(ref extensionObject, createIfMissing);
         }
+
     }
 }
