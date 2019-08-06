@@ -6,61 +6,62 @@ using LywGames.Messages.Proto.Auth;
  * 和登录相关的协议
  */
 
-class PSCreateAccount : BaseRequest
+public class PSCreateAccount : BaseRequest
 {
-    private string asHost;
-    private int port;
-    private int channelId;
+    private string asHostName; // 认证服务器地址
+    private int asHostPort; // 认证服务器端口号
+    private int channelId; // 渠道Id
 
-    private string account;
-    public string Account
+    // 账号名
+    private string accountName;
+    public string AccountName
     {
-        get { return account; }
-        set { account = value; }
+        get { return accountName; }
+        set { accountName = value; }
+    }
+    // 账号密码
+    private string accountPassword;
+    public string AccountPassword
+    {
+        get { return accountPassword; }
+        set { accountPassword = value; }
     }
 
-    private string password;
-    public string Password
-    {
-        get { return password; }
-        set { password = value; }
-    }
+    private DeviceInfoPro deviceInfo; // 设备信息
 
-    private DeviceInfoPro deviceInfo;
-
-    public PSCreateAccount(string authServerHostName, int port, string account, string password, int channelId, DeviceInfoPro deviceInfo)
+    public PSCreateAccount(string asHostName, int asHostPort, string accountName, string accountPassword, int channelId, DeviceInfoPro deviceInfo)
     {
-        this.asHost = authServerHostName;
-        this.port = port;
-        this.account = account;
-        this.password = password;
+        this.asHostName = asHostName;
+        this.asHostPort = asHostPort;
+        this.accountName = accountName;
+        this.accountPassword = accountPassword;
         this.channelId = channelId;
         this.deviceInfo = deviceInfo;
     }
 
     public override bool Execute(ServerBusiness bsn)
     {
-        return bsn.CreateAccount(asHost, port, CallBackId, account, password, "tttttttt", channelId, "1", deviceInfo);
+        return bsn.CreateAccountAS(asHostName, asHostPort, CallBackId, accountName, accountPassword, "tttttttt", channelId, "1", deviceInfo);
     }
 }
 
-class PRCreateAccount : AbsResponse<ACCreateAccountMessage>
+public class PRCreateAccount : AbsResponse<ACCreateAccountMessage>
 {
     public override void Execute(BaseRequest request)
     {
-        PSCreateAccount srcReq = request as PSCreateAccount;
-        GameStateMachineManager.Instance.GetCurrentState<GameStateLogin>().OnCreateAccountSuccess(srcReq.Account, srcReq.Password, false, srcReq.Account.Length);
+        PSCreateAccount caReq = request as PSCreateAccount;
+        GameStateMachineManager.Instance.GetCurrentState<GameStateLogin>().OnCreateAccountSuccess(caReq.AccountName, caReq.AccountPassword, false, caReq.AccountName.Length);
     }
 
-    protected override void ErrorHandler(BaseRequest request, int errCode, string errMsg)
+    protected override void ErrorHandler(BaseRequest request, int errCode, string errorKey)
     {
         LoggerManager.Instance.Info("callback PRCreateAccount is back with error!");
-        base.ErrorHandler(request, errCode, errMsg);
-        GameStateMachineManager.Instance.GetCurrentState<GameStateLogin>().OnCreateAccountFalied(errCode, errMsg);
+        base.ErrorHandler(request, errCode, errorKey);
+        GameStateMachineManager.Instance.GetCurrentState<GameStateLogin>().OnCreateAccountFalied(errCode, errorKey);
     }
 }
-
-class PSLoginAS : BaseRequest
+ 
+public class PSLoginAS : BaseRequest
 {
     private string asHost;
     private int asPort;
@@ -94,12 +95,7 @@ class PSLoginAS : BaseRequest
     /// <summary>
     /// 平台登陆协议
     /// </summary>
-    public PSLoginAS(string asHost, int asPort,
-                    string accountName, string password,
-                    string randomSeed, int channelId,
-                    string version, DeviceInfoPro deviceInfo,
-                    string userId, string channelUserId, string channelCode,
-                    string productCode, string token)
+    public PSLoginAS(string asHost, int asPort, string accountName, string password, string randomSeed, int channelId, string version, DeviceInfoPro deviceInfo, string userId, string channelUserId, string channelCode, string productCode, string token)
     {
         this.asHost = asHost;
         this.asPort = asPort;
@@ -117,11 +113,17 @@ class PSLoginAS : BaseRequest
     }
 
     public override bool Execute(ServerBusiness bsn)
-    { 
+    {
         if (LywConfig.GetPublisher() == ProductPublisher.Local)
-            return bsn.Login(asHost, asPort, CallBackId, accountName, password, randomSeed, channelId, version, deviceInfo);//本地登陆
+        {
+            // 本地登陆
+            return bsn.LoginAS(asHost, asPort, CallBackId, accountName, password, randomSeed, channelId, version, deviceInfo);
+        }
         else
-            return bsn.Login(asHost, asPort, CallBackId, accountName, password, randomSeed, channelId, version, deviceInfo, userId, channelUserId, channelCode, productCode, token);//平台登陆
+        {
+            // 平台登陆
+            return bsn.LoginAS(asHost, asPort, CallBackId, accountName, password, randomSeed, channelId, version, deviceInfo, userId, channelUserId, channelCode, productCode, token);
+        }
     }
 }
 
@@ -129,7 +131,7 @@ public class PRLoginAS : AbsResponse<ACLoginAuthMessage>
 {
     public PRLoginAS(ACLoginAuthMessage message)
     {
-        // 将longin的信息保存到loginIno里，包括token
+        // 将login的信息保存到loginInfo里, 包括token
         DataModelManager.Instance.LoginInfo.SetLoginAuthMessage(message);
     }
 
@@ -138,10 +140,14 @@ public class PRLoginAS : AbsResponse<ACLoginAuthMessage>
         if (DataModelManager.Instance.LoginInfo.IsShowActivityInterface == false)   //如果不需要显示输入激活码窗口
         {
             if (GameStateMachineManager.Instance.GetCurrentStateType() == GameStateBase.GameStateType.Login)
+            {
                 GameStateMachineManager.Instance.GetCurrentState<GameStateLogin>().OnLoginSuccess(this);
+            }
         }
         else
+        {
             UiManager.Instance.ShowByName(UiPrefabNames.UiPnlActivationCode);
+        }
     }
 
     protected override void ErrorHandler(BaseRequest request, int errCode, string errMsg)
@@ -151,11 +157,10 @@ public class PRLoginAS : AbsResponse<ACLoginAuthMessage>
     }
 }
 
-
 /// <summary>
-/// 链接Gs
+/// 链接GS
 /// </summary>
-class PLoginGs : BaseRequest
+class PLoginGS : BaseRequest
 {
     public delegate void OnIsConnectedSuccess(int chanelId);
     public delegate void OnIsConnectedFailed(int errorCode, string errorMessage);
@@ -166,19 +171,19 @@ class PLoginGs : BaseRequest
     private OnIsConnectedFailed onIsConnectedFailedDel;
     public OnIsConnectedFailed OnIsConnectedFailedDel { get { return onIsConnectedFailedDel; } }
 
-    private string hostname;
-    private int port;
+    private string gsHostName;
+    private int gsHostPort;
 
-    private int areaID;
-    public int AreaID { get { return this.areaID; } }
+    private int areaId;
+    public int AreaId { get { return areaId; } }
 
     public LoginRes.AreaPro area;
 
-    public PLoginGs(LoginRes.AreaPro area, OnIsConnectedSuccess connectedSuccessDel, OnIsConnectedFailed connectedFailedDel)
+    public PLoginGS(LoginRes.AreaPro area, OnIsConnectedSuccess connectedSuccessDel, OnIsConnectedFailed connectedFailedDel)
     {
         this.area = area;
-        this.hostname = area.interfaceServerIP;
-        this.port = area.interfaceServerPort;
+        this.gsHostName = area.interfaceServerIP;
+        this.gsHostPort = area.interfaceServerPort;
         onIsConnectedSuccessDel = connectedSuccessDel;
         onIsConnectedFailedDel = connectedFailedDel;
 
@@ -203,7 +208,7 @@ class PLoginGs : BaseRequest
     public override bool Execute(ServerBusiness bsn)
     {
         PlayerSaveData.Destroy();   //登录成功需要使用新号的本地数据
-        return bsn.LoginGS(hostname, port, CallBackId, DataModelManager.Instance.LoginInfo.AccountId, area.areaID, DataModelManager.Instance.LoginInfo.Token);
+        return bsn.LoginGS(gsHostName, gsHostPort, CallBackId, DataModelManager.Instance.LoginInfo.AccountId, area.areaID, DataModelManager.Instance.LoginInfo.Token);
     }
 }
 
@@ -213,6 +218,7 @@ class PLoginGs : BaseRequest
 public class PQueryLoginGameData : AbsRequest<CGQueryLoginGameMessage>
 {
     private long roleId = long.MaxValue;
+
     public PQueryLoginGameData(long roleId)
     {
         this.roleId = roleId;
