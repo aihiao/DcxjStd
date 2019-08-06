@@ -5,7 +5,7 @@ using ClientCommon;
 using LywGames.Messages;
 
 /// <summary>
-/// Request Manager
+/// 请求管理器
 /// </summary>
 public class RequestManager : AbsManager<RequestManager>
 {
@@ -17,15 +17,6 @@ public class RequestManager : AbsManager<RequestManager>
     private List<BaseRequest> excRequestList = new List<BaseRequest>();
     private List<BaseResponse> excResponseList = new List<BaseResponse>();
 
-    // Busy flag
-    private int busyNumber;
-    private int lastBusyNumber;
-
-    public bool IsBusy
-    {
-        get { return busyNumber != 0; }
-    }
-
     // Business processor
     private ServerBusiness business;
     public ServerBusiness Business { get { return business; } }
@@ -34,6 +25,15 @@ public class RequestManager : AbsManager<RequestManager>
     private Action<string> brokenDelegate;
     // Busy Callback
     private Action<bool> busyDelegate;
+
+    // Busy flag
+    private int busyNumber;
+    private int lastBusyNumber;
+
+    public bool IsBusy
+    {
+        get { return busyNumber != 0; }
+    }
 
     private const float cMaxRequestDelayTime = 3.0f;
     private float lastAddRequestTime = 0;
@@ -45,8 +45,6 @@ public class RequestManager : AbsManager<RequestManager>
 
     public override void Initialize(params object[] parameters)
     {
-        base.Initialize(parameters);
-
         if (parameters == null || parameters.Length < 3)
         {
             return;
@@ -70,8 +68,6 @@ public class RequestManager : AbsManager<RequestManager>
 
     public override void OnUpdate()
     {
-        base.OnUpdate();
-
         // check time out
         if (responseTimeoutTime > 0.1f && Time.realtimeSinceStartup - lastRequestTime > responseTimeoutTime)
         {
@@ -168,7 +164,7 @@ public class RequestManager : AbsManager<RequestManager>
                 requestList.RemoveAt(i);
                 --i;
 
-                if (request.ExecResult && request.HasResponse && request.WaitingResponse)
+                if (request.IsExecuteSuccess && request.HasResponse && request.WaitingResponse)
                 {
                     busyNumber = Math.Max(busyNumber - 1, 0);
                 }
@@ -261,11 +257,11 @@ public class RequestManager : AbsManager<RequestManager>
         {
             if (message != null)
             {
-                RequestManager.Instance.Business.SendMessage(message, 0, checkLoseConnection);
+                Business.SendMessage(message, 0, checkLoseConnection);
             }
             else
             {
-                request.Execute(RequestManager.Instance.Business);
+                request.Execute(Business);
             }
             return true;
         }
@@ -304,7 +300,7 @@ public class RequestManager : AbsManager<RequestManager>
     {
         responseList.Add(response);
 
-        BaseRequest request = FindRequest(response.requestID);
+        BaseRequest request = FindRequest(response.CallBackId);
         if (request != null && request.HasResponse && request.CheckTimeout)
         {
             lastRequestTime = float.MaxValue;
@@ -376,21 +372,21 @@ public class RequestManager : AbsManager<RequestManager>
     {
         try
         {
-            request.ExecResult = request.RunExecute(business);
+            request.IsExecuteSuccess = request.RunExecute(business);
         }
         catch (Exception e)
         {
-            request.ExecResult = false;
+            request.IsExecuteSuccess = false;
             request.IsDiscarded = true;
             LoggerManager.Instance.Error("ExcRequest Exception Message:" + e.Message + " \r\nException StackTrace:" + e.StackTrace);
         }
         finally
         {
-            if ((!request.IsDiscarded) && (!request.ExecResult) && (brokenDelegate != null))
+            if ((!request.IsDiscarded) && (!request.IsExecuteSuccess) && (brokenDelegate != null))
             {
                 brokenDelegate(null);
             }
-            if (request.ExecResult && request.HasResponse && request.WaitingResponse)
+            if (request.IsExecuteSuccess && request.HasResponse && request.WaitingResponse)
             {
                 busyNumber++;
             }
@@ -401,9 +397,9 @@ public class RequestManager : AbsManager<RequestManager>
     {
         bool errOcc = false;
         BaseRequest request = null;
-        if (response.requestID > 0) // 判断是否推送, 目前和gs约定 0 是推送。 -1是在登陆过程中发送的消息
+        if (response.CallBackId > 0) // 判断是否推送, 目前和gs约定 0 是推送。 -1是在登陆过程中发送的消息
         {
-            request = FindRequest(response.requestID);
+            request = FindRequest(response.CallBackId);
         }
 
         try
@@ -431,7 +427,7 @@ public class RequestManager : AbsManager<RequestManager>
             for (int i = 0; i < requestList.Count; i++)
             {
                 var request = requestList[i];
-                if (request.ID == requestId)
+                if (request.CallBackId == requestId)
                 {
                     return request;
                 }
