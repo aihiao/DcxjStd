@@ -4,6 +4,9 @@ using LywGames.Messages;
 using LywGames.Messages.Proto.Auth;
 using LywGames.Messages.Proto.Game;
 
+/// <summary>
+/// 服务器业务处理, 这个分类主要处理: 调用网络层暴露给业务层的请求接口和给网络层设置请求的回调函数
+/// </summary>
 public partial class ServerBusiness
 {
     public void InitializeRegisters()

@@ -7,6 +7,9 @@ using LywGames.Messages;
 using LywGames.ClientHelper;
 using LywGames.Corgi.Protocol;
 
+/// <summary>
+/// 服务器业务处理
+/// </summary>
 public partial class ServerBusiness
 {
     protected ClientHelper protocol = new ClientHelper();
