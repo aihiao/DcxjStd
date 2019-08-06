@@ -9,7 +9,7 @@ public abstract class BaseResponse
 {
     public virtual bool IsSucceed { get; set; }
     public virtual int ResultCode { get; set; } // 响应结果码
-    public string ErrorMsg { get; set; } // 错误信息
+    public string ErrorKey { get; set; } // 错误字符串Key
 
     // 回调Id, 发送请求的时候携带了这个Id, 接收请求的时候服务器原封不动的把它返回了。
     private int callBackId;
@@ -46,11 +46,11 @@ public abstract class BaseResponse
         }
         else
         {
-            ExectueWithGsError(request);
+            ExectueWithGSError(request);
 #if UNITY_EDITOR
             LoggerManager.Instance.Warn("Execute response with server error: " + ResultCode);
 #endif
-            ErrorHandler(request, ResultCode, ErrorMsg);
+            ErrorHandler(request, ResultCode, ErrorKey);
         }
 
         isExecuted = true;
@@ -60,19 +60,19 @@ public abstract class BaseResponse
 
     public abstract void Execute(BaseRequest request);
 
-    public virtual void ExectueWithGsError(BaseRequest request)
+    public virtual void ExectueWithGSError(BaseRequest request)
     {
 
     }
 
-    protected virtual void ErrorHandler(BaseRequest request, int resultCode, string errMsg)
+    protected virtual void ErrorHandler(BaseRequest request, int resultCode, string errorKey)
     {
         AlertMessageManager.Instance.Show(resultCode);
     }
 
     public override string ToString()
     {
-        return string.Format("Type:{0} CallBackId:{1} ErrorMsg:{2}", GetType(), CallBackId, ErrorMsg);
+        return string.Format("Type:{0} CallBackId:{1} ErrorMsg:{2}", GetType(), CallBackId, ErrorKey);
     }
 
 }
