@@ -8,11 +8,11 @@ public class ReConnectManager : AbsManager<ReConnectManager>
     /// <summary>
     /// 当发包时网络链接中断, 调用这个接口弹出确认板
     /// </summary>
-    /// <param name="enablePlayerReconnectGs"></param>
-    public void HandleGsClosed(bool enablePlayerReconnectGs = false)
+    /// <param name="enablePlayerReconnectGS">让用户确认是否重连游戏服务器</param>
+    public void HandleGSClosed(bool enablePlayerReconnectGS = false)
     {
         RequestManager.Instance.DiscardAllRequests();
-        UiManager.Instance.ShowByName(UiPrefabNames.UiPnlReconnectMessage, int.MaxValue, enablePlayerReconnectGs);
+        UiManager.Instance.ShowByName(UiPrefabNames.UiPnlReconnectMessage, int.MaxValue, enablePlayerReconnectGS);
     }
 
     public void HandleReQueryData()
@@ -40,13 +40,13 @@ public class ReConnectManager : AbsManager<ReConnectManager>
 
         UiManager.Instance.ShowByName(UiPrefabNames.UiPnlReconnectMessage, errorId);
 
-        RequestManager.Instance.Business.DisconnectGs();
-        RequestManager.Instance.DiscardRequest(typeof(PLoginGs));
+        RequestManager.Instance.Business.DisconnectGS();
+        RequestManager.Instance.DiscardRequest(typeof(PLoginGS));
     }
 
     public void ForceCutOffConnectShowReconnectDialog()
     {
-        HandleGsClosed();
+        HandleGSClosed();
     }
 
     public void CheckWhetherNetworkBroken()
@@ -67,7 +67,7 @@ public class ReConnectManager : AbsManager<ReConnectManager>
 
                     Message message = null;
                     // 同步做登陆
-                    RequestManager.Instance.Business.ProcessOnLossGsConnectWhenSendMsg(ref message, 0, true);
+                    RequestManager.Instance.Business.ProcessOnLossGSConnectWhenSendMsg(ref message, 0, true);
                 }
                 else
                 {
