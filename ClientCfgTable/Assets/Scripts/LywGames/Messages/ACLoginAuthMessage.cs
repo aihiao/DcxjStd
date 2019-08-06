@@ -5,11 +5,11 @@ namespace LywGames.Messages
     [Message(ProtocolId = 65539, IsRequest = false)]
     public class ACLoginAuthMessage : ProtocolMessage<LoginRes>
     {
-        public override int Result
+        public override int ResultCode
         {
             get
             {
-                return protocol.result;
+                return protocol.ResultCode;
             }
         }
     }
