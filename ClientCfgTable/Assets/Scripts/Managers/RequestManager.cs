@@ -24,6 +24,7 @@ public class RequestManager : AbsManager<RequestManager>
     // 中断回调
     private Action<string> brokenDelegate;
 
+    #region 网络繁忙号码标记
     // 网络繁忙号码标记
     private int busyNumber; // 网络繁忙号码, 它是一个动态的, 当有请求的时候就+1, 已经响应完成的时候就-1
     private int lastBusyNumber; // 最后网络繁忙号码, 使用busyNumber来更新lastBusyNumber
@@ -35,11 +36,39 @@ public class RequestManager : AbsManager<RequestManager>
         get { return busyNumber != 0; }
     }
 
+    private void CallBusyDelegate()
+    {
+        if (busyDelegate != null)
+        {
+            busyDelegate(busyNumber > 0);
+        }
+    }
+
+    public void RetainBusy()
+    {
+        busyNumber++;
+        CallBusyDelegate();
+    }
+
+    public void ReleaseBusy()
+    {
+        busyNumber = Math.Max(busyNumber - 1, 0);
+        CallBusyDelegate();
+    }
+    #endregion 网络繁忙号码标记
+
     private const float maxRequestDelayTime = 3.0f; // 最大延迟时间
     private float lastAddRequestTime; // 最后一次添加请求的时间
 
     private float responseTimeOut = 10f; // 响应超时时间
     private float lastRequestTime = float.MaxValue; // 最后一次请求的时间
+
+    // 是否有请求在等待响应
+    private bool isWaitForRequest;
+    public bool IsWaitForRequest
+    {
+        get { return isWaitForRequest; }
+    }
 
     private UiPnlTipIndicator indicator;
 
@@ -60,11 +89,6 @@ public class RequestManager : AbsManager<RequestManager>
 
         business = new ServerBusiness();
         business.Initialize();
-    }
-
-    public override void Dispose()
-    {
-        business.Dispose();
     }
 
     public override void OnUpdate()
@@ -92,16 +116,13 @@ public class RequestManager : AbsManager<RequestManager>
         // 记录一下网络繁忙号码
         lastBusyNumber = busyNumber;
 
-        // update business
         if (business != null)
         {
             business.Update();
         }
 
-        // update response
         UpdateResponse();
 
-        // update request
         UpdateRequest(excAllRequest);
 
         // 网络繁忙号码发生了变化, 需要调用网络繁忙的回调函数处理一些事情
@@ -208,55 +229,6 @@ public class RequestManager : AbsManager<RequestManager>
         });
     }
 
-    private void CallBusyDelegate()
-    {
-        if (busyDelegate != null)
-        {
-            busyDelegate(busyNumber > 0);
-        }
-    }
-
-    public void RetainBusy()
-    {
-        busyNumber++;
-        CallBusyDelegate();
-    }
-
-    public void ReleaseBusy()
-    {
-        busyNumber = Math.Max(busyNumber - 1, 0);
-        CallBusyDelegate();
-    }
-
-    public bool IsWaitingResponse(Type requestType)
-    {
-        for (int i = 0; i < requestList.Count; i++)
-        {
-            BaseRequest request = requestList[i];
-            if ((!request.IsDiscarded) && request.HasResponse && request.WaitingResponse && request.GetType() == requestType)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private bool isWaitForRequest;
-    public bool IsWaitForRequest
-    {
-        get { return isWaitForRequest; }
-    }
-
-    /// <summary>
-	/// 是否上一个消息还未响应
-	/// </summary>
-	/// <param name="request"></param>
-	/// <returns></returns>
-    public bool HasPreviousUnResponsedReq(BaseRequest request)
-    {
-        return (request.HasResponse && request.WaitingResponse && request.MutuallyExclusive && IsWaitingResponse(request.GetType()));
-    }
-
     public bool SendRequest(BaseRequest request, bool checkLoseConnection = true)
     {
         Message message = request.GetMessage();
@@ -331,50 +303,6 @@ public class RequestManager : AbsManager<RequestManager>
         return true;
     }
 
-    public void FlushAllRequest()
-    {
-        OnUpdate(true);
-    }
-
-    public void DiscardRequest(Type requestType)
-    {
-        foreach (var request in requestList)
-        {
-            if (request.GetType() == requestType)
-            {
-                request.IsDiscarded = true;
-            }
-        }
-    }
-
-    public void DiscardAllRequests()
-    {
-        foreach (var request in requestList)
-        {
-            request.IsDiscarded = true;
-        }
-        requestList.Clear();
-    }
-
-    public void Broken(string brokenMessage)
-    {
-        DiscardAllRequests();
-
-        busyNumber = 0;
-        lastBusyNumber = 0;
-        lastRequestTime = float.MaxValue;
-
-        if (brokenDelegate != null)
-        {
-            brokenDelegate(brokenMessage);
-        }
-    }
-
-    private void SetUiCameraEvents(bool value)
-    {
-        enableInput = value;
-    }
-
     private void ExcRequest(BaseRequest request)
     {
         try
@@ -444,10 +372,77 @@ public class RequestManager : AbsManager<RequestManager>
         return null;
     }
 
-    private bool enableInput = true;
+    public override void Dispose()
+    {
+        business.Dispose();
+    }
+
+    public void FlushAllRequest()
+    {
+        OnUpdate(true);
+    }
+
+    public void DiscardRequest(Type requestType)
+    {
+        foreach (var request in requestList)
+        {
+            if (request.GetType() == requestType)
+            {
+                request.IsDiscarded = true;
+            }
+        }
+    }
+
+    public void DiscardAllRequests()
+    {
+        foreach (var request in requestList)
+        {
+            request.IsDiscarded = true;
+        }
+        requestList.Clear();
+    }
+
+    public void Broken(string brokenMessage)
+    {
+        DiscardAllRequests();
+
+        busyNumber = 0;
+        lastBusyNumber = 0;
+        lastRequestTime = float.MaxValue;
+
+        if (brokenDelegate != null)
+        {
+            brokenDelegate(brokenMessage);
+        }
+    }
+
+
+    public bool IsWaitingResponse(Type requestType)
+    {
+        for (int i = 0; i < requestList.Count; i++)
+        {
+            BaseRequest request = requestList[i];
+            if ((!request.IsDiscarded) && request.HasResponse && request.WaitingResponse && request.GetType() == requestType)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /// <summary>
-    /// 当前能否输入（点击等事件）。设置为true的时候可以输入，false的时候不能输入
+	/// 是否上一个消息还未响应
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
+    public bool HasPreviousUnResponsedReq(BaseRequest request)
+    {
+        return (request.HasResponse && request.WaitingResponse && request.MutuallyExclusive && IsWaitingResponse(request.GetType()));
+    }
+    /// <summary>
+    /// 当前能否输入(点击等事件)。设置为true的时候可以输入, false的时候不能输入。
     /// </summary>
+    private bool enableInput = true;
     public bool EnableInput
     {
         get { return enableInput; }
@@ -458,6 +453,11 @@ public class RequestManager : AbsManager<RequestManager>
 
             enableInput = value;
         }
+    }
+
+    private void SetUiCameraEvents(bool value)
+    {
+        enableInput = value;
     }
 
 }
