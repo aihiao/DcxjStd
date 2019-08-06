@@ -5,11 +5,11 @@ namespace LywGames.Messages
     [Message(ProtocolId = 65547, IsRequest = false)]
     public class ACActiveCodeMessage : ProtocolMessage<ActiveCodeRes>
     {
-        public override int Result
+        public override int ResultCode
         {
             get
             {
-                return protocol.result;
+                return protocol.ResultCode;
             }
         }
     }
