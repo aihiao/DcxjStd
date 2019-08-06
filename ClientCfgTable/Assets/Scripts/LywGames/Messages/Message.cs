@@ -7,7 +7,6 @@ namespace LywGames.Messages
     {
         public static byte UNCOMPRESSED = 0;
         public static byte COMPRESSED = 1;
-        private int callback;
 
         public int ProtocolId
         {
@@ -17,19 +16,20 @@ namespace LywGames.Messages
             }
         }
 
-        public int Callback
+        private int callBackId;
+        public int CallBackId
         {
             get
             {
-                return this.callback;
+                return callBackId;
             }
             set
             {
-                this.callback = value;
+                callBackId = value;
             }
         }
 
-        public virtual int Result
+        public virtual int ResultCode
         {
             get
             {
@@ -41,8 +41,8 @@ namespace LywGames.Messages
         {
             NetworkBuffer networkBuffer = new NetworkBuffer(NetworkParameters._MAX_SEND_BUFFER_SIZE, true);
             networkBuffer.Write(UNCOMPRESSED);
-            networkBuffer.Write(this.ProtocolId);
-            networkBuffer.Write(this.callback);
+            networkBuffer.Write(ProtocolId);
+            networkBuffer.Write(callBackId);
             EncodeBody(networkBuffer);
 
             return networkBuffer;
