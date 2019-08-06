@@ -5,11 +5,11 @@ namespace LywGames.Messages
     [Message(ProtocolId = 131075, IsRequest = false)]
     public class GCLoginGameMessage : ProtocolMessage<LoginGameRes>
     {
-        public override int Result
+        public override int ResultCode
         {
             get
             {
-                return protocol.result;
+                return protocol.ResultCode;
             }
         }
     }
