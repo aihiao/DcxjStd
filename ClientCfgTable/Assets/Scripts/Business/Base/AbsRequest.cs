@@ -115,6 +115,7 @@ public abstract class BaseRequest
         get { return true; }
     }
 
+    // 可以被延迟执行的请求
     public virtual bool Delayable
     {
         get { return false; }
