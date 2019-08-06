@@ -11,13 +11,14 @@ public partial class ServerBusiness
 {
     protected ClientHelper protocol = new ClientHelper();
     protected string loginAccount;
-    protected Dictionary<int, string> prtEnum = new Dictionary<int, string>();
+    // 协议Id集合。int类型的是协议Id的值, string类型是协议Id的变量名称。
+    protected Dictionary<int, string> protocolId2NameDic = new Dictionary<int, string>();
 
     public void Initialize()
     {
-        InitPrtEnum();
+        InitProtocolIds();
 
-        protocol.OnAsConnectFailed = OnConnectAsFailed;
+        protocol.OnASConnectFailed = OnConnectASFailed;
 
 #if UNITY_IPHONE
         protocol.Initialize(true, true, ProtocolType.Tcp);
@@ -33,18 +34,21 @@ public partial class ServerBusiness
         protocol.SetProtocolType(type);
     }
 
-    private void OnConnectAsFailed()
+    private void OnConnectASFailed()
     {
         ReConnectManager.Instance.ForceCutOffConnectShowReconnectDialog();
     }
 
-    private void InitPrtEnum()
+    /// <summary>
+    /// 读取所有的协议Id到protocolId2NameDic字典
+    /// </summary>
+    private void InitProtocolIds()
     {
         Type prtType = typeof(Protocols);
-        FieldInfo[] fis = prtType.GetFields();
-        for (int i = 0; i < fis.Length; i++)
+        FieldInfo[] fiArray = prtType.GetFields();
+        for (int i = 0; i < fiArray.Length; i++)
         {
-            FieldInfo fi = fis[i];
+            FieldInfo fi = fiArray[i];
             if (!fi.IsStatic)
             {
                 continue;
@@ -56,14 +60,14 @@ public partial class ServerBusiness
                 return;
             }
 
-            prtEnum[(int)obj] = fi.Name;
+            protocolId2NameDic[(int)obj] = fi.Name;
         }
     }
 
     public void Dispose()
     {
         protocol.Disconnect();
-        prtEnum.Clear();
+        protocolId2NameDic.Clear();
     }
 
     public void Update()
@@ -71,14 +75,14 @@ public partial class ServerBusiness
         protocol.Update();
     }
     
-    public void DisconnectGs()
+    public void DisconnectGS()
     {
         protocol.Disconnect();
     }
 
     public void ReceiveResponse(BaseResponse response)
     {
-        response.errorContent = GetErrorContent(response.result);
+        response.ErrorKey = GetErrorKey(response.ResultCode);
         RequestManager.Instance.ReceiveResponse(response);
     }
 
@@ -89,31 +93,38 @@ public partial class ServerBusiness
         {
             if (reSendCount >= 3)
             {
-                ReConnectManager.Instance.HandleGsClosed(true);
+                ReConnectManager.Instance.HandleGSClosed(true);
                 return false;
             }
 
-            return ProcessOnLossGsConnectWhenSendMsg(ref message, reSendCount, result);
+            return ProcessOnLossGSConnectWhenSendMsg(ref message, reSendCount, result);
         }
         return result;
     }
 
-    public bool ProcessOnLossGsConnectWhenSendMsg(ref Message message, int reSendCount, bool defaultResult)
+    /// <summary>
+    /// 处理当发送消息时, 游戏服务器断开连接的情况
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="reSendCount"></param>
+    /// <param name="defaultResult"></param>
+    /// <returns></returns>
+    public bool ProcessOnLossGSConnectWhenSendMsg(ref Message message, int reSendCount, bool defaultResult)
     {
-        PLoginGs loginGs = new PLoginGs(DataModelManager.Instance.AreaInfo, null, null);
-        loginGs.Execute(this);
+        PLoginGS loginGS = new PLoginGS(DataModelManager.Instance.AreaInfo, null, null);
+        loginGS.Execute(this);
 
         bool isNeedQueryData = false;
         bool finished = false;
 
         int counter = 0;
-        int sleepMs = 1;
+        int sleepMS = 1; // 休息毫秒数
         GCLoginGameMessage loginMsg = null;
-        while ((!finished) && sleepMs * counter < 2000)
+        while ((!finished) && sleepMS * counter < 2000)
         {
             RequestManager.Instance.Business.Update();
-            finished = RequestManager.Instance.Business.GetLoginGsResult(out loginMsg, out isNeedQueryData);
-            Thread.Sleep(sleepMs);
+            finished = RequestManager.Instance.Business.OnLoginGSRes(out loginMsg, out isNeedQueryData);
+            Thread.Sleep(sleepMS);
             counter++;
         }
 
@@ -121,7 +132,7 @@ public partial class ServerBusiness
         {
             UiPnlTipIndicator.CloseIndicatorIfShowing();
 
-            switch (loginMsg.Result)
+            switch (loginMsg.ResultCode)
             {
                 case Protocols.GameLoginSuccess:
                     {
@@ -149,21 +160,26 @@ public partial class ServerBusiness
                 case Protocols.TableVersionCheckSuccessUpdate:
                 default:
                     {
-                        ReConnectManager.Instance.HandleGsClosed();
+                        ReConnectManager.Instance.HandleGSClosed();
                         return true;
                     }
             }
         }
         else
         {
-            ReConnectManager.Instance.HandleGsClosed();
+            ReConnectManager.Instance.HandleGSClosed();
             return false;
         }
 
         return defaultResult;
     }
 
-    public string GetErrorContent(int errorCode)
+    /// <summary>
+    /// 通过错误码, 获取错误字符串Key
+    /// </summary>
+    /// <param name="errorCode"></param>
+    /// <returns></returns>
+    public string GetErrorKey(int errorCode)
     {
         if (errorCode == 0)
         {
@@ -171,9 +187,9 @@ public partial class ServerBusiness
         }
 
         string errKey = string.Empty;
-        if (prtEnum.ContainsKey(errorCode))
+        if (protocolId2NameDic.ContainsKey(errorCode))
         {
-            errKey = prtEnum[errorCode];
+            errKey = protocolId2NameDic[errorCode];
         }
         else
         {

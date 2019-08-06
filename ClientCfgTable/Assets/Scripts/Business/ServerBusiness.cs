@@ -8,21 +8,72 @@ public partial class ServerBusiness
 {
     public void InitializeRegisters()
     {
-
+        protocol.SetOnCreateAccountRes(OnCreateAccountRes);
+        protocol.SetOnLoginASRes(OnLoginASRes);
+        protocol.SetOnActiveCodeRes(OnActiveCodeRes);
     }
 
-    public void PrintBusinessLog(string log)
+    public void PrintBusinessLog(string log, params object[] obj)
     {
-        LoggerManager.Instance.Info(log);
+        LoggerManager.Instance.Info(log, obj);
     }
 
-    /**
-	 * 登陆游戏服务器
-	 * b)	调用LoginGS，有三个关键输入参数都要输入
-		i.	Token
-		ii.	KOD文件的版本信息列表（包括运营配置）
-		iii.	是登录还是断线重连
-	 */
+    // 认证服务器上创建账号
+    public bool CreateAccountAS(string asHost, int asPort, int callback, string accountName, string password, string randomSeed, int channelId, string version, DeviceInfoPro deviceInfo)
+    {
+        PrintBusinessLog("[ServerBusiness] CreateAccountAS");
+        return protocol.CreateAccountAS(asHost, asPort, callback, accountName, password, randomSeed, channelId, version, deviceInfo);
+    }
+
+    // 创建账号响应
+    private void OnCreateAccountRes(ACCreateAccountMessage message)
+    {
+        PrintBusinessLog("[ServerBusiness] OnCreateAccountRes " + GetErrorKey(message.ResultCode) + " 0x" + Convert.ToString(message.ResultCode, 16));
+        ReceiveResponse(new PRCreateAccount().InitMessage(message));
+    }
+
+    // 认证服务器上绑定账号
+    public bool BindAccountAS(string authServerHostName, int port, string email, string password, int callback, string version, int chanelId, DeviceInfoPro deviceInfo)
+    {
+        PrintBusinessLog("[Serverbusiness] BindAccountAS");
+        return protocol.BindAccountAS(authServerHostName, port, callback, email, password, UnityEngine.Random.Range(1, 1000000).ToString(), chanelId, version, deviceInfo);
+    }
+
+    // 登录认证服务器
+    public bool LoginAS(string asHost, int asPort, int callback, string accountName, string password, string randomSeed, int channelId, string version, DeviceInfoPro deviceInfo)
+    {
+        PrintBusinessLog("[ServerBusiness] LoginAS {0}:{1}", asHost, asPort);
+        return protocol.LoginAS(asHost, asPort, callback, accountName, password, randomSeed, channelId, version, deviceInfo);
+    }
+
+    public bool LoginAS(string asHost, int asPort, int callback, string accountName, string password, string randomSeed, int channelId, string version, DeviceInfoPro deviceInfo, string userId, string channelUserId, string channelCode, string productCode, string token)
+    {
+        PrintBusinessLog("[ServerBusiness] LoginAS {0}:{1}", asHost, asPort);
+        return protocol.LoginAS(asHost, asPort, callback, accountName, password, randomSeed, channelId, version, deviceInfo, userId, channelUserId, channelCode, productCode, token);
+    }
+
+    // 登录认证服务器响应
+    private void OnLoginASRes(ACLoginAuthMessage message)
+    {
+        PrintBusinessLog("[OnLoginAuthRes] OnLoginASRes " + GetErrorKey(message.ResultCode) + " 0x" + Convert.ToString(message.ResultCode, 16));
+        ReceiveResponse(new PRLoginAS(message).InitMessage(message));
+    }
+
+    // 激活码请求
+    public bool ActiveCodeAS(string asHost, int asPort, int callback, long accountId, string activeCode)
+    {
+        PrintBusinessLog("[Serverbusiness] ActiveCodeAS");
+        return protocol.ActiveCodeAS(asHost, asPort, callback, accountId, activeCode);
+    }
+
+    // 激活码响应
+    public void OnActiveCodeRes(ACActiveCodeMessage message)
+    {
+        PrintBusinessLog("[Serverbusiness] OnActiveCodeRes");
+        ReceiveResponse(new ACActiveCodeRes().InitMessage(message));
+    }
+
+    // 登陆游戏服务器
     public bool LoginGS(string hostname, int port, int callback, long accountID, int areadId, string token)
     {
         PrintBusinessLog("[ServerBusiness] LoginGS" + " IP: " + hostname + "  port: " + port.ToString());
@@ -31,9 +82,11 @@ public partial class ServerBusiness
         return result;
     }
 
-    public bool GetLoginGsResult(out GCLoginGameMessage loginRes, out bool isNeedQueryData)
+    // 登录游戏服务器响应
+    public bool OnLoginGSRes(out GCLoginGameMessage loginRes, out bool isNeedQueryData)
     {
-        return protocol.GetLogiGsResult(out loginRes, out isNeedQueryData);
+        PrintBusinessLog("[Serverbusiness] OnLoginGSRes");
+        return protocol.LogiGSRes(out loginRes, out isNeedQueryData);
     }
 
 }
