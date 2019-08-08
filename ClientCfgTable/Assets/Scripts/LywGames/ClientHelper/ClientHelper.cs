@@ -187,6 +187,34 @@ namespace LywGames.ClientHelper
             return result;
         }
 
+        public bool CreateAccountAS(string asHost, int asPort, int callback, string accountName, string password, string randomSeed, int channelId, string version, DeviceInfoPro deviceInfo)
+        {
+            bool result;
+            try
+            {
+                result = ConnectAS(asHost, asPort, new CACreateAccountMessage
+                {
+                    CallBackId = callback,
+                    Protocol =
+                    {
+                        email = accountName,
+                        password = password,
+                        channelID = channelId,
+                        randomSeed = randomSeed,
+                        version = version,
+                        deviceInfo = deviceInfo
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Instance.Error(ex.ToString());
+                result = false;
+            }
+
+            return result;
+        }
+
         public bool LoginAS(string asHost, int asPort, int callback, string accountName, string password, string randomSeed, int channelId, string version, DeviceInfoPro deviceInfo)
         {
             bool result;
@@ -254,55 +282,6 @@ namespace LywGames.ClientHelper
             return result;
         }
 
-        public bool ActiveCodeAS(string asHost, int asPort, int callback, long accountId, string activeCode)
-        {
-            bool result;
-            try
-            {
-                result = ConnectAS(asHost, asPort, new CAActiveCodeMessage
-                {
-                    CallBackId = callback,
-                    Protocol =
-                    {
-                        accountId = accountId,
-                        activeCode = activeCode
-                    }
-                });
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Instance.Error(ex.ToString());
-                result = false;
-            }
-
-            return result;
-        }
-
-        public bool ChangePasswordAS(string asHost, int asPort, int callback, string accountName, string oldPassword, string newPassword)
-        {
-            bool result;
-            try
-            {
-                result = this.ConnectAS(asHost, asPort, new CAChangePasswordMessage
-                {
-                    CallBackId = callback,
-                    Protocol =
-                    {
-                        email = accountName,
-                        newPassword = newPassword,
-                        oldPassword = oldPassword
-                    }
-                });
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Instance.Error(ex.ToString(), new object[0]);
-                result = false;
-            }
-
-            return result;
-        }
-
         public bool BindAccountAS(string asHost, int asPort, int callback, string accountName, string password, string randomSeed, int channelId, string version, DeviceInfoPro deviceInfo)
         {
             bool result;
@@ -331,22 +310,43 @@ namespace LywGames.ClientHelper
             return result;
         }
 
-        public bool CreateAccountAS(string asHost, int asPort, int callback, string accountName, string password, string randomSeed, int channelId, string version, DeviceInfoPro deviceInfo)
+        public bool ChangePasswordAS(string asHost, int asPort, int callback, string accountName, string oldPassword, string newPassword)
         {
             bool result;
             try
             {
-                result = ConnectAS(asHost, asPort, new CACreateAccountMessage
+                result = ConnectAS(asHost, asPort, new CAChangePasswordMessage
                 {
                     CallBackId = callback,
                     Protocol =
                     {
                         email = accountName,
-                        password = password,
-                        channelID = channelId,
-                        randomSeed = randomSeed,
-                        version = version,
-                        deviceInfo = deviceInfo
+                        newPassword = newPassword,
+                        oldPassword = oldPassword
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Instance.Error(ex.ToString(), new object[0]);
+                result = false;
+            }
+
+            return result;
+        }
+
+        public bool ActiveCodeAS(string asHost, int asPort, int callback, long accountId, string activeCode)
+        {
+            bool result;
+            try
+            {
+                result = ConnectAS(asHost, asPort, new CAActiveCodeMessage
+                {
+                    CallBackId = callback,
+                    Protocol =
+                    {
+                        accountId = accountId,
+                        activeCode = activeCode
                     }
                 });
             }
@@ -359,81 +359,38 @@ namespace LywGames.ClientHelper
             return result;
         }
 
-        public bool ConnectToBS(string bsHost, int bsPort, int timeout)
-        {
-            LoggerManager.Instance.Info("connecting battle server..... ip = {0}, port = {1}", new object[]
-            {
-                bsHost,
-                bsPort
-            });
-            this.connection = NetworkManager.GetInstance().CreateConnection(this.type, timeout);
-            bool result;
-            try
-            {
-                this.connection.SetNetworkInitializer(this.networkInitializer, ConnectionType.CONNECTION_BATTLE);
-                this.connection.ConnectAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), 0), new IPEndPoint(NetUtil.GetIPV4Address(bsHost), bsPort));
-                if (this.combatMsgHandler != null)
-                {
-                    this.messageInitializer.SetConnectionActiveHandler(this.combatMsgHandler);
-                    this.messageInitializer.SetConnectionInactiveHandler(this.combatInactiveHandler);
-                }
-                else
-                {
-                    LoggerManager.Instance.Warn("connect to bs but found combatMsgHandler is null need call SetCombatMsgHandler", new object[0]);
-                }
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Instance.Error("ConnectToBS host:{0}, port:{1} exception {2}", new object[]
-                {
-                    bsHost,
-                    bsPort,
-                    ex.ToString()
-                });
-                result = false;
-                return result;
-            }
-            result = true;
-            return result;
-        }
-
         public bool LoginGS(string gsHost, int gsPort, int callback, long accountID, int areadId, string token, List<TableVersion> everyTableVersions)
         {
             IPEndPoint remoteAddress = new IPEndPoint(NetUtil.GetIPV4Address(gsHost), gsPort);
+
             long num = 0L;
             long num2 = 0L;
-            if (this.connection != null)
+            if (connection != null)
             {
-                num = this.connection.SendAmount;
-                num2 = this.connection.ReceiveAmount;
-                LoggerManager.Instance.Info("LoginGs found lastConnection Amount send {0} receive {1} then call disconnect", new object[]
-                {
-                    num,
-                    num2
-                });
-                this.connection.Disconnect();
-                this.connection = null;
+                num = connection.SendAmount;
+                num2 = connection.ReceiveAmount;
+                LoggerManager.Instance.Info("LoginGs found lastConnection Amount send {0} receive {1} then call disconnect", num, num2);
+                connection.Disconnect();
+                connection = null;
             }
-            this.connection = NetworkManager.GetInstance().CreateConnection(this.type, 0);
-            this.connection.SetNetworkInitializer(this.networkInitializer, ConnectionType.CONNECTION_GAME);
-            this.connection.ConnectAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), 0), remoteAddress);
-            LoggerManager.Instance.Debug("LoginGS host {0} port {1} send {2} receive {3}", new object[]
-            {
-                gsHost,
-                gsPort,
-                num,
-                num2
-            });
-            CGLoginGameMessage cG_LoginGameMessage = new CGLoginGameMessage();
-            cG_LoginGameMessage.CallBackId = callback;
-            cG_LoginGameMessage.Protocol.accountId = accountID;
-            cG_LoginGameMessage.Protocol.areaId = areadId;
-            cG_LoginGameMessage.Protocol.token = token;
-            cG_LoginGameMessage.Protocol.sendProtocolAmount = num;
-            cG_LoginGameMessage.Protocol.recvProtocolAmount = num2;
-            cG_LoginGameMessage.Protocol.datas.AddRange(everyTableVersions);
-            GSConnectionHandler connectionActiveHandler = new GSConnectionHandler(cG_LoginGameMessage);
-            this.messageInitializer.SetConnectionActiveHandler(connectionActiveHandler);
+
+            connection = NetworkManager.GetInstance().CreateConnection(type, 0);
+            connection.SetNetworkInitializer(networkInitializer, ConnectionType.CONNECTION_GAME);
+            connection.ConnectAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), 0), remoteAddress);
+            LoggerManager.Instance.Debug("LoginGS host {0} port {1} send {2} receive {3}", gsHost, gsPort, num, num2);
+
+            CGLoginGameMessage cgLoginGameMessage = new CGLoginGameMessage();
+            cgLoginGameMessage.CallBackId = callback;
+            cgLoginGameMessage.Protocol.accountId = accountID;
+            cgLoginGameMessage.Protocol.areaId = areadId;
+            cgLoginGameMessage.Protocol.token = token;
+            cgLoginGameMessage.Protocol.sendProtocolAmount = num;
+            cgLoginGameMessage.Protocol.recvProtocolAmount = num2;
+            cgLoginGameMessage.Protocol.datas.AddRange(everyTableVersions);
+
+            GSConnectionHandler connectionActiveHandler = new GSConnectionHandler(cgLoginGameMessage);
+            messageInitializer.SetConnectionActiveHandler(connectionActiveHandler);
+
             return true;
         }
 
@@ -441,45 +398,42 @@ namespace LywGames.ClientHelper
         {
             msg = null;
             isNeedQueryData = false;
+
             bool result;
-            if (this.connection == null)
+            if (connection == null)
             {
-                LoggerManager.Instance.Info("getLoginGsResult connection null", new object[0]);
+                LoggerManager.Instance.Info("getLoginGsResult connection null");
                 result = true;
             }
             else
             {
-                if (this.connection.isConnectionNonStart())
+                if (connection.isConnectionNonStart())
                 {
-                    LoggerManager.Instance.Debug("getLoginGsResult but no login operation", new object[0]);
+                    LoggerManager.Instance.Debug("getLoginGsResult but no login operation");
                     result = false;
                 }
                 else
                 {
-                    if (this.connection.isConnecting())
+                    if (connection.isConnecting())
                     {
                         result = false;
                     }
                     else
                     {
-                        if (this.connection.isConnected())
+                        if (connection.isConnected())
                         {
-                            if (this.connection.LoginGameRes == null)
+                            if (connection.LoginGameRes == null)
                             {
                                 result = false;
                             }
                             else
                             {
-                                msg = this.connection.LoginGameRes;
-                                LoggerManager.Instance.Debug("get connection {0} callback {1}", new object[]
-                                {
-                                    this.connection.GetHashCode(),
-                                    msg.CallBackId
-                                });
-                                isNeedQueryData = msg.Protocol.needQueryData;
+                                msg = connection.LoginGameRes;
+                                LoggerManager.Instance.Debug("get connection {0} callback {1}", connection.GetHashCode(), msg.CallBackId);
+                                isNeedQueryData = msg.Protocol.NeedQueryData;
                                 if (isNeedQueryData)
                                 {
-                                    this.connection.clearProtocolAmount();
+                                    connection.clearProtocolAmount();
                                 }
                                 result = true;
                             }
@@ -491,6 +445,7 @@ namespace LywGames.ClientHelper
                     }
                 }
             }
+
             return result;
         }
 
@@ -510,6 +465,35 @@ namespace LywGames.ClientHelper
             return result;
         }
 
+        public bool ConnectToBS(string bsHost, int bsPort, int timeout)
+        {
+            LoggerManager.Instance.Info("connecting battle server..... ip = {0}, port = {1}", bsHost, bsPort);
+
+            connection = NetworkManager.GetInstance().CreateConnection(type, timeout);
+            try
+            {
+                connection.SetNetworkInitializer(networkInitializer, ConnectionType.CONNECTION_BATTLE);
+                connection.ConnectAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), 0), new IPEndPoint(NetUtil.GetIPV4Address(bsHost), bsPort));
+                if (combatMsgHandler != null)
+                {
+                    messageInitializer.SetConnectionActiveHandler(combatMsgHandler);
+                    messageInitializer.SetConnectionInactiveHandler(combatInactiveHandler);
+                }
+                else
+                {
+                    LoggerManager.Instance.Warn("connect to bs but found combatMsgHandler is null need call SetCombatMsgHandler");
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Instance.Error("ConnectToBS host:{0}, port:{1} exception {2}", bsHost,bsPort, ex.ToString());
+                
+                return false;
+            }
+          
+            return true;
+        }
+
         public void SetCombatMsgHandler(IMessageHandler combatMsgHandler, IMessageHandler combatInactiveHandler)
         {
             this.combatMsgHandler = combatMsgHandler;
@@ -520,12 +504,12 @@ namespace LywGames.ClientHelper
 
         public void AddCombatMsg(Type msgType)
         {
-            messageInitializer.AddMessage(msgType);
+            messageInitializer.AddMessageType(msgType);
         }
 
         public void RemoveCombatMsg(Type msgType)
         {
-            messageInitializer.RemoveMessage(msgType);
+            messageInitializer.RemoveMessageType(msgType);
         }
 
         public bool SendCombatMessage(byte[] data, int len)
