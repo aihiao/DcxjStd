@@ -1,8 +1,9 @@
-﻿using LywGames.Messages.Proto.Game;
+﻿using LywGames.Corgi.Protocol;
+using LywGames.Messages.Proto.Game;
 
 namespace LywGames.Messages
 {
-    [Message(ProtocolId = 131075, IsRequest = false)]
+    [Message(ProtocolId = Protocols.P_GC_GameLogin, IsRequest = false)]
     public class GCLoginGameMessage : ProtocolMessage<LoginGameRes>
     {
         public override int ResultCode
