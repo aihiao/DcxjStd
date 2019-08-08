@@ -4,26 +4,26 @@ namespace LywGames.Network
 {
     public class MessageDelegateProcessor
     {
-        private MessageDelegateInitializer delegateInitializer;
+        private MessageDelegateInitializer messageDelegateInitializer;
 
-        public MessageDelegateProcessor(MessageDelegateInitializer delegateInitializer)
+        public MessageDelegateProcessor(MessageDelegateInitializer messageDelegateInitializer)
         {
-            this.delegateInitializer = delegateInitializer;
+            this.messageDelegateInitializer = messageDelegateInitializer;
         }
 
         public bool HandleMessage(Message msg, IConnection connection)
         {
-            MessageDelegateNode messageDelegate = delegateInitializer.getMessageDelegate(msg.GetType());
+            MessageDelegateNode messageDelegateNode = messageDelegateInitializer.getMessageDelegate(msg.GetType());
 
             bool result;
-            if (messageDelegate == null)
+            if (messageDelegateNode == null)
             {
                 result = false;
             }
             else
             {
-                messageDelegate.ReceiveMessage(msg);
-                if (messageDelegate.isShortConnect)
+                messageDelegateNode.ReceiveMessage(msg);
+                if (messageDelegateNode.isShortConnect)
                 {
                     connection.Disconnect();
                 }
