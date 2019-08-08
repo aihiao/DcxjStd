@@ -13,7 +13,7 @@ namespace LywGames.Network
 
         public bool HandleMessage(Message msg, IConnection connection)
         {
-            MessageDelegateNode messageDelegateNode = messageDelegateInitializer.getMessageDelegate(msg.GetType());
+            MessageDelegateNode messageDelegateNode = messageDelegateInitializer.GetMessageDelegate(msg.GetType());
 
             bool result;
             if (messageDelegateNode == null)

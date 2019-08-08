@@ -12,7 +12,7 @@ namespace LywGames.Network
             messageType2MessageDelegateNodeDic.Add(msgType, msgDelegate);
         }
 
-        public MessageDelegateNode getMessageDelegate(Type msgType)
+        public MessageDelegateNode GetMessageDelegate(Type msgType)
         {
             return messageType2MessageDelegateNodeDic[msgType];
         }
