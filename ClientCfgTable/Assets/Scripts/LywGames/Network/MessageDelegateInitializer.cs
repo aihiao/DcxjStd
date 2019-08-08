@@ -5,18 +5,16 @@ namespace LywGames.Network
 {
     public class MessageDelegateInitializer
     {
-        private Dictionary<Type, MessageDelegateNode> msgReceiveDelegates = new Dictionary<Type, MessageDelegateNode>();
+        private Dictionary<Type, MessageDelegateNode> messageType2MessageDelegateNodeDic = new Dictionary<Type, MessageDelegateNode>();
 
         public void AddMessageReceiveDelegate(Type msgType, MessageDelegateNode msgDelegate)
         {
-            this.msgReceiveDelegates.Add(msgType, msgDelegate);
+            messageType2MessageDelegateNodeDic.Add(msgType, msgDelegate);
         }
 
         public MessageDelegateNode getMessageDelegate(Type msgType)
         {
-            MessageDelegateNode result = null;
-            msgReceiveDelegates.TryGetValue(msgType, out result);
-            return result;
+            return messageType2MessageDelegateNodeDic[msgType];
         }
 
     }
