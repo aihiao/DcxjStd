@@ -1,8 +1,9 @@
-﻿using LywGames.Messages.Proto.Game;
+﻿using LywGames.Corgi.Protocol;
+using LywGames.Messages.Proto.Game;
 
 namespace LywGames.Messages
 {
-    [Message(ProtocolId = 131074, IsRequest = true)]
+    [Message(ProtocolId = Protocols.P_CG_GameLogin, IsRequest = true)]
     public class CGLoginGameMessage : ProtocolMessage<LoginGameReq>
     {
     }
