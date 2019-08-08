@@ -13,6 +13,11 @@
         public const int TableVersionCheckSuccessUpdate = 2228234;
         public const int TableVersionCheckFail = 16908298;
 
+        public const int AuthActiveCodeSuccess = 1114123;
+
+        public const int P_CG_GameLogin = 131074; // Protocol Client to Game Server, Login Game Server.
+        public const int P_GC_GameLogin = 131075; // Protocol Game Server to Client, Login Game Server.
+
         public static bool isSuccess(int id)
         {
             return id <= 0 || ((long)id & (long)(-1048576)) >> 20 < 16L;
