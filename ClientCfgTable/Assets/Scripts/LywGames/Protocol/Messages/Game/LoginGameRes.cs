@@ -7,84 +7,92 @@ namespace LywGames.Messages.Proto.Game
     [ProtoContract(Name = "LoginGameRes")]
     public class LoginGameRes : IExtensible
     {
-        private int _result;
-        private long _roleId = 0L;
-        private bool _hasGMPrivilege = false;
-        private bool _needQueryData = false;
-        private readonly List<TableVersion> _datas = new List<TableVersion>();
-        private int _size = 0;
+        private int resultCode;
+        private long roleId = 0L;
+        private bool hasGMPrivilege = false;
+        private bool needQueryData = false;
+        private readonly List<TableVersion> datas = new List<TableVersion>();
+        private int size = 0;
         private IExtension extensionObject;
+
         [ProtoMember(1)]
-        public int result
+        public int ResultCode
         {
             get
             {
-                return this._result;
+                return resultCode;
             }
             set
             {
-                this._result = value;
+                resultCode = value;
             }
         }
+
         [ProtoMember(1), DefaultValue(0L)]
-        public long roleId
+        public long RoleId
         {
             get
             {
-                return this._roleId;
+                return roleId;
             }
             set
             {
-                this._roleId = value;
+                roleId = value;
             }
         }
+
         [ProtoMember(1), DefaultValue(false)]
-        public bool hasGMPrivilege
+        public bool HasGMPrivilege
         {
             get
             {
-                return this._hasGMPrivilege;
+                return hasGMPrivilege;
             }
             set
             {
-                this._hasGMPrivilege = value;
+                hasGMPrivilege = value;
             }
         }
+
         [ProtoMember(1), DefaultValue(false)]
-        public bool needQueryData
+        public bool NeedQueryData
         {
             get
             {
-                return this._needQueryData;
+                return needQueryData;
             }
             set
             {
-                this._needQueryData = value;
+                needQueryData = value;
             }
         }
+
         [ProtoMember(1)]
-        public List<TableVersion> datas
+        public List<TableVersion> Datas
         {
             get
             {
-                return this._datas;
+                return datas;
             }
         }
+
         [ProtoMember(1), DefaultValue(0)]
-        public int size
+        public int Size
         {
             get
             {
-                return this._size;
+                return size;
             }
             set
             {
-                this._size = value;
+                size = value;
             }
         }
+
         IExtension IExtensible.GetExtensionObject(bool createIfMissing)
         {
-            return Extensible.GetExtensionObject(ref this.extensionObject, createIfMissing);
+            return Extensible.GetExtensionObject(ref extensionObject, createIfMissing);
         }
+
     }
 }
