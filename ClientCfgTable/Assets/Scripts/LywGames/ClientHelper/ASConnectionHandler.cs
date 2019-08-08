@@ -20,21 +20,18 @@ namespace LywGames.ClientHelper
         {
             if (result == SocketError.Success)
             {
-                LoggerManager.Instance.Debug("AsConnection {0} Active then send message", new object[]
-                {
-                    connection.Remote.Address
-                });
-                connection.Send(this.req, 1);
+                LoggerManager.Instance.Debug("AsConnection {0} Active then send message", connection.Remote.Address);
+                connection.Send(req, 1);
             }
             else
             {
-                this.clientHelper.OnAsConnectFailed();
+                clientHelper.OnASConnectFailed();
             }
         }
 
         public override void handleConnectionInactive(IConnection connection, SocketError result)
         {
-            this.clientHelper.OnAsConnectFailed();
+            clientHelper.OnASConnectFailed();
         }
 
         public override void handleRequestTimeout(IConnection connection, int userData)
