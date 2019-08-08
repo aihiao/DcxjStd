@@ -6,63 +6,74 @@ namespace LywGames.Network
 {
     public abstract class AbstractMessageInitializer
     {
-        private Dictionary<int, IMessageHandler> msgHandlers = new Dictionary<int, IMessageHandler>();
-        private Dictionary<int, Type> msgs = new Dictionary<int, Type>();
+        private Dictionary<int, IMessageHandler> protocolId2MessageHandlerDic = new Dictionary<int, IMessageHandler>();
+        private Dictionary<int, Type> protocolId2MessageTypeDic = new Dictionary<int, Type>();
+
         private IMessageHandler defaultMsgHandler;
         private IMessageHandler connectionActiveHandler;
         private IMessageHandler connectionInactiveHandler;
+
         public AbstractMessageInitializer()
         {
-            this.Initilial();
+            Initilial();
         }
+
         public abstract void Initilial();
+
         public Type getMessageType(int protocolId)
         {
-            Type result = null;
-            this.msgs.TryGetValue(protocolId, out result);
-            return result;
+            return protocolId2MessageTypeDic[protocolId];
         }
+
         public IMessageHandler GetMessageHandler(int protocolId)
         {
-            IMessageHandler result = null;
-            this.msgHandlers.TryGetValue(protocolId, out result);
-            return result;
+            return protocolId2MessageHandlerDic[protocolId];
         }
-        public IMessageHandler GetConnectionActiveHandler()
-        {
-            return this.connectionActiveHandler;
-        }
-        public IMessageHandler GetConnectionInactiveHandler()
-        {
-            return this.connectionInactiveHandler;
-        }
-        public IMessageHandler GetDefaultMessageHandler()
-        {
-            return this.defaultMsgHandler;
-        }
+
         public void AddMessageHanlder(Type msg, IMessageHandler handler)
         {
-            this.msgHandlers.Add(Message.GetProtocolId(msg), handler);
+            protocolId2MessageHandlerDic.Add(Message.GetProtocolId(msg), handler);
         }
-        public void AddMessage(Type msg)
+
+        public void AddMessageType(Type msg)
         {
-            this.msgs.Add(Message.GetProtocolId(msg), msg);
+            protocolId2MessageTypeDic.Add(Message.GetProtocolId(msg), msg);
         }
-        public void RemoveMessage(Type msg)
+
+        public void RemoveMessageType(Type msg)
         {
-            this.msgs.Remove(Message.GetProtocolId(msg));
+            protocolId2MessageTypeDic.Remove(Message.GetProtocolId(msg));
         }
-        public void SetConnectionActiveHandler(IMessageHandler handler)
+
+        public IMessageHandler GetDefaultMessageHandler()
         {
-            this.connectionActiveHandler = handler;
+            return defaultMsgHandler;
         }
-        public void SetConnectionInactiveHandler(IMessageHandler handler)
-        {
-            this.connectionInactiveHandler = handler;
-        }
+
         public void SetDefaultMsgHandler(IMessageHandler handler)
         {
-            this.defaultMsgHandler = handler;
+            defaultMsgHandler = handler;
         }
+
+        public IMessageHandler GetConnectionActiveHandler()
+        {
+            return connectionActiveHandler;
+        }
+
+        public void SetConnectionActiveHandler(IMessageHandler handler)
+        {
+            connectionActiveHandler = handler;
+        }
+
+        public IMessageHandler GetConnectionInactiveHandler()
+        {
+            return connectionInactiveHandler;
+        }
+
+        public void SetConnectionInactiveHandler(IMessageHandler handler)
+        {
+            connectionInactiveHandler = handler;
+        }
+
     }
 }
