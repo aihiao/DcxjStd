@@ -7,9 +7,11 @@ namespace LywGames.ClientHelper
     {
         public override void Initilial()
         {
-            base.AddMessage(typeof(ACLoginAuthMessage));
+            AddMessageType(typeof(ACCreateAccountMessage));
+            AddMessageType(typeof(ACLoginAuthMessage));
+            AddMessageType(typeof(ACActiveCodeMessage));
        
-            base.AddMessage(typeof(GCLoginGameMessage));
+            AddMessageType(typeof(GCLoginGameMessage));
            
         }
     }
