@@ -30,7 +30,7 @@ namespace LywGames.Network
             else
             {
                 Message message = (Message)Activator.CreateInstance(messageType);
-                message.Callback = callback;
+                message.CallBackId = callback;
                 message.DecodeBody(buffer, offset + networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
                 if (num == 131075)
                 {
@@ -39,7 +39,7 @@ namespace LywGames.Network
                     LoggerManager.Instance.Info("connection {0} recv loginRes callback {1}", new object[]
                     {
                         connection.GetHashCode(),
-                        gC_LoginGameMessage.Callback
+                        gC_LoginGameMessage.CallBackId
                     });
                 }
                 else
