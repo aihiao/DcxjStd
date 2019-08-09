@@ -4,39 +4,39 @@ namespace LywGames.Network
 {
     public abstract class AbstractNetworkOutHandler
     {
-        protected object obj;
         private AbstractNetworkOutHandler nextOutHandler;
         public AbstractNetworkOutHandler NextOutHandler
         {
             get
             {
-                return this.nextOutHandler;
+                return nextOutHandler;
             }
             set
             {
-                this.nextOutHandler = value;
+                nextOutHandler = value;
             }
         }
 
         protected void sendBuffDown(IConnection connection, byte[] buffer, int offset, int size)
         {
-            if (this.NextOutHandler != null)
+            if (NextOutHandler != null)
             {
-                this.NextOutHandler.Send(connection, buffer, offset, size);
+                NextOutHandler.Send(connection, buffer, offset, size);
             }
             else
             {
-                connection._Send(buffer, offset, size);
+                connection.Send(buffer, offset, size);
             }
         }
 
         protected void sendObjectDown(IConnection connection, object msg)
         {
-            if (this.NextOutHandler != null)
+            if (NextOutHandler != null)
             {
-                this.NextOutHandler.Send(connection, msg);
+                NextOutHandler.Send(connection, msg);
                 return;
             }
+
             throw new NotSupportedException("The last ConnectionOutHandler can't be invoked Send(IConnection connection, Object msg)");
         }
 
