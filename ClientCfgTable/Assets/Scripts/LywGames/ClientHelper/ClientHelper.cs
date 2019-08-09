@@ -73,14 +73,14 @@ namespace LywGames.ClientHelper
 
         public bool IsConnected()
         {
-            return connection != null && connection.isConnected();
+            return connection != null && connection.IsConnected();
         }
 
         public long GetNetworkPing()
         {
             if (connection != null)
             {
-                return connection.getNetworkPing();
+                return connection.GetNetworkPing();
             }
 
             return -1;
@@ -90,7 +90,7 @@ namespace LywGames.ClientHelper
         {
             if (connection != null)
             {
-                return connection.getAliasedPing();
+                return connection.GetAliasedPing();
             }
 
             return -1;
@@ -106,7 +106,7 @@ namespace LywGames.ClientHelper
             }
             else
             {
-                return connection.getSendStatics(out sendBytes, out sendNum, out totalTime);
+                return connection.GetSendStatics(out sendBytes, out sendNum, out totalTime);
             }
 
             return false;
@@ -122,7 +122,7 @@ namespace LywGames.ClientHelper
             }
             else
             {
-                return connection.getRecvStatics(out recvBytes, out recvNum, out totalTime);
+                return connection.GetRecvStatics(out recvBytes, out recvNum, out totalTime);
             }
 
             return false;
@@ -132,7 +132,7 @@ namespace LywGames.ClientHelper
         {
             if (connection != null)
             {
-                connection.pauseStatics();
+                connection.PauseStatics();
             }
         }
 
@@ -140,7 +140,7 @@ namespace LywGames.ClientHelper
         {
             if (connection != null)
             {
-                connection.resumeStatics();
+                connection.ResumeStatics();
             }
         }
 
@@ -407,20 +407,20 @@ namespace LywGames.ClientHelper
             }
             else
             {
-                if (connection.isConnectionNonStart())
+                if (connection.IsConnectionNonStart())
                 {
                     LoggerManager.Instance.Debug("getLoginGsResult but no login operation");
                     result = false;
                 }
                 else
                 {
-                    if (connection.isConnecting())
+                    if (connection.IsConnecting())
                     {
                         result = false;
                     }
                     else
                     {
-                        if (connection.isConnected())
+                        if (connection.IsConnected())
                         {
                             if (connection.LoginGameRes == null)
                             {
@@ -433,7 +433,7 @@ namespace LywGames.ClientHelper
                                 isNeedQueryData = msg.Protocol.NeedQueryData;
                                 if (isNeedQueryData)
                                 {
-                                    connection.clearProtocolAmount();
+                                    connection.ClearProtocolAmount();
                                 }
                                 result = true;
                             }
