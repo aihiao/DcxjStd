@@ -9,10 +9,12 @@ namespace LywGames.Network
 {
     public class TCPConnection : IConnection
     {
-        public static int _MAX_EVENT_NUMBER = 128;
+        public static int MaxEventNumber = 128;
+
         private Socket socket;
         private BufferManager bufferManager;
         private int evenCount;
+
         private object eventLock = new object();
         private Queue<SocketAsyncEventArgs> freeEventArgs = new Queue<SocketAsyncEventArgs>();
         private Queue<SocketAsyncEventArgs> processEventArgs = new Queue<SocketAsyncEventArgs>();
@@ -20,27 +22,31 @@ namespace LywGames.Network
 
         public TCPConnection(int userData)
         {
-            this.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            this.socket.NoDelay = true;
-            this.evenCount = 0;
-            int num = _MAX_EVENT_NUMBER / 2;
-            this.bufferManager = new BufferManager(num * NetworkParameters._MAX_RECV_BUFFER_SIZE, NetworkParameters._MAX_RECV_BUFFER_SIZE);
-            this.bufferManager.InitBuffer();
+            // AddressFamily.InterNetwork IP版本4的地址。
+            // SocketType.Stream 支持可靠、双向、基于连接的字节流,而不重复数据,也不保留边界.此类型的Socket与单个对方主机通信,并且在通信开始之前需要建立远程主机连接.Stream使用传输控制协议(ProtocolType.Tcp)和AddressFamily.InterNetwork地址族。
+            // ProtocolType.Tcp 传输控制协议。
+            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            socket.NoDelay = true; // 不使用Nagle算法
+
+            evenCount = 0;
+
+            bufferManager = new BufferManager(MaxEventNumber * NetworkParameters._MAX_RECV_BUFFER_SIZE, NetworkParameters._MAX_RECV_BUFFER_SIZE);
+            bufferManager.InitBuffer();
         }
 
         private SocketAsyncEventArgs GetEventArg(bool needBuffer)
         {
-            object obj;
-            Monitor.Enter(obj = this.eventLock);
+            object obj = eventLock;
+            Monitor.Enter(obj);
             SocketAsyncEventArgs result;
             try
             {
-                if (this.freeEventArgs.Count > 0)
+                if (freeEventArgs.Count > 0)
                 {
-                    SocketAsyncEventArgs socketAsyncEventArgs = this.freeEventArgs.Dequeue();
+                    SocketAsyncEventArgs socketAsyncEventArgs = freeEventArgs.Dequeue();
                     if (needBuffer && socketAsyncEventArgs.Buffer == null)
                     {
-                        if (!this.bufferManager.SetBuffer(socketAsyncEventArgs))
+                        if (!bufferManager.SetBuffer(socketAsyncEventArgs))
                         {
                             result = null;
                             return result;
@@ -50,22 +56,22 @@ namespace LywGames.Network
                     {
                         if (!needBuffer && socketAsyncEventArgs.Buffer != null)
                         {
-                            this.bufferManager.FreeBuffer(socketAsyncEventArgs);
+                            bufferManager.FreeBuffer(socketAsyncEventArgs);
                         }
                     }
                     result = socketAsyncEventArgs;
                 }
                 else
                 {
-                    if (this.evenCount < TCPConnection._MAX_EVENT_NUMBER)
+                    if (evenCount < MaxEventNumber)
                     {
-                        this.evenCount++;
+                        evenCount++;
                         SocketAsyncEventArgs socketAsyncEventArgs = new SocketAsyncEventArgs();
-                        socketAsyncEventArgs.RemoteEndPoint = this.remote;
-                        socketAsyncEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(this.SocketEventArg_Completed);
+                        socketAsyncEventArgs.RemoteEndPoint = remote;
+                        socketAsyncEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(SocketEventArgCompleted);
                         if (needBuffer)
                         {
-                            if (!this.bufferManager.SetBuffer(socketAsyncEventArgs))
+                            if (!bufferManager.SetBuffer(socketAsyncEventArgs))
                             {
                                 result = null;
                                 return result;
@@ -75,10 +81,7 @@ namespace LywGames.Network
                     }
                     else
                     {
-                        LoggerManager.Instance.Warn("GetEventArd found without free event, MaxEventCount {0}", new object[]
-                        {
-                            TCPConnection._MAX_EVENT_NUMBER
-                        });
+                        LoggerManager.Instance.Warn("GetEventArd found without free event, MaxEventCount {0}", MaxEventNumber);
                         result = null;
                     }
                 }
@@ -87,41 +90,42 @@ namespace LywGames.Network
             {
                 Monitor.Exit(obj);
             }
+
             return result;
         }
 
         private void PushFreeEventArg(SocketAsyncEventArgs eventArg, bool clearBuffer)
         {
-            object obj;
-            Monitor.Enter(obj = this.eventLock);
+            object obj = eventLock;
+            Monitor.Enter(obj); // Monitor提供同步访问对象的机制。Monitor.Enter获取一个对象的锁。
             try
             {
                 if (clearBuffer)
                 {
                     if (eventArg.Buffer != null)
                     {
-                        this.bufferManager.FreeBuffer(eventArg);
+                        bufferManager.FreeBuffer(eventArg);
                     }
                     else
                     {
                         eventArg.SetBuffer(null, 0, 0);
                     }
                 }
-                this.freeEventArgs.Enqueue(eventArg);
+                freeEventArgs.Enqueue(eventArg);
             }
             finally
             {
-                Monitor.Exit(obj);
+                Monitor.Exit(obj); // Monitor.Exit释放对象锁。
             }
         }
 
         private void PushAppendEventArg(SocketAsyncEventArgs eventArg)
         {
-            object obj;
-            Monitor.Enter(obj = this.eventLock);
+            object obj = eventLock;
+            Monitor.Enter(obj);
             try
             {
-                this.appendEventArgs.Enqueue(eventArg);
+                appendEventArgs.Enqueue(eventArg);
             }
             finally
             {
@@ -131,40 +135,40 @@ namespace LywGames.Network
 
         public override void ConnectAsync(IPEndPoint localAddress, IPEndPoint remoteAddress)
         {
-            LoggerManager.Instance.Debug("TCPConnection.connectAsync remote {0}", new object[]
-            {
-                remoteAddress
-            });
-            this.remote = remoteAddress;
-            object statusLock;
-            Monitor.Enter(statusLock = this.statusLock);
+            LoggerManager.Instance.Debug("TCPConnection.connectAsync remote {0}", remoteAddress);
+            remote = remoteAddress;
+
+            object obj = statusLock;
+            Monitor.Enter(obj);
             try
             {
-                this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTING;
+                connectionStatus = ConnectionStatus.Connecting;
             }
             finally
             {
-                Monitor.Exit(statusLock);
+                Monitor.Exit(obj);
             }
-            SocketAsyncEventArgs eventArg = this.GetEventArg(false);
+
+            SocketAsyncEventArgs eventArg = GetEventArg(false);
             if (eventArg == null)
             {
-                LoggerManager.Instance.Error("Can't eventArg when connecting", new object[0]);
-                Monitor.Enter(statusLock = this.statusLock);
+                LoggerManager.Instance.Error("Can't eventArg when connecting");
+
+                Monitor.Enter(obj);
                 try
                 {
-                    this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
+                    connectionStatus = ConnectionStatus.Disconnected;
                 }
                 finally
                 {
-                    Monitor.Exit(statusLock);
+                    Monitor.Exit(obj);
                 }
             }
             else
             {
-                if (!this.socket.ConnectAsync(eventArg))
+                if (!socket.ConnectAsync(eventArg))
                 {
-                    this.ProcessConnect(eventArg, false);
+                    ProcessConnect(eventArg, false);
                 }
             }
         }
@@ -172,187 +176,190 @@ namespace LywGames.Network
         public override bool ConnectSync(IPEndPoint localAddress, IPEndPoint remoteAddress, int timeout)
         {
             long num = DateTime.Now.ToFileTime() / 10000L;
-            this.remote = remoteAddress;
-            object statusLock;
-            Monitor.Enter(statusLock = this.statusLock);
+            remote = remoteAddress;
+
+            object obj = statusLock;
+            Monitor.Enter(obj);
             try
             {
-                this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTING;
-            }
-            finally
-            {
-                Monitor.Exit(statusLock);
-            }
-            SocketAsyncEventArgs eventArg = this.GetEventArg(false);
-            bool result;
-            if (eventArg == null)
-            {
-                LoggerManager.Instance.Error("Can't eventArg when connecting", new object[0]);
-                Monitor.Enter(statusLock = this.statusLock);
-                try
-                {
-                    this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
-                }
-                finally
-                {
-                    Monitor.Exit(statusLock);
-                }
-                result = false;
-            }
-            else
-            {
-                if (!this.socket.ConnectAsync(eventArg))
-                {
-                    this.ProcessConnect(eventArg, false);
-                }
-                long num2 = DateTime.Now.ToFileTime() / 10000L;
-                while (num2 - num < (long)(timeout * 1000))
-                {
-                    if (this.connectionStatus == IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTED)
-                    {
-                        result = true;
-                        return result;
-                    }
-                    Thread.Sleep(100);
-                    num2 = DateTime.Now.ToFileTime() / 10000L;
-                }
-                result = false;
-            }
-            return result;
-        }
-
-        public override void Disconnect()
-        {
-            if (this.socket != null)
-            {
-                try
-                {
-                    LoggerManager.Instance.Debug("Logic call Disconnect {0}", new object[]
-                    {
-                        this.socket.RemoteEndPoint
-                    });
-                    this.socket.Shutdown(SocketShutdown.Both);
-                    this.socket.Disconnect(true);
-                    object statusLock;
-                    Monitor.Enter(statusLock = this.statusLock);
-                    try
-                    {
-                        this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_CLOSEDBYLOGIC;
-                    }
-                    finally
-                    {
-                        Monitor.Exit(statusLock);
-                    }
-                }
-                catch (Exception var_0_75)
-                {
-                }
-            }
-        }
-
-        internal override bool _Send(byte[] buffer, int offset, int count)
-        {
-            bool result;
-            if (this.socket == null || !this.socket.Connected)
-            {
-                LoggerManager.Instance.Warn("TCPConnection._Send data len {0} but socket is not connected", new object[]
-                {
-                    count
-                });
-                result = false;
-            }
-            else
-            {
-                SocketAsyncEventArgs eventArg = this.GetEventArg(false);
-                if (eventArg == null)
-                {
-                    LoggerManager.Instance.Error("There is no SocketAsyncEventArgs available", new object[0]);
-                    result = false;
-                }
-                else
-                {
-                    if (!this.bufferManager.SetBuffer(eventArg, buffer, offset, count))
-                    {
-                        LoggerManager.Instance.Error("There is no memory available in buffermanager", new object[0]);
-                        result = false;
-                    }
-                    else
-                    {
-                        if (!this.socket.SendAsync(eventArg))
-                        {
-                            this.ProcessSend(eventArg, false);
-                        }
-                        result = true;
-                    }
-                }
-            }
-            return result;
-        }
-
-        public override void Update()
-        {
-            object obj;
-            Monitor.Enter(obj = this.eventLock);
-            try
-            {
-                Queue<SocketAsyncEventArgs> queue = this.appendEventArgs;
-                this.appendEventArgs = this.processEventArgs;
-                this.processEventArgs = queue;
+                connectionStatus = ConnectionStatus.Connecting;
             }
             finally
             {
                 Monitor.Exit(obj);
             }
-            while (this.processEventArgs.Count > 0)
+
+            SocketAsyncEventArgs eventArg = GetEventArg(false);
+            if (eventArg == null)
             {
-                SocketAsyncEventArgs socketAsyncEventArgs = this.processEventArgs.Dequeue();
+                LoggerManager.Instance.Error("Can't eventArg when connecting");
+
+                Monitor.Enter(obj = statusLock);
+                try
+                {
+                    connectionStatus = ConnectionStatus.Disconnected;
+                }
+                finally
+                {
+                    Monitor.Exit(obj);
+                }
+
+                return false;
+            }
+            else
+            {
+                if (!socket.ConnectAsync(eventArg))
+                {
+                    ProcessConnect(eventArg, false);
+                }
+
+                long num2 = DateTime.Now.ToFileTime() / 10000L;
+                while (num2 - num < (long)(timeout * 1000))
+                {
+                    if (connectionStatus == ConnectionStatus.Connected)
+                    {
+                        return true;
+                    }
+                    Thread.Sleep(100);
+                    num2 = DateTime.Now.ToFileTime() / 10000L;
+                }
+
+                return false;
+            }
+        }
+
+        public override void Disconnect()
+        {
+            if (socket != null)
+            {
+                try
+                {
+                    LoggerManager.Instance.Debug("Logic call Disconnect {0}", socket.RemoteEndPoint);
+
+                    socket.Shutdown(SocketShutdown.Both);
+                    socket.Disconnect(true);
+
+                    object obj = statusLock;
+                    Monitor.Enter(obj);
+                    try
+                    {
+                        connectionStatus = ConnectionStatus.ClosedByLogic;
+                    }
+                    finally
+                    {
+                        Monitor.Exit(obj);
+                    }
+                }
+                catch (Exception e)
+                {
+                    LoggerManager.Instance.Error(e.ToString());
+                }
+            }
+        }
+
+        internal override bool Send(byte[] buffer, int offset, int count)
+        {
+            bool result;
+            if (socket == null || !socket.Connected)
+            {
+                LoggerManager.Instance.Warn("TCPConnection._Send data len {0} but socket is not connected", count);
+                result = false;
+            }
+            else
+            {
+                SocketAsyncEventArgs eventArg = GetEventArg(false);
+                if (eventArg == null)
+                {
+                    LoggerManager.Instance.Error("There is no SocketAsyncEventArgs available");
+                    result = false;
+                }
+                else
+                {
+                    if (!bufferManager.SetBuffer(eventArg, buffer, offset, count))
+                    {
+                        LoggerManager.Instance.Error("There is no memory available in buffermanager");
+                        result = false;
+                    }
+                    else
+                    {
+                        if (!socket.SendAsync(eventArg))
+                        {
+                            ProcessSend(eventArg, false);
+                        }
+                        result = true;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public override void Update()
+        {
+            object obj = eventLock;
+            Monitor.Enter(obj);
+            try
+            {
+                Queue<SocketAsyncEventArgs> queue = appendEventArgs;
+                appendEventArgs = processEventArgs;
+                processEventArgs = queue;
+            }
+            finally
+            {
+                Monitor.Exit(obj);
+            }
+
+            while (processEventArgs.Count > 0)
+            {
+                SocketAsyncEventArgs socketAsyncEventArgs = processEventArgs.Dequeue();
                 SocketAsyncOperation lastOperation = socketAsyncEventArgs.LastOperation;
                 switch (lastOperation)
                 {
                     case SocketAsyncOperation.Connect:
-                        this.ProcessConnect(socketAsyncEventArgs, true);
+                        ProcessConnect(socketAsyncEventArgs, true);
                         break;
                     case SocketAsyncOperation.Disconnect:
                         goto IL_89;
                     case SocketAsyncOperation.Receive:
-                        this.ProcessReceive(socketAsyncEventArgs, true);
+                        ProcessReceive(socketAsyncEventArgs, true);
                         break;
                     default:
                         if (lastOperation != SocketAsyncOperation.Send)
                         {
                             goto IL_89;
                         }
-                        this.ProcessSend(socketAsyncEventArgs, true);
+                        ProcessSend(socketAsyncEventArgs, true);
                         break;
                 }
                 continue;
                 IL_89:
-                LoggerManager.Instance.Error("Invalid operation completed", new object[0]);
+                LoggerManager.Instance.Error("Invalid operation completed");
             }
         }
 
-        private void SocketEventArg_Completed(object sender, SocketAsyncEventArgs e)
+        private void SocketEventArgCompleted(object sender, SocketAsyncEventArgs e)
         {
             SocketAsyncOperation lastOperation = e.LastOperation;
             switch (lastOperation)
             {
                 case SocketAsyncOperation.Connect:
-                    this.ProcessConnect(e, false);
+                    ProcessConnect(e, false);
                     return;
                 case SocketAsyncOperation.Disconnect:
                     break;
                 case SocketAsyncOperation.Receive:
-                    this.ProcessReceive(e, false);
+                    ProcessReceive(e, false);
                     return;
                 default:
                     if (lastOperation == SocketAsyncOperation.Send)
                     {
-                        this.ProcessSend(e, false);
+                        ProcessSend(e, false);
                         return;
                     }
                     break;
             }
-            LoggerManager.Instance.Error("Invalid operation completed", new object[0]);
+
+            LoggerManager.Instance.Error("Invalid operation completed");
             throw new Exception("Invalid operation completed");
         }
 
@@ -361,15 +368,15 @@ namespace LywGames.Network
             if (!isPolling)
             {
                 SocketError socketError = e.SocketError;
-                this.PushAppendEventArg(e);
+                PushAppendEventArg(e);
                 if (socketError == SocketError.Success)
                 {
-                    SocketAsyncEventArgs eventArg = this.GetEventArg(true);
+                    SocketAsyncEventArgs eventArg = GetEventArg(true);
                     if (eventArg != null)
                     {
-                        if (!this.socket.ReceiveAsync(eventArg))
+                        if (!socket.ReceiveAsync(eventArg))
                         {
-                            this.ProcessReceive(eventArg, false);
+                            ProcessReceive(eventArg, false);
                         }
                     }
                 }
@@ -378,144 +385,45 @@ namespace LywGames.Network
             {
                 if (e.SocketError == SocketError.Success)
                 {
-                    LoggerManager.Instance.Debug("Successfully connected to the server {0}", new object[]
-                    {
-                        e.RemoteEndPoint
-                    });
-                    object statusLock;
-                    Monitor.Enter(statusLock = this.statusLock);
-                    try
-                    {
-                        this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTED;
-                    }
-                    finally
-                    {
-                        Monitor.Exit(statusLock);
-                    }
-                    if (this.handlerPipeline.InHeader != null)
-                    {
-                        this.handlerPipeline.InHeader.OnConnected(this, e.SocketError);
-                    }
-                    this.PushFreeEventArg(e, true);
-                }
-                else
-                {
-                    LoggerManager.Instance.Error("Failed to connect to {0}, Error Code:{1}", new object[]
-                    {
-                        this.remote.ToString(),
-                        e.SocketError
-                    });
-                    if (this.handlerPipeline.InHeader != null)
-                    {
-                        this.handlerPipeline.InHeader.OnConnected(this, e.SocketError);
-                    }
-                    this.PushFreeEventArg(e, true);
-                    object statusLock;
-                    Monitor.Enter(statusLock = this.statusLock);
-                    try
-                    {
-                        this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
-                    }
-                    finally
-                    {
-                        Monitor.Exit(statusLock);
-                    }
-                }
-            }
-        }
+                    LoggerManager.Instance.Debug("Successfully connected to the server {0}", e.RemoteEndPoint);
 
-        private void ProcessReceive(SocketAsyncEventArgs e, bool isPolling)
-        {
-            if (!isPolling)
-            {
-                SocketError socketError = e.SocketError;
-                int bytesTransferred = e.BytesTransferred;
-                this.PushAppendEventArg(e);
-                if (socketError == SocketError.Success && bytesTransferred > 0)
-                {
-                    SocketAsyncEventArgs eventArg = this.GetEventArg(true);
-                    if (eventArg == null)
-                    {
-                        try
-                        {
-                            this.socket.Shutdown(SocketShutdown.Both);
-                            this.socket.Disconnect(true);
-                        }
-                        catch (Exception)
-                        {
-                        }
-                        LoggerManager.Instance.Error("There is no event to post for receive, so actively close the socket", new object[0]);
-                        if (this.handlerPipeline.InHeader != null)
-                        {
-                            e.SocketError = SocketError.ConnectionAborted;
-                        }
-                    }
-                    else
-                    {
-                        if (!this.socket.ReceiveAsync(eventArg))
-                        {
-                            this.ProcessReceive(eventArg, false);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (e.SocketError == SocketError.Success && e.BytesTransferred > 0)
-                {
-                    if (this.handlerPipeline.InHeader != null)
-                    {
-                        try
-                        {
-                            this.handlerPipeline.InHeader.OnReceived(this, e.Buffer, e.Offset, e.BytesTransferred);
-                        }
-                        catch (Exception ex)
-                        {
-                            LoggerManager.Instance.Error("ProcessReceive " + ex.ToString(), new object[0]);
-                        }
-                    }
-                    this.PushFreeEventArg(e, false);
-                }
-                else
-                {
-                    object statusLock;
-                    Monitor.Enter(statusLock = this.statusLock);
+                    object obj = statusLock;
+                    Monitor.Enter(obj);
                     try
                     {
-                        if (this.connectionStatus == IConnection.ConnectionStatus.CONNECTIONSTATUS_CLOSEDBYLOGIC)
-                        {
-                            return;
-                        }
-                        if (this.connectionStatus != IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED)
-                        {
-                            try
-                            {
-                                this.socket.Shutdown(SocketShutdown.Both);
-                                this.socket.Disconnect(true);
-                            }
-                            catch (Exception)
-                            {
-                            }
-                            if (e.SocketError != SocketError.Success)
-                            {
-                                LoggerManager.Instance.Error("ProcessReceive Disconnected from {0}, Error code:{1}", new object[]
-                                {
-                                    this.remote.ToString(),
-                                    e.SocketError
-                                });
-                            }
-                            if (this.handlerPipeline.InHeader != null)
-                            {
-                                this.handlerPipeline.InHeader.OnDisconnected(this, e.SocketError);
-                            }
-                            this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
-                        }
+                        connectionStatus = ConnectionStatus.Connected;
                     }
                     finally
                     {
-                        Monitor.Exit(statusLock);
+                        Monitor.Exit(obj);
                     }
-                    this.PushFreeEventArg(e, false);
+
+                    if (handlerPipeline.InHeader != null)
+                    {
+                        handlerPipeline.InHeader.OnConnected(this, e.SocketError);
+                    }
+                    PushFreeEventArg(e, true);
+                }
+                else
+                {
+                    LoggerManager.Instance.Error("Failed to connect to {0}, Error Code:{1}", remote.ToString(), e.SocketError);
+
+                    if (handlerPipeline.InHeader != null)
+                    {
+                        handlerPipeline.InHeader.OnConnected(this, e.SocketError);
+                    }
+                    PushFreeEventArg(e, true);
+
+                    object obj = statusLock;
+                    Monitor.Enter(obj);
+                    try
+                    {
+                        connectionStatus = ConnectionStatus.Disconnected;
+                    }
+                    finally
+                    {
+                        Monitor.Exit(obj);
+                    }
                 }
             }
         }
@@ -524,57 +432,156 @@ namespace LywGames.Network
         {
             if (!isPolling)
             {
-                this.PushAppendEventArg(e);
+                PushAppendEventArg(e);
             }
             else
             {
                 if (e.SocketError != SocketError.Success)
                 {
-                    object statusLock;
-                    Monitor.Enter(statusLock = this.statusLock);
+                    object obj = statusLock;
+                    Monitor.Enter(obj);
                     try
                     {
-                        if (this.connectionStatus != IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED)
+                        if (connectionStatus != ConnectionStatus.Disconnected)
                         {
                             try
                             {
-                                this.socket.Shutdown(SocketShutdown.Both);
-                                this.socket.Disconnect(true);
+                                socket.Shutdown(SocketShutdown.Both);
+                                socket.Disconnect(true);
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
+                                LoggerManager.Instance.Error(ex.ToString());
                             }
-                            LoggerManager.Instance.Error("ProcessSend Disconnected from {0}, Error code:{1}", new object[]
+                            LoggerManager.Instance.Error("ProcessSend Disconnected from {0}, Error code:{1}", remote.ToString(), e.SocketError);
+
+                            if (handlerPipeline.InHeader != null)
                             {
-                                this.remote.ToString(),
-                                e.SocketError
-                            });
-                            if (this.handlerPipeline.InHeader != null)
-                            {
-                                this.handlerPipeline.InHeader.OnDisconnected(this, e.SocketError);
+                                handlerPipeline.InHeader.OnDisconnected(this, e.SocketError);
                             }
-                            this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
+                            connectionStatus = ConnectionStatus.Disconnected;
                         }
                     }
                     finally
                     {
-                        Monitor.Exit(statusLock);
+                        Monitor.Exit(obj);
                     }
                 }
-                this.PushFreeEventArg(e, true);
+
+                PushFreeEventArg(e, true);
             }
         }
 
-        public override long getNetworkPing()
+        private void ProcessReceive(SocketAsyncEventArgs e, bool isPolling)
+        {
+            if (!isPolling)
+            {
+                PushAppendEventArg(e);
+
+                SocketError socketError = e.SocketError;
+                int bytesTransferred = e.BytesTransferred;
+                if (socketError == SocketError.Success && bytesTransferred > 0)
+                {
+                    SocketAsyncEventArgs eventArg = GetEventArg(true);
+                    if (eventArg == null)
+                    {
+                        try
+                        {
+                            socket.Shutdown(SocketShutdown.Both);
+                            socket.Disconnect(true);
+                        }
+                        catch (Exception ex)
+                        {
+                            LoggerManager.Instance.Error(ex.ToString());
+                        }
+
+                        LoggerManager.Instance.Error("There is no event to post for receive, so actively close the socket");
+                        if (handlerPipeline.InHeader != null)
+                        {
+                            e.SocketError = SocketError.ConnectionAborted;
+                        }
+                    }
+                    else
+                    {
+                        if (!socket.ReceiveAsync(eventArg))
+                        {
+                            ProcessReceive(eventArg, false);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (e.SocketError == SocketError.Success && e.BytesTransferred > 0)
+                {
+                    if (handlerPipeline.InHeader != null)
+                    {
+                        try
+                        {
+                            handlerPipeline.InHeader.OnReceived(this, e.Buffer, e.Offset, e.BytesTransferred);
+                        }
+                        catch (Exception ex)
+                        {
+                            LoggerManager.Instance.Error(ex.ToString());
+                        }
+                    }
+                    PushFreeEventArg(e, false);
+                }
+                else
+                {
+                    object obj = statusLock;
+                    Monitor.Enter(obj);
+                    try
+                    {
+                        if (connectionStatus == ConnectionStatus.ClosedByLogic)
+                        {
+                            return;
+                        }
+
+                        if (connectionStatus != ConnectionStatus.Disconnected)
+                        {
+                            try
+                            {
+                                socket.Shutdown(SocketShutdown.Both);
+                                socket.Disconnect(true);
+                            }
+                            catch (Exception ex)
+                            {
+                                LoggerManager.Instance.Error(ex.ToString());
+                            }
+
+                            if (e.SocketError != SocketError.Success)
+                            {
+                                LoggerManager.Instance.Error("ProcessReceive Disconnected from {0}, Error code:{1}", remote.ToString(), e.SocketError);
+                            }
+
+                            if (handlerPipeline.InHeader != null)
+                            {
+                                handlerPipeline.InHeader.OnDisconnected(this, e.SocketError);
+                            }
+                            connectionStatus = ConnectionStatus.Disconnected;
+                        }
+                    }
+                    finally
+                    {
+                        Monitor.Exit(obj);
+                    }
+
+                    PushFreeEventArg(e, false);
+                }
+            }
+        }
+
+        public override long GetNetworkPing()
         {
             return -1L;
         }
-        public override long getAliasedPing()
+        public override long GetAliasedPing()
         {
             return -1L;
         }
 
-        public override bool getSendStatics(out uint sendBytes, out uint sendNum, out long totalTime)
+        public override bool GetSendStatics(out uint sendBytes, out uint sendNum, out long totalTime)
         {
             sendBytes = 0u;
             sendNum = 0u;
@@ -582,7 +589,7 @@ namespace LywGames.Network
             return false;
         }
 
-        public override bool getRecvStatics(out uint recvBytes, out uint recvNum, out long totalTime)
+        public override bool GetRecvStatics(out uint recvBytes, out uint recvNum, out long totalTime)
         {
             recvBytes = 0u;
             recvNum = 0u;
@@ -590,11 +597,11 @@ namespace LywGames.Network
             return false;
         }
 
-        public override void pauseStatics()
+        public override void PauseStatics()
         {
         }
 
-        public override void resumeStatics()
+        public override void ResumeStatics()
         {
         }
     }
