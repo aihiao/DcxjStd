@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using LywGames.Common;
 
 namespace LywGames.Messages
@@ -24,7 +22,8 @@ namespace LywGames.Messages
 
         public override void EncodeBody(NetworkBuffer outbuffer)
         {
-            MySerializer.GetInstance().Serialize<T>(outbuffer, this.protocol);
+            MySerializer.GetInstance().Serialize<T>(outbuffer, protocol);
         }
+
     }
 }
