@@ -6,20 +6,21 @@ namespace LywGames.Messages
 {
     public class TypeModelProtobufSerializer : IProtobufSerializer
     {
-        private TypeModel typeModelSerializer = null;
+        private TypeModel typeModel = null;
+
         public TypeModelProtobufSerializer(TypeModel typeMode)
         {
-            this.typeModelSerializer = typeMode;
+            this.typeModel = typeMode;
         }
 
         public void Serialize<T>(Stream dest, T value)
         {
-            typeModelSerializer.Serialize(dest, value);
+            typeModel.Serialize(dest, value);
         }
 
         public object Deserialize(Stream source, Type type)
         {
-            return typeModelSerializer.Deserialize(source, null, type);
+            return typeModel.Deserialize(source, null, type);
         }
 
     }
