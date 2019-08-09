@@ -6,81 +6,77 @@ namespace LywGames.Network
 {
     internal class BufferManager
     {
-        private int m_numBytes;
-        private byte[] m_buffer;
-        private Stack<int> m_freeIndexPool;
-        private int m_currentIndex;
-        private int m_bufferSize;
+        private int totalBytes;
+        private byte[] buffer;
+        private int bufferSize;
+        private int currentIndex;
+        private Stack<int> freeIndexPool; // 先进后出
+
         public BufferManager(int totalBytes, int bufferSize)
         {
-            this.m_numBytes = totalBytes;
-            this.m_currentIndex = 0;
-            this.m_bufferSize = bufferSize;
-            this.m_freeIndexPool = new Stack<int>();
+            this.totalBytes = totalBytes;
+            this.bufferSize = bufferSize;
+            currentIndex = 0;
+            freeIndexPool = new Stack<int>();
         }
+
         public void InitBuffer()
         {
-            this.m_buffer = new byte[this.m_numBytes];
+            buffer = new byte[totalBytes];
         }
+
         public bool SetBuffer(SocketAsyncEventArgs args)
         {
-            bool result;
-            if (this.m_freeIndexPool.Count > 0)
+            if (freeIndexPool.Count > 0)
             {
-                args.SetBuffer(this.m_buffer, this.m_freeIndexPool.Pop(), this.m_bufferSize);
+                args.SetBuffer(buffer, freeIndexPool.Pop(), bufferSize);
             }
             else
             {
-                if (this.m_numBytes - this.m_bufferSize < this.m_currentIndex)
+                if (totalBytes - bufferSize < currentIndex)
                 {
-                    LoggerManager.Instance.Warn("SetBuffer found buffer is not enough, total {0} curIndex {1} perSize {2}", new object[]
-                    {
-                        this.m_numBytes,
-                        this.m_currentIndex,
-                        this.m_bufferSize
-                    });
-                    result = false;
-                    return result;
+                    LoggerManager.Instance.Warn("SetBuffer found buffer is not enough, total {0} curIndex {1} perSize {2}", totalBytes, currentIndex, bufferSize);
+            
+                    return false;
                 }
-                args.SetBuffer(this.m_buffer, this.m_currentIndex, this.m_bufferSize);
-                this.m_currentIndex += this.m_bufferSize;
+
+                args.SetBuffer(buffer, currentIndex, bufferSize);
+                currentIndex += bufferSize;
             }
-            result = true;
-            return result;
+            
+            return true;
         }
+
         public bool SetBuffer(SocketAsyncEventArgs args, byte[] buffer, int offset, int count)
         {
-            bool result;
-            if (this.m_freeIndexPool.Count > 0)
+            if (freeIndexPool.Count > 0)
             {
-                int num = this.m_freeIndexPool.Pop();
-                Buffer.BlockCopy(buffer, offset, this.m_buffer, num, count);
-                args.SetBuffer(this.m_buffer, num, count);
+                int num = freeIndexPool.Pop();
+                Buffer.BlockCopy(buffer, offset, this.buffer, num, count);
+                args.SetBuffer(buffer, num, count);
             }
             else
             {
-                if (this.m_numBytes - this.m_bufferSize < this.m_currentIndex)
+                if (totalBytes - bufferSize < currentIndex)
                 {
-                    LoggerManager.Instance.Warn("SetBuffer found buffer is not enough, total {0} curIndex {1} perSize {2}", new object[]
-                    {
-                        this.m_numBytes,
-                        this.m_currentIndex,
-                        this.m_bufferSize
-                    });
-                    result = false;
-                    return result;
+                    LoggerManager.Instance.Warn("SetBuffer found buffer is not enough, total {0} curIndex {1} perSize {2}", totalBytes, currentIndex, bufferSize);
+                    
+                    return false;
                 }
-                Buffer.BlockCopy(buffer, offset, this.m_buffer, this.m_currentIndex, count);
-                args.SetBuffer(this.m_buffer, this.m_currentIndex, count);
-                this.m_currentIndex += this.m_bufferSize;
+
+                Buffer.BlockCopy(buffer, offset, this.buffer, currentIndex, count);
+                args.SetBuffer(this.buffer, currentIndex, count);
+                currentIndex += bufferSize;
             }
-            result = true;
-            return result;
+            
+            return true;
         }
+
         public void FreeBuffer(SocketAsyncEventArgs args)
         {
-            this.m_freeIndexPool.Push(args.Offset);
+            freeIndexPool.Push(args.Offset);
             args.SetBuffer(null, 0, 0);
         }
+
     }
 }
