@@ -5,101 +5,90 @@ namespace LywGames.Network
     public abstract class AbstractNetworkInHandler
     {
         private AbstractNetworkInHandler nextInHandler;
-        protected object obj;
         public AbstractNetworkInHandler NextInHandler
         {
             get
             {
-                return this.nextInHandler;
+                return nextInHandler;
             }
             set
             {
-                this.nextInHandler = value;
+                nextInHandler = value;
             }
         }
-        public abstract void OnReceived(IConnection connection, byte[] buffer, int offset, int size);
-        public abstract void OnReceived(IConnection connection, object msg);
-        public bool FireBuffReceived(IConnection connection, byte[] buffer, int offset, int size)
-        {
-            bool result;
-            if (this.NextInHandler != null)
-            {
-                this.NextInHandler.OnReceived(connection, buffer, offset, size);
-                result = true;
-            }
-            else
-            {
-                result = false;
-            }
-            return result;
-        }
-        public bool FireObjectReceived(IConnection connection, object msg)
-        {
-            bool result;
-            if (this.NextInHandler != null)
-            {
-                this.NextInHandler.OnReceived(connection, msg);
-                result = true;
-            }
-            else
-            {
-                result = false;
-            }
-            return result;
-        }
+
         public bool FireConnected(IConnection connection, SocketError result)
         {
-            bool result2;
-            if (this.NextInHandler != null)
+            if (NextInHandler != null)
             {
-                this.NextInHandler.OnConnected(connection, result);
-                result2 = true;
+                NextInHandler.OnConnected(connection, result);
+                return true;
             }
-            else
-            {
-                result2 = false;
-            }
-            return result2;
+
+            return false;
         }
-        public bool FireDisconnected(IConnection connection, SocketError error)
-        {
-            bool result;
-            if (this.NextInHandler != null)
-            {
-                this.NextInHandler.OnDisconnected(connection, error);
-                result = true;
-            }
-            else
-            {
-                result = false;
-            }
-            return result;
-        }
-        public bool FireRequestTimeout(IConnection connection, int userData)
-        {
-            bool result;
-            if (this.NextInHandler != null)
-            {
-                this.NextInHandler.OnRequestTimeout(connection, userData);
-                result = true;
-            }
-            else
-            {
-                result = false;
-            }
-            return result;
-        }
+
         public virtual void OnConnected(IConnection connection, SocketError result)
         {
-            this.FireConnected(connection, result);
+            FireConnected(connection, result);
         }
-        public virtual void OnDisconnected(IConnection connection, SocketError error)
+
+        public bool FireRequestTimeout(IConnection connection, int userData)
         {
-            this.FireDisconnected(connection, error);
+            if (NextInHandler != null)
+            {
+                NextInHandler.OnRequestTimeout(connection, userData);
+                return true;
+            }
+            
+            return false;
         }
+
         public virtual void OnRequestTimeout(IConnection connection, int userData)
         {
-            this.FireRequestTimeout(connection, userData);
+            FireRequestTimeout(connection, userData);
         }
+
+        public abstract void OnReceived(IConnection connection, object msg);
+        public abstract void OnReceived(IConnection connection, byte[] buffer, int offset, int size);
+
+        public bool FireBuffReceived(IConnection connection, byte[] buffer, int offset, int size)
+        {
+            if (NextInHandler != null)
+            {
+                NextInHandler.OnReceived(connection, buffer, offset, size);
+                return true;
+            }
+            
+            return false;
+        }
+
+        public bool FireObjectReceived(IConnection connection, object msg)
+        {
+            if (NextInHandler != null)
+            {
+                NextInHandler.OnReceived(connection, msg);
+                return true;
+            }
+            
+            return false;
+        }
+
+        public bool FireDisconnected(IConnection connection, SocketError error)
+        {
+            if (NextInHandler != null)
+            {
+                NextInHandler.OnDisconnected(connection, error);
+                return true;
+            }
+            
+            return false;
+        }
+
+        public virtual void OnDisconnected(IConnection connection, SocketError error)
+        {
+            FireDisconnected(connection, error);
+        }
+
     }
 }
