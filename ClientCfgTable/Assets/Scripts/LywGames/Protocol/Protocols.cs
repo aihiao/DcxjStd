@@ -17,6 +17,12 @@
 
         public const int P_CG_GameLogin = 131074; // Protocol Client to Game Server, Login Game Server.
         public const int P_GC_GameLogin = 131075; // Protocol Game Server to Client, Login Game Server.
+        public const int P_CG_GameLogout = 131076;
+        public const int P_GC_GameLogout = 131077;
+
+        public const int P_GC_StaminaBuyChange = 131307;
+        public const int P_CG_StaminaBuyInfo = 131308;
+        public const int P_GC_StaminaBuyInfo = 131309;
 
         public static bool isSuccess(int id)
         {
