@@ -2,10 +2,11 @@
 
 namespace LywGames.Network
 {
-    public interface INetworkManager
+    public abstract class AbstractNetworkManager
     {
-        IConnection CreateConnection(ProtocolType type, int userData);
-        IConnection SearchConnectoin(int connectionID);
-        bool RemoveConnection(int connectionID);
+        protected IConnection connection;
+
+        public abstract IConnection CreateConnection(ProtocolType type, int userData);
+        public abstract IConnection GetConnection();
     }
 }

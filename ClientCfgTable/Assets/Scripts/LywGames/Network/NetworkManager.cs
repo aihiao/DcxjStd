@@ -2,50 +2,39 @@
 
 namespace LywGames.Network
 {
-    public class NetworkManager : INetworkManager
+    public class NetworkManager : AbstractNetworkManager
     {
         private static NetworkManager instance = new NetworkManager();
-        public static INetworkManager Instance
+        public static AbstractNetworkManager Instance
         {
             get
             {
                 return instance;
             }
         }
-        public static INetworkManager GetInstance()
+        public static AbstractNetworkManager GetInstance()
         {
             return instance;
         }
 
-        public IConnection CreateConnection(ProtocolType type, int timeout)
+        public override IConnection CreateConnection(ProtocolType type, int timeout)
         {
-            IConnection result;
             if (type == ProtocolType.Tcp)
             {
-                result = new TCPConnection(timeout);
+                connection = new TCPConnection(timeout);
             }
-            else
-            {
-                if (type == ProtocolType.Udp)
-                {
-                    result = new UdpAdpaterConnection(timeout);
-                }
-                else
-                {
-                    result = null;
-                }
+            else if (type == ProtocolType.Udp)
+            {   
+                connection = new UdpAdpaterConnection(timeout); 
             }
-            return result;
+
+            return connection;
         }
 
-        public IConnection SearchConnectoin(int connectionID)
+        public override IConnection GetConnection()
         {
-            return null;
+            return connection;
         }
 
-        public bool RemoveConnection(int connectionID)
-        {
-            return true;
-        }
     }
 }
