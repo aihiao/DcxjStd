@@ -7,35 +7,36 @@ namespace LywGames.Messages
 {
     public class MySerializer
     {
+        public static int MAX_OUTMESSAGE_SIZE = 2048;
         private IProtobufSerializer protobufSerializer;
 
         private static MySerializer mySerializer = new MySerializer();
-        public static int MAX_OUTMESSAGE_SIZE = 2048;
-        private MySerializer()
-        {
-        }
         public static MySerializer GetInstance()
         {
             return mySerializer;
+        }
+        private MySerializer()
+        {
         }
 
         public void Initialize(bool useTypeMode)
         {
             if (useTypeMode)
             {
-                this.protobufSerializer = new TypeModelProtobufSerializer(new Protocols_c());
+                protobufSerializer = new TypeModelProtobufSerializer(new Protocols_c());
             }
             else
             {
-                this.protobufSerializer = new MetaDataProtobufSerializer();
+                protobufSerializer = new MetaDataProtobufSerializer();
             }
         }
 
         public bool Serialize<T>(NetworkBuffer outBuffer, T instance)
         {
             outBuffer.GetStream().Position = (long)outBuffer.WriteOffset;
-            this.protobufSerializer.Serialize<T>(outBuffer.GetStream(), instance);
+            protobufSerializer.Serialize<T>(outBuffer.GetStream(), instance);
             outBuffer.WriteOffset = (int)outBuffer.GetStream().Position;
+
             return true;
         }
 
@@ -45,12 +46,13 @@ namespace LywGames.Messages
             object result = null;
             try
             {
-                result = this.protobufSerializer.Deserialize(source, protoType);
+                result = protobufSerializer.Deserialize(source, protoType);
             }
             catch (Exception ex)
             {
                 LoggerManager.Instance.Error(ex.StackTrace);
             }
+
             return result;
         }
 
