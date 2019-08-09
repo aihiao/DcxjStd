@@ -53,7 +53,7 @@ namespace LywGames.Network
             {
                 int num = freeIndexPool.Pop();
                 Buffer.BlockCopy(buffer, offset, this.buffer, num, count);
-                args.SetBuffer(buffer, num, count);
+                args.SetBuffer(this.buffer, num, count);
             }
             else
             {
