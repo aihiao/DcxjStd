@@ -2,6 +2,7 @@
 using System.Threading;
 using LywGames.Messages;
 using LywGames.Common;
+using LywGames.Corgi.Protocol;
 
 namespace LywGames.Network
 {
@@ -9,66 +10,90 @@ namespace LywGames.Network
     {
         public enum ConnectionStatus
         {
-            CONNECTIONSTATUS_INIT,
-            CONNECTIONSTATUS_CONNECTING,
-            CONNECTIONSTATUS_CONNECTED,
-            CONNECTIONSTATUS_DISCONNECTED,
-            CONNECTIONSTATUS_CLOSEDBYLOGIC
+            Init,
+            Connecting,
+            Connected,
+            Disconnected,
+            ClosedByLogic
         }
 
         protected NetworkHandlerPipeline handlerPipeline = new NetworkHandlerPipeline();
-        protected int channelId = 0;
-        protected long sendAmount;
-        protected long receiveAmount;
-        protected GCLoginGameMessage loginGameRes = null;
-        protected IPEndPoint remote;
-        protected ConnectionStatus connectionStatus = ConnectionStatus.CONNECTIONSTATUS_INIT;
+        protected ConnectionStatus connectionStatus = ConnectionStatus.Init;
         protected object statusLock = new object();
+        protected int channelId = 0;
 
-        public long SendAmount
-        {
-            get
-            {
-                return sendAmount;
-            }
-        }
+        protected long sendAmount;
+        public long SendAmount { get{ return sendAmount; } }
 
-        public long ReceiveAmount
-        {
-            get
-            {
-                return receiveAmount;
-            }
-        }
+        protected long receiveAmount;
+        public long ReceiveAmount { get{ return receiveAmount; } }
 
+        protected GCLoginGameMessage loginGameRes = null;
         public GCLoginGameMessage LoginGameRes
         {
-            get
-            {
-                return loginGameRes;
-            }
-            set
-            {
-                loginGameRes = value;
-            }
+            get { return loginGameRes; }
+            set { loginGameRes = value; }
         }
 
-        public IPEndPoint Remote
-        {
-            get
-            {
-                return remote;
-            }
-        }
+        protected IPEndPoint remote;
+        public IPEndPoint Remote { get { return remote; } }
 
-        public ConnectionStatus getConnectionStatus()
+        public ConnectionStatus GetConnectionStatus()
         {
             object obj;
-            Monitor.Enter(obj = this.statusLock);
+            Monitor.Enter(obj = statusLock);
             ConnectionStatus result;
             try
             {
-                result = this.connectionStatus;
+                result = connectionStatus;
+            }
+            finally
+            {
+                Monitor.Exit(obj);
+            }
+            return result;
+        }
+
+        public bool IsConnected()
+        {
+            object obj;
+            Monitor.Enter(obj = statusLock);
+            bool result;
+            try
+            {
+                result = (connectionStatus == ConnectionStatus.Connected);
+            }
+            finally
+            {
+                Monitor.Exit(obj);
+            }
+            return result;
+        }
+
+        public bool IsConnecting()
+        {
+            object obj;
+            Monitor.Enter(obj = statusLock);
+            bool result;
+            try
+            {
+                result = (connectionStatus == ConnectionStatus.Connecting);
+            }
+            finally
+            {
+                Monitor.Exit(obj);
+            }
+            return result;
+        }
+
+        public bool IsConnectionNonStart()
+        {
+            object obj;
+            Monitor.Enter(obj = statusLock);
+            bool result;
+            try
+            {
+                result = (connectionStatus == ConnectionStatus.ClosedByLogic);
             }
             finally
             {
@@ -80,64 +105,16 @@ namespace LywGames.Network
         public abstract void ConnectAsync(IPEndPoint localAddress, IPEndPoint remoteAddress);
         public abstract bool ConnectSync(IPEndPoint localAddress, IPEndPoint remoteAddress, int timeout);
         public abstract void Disconnect();
+        public abstract void Update();
 
-        public bool isConnected()
-        {
-            object obj;
-            Monitor.Enter(obj = this.statusLock);
-            bool result;
-            try
-            {
-                result = (this.connectionStatus == IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTED);
-            }
-            finally
-            {
-                Monitor.Exit(obj);
-            }
-            return result;
-        }
-
-        public bool isConnecting()
-        {
-            object obj;
-            Monitor.Enter(obj = this.statusLock);
-            bool result;
-            try
-            {
-                result = (this.connectionStatus == IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTING);
-            }
-            finally
-            {
-                Monitor.Exit(obj);
-            }
-            return result;
-        }
-
-        public bool isConnectionNonStart()
-        {
-            object obj;
-            Monitor.Enter(obj = this.statusLock);
-            bool result;
-            try
-            {
-                result = (connectionStatus == ConnectionStatus.CONNECTIONSTATUS_CLOSEDBYLOGIC);
-            }
-            finally
-            {
-                Monitor.Exit(obj);
-            }
-            return result;
-        }
+        internal abstract bool Send(byte[] buffer, int offset, int count);
 
         private bool Send(byte[] buffer, int offset, int count, int protocolId, int channelId)
         {
             bool result;
-            if (!isConnected())
+            if (!IsConnected())
             {
-                LoggerManager.Instance.Info("Send protocolId {0}-{0:X} but connected false", new object[]
-                {
-                    protocolId
-                });
+                LoggerManager.Instance.Info("Send protocolId {0}-{0:X} but connected false", protocolId);
                 result = false;
             }
             else
@@ -153,11 +130,8 @@ namespace LywGames.Network
                 }
                 else
                 {
-                    LoggerManager.Instance.Info("IConnection.Send data protocolId {0}-{0:X} then call_Send", new object[]
-                    {
-                        protocolId
-                    });
-                    result = this._Send(networkBuffer.GetBuffer(), networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
+                    LoggerManager.Instance.Info("IConnection.Send data protocolId {0}-{0:X} then call_Send", protocolId);
+                    result = Send(networkBuffer.GetBuffer(), networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
                 }
             }
             return result;
@@ -166,13 +140,9 @@ namespace LywGames.Network
         public bool Send(Message obj, int channelId = 1)
         {
             bool result;
-            if (!isConnected())
+            if (!IsConnected())
             {
-                LoggerManager.Instance.Warn("Send Message {0} found connection {1} is not connected", new object[]
-                {
-                    obj.ProtocolId,
-                    remote
-                });
+                LoggerManager.Instance.Warn("Send Message {0} found connection {1} is not connected", obj.ProtocolId, remote);
                 result = false;
             }
             else
@@ -181,36 +151,25 @@ namespace LywGames.Network
                 if (handlerPipeline.OutHeader != null)
                 {
                     handlerPipeline.OutHeader.Send(this, obj);
-                    if (obj.ProtocolId != 131074)
+                    if (obj.ProtocolId != Protocols.P_CG_GameLogin)
                     {
                         sendAmount += 1L;
                     }
-                    LoggerManager.Instance.Info("IConnection->Send Message protocolId {0}-{0:X} sendAmount {1}", new object[]
-                    {
-                        obj.ProtocolId,
-                        sendAmount
-                    });
+                    LoggerManager.Instance.Info("IConnection->Send Message protocolId {0}-{0:X} sendAmount {1}", obj.ProtocolId, sendAmount);
                     result = true;
                 }
                 else
                 {
-                    LoggerManager.Instance.Info("IConnection->Send Message protocolId {0}-{0:X} but outheader null", new object[]
-                    {
-                        obj.ProtocolId
-                    });
+                    LoggerManager.Instance.Info("IConnection->Send Message protocolId {0}-{0:X} but outheader null", obj.ProtocolId);
                     result = false;
                 }
             }
             return result;
         }
 
-        internal abstract bool _Send(byte[] buffer, int offset, int count);
-
-        public abstract void Update();
-
         public void SetNetworkInitializer(AbstractNetworkInitializer networkInitilializer, ConnectionType cnType)
         {
-            networkInitilializer.Initial(this.handlerPipeline, cnType);
+            networkInitilializer.Initial(handlerPipeline, cnType);
         }
 
         public void AddNetworkHandler(AbstractNetworkInHandler handler)
@@ -223,17 +182,17 @@ namespace LywGames.Network
             handlerPipeline.AddHandler(handler);
         }
 
-        public void recvProtocol(int protocolId)
+        public void RecvProtocol(int protocolId)
         {
             switch (protocolId)
             {
-                case 131075:
-                case 131077:
+                case Protocols.P_GC_GameLogin:
+                case Protocols.P_GC_GameLogout:
                     break;
-                case 131076:
+                case Protocols.P_CG_GameLogout:
                     goto IL_27;
                 default:
-                    if (protocolId != 131307)
+                    if (protocolId != Protocols.P_GC_StaminaBuyChange)
                     {
                         goto IL_27;
                     }
@@ -242,24 +201,20 @@ namespace LywGames.Network
             return;
             IL_27:
             receiveAmount += 1L;
-            LoggerManager.Instance.Info("recv protocol {0} recvAmount {1}", new object[]
-            {
-                protocolId,
-                receiveAmount
-            });
+            LoggerManager.Instance.Info("recv protocol {0} recvAmount {1}", protocolId, receiveAmount);
         }
 
-        public void clearProtocolAmount()
+        public void ClearProtocolAmount()
         {
             sendAmount = 0L;
             receiveAmount = 0L;
         }
 
-        public abstract long getNetworkPing();
-        public abstract long getAliasedPing();
-        public abstract bool getSendStatics(out uint sendBytes, out uint sendNum, out long totalTime);
-        public abstract bool getRecvStatics(out uint recvBytes, out uint recvNum, out long totalTime);
-        public abstract void pauseStatics();
-        public abstract void resumeStatics();
+        public abstract long GetNetworkPing();
+        public abstract long GetAliasedPing();
+        public abstract bool GetSendStatics(out uint sendBytes, out uint sendNum, out long totalTime);
+        public abstract bool GetRecvStatics(out uint recvBytes, out uint recvNum, out long totalTime);
+        public abstract void PauseStatics();
+        public abstract void ResumeStatics();
     }
 }
