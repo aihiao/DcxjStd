@@ -6,28 +6,28 @@ namespace LywGames.Messages
     public class MessageAttribute : Attribute
     {
         private int protocolId;
-        private bool isRequest;
         public int ProtocolId
         {
             get
             {
-                return this.protocolId;
+                return protocolId;
             }
             set
             {
-                this.protocolId = value;
+                protocolId = value;
             }
         }
 
+        private bool isRequest;
         public bool IsRequest
         {
             get
             {
-                return this.isRequest;
+                return isRequest;
             }
             set
             {
-                this.isRequest = value;
+                isRequest = value;
             }
         }
 
