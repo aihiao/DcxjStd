@@ -8,9 +8,9 @@ namespace LywGames.Network
         public override void Send(IConnection connection, byte[] buffer, int offset, int size)
         {
             NetworkBuffer networkBuffer = new NetworkBuffer(size + 1, true);
-            networkBuffer.Write(Message.UNCOMPRESSED);
+            networkBuffer.Write(Message.UnCompressed);
             networkBuffer.Write(buffer, offset, size);
-            base.sendBuffDown(connection, networkBuffer.GetBuffer(), networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
+            SendBuffDown(connection, networkBuffer.GetBuffer(), networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
         }
 
         public override void Send(IConnection connection, object msg)
@@ -18,8 +18,8 @@ namespace LywGames.Network
             if (msg is Message)
             {
                 Message message = (Message)msg;
-                NetworkBuffer networkBuffer = message.EncodeWithSnappyProtocolIDCallback();
-                base.sendBuffDown(connection, networkBuffer.GetBuffer(), networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
+                NetworkBuffer networkBuffer = message.EncodeWithSnappyProtocolIdCallBackId();
+                SendBuffDown(connection, networkBuffer.GetBuffer(), networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
             }
         }
 

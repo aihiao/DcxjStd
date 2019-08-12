@@ -5,8 +5,8 @@ namespace LywGames.Messages
 {
     public abstract class Message
     {
-        public static byte UNCOMPRESSED = 0;
-        public static byte COMPRESSED = 1;
+        public static byte UnCompressed = 0;
+        public static byte Compressed = 1;
 
         public int ProtocolId
         {
@@ -37,10 +37,10 @@ namespace LywGames.Messages
             }
         }
 
-        public NetworkBuffer EncodeWithSnappyProtocolIDCallback()
+        public NetworkBuffer EncodeWithSnappyProtocolIdCallBackId()
         {
-            NetworkBuffer networkBuffer = new NetworkBuffer(NetworkParameters._MAX_SEND_BUFFER_SIZE, true);
-            networkBuffer.Write(UNCOMPRESSED);
+            NetworkBuffer networkBuffer = new NetworkBuffer(NetworkParameters.MaxSendBufferSize, true);
+            networkBuffer.Write(UnCompressed);
             networkBuffer.Write(ProtocolId);
             networkBuffer.Write(callBackId);
             EncodeBody(networkBuffer);
