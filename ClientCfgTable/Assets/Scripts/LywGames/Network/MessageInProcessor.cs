@@ -2,6 +2,7 @@
 using System.Net.Sockets;
 using LywGames.Common;
 using LywGames.Messages;
+using LywGames.Corgi.Protocol;
 
 namespace LywGames.Network
 {
@@ -9,87 +10,87 @@ namespace LywGames.Network
     {
         private AbstractMessageInitializer messageInitializer;
         private MessageDelegateProcessor msgDelegateProcessor;
+
         public MessageInProcessor(AbstractMessageInitializer messageInitializer, MessageDelegateProcessor msgDelegateProcessor)
         {
             this.messageInitializer = messageInitializer;
             this.msgDelegateProcessor = msgDelegateProcessor;
         }
+
         public override void OnReceived(IConnection connection, byte[] buffer, int offset, int size)
         {
             NetworkBuffer networkBuffer = new NetworkBuffer(buffer, offset, size, true);
-            int num = networkBuffer.ReadInt32();
-            int callback = networkBuffer.ReadInt32();
-            Type messageType = this.messageInitializer.getMessageType(num);
+            int protocolId = networkBuffer.ReadInt32();
+            int callBackId = networkBuffer.ReadInt32();
+            Type messageType = messageInitializer.GetMessageType(protocolId);
             if (null == messageType)
             {
-                LoggerManager.Instance.Warn("OnReceived found msg protocolId {0}-{0:X} can't getMessageType then ingored", new object[]
-                {
-                    num
-                });
+                LoggerManager.Instance.Warn("OnReceived found msg protocolId {0}-{0:X} can't getMessageType then ingored", protocolId);
             }
             else
             {
                 Message message = (Message)Activator.CreateInstance(messageType);
-                message.CallBackId = callback;
+                message.CallBackId = callBackId;
                 message.DecodeBody(buffer, offset + networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
-                if (num == 131075)
+                if (protocolId == Protocols.P_GC_GameLogin)
                 {
-                    GCLoginGameMessage gC_LoginGameMessage = (GCLoginGameMessage)message;
-                    connection.LoginGameRes = gC_LoginGameMessage;
-                    LoggerManager.Instance.Info("connection {0} recv loginRes callback {1}", new object[]
-                    {
-                        connection.GetHashCode(),
-                        gC_LoginGameMessage.CallBackId
-                    });
+                    GCLoginGameMessage gcLoginGameMessage = (GCLoginGameMessage)message;
+                    connection.LoginGameRes = gcLoginGameMessage;
+                    LoggerManager.Instance.Info("connection {0} recv loginRes callBackId {1}", connection.GetHashCode(), gcLoginGameMessage.CallBackId);
                 }
                 else
                 {
-                    connection.recvProtocol(num);
-                    IMessageHandler messageHandler = this.messageInitializer.GetMessageHandler(num);
+                    connection.RecvProtocol(protocolId);
+                    IMessageHandler messageHandler = messageInitializer.GetMessageHandler(protocolId);
                     if (messageHandler != null)
                     {
-                        messageHandler.handleMessage(connection, message);
+                        messageHandler.HandleMessage(connection, message);
                     }
                     else
                     {
-                        if (!this.msgDelegateProcessor.HandleMessage(message, connection))
+                        if (!msgDelegateProcessor.HandleMessage(message, connection))
                         {
-                            messageHandler = this.messageInitializer.GetDefaultMessageHandler();
+                            messageHandler = messageInitializer.GetDefaultMessageHandler();
                             if (messageHandler != null)
                             {
-                                messageHandler.handleMessage(connection, message);
+                                messageHandler.HandleMessage(connection, message);
                             }
                         }
                     }
                 }
             }
         }
+
         public override void OnReceived(IConnection connection, object msg)
         {
         }
+
         public override void OnRequestTimeout(IConnection connection, int userData)
         {
-            IMessageHandler messageHandler = this.messageInitializer.GetMessageHandler(userData);
+            IMessageHandler messageHandler = messageInitializer.GetMessageHandler(userData);
             if (messageHandler != null)
             {
-                messageHandler.handleRequestTimeout(connection, userData);
+                messageHandler.HandleRequestTimeout(connection, userData);
             }
-            base.OnRequestTimeout(connection, userData);
+            OnRequestTimeout(connection, userData);
         }
+
         public override void OnConnected(IConnection connection, SocketError result)
         {
-            base.FireConnected(connection, result);
-            if (this.messageInitializer.GetConnectionActiveHandler() != null)
+            FireConnected(connection, result);
+            if (messageInitializer.GetConnectionActiveHandler() != null)
             {
-                this.messageInitializer.GetConnectionActiveHandler().handleConnectionActive(connection, result);
+                messageInitializer.GetConnectionActiveHandler().HandleConnectionActive(connection, result);
             }
         }
+
         public override void OnDisconnected(IConnection connection, SocketError error)
         {
-            if (this.messageInitializer.GetConnectionInactiveHandler() != null)
+            if (messageInitializer.GetConnectionInactiveHandler() != null)
             {
-                this.messageInitializer.GetConnectionInactiveHandler().handleConnectionActive(connection, error);
+                messageInitializer.GetConnectionInactiveHandler().HandleConnectionActive(connection, error);
             }
         }
+
     }
 }
