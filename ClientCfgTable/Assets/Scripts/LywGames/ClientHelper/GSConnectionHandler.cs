@@ -14,7 +14,7 @@ namespace LywGames.ClientHelper
             req = message;
         }
 
-        public override void handleConnectionActive(IConnection connection, SocketError result)
+        public override void HandleConnectionActive(IConnection connection, SocketError result)
         {
             if (result == SocketError.Success)
             {
@@ -27,12 +27,12 @@ namespace LywGames.ClientHelper
             }
         }
 
-        public override void handleConnectionInactive(IConnection connection, SocketError result)
+        public override void HandleConnectionInactive(IConnection connection, SocketError result)
         {
             req.CallBackId = -1;
         }
 
-        public override void handleRequestTimeout(IConnection connection, int userData)
+        public override void HandleRequestTimeout(IConnection connection, int userData)
         {
             throw new NotImplementedException();
         }
