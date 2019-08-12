@@ -13,7 +13,7 @@ namespace LywGames.Network
         {
             get
             {
-                return this.inHeader;
+                return inHeader;
             }
         }
 
@@ -21,7 +21,7 @@ namespace LywGames.Network
         {
             get
             {
-                return this.outHeader;
+                return outHeader;
             }
         }
 
@@ -30,18 +30,19 @@ namespace LywGames.Network
             Monitor.Enter(this);
             try
             {
-                if (this.inHeader == null)
+                if (inHeader == null)
                 {
-                    this.inHeader = handler;
+                    inHeader = handler;
                 }
-                if (this.inTailer == null)
+
+                if (inTailer == null)
                 {
-                    this.inTailer = handler;
+                    inTailer = handler;
                 }
                 else
                 {
-                    this.inTailer.NextInHandler = handler;
-                    this.inTailer = handler;
+                    inTailer.NextInHandler = handler;
+                    inTailer = handler;
                 }
             }
             finally
@@ -55,12 +56,12 @@ namespace LywGames.Network
             Monitor.Enter(this);
             try
             {
-                if (this.outTailer == null)
+                if (outTailer == null)
                 {
-                    this.outTailer = handler;
+                    outTailer = handler;
                 }
-                handler.NextOutHandler = this.outHeader;
-                this.outHeader = handler;
+                handler.NextOutHandler = outHeader;
+                outHeader = handler;
             }
             finally
             {
