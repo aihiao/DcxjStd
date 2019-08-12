@@ -5,15 +5,15 @@ namespace LywGames.Network
 {
     public abstract class AbstractConnectionHandler : IMessageHandler
     {
-        public virtual void handleMessage(IConnection connection, Message message)
+        public virtual void HandleMessage(IConnection connection, Message message)
         {
         }
 
-        public virtual void handleConnectionActive(IConnection connection, SocketError result)
+        public virtual void HandleConnectionActive(IConnection connection, SocketError result)
         {
         }
 
-        public abstract void handleConnectionInactive(IConnection connection, SocketError result);
-        public abstract void handleRequestTimeout(IConnection connection, int userData);
+        public abstract void HandleConnectionInactive(IConnection connection, SocketError result);
+        public abstract void HandleRequestTimeout(IConnection connection, int userData);
     }
 }

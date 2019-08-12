@@ -17,7 +17,7 @@ namespace LywGames.Network
             }
         }
 
-        protected void sendBuffDown(IConnection connection, byte[] buffer, int offset, int size)
+        protected void SendBuffDown(IConnection connection, byte[] buffer, int offset, int size)
         {
             if (NextOutHandler != null)
             {
@@ -29,7 +29,7 @@ namespace LywGames.Network
             }
         }
 
-        protected void sendObjectDown(IConnection connection, object msg)
+        protected void SendObjectDown(IConnection connection, object msg)
         {
             if (NextOutHandler != null)
             {

@@ -20,7 +20,7 @@ namespace LywGames.Network
 
         public abstract void Initilial();
 
-        public Type getMessageType(int protocolId)
+        public Type GetMessageType(int protocolId)
         {
             return protocolId2MessageTypeDic[protocolId];
         }

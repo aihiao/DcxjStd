@@ -5,9 +5,9 @@ namespace LywGames.Network
 {
     public interface IMessageHandler
     {
-        void handleMessage(IConnection connection, Message message);
-        void handleConnectionActive(IConnection connection, SocketError result);
-        void handleConnectionInactive(IConnection connection, SocketError result);
-        void handleRequestTimeout(IConnection connection, int userData);
+        void HandleMessage(IConnection connection, Message message);
+        void HandleConnectionActive(IConnection connection, SocketError result);
+        void HandleConnectionInactive(IConnection connection, SocketError result);
+        void HandleRequestTimeout(IConnection connection, int userData);
     }
 }
