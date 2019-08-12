@@ -6,36 +6,40 @@ namespace LywGames.Messages.Proto.Auth
     [ProtoContract(Name = "ActiveCodeReq")]
     public class ActiveCodeReq : IExtensible
     {
-        private long _accountId = 0L;
-        private string _activeCode = "";
+        private long accountId = 0L;
+        private string activeCode = "";
         private IExtension extensionObject;
+
         [ProtoMember(1), DefaultValue(0L)]
-        public long accountId
+        public long AccountId
         {
             get
             {
-                return this._accountId;
+                return accountId;
             }
             set
             {
-                this._accountId = value;
+                accountId = value;
             }
         }
+
         [ProtoMember(1), DefaultValue("")]
-        public string activeCode
+        public string ActiveCode
         {
             get
             {
-                return this._activeCode;
+                return activeCode;
             }
             set
             {
-                this._activeCode = value;
+                activeCode = value;
             }
         }
+
         IExtension IExtensible.GetExtensionObject(bool createIfMissing)
         {
-            return Extensible.GetExtensionObject(ref this.extensionObject, createIfMissing);
+            return Extensible.GetExtensionObject(ref extensionObject, createIfMissing);
         }
+
     }
 }
