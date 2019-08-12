@@ -5,6 +5,21 @@ namespace LywGames.Common
 {
     public class NetworkBuffer
     {
+        /** 不同编码方式1个英文字母占的字节是不同的
+         * ASCII码: 一个英文字母(不分大小写)占一个字节的空间, 一个英文标点占一个字节。ASCII码不认识汉字。而且ASCII码就一个字节。
+         * UTF-8编码: 一个英文字符(不分大小写)占一个字节, 一个英文标点占一个字节。一个中文(含繁体)占三个字节, 一个中文标点占三个字节。
+         * Unicode编码: 一个英文字符(不分大小写)占两个字节, 一个英文标点占两个字节。一个中文(含繁体)占两个字节, 一个中文标点占两个字节。
+         **/
+
+        /** 创建一个容量为100的MemoryStream。当容量超过100的时候, MemoryStream会自动扩容到256; 当容量超过256的时候, MemoryStream会自动扩容到512。
+         *  若创建一个容量为0的MemoryStream, 也就是new MemoryStream()。当写入数据的时候, MemoryStream会自动扩容到256; 当容量超过256的时候, MemoryStream会自动扩容到512。
+         *  MemoryStream的扩容规律是: 256, 256 * 2, 256 * 2 * 2 ...
+         *  
+         *  MemoryStream Capacity: 获取或设置分配给该流的字节数。
+         *  MemoryStream Length: 获取流的长度(以字节为单位)。
+         *  MemoryStream Position: 获取或设置流中的当前位置。
+         *  MemoryStream Seek(Int64, SeekOrigin): 将当前流中的位置设置为指定值。SeekOrigin.Begin就是0的位置; SeekOrigin.Current就是Position的位置; SeekOrigin.End就是Length的位置。
+        **/
         private MemoryStream ms;
         private BinaryReader br;
         private BinaryWriter bw;
@@ -76,22 +91,13 @@ namespace LywGames.Common
             }
         }
 
-        public void ResetReadOffset()
-        {
-            readOffset = 0;
-        }
-
-        public void ResetWriteOffset()
-        {
-            readOffset = 0;
-            writeOffset = 0;
-        }
-
         public NetworkBuffer(int capacity, bool isBigEndian)
         {
             this.ms = new MemoryStream(capacity);
             this.br = new BinaryReader(ms);
             this.bw = new BinaryWriter(ms);
+            this.readOffset = 0;
+            this.writeOffset = 0;
             this.isBigEndian = isBigEndian;
         }
 
@@ -105,14 +111,25 @@ namespace LywGames.Common
             this.isBigEndian = isBigEndian;
         }
 
+        public void ResetReadOffset()
+        {
+            readOffset = 0;
+        }
+
+        public void ResetWriteOffset()
+        {
+            readOffset = 0;
+            writeOffset = 0;
+        }
+
         public void DiscardReadBytes()
         {
             int num = writeOffset - readOffset;
-            if (this.readOffset > 0)
+            if (readOffset > 0) // 这里等于0是不行的吗???
             {
                 if (num > 0)
                 {
-                    byte[] buffer = Readbytes(this.readOffset, num);
+                    byte[] buffer = Readbytes(readOffset, num);
                     ms.Position = 0L;
                     bw.Write(buffer, 0, num);
                     writeOffset = num;
@@ -127,382 +144,415 @@ namespace LywGames.Common
 
         public void SkipBytes(int length)
         {
-            if (this.readOffset + length > this.writeOffset)
+            if (readOffset + length > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.readOffset += length;
+            readOffset += length;
         }
 
+        /// <summary>
+        /// 确认是否还可以写入writableBytes这么多字节吗
+        /// </summary>
+        /// <param name="writableBytes"></param>
+        /// <returns></returns>
         public bool EnsureWritableBytes(int writableBytes)
         {
-            return writableBytes <= this.ms.Capacity - this.writeOffset;
+            return writableBytes <= ms.Capacity - writeOffset;
         }
 
+        /// <summary>
+        /// 这里有Read和Get, 2种方法。如: ReadByte和GetByte。
+        /// Read方法readOffset滑动了相应的字节数, Get方法readOffset不变。
+        /// </summary>
         public byte ReadByte(int offset)
         {
-            if (offset + 1 > this.writeOffset)
+            if (offset + 1 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.readOffset = offset + 1;
-            return this.br.ReadByte();
+            ms.Position = offset;
+            readOffset = offset + 1;
+
+            return br.ReadByte();
         }
 
         public byte ReadByte()
         {
-            return this.ReadByte(this.readOffset);
+            return ReadByte(readOffset);
         }
 
         public short ReadInt16(int offset)
         {
-            if (offset + 2 > this.writeOffset)
+            if (offset + 2 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.readOffset = offset + 2;
+            ms.Position = offset;
+            readOffset = offset + 2;
+
             short result;
-            if (this.isBigEndian && BitConverter.IsLittleEndian)
+            if (isBigEndian && BitConverter.IsLittleEndian)
             {
-                result = BigEndianTransfer.ToInt16(this.br.ReadBytes(2));
+                result = BigEndianTransfer.ToInt16(br.ReadBytes(2));
             }
             else
             {
-                result = this.br.ReadInt16();
+                result = br.ReadInt16();
             }
+
             return result;
         }
 
         public short ReadInt16()
         {
-            return this.ReadInt16(this.readOffset);
+            return ReadInt16(readOffset);
         }
 
         public ushort ReadUInt16(int offset)
         {
-            if (offset + 2 > this.writeOffset)
+            if (offset + 2 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.readOffset = offset + 2;
+            ms.Position = offset;
+            readOffset = offset + 2;
+
             ushort result;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                result = BigEndianTransfer.ToUInt16(this.br.ReadBytes(2));
+                result = BigEndianTransfer.ToUInt16(br.ReadBytes(2));
             }
             else
             {
-                result = this.br.ReadUInt16();
+                result = br.ReadUInt16();
             }
+
             return result;
         }
 
         public ushort ReadUInt16()
         {
-            return this.ReadUInt16(this.readOffset);
+            return ReadUInt16(readOffset);
         }
 
         public int ReadInt32(int offset)
         {
-            if (offset + 4 > this.writeOffset)
+            if (offset + 4 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.readOffset = offset + 4;
+            ms.Position = offset;
+            readOffset = offset + 4;
+
             int result;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                result = BigEndianTransfer.ToInt32(this.br.ReadBytes(4));
+                result = BigEndianTransfer.ToInt32(br.ReadBytes(4));
             }
             else
             {
-                result = this.br.ReadInt32();
+                result = br.ReadInt32();
             }
+
             return result;
         }
 
         public int ReadInt32()
         {
-            return this.ReadInt32(this.readOffset);
+            return ReadInt32(readOffset);
         }
 
         public uint ReadUInt32(int offset)
         {
-            if (offset + 4 > this.writeOffset)
+            if (offset + 4 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.readOffset = offset + 4;
+            ms.Position = offset;
+            readOffset = offset + 4;
+
             uint result;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                result = BigEndianTransfer.ToUInt32(this.br.ReadBytes(4));
+                result = BigEndianTransfer.ToUInt32(br.ReadBytes(4));
             }
             else
             {
-                result = this.br.ReadUInt32();
+                result = br.ReadUInt32();
             }
+
             return result;
         }
 
         public uint ReadUInt32()
         {
-            return this.ReadUInt32(this.readOffset);
+            return ReadUInt32(readOffset);
         }
 
         public byte[] Readbytes(int offset, int count)
         {
-            if (offset + count > this.writeOffset)
+            if (offset + count > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.readOffset = offset + count;
-            return this.br.ReadBytes(count);
+            ms.Position = offset;
+            readOffset = offset + count;
+
+            return br.ReadBytes(count);
         }
 
         public byte[] Readbytes(int count)
         {
-            return this.Readbytes(this.readOffset, count);
+            return Readbytes(readOffset, count);
         }
+
         public byte GetByte(int offset)
         {
-            if (offset + 1 > this.writeOffset)
+            if (offset + 1 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            return this.br.ReadByte();
+            ms.Position = offset;
+
+            return br.ReadByte();
         }
 
         public byte GetByte()
         {
-            return this.GetByte(this.readOffset);
+            return GetByte(readOffset);
         }
 
         public short GetInt16(int offset)
         {
-            if (offset + 2 > this.writeOffset)
+            if (offset + 2 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
+            ms.Position = offset;
+
             short result;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                result = BigEndianTransfer.ToInt16(this.br.ReadBytes(2));
+                result = BigEndianTransfer.ToInt16(br.ReadBytes(2));
             }
             else
             {
-                result = this.br.ReadInt16();
+                result = br.ReadInt16();
             }
+
             return result;
         }
 
         public short GetInt16()
         {
-            return this.GetInt16(this.readOffset);
+            return GetInt16(readOffset);
         }
 
         public ushort GetUInt16(int offset)
         {
-            if (offset + 2 > this.writeOffset)
+            if (offset + 2 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
+            ms.Position = offset;
+
             ushort result;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                result = BigEndianTransfer.ToUInt16(this.br.ReadBytes(2));
+                result = BigEndianTransfer.ToUInt16(br.ReadBytes(2));
             }
             else
             {
-                result = this.br.ReadUInt16();
+                result = br.ReadUInt16();
             }
+
             return result;
         }
 
         public ushort GetUInt16()
         {
-            return this.GetUInt16(this.readOffset);
+            return GetUInt16(readOffset);
         }
 
         public int GetInt32(int offset)
         {
-            if (offset + 4 > this.writeOffset)
+            if (offset + 4 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
+            ms.Position = offset;
+
             int result;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                result = BigEndianTransfer.ToInt32(this.br.ReadBytes(4));
+                result = BigEndianTransfer.ToInt32(br.ReadBytes(4));
             }
             else
             {
-                result = this.br.ReadInt32();
+                result = br.ReadInt32();
             }
+
             return result;
         }
 
         public int GetInt32()
         {
-            return this.GetInt32(this.readOffset);
+            return GetInt32(readOffset);
         }
 
         public uint GetUInt32(int offset)
         {
-            if (offset + 4 > this.writeOffset)
+            if (offset + 4 > writeOffset)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
+            ms.Position = offset;
+
             uint result;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                result = BigEndianTransfer.ToUInt32(this.br.ReadBytes(4));
+                result = BigEndianTransfer.ToUInt32(br.ReadBytes(4));
             }
             else
             {
-                result = this.br.ReadUInt32();
+                result = br.ReadUInt32();
             }
+
             return result;
         }
 
         public uint GetUInt32()
         {
-            return this.GetUInt32(this.readOffset);
+            return GetUInt32(readOffset);
         }
 
         public void Write(int offset, byte value)
         {
-            if (offset + 1 > this.ms.Capacity)
+            if (offset + 1 > ms.Capacity)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.writeOffset = offset + 1;
-            this.bw.Write(value);
+            ms.Position = offset;
+            writeOffset = offset + 1;
+            bw.Write(value);
         }
 
         public void Write(byte value)
         {
-            this.Write(this.writeOffset, value);
+            Write(writeOffset, value);
         }
 
         public void Write(int offset, short value)
         {
-            if (offset + 2 > this.ms.Capacity)
+            if (offset + 2 > ms.Capacity)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.writeOffset = offset + 2;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            ms.Position = offset;
+            writeOffset = offset + 2;
+
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                this.bw.Write(BigEndianTransfer.ToBytes(value));
+                bw.Write(BigEndianTransfer.ToBytes(value));
             }
             else
             {
-                this.bw.Write(value);
+                bw.Write(value);
             }
         }
 
         public void Write(short value)
         {
-            this.Write(this.writeOffset, value);
+            Write(writeOffset, value);
         }
 
         public void Write(int offset, ushort value)
         {
-            if (offset + 2 > this.ms.Capacity)
+            if (offset + 2 > ms.Capacity)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.writeOffset = offset + 2;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            ms.Position = offset;
+            writeOffset = offset + 2;
+
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                this.bw.Write(BigEndianTransfer.ToBytes(value));
+                bw.Write(BigEndianTransfer.ToBytes(value));
             }
             else
             {
-                this.bw.Write(value);
+                bw.Write(value);
             }
         }
 
         public void Write(ushort value)
         {
-            this.Write(this.writeOffset, value);
+            Write(writeOffset, value);
         }
 
         public void Write(int offset, int value)
         {
-            if (offset + 4 > this.ms.Capacity)
+            if (offset + 4 > ms.Capacity)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.writeOffset = offset + 4;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            ms.Position = offset;
+            writeOffset = offset + 4;
+
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                this.bw.Write(BigEndianTransfer.ToBytes(value));
+                bw.Write(BigEndianTransfer.ToBytes(value));
             }
             else
             {
-                this.bw.Write(value);
+                bw.Write(value);
             }
         }
 
         public void Write(int value)
         {
-            this.Write(this.writeOffset, value);
+            Write(writeOffset, value);
         }
 
         public void Write(int offset, uint value)
         {
-            if (offset + 4 > this.ms.Capacity)
+            if (offset + 4 > ms.Capacity)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.writeOffset = offset + 4;
-            if (BitConverter.IsLittleEndian && this.isBigEndian)
+            ms.Position = offset;
+            writeOffset = offset + 4;
+
+            if (BitConverter.IsLittleEndian && isBigEndian)
             {
-                this.bw.Write(BigEndianTransfer.ToBytes(value));
+                bw.Write(BigEndianTransfer.ToBytes(value));
             }
             else
             {
-                this.bw.Write(value);
+                bw.Write(value);
             }
         }
 
         public void Write(uint value)
         {
-            this.Write(this.writeOffset, value);
+            Write(writeOffset, value);
         }
 
         public void Write(int offset, byte[] value, int index, int count)
         {
-            if (offset + count > this.ms.Capacity)
+            if (offset + count > ms.Capacity)
             {
                 throw new IndexOutOfRangeException();
             }
-            this.ms.Position = (long)offset;
-            this.writeOffset = offset + count;
-            this.bw.Write(value, index, count);
+            ms.Position = offset;
+            writeOffset = offset + count;
+            bw.Write(value, index, count);
         }
 
         public void Write(byte[] value, int index, int count)
         {
-            this.Write(this.writeOffset, value, index, count);
+            Write(writeOffset, value, index, count);
         }
 
         public byte[] GetContent()
