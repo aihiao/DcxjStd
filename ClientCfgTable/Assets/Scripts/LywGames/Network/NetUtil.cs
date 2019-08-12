@@ -6,55 +6,45 @@ namespace LywGames.Network
 {
     public class NetUtil
     {
-        public static IPAddress GetIPV4Address(string hostname)
+        public static IPAddress GetIPV4Address(string hostName)
         {
-            IPAddress[] array = null;
-            IPAddress result;
+            IPAddress[] ipAddressArray = null;
             try
             {
-                array = Dns.GetHostAddresses(hostname);
+                ipAddressArray = Dns.GetHostAddresses(hostName);
             }
             catch (Exception ex)
             {
-                LoggerManager.Instance.Error("Dns.GetHostAddresses exception " + ex.Message, new object[0]);
-                result = null;
-                return result;
+                LoggerManager.Instance.Error("Dns.GetHostAddresses exception {0}", ex.Message);
+                return null;
             }
-            if (array == null || array.Length == 0)
+
+            if (ipAddressArray != null && ipAddressArray.Length > 0)
             {
-                LoggerManager.Instance.Error("Dns.GetHostAddresses null ", new object[0]);
-                result = null;
+                for (int i = 0; i < ipAddressArray.Length; i++)
+                {
+                    IPAddress ipAddress = ipAddressArray[i];
+                    if (ipAddress.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        return ipAddress;
+                    }
+                }
             }
             else
             {
-                IPAddress iPAddress = null;
-                IPAddress[] array2 = array;
-                for (int i = 0; i < array2.Length; i++)
-                {
-                    IPAddress iPAddress2 = array2[i];
-                    if (iPAddress2.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        iPAddress = iPAddress2;
-                        break;
-                    }
-                }
-                result = iPAddress;
+                LoggerManager.Instance.Error("Dns.GetHostAddresses null");
             }
-            return result;
+
+            return null;
         }
 
-        private static IPAddress GetIPAddrFromString(string ipStr)
+        public static long GetLongAddress(byte[] array)
         {
-            string[] array = ipStr.Split(new char[]
-            {
-                '.'
-            });
-            uint num = uint.Parse(array[0]);
-            uint num2 = uint.Parse(array[1]);
-            uint num3 = uint.Parse(array[2]);
-            uint num4 = uint.Parse(array[3]);
-            ulong newAddress = (ulong)(((num4 * 256u + num3) * 256u + num2) * 256u + num);
-            return new IPAddress((long)newAddress);
+            uint num1 = array[0];
+            uint num2 = array[1];
+            uint num3 = array[2];
+            uint num4 = array[3];
+            return (((num4 * 256u + num3) * 256u + num2) * 256u + num1);
         }
 
     }
