@@ -1,8 +1,9 @@
 ﻿using LywGames.Messages.Proto.Auth;
+using LywGames.Corgi.Protocol;
 
 namespace LywGames.Messages
 {
-    [Message(ProtocolId = 65538, IsRequest = true)]
+    [Message(ProtocolId = Protocols.P_CA_AuthLogin, IsRequest = true)]
     public class CALoginAuthMessage : ProtocolMessage<LoginReq>
     {
     }
