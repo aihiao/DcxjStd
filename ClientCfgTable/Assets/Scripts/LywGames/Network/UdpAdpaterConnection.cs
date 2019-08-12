@@ -19,23 +19,23 @@ namespace LywGames.Network
         {
             if (level == 0u)
             {
-                LoggerManager.Instance.Error(message, new object[0]);
+                LoggerManager.Instance.Error(message);
             }
             else
             {
                 if (level == 16u)
                 {
-                    LoggerManager.Instance.Warn(message, new object[0]);
+                    LoggerManager.Instance.Warn(message);
                 }
                 else
                 {
                     if (level == 1u)
                     {
-                        LoggerManager.Instance.Info(message, new object[0]);
+                        LoggerManager.Instance.Info(message);
                     }
                     else
                     {
-                        LoggerManager.Instance.Debug(message, new object[0]);
+                        LoggerManager.Instance.Debug(message);
                     }
                 }
             }
@@ -43,27 +43,28 @@ namespace LywGames.Network
 
         public UdpAdpaterConnection(int userdata)
         {
-            UdpLog.SetWriter(new UdpLog.Writer(this.UdpLogWriter));
+            UdpLog.SetWriter(new UdpLog.Writer(UdpLogWriter));
+
             UdpPlatform udpPlatform = new DotNetPlatform();
-            this.socket = new UdpSocket(udpPlatform);
-            this.CreateStreamChannel(1, "Default.Udp.StreamChannel", true, 9);
-            this.socket.Start(UdpEndPoint.Any, UdpSocketMode.Client);
-            this.totalTime = 0L;
-            this.beginTime = 0L;
+            socket = new UdpSocket(udpPlatform);
+            CreateStreamChannel(1, "Default.Udp.StreamChannel", true, 9);
+            socket.Start(UdpEndPoint.Any, UdpSocketMode.Client);
+            totalTime = 0L;
+            beginTime = 0L;
         }
 
         public override void ConnectAsync(IPEndPoint localAddress, IPEndPoint remoteAddress)
         {
-            this.udpRemote = new UdpEndPoint(new UdpIPv4Address(remoteAddress.Address.Address), (ushort)remoteAddress.Port);
-            this.remote = remoteAddress;
-            if (!base.isConnected() && !base.isConnecting())
+            udpRemote = new UdpEndPoint(new UdpIPv4Address(NetUtil.GetLongAddress(remoteAddress.Address.GetAddressBytes())), (ushort)remoteAddress.Port);
+            remote = remoteAddress;
+            if (!IsConnected() && !IsConnecting())
             {
-                this.socket.Connect(this.udpRemote);
+                socket.Connect(udpRemote);
                 object statusLock;
                 Monitor.Enter(statusLock = this.statusLock);
                 try
                 {
-                    this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTING;
+                    connectionStatus = ConnectionStatus.Connecting;
                 }
                 finally
                 {
@@ -75,42 +76,41 @@ namespace LywGames.Network
         {
             long num = DateTime.Now.ToFileTime() / 10000L;
             bool result;
-            if (base.isConnected())
+            if (IsConnected())
             {
-                UdpIPv4Address udpIPv4Address = new UdpIPv4Address(remoteAddress.Address.Address);
+                UdpIPv4Address udpIPv4Address = new UdpIPv4Address(NetUtil.GetLongAddress(remoteAddress.Address.GetAddressBytes()));
                 UdpIPv4Address address = this.udpRemote.Address;
-                if (address.Equals(udpIPv4Address) && (int)this.udpRemote.Port == remoteAddress.Port)
+                if (address.Equals(udpIPv4Address) && (int)udpRemote.Port == remoteAddress.Port)
                 {
                     result = true;
                     return result;
                 }
-                LoggerManager.Instance.Warn("ConnectSync found already connected new addr {0} old addr {1}", new object[]
-                {
-                    remoteAddress.ToString(),
-                    this.udpRemote.ToString()
-                });
+                LoggerManager.Instance.Warn("ConnectSync found already connected new addr {0} old addr {1}", remoteAddress.ToString(), udpRemote.ToString());
             }
-            if (!base.isConnecting())
+
+            if (!IsConnecting())
             {
-                this.udpRemote = new UdpEndPoint(new UdpIPv4Address(remoteAddress.Address.Address), (ushort)remoteAddress.Port);
-                this.remote = remoteAddress;
-                this.socket.Connect(this.udpRemote);
+                udpRemote = new UdpEndPoint(new UdpIPv4Address(NetUtil.GetLongAddress(remoteAddress.Address.GetAddressBytes())), (ushort)remoteAddress.Port);
+                remote = remoteAddress;
+                socket.Connect(udpRemote);
             }
-            object statusLock;
-            Monitor.Enter(statusLock = this.statusLock);
+
+            object obj = statusLock;
+            Monitor.Enter(obj);
             try
             {
-                this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTING;
+                connectionStatus = ConnectionStatus.Connecting;
             }
             finally
             {
-                Monitor.Exit(statusLock);
+                Monitor.Exit(obj);
             }
+
             long num2 = DateTime.Now.ToFileTime() / 10000L;
             while (num2 - num < (long)(timeout * 1000))
             {
                 UdpEvent ev;
-                if (this.socket.Poll(out ev))
+                if (socket.Poll(out ev))
                 {
                     UdpEventType eventType = ev.EventType;
                     switch (eventType)
@@ -118,7 +118,7 @@ namespace LywGames.Network
                         case UdpEventType.ConnectFailed:
                         case UdpEventType.ConnectRefused:
                         case UdpEventType.Connected:
-                            this.ProcessConnect(ev);
+                            ProcessConnect(ev);
                             result = (ev.EventType == UdpEventType.Connected);
                             return result;
                         case (UdpEventType)5:
@@ -127,7 +127,7 @@ namespace LywGames.Network
                         default:
                             if (eventType == UdpEventType.ServerForceQuit)
                             {
-                                this.ProcessServerForceQuit(ev);
+                                ProcessServerForceQuit(ev);
                                 result = false;
                                 return result;
                             }
@@ -137,14 +137,15 @@ namespace LywGames.Network
                 Thread.Sleep(10);
                 num2 = DateTime.Now.ToFileTime() / 10000L;
             }
-            Monitor.Enter(statusLock = this.statusLock);
+
+            Monitor.Enter(obj = this.statusLock);
             try
             {
-                this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
+                connectionStatus = ConnectionStatus.Disconnected;
             }
             finally
             {
-                Monitor.Exit(statusLock);
+                Monitor.Exit(obj);
             }
             result = false;
             return result;
@@ -152,37 +153,41 @@ namespace LywGames.Network
 
         public override void Disconnect()
         {
-            LoggerManager.Instance.Debug("Logic call Disconnect", new object[0]);
-            object statusLock;
-            Monitor.Enter(statusLock = this.statusLock);
+            LoggerManager.Instance.Debug("Logic call Disconnect");
+
+            object obj = statusLock;
+            Monitor.Enter(obj);
             try
             {
-                this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_CLOSEDBYLOGIC;
+                connectionStatus = ConnectionStatus.ClosedByLogic;
             }
             finally
             {
-                Monitor.Exit(statusLock);
+                Monitor.Exit(obj);
             }
-            if (this.connection != null)
+
+            if (connection != null)
             {
-                this.connection.Disconnect(null);
-                this.connection = null;
+                connection.Disconnect(null);
+                connection = null;
             }
-            if (this.socket != null)
+
+            if (socket != null)
             {
-                this.socket.Close();
+                socket.Close();
             }
         }
 
-        internal override bool _Send(byte[] buffer, int offset, int count)
+        internal override bool Send(byte[] buffer, int offset, int count)
         {
             byte[] array = new byte[count];
             Array.Copy(buffer, 0, array, 0, count);
+
             bool result;
-            if (this.channelId != 0)
+            if (channelId != 0)
             {
                 int num = 0;
-                while (!this.connection.StreamBytes(this.channelId, array))
+                while (!connection.StreamBytes(channelId, array))
                 {
                     num++;
                     if (num > 5)
@@ -198,6 +203,7 @@ namespace LywGames.Network
             {
                 result = false;
             }
+
             return result;
         }
 
@@ -212,7 +218,7 @@ namespace LywGames.Network
         public override void Update()
         {
             UdpEvent ev;
-            while (this.socket.Poll(out ev))
+            while (socket.Poll(out ev))
             {
                 UdpEventType eventType = ev.EventType;
                 if (eventType <= UdpEventType.PacketReceived)
@@ -222,14 +228,14 @@ namespace LywGames.Network
                         case UdpEventType.ConnectFailed:
                         case UdpEventType.ConnectRefused:
                         case UdpEventType.Connected:
-                            this.ProcessConnect(ev);
+                            ProcessConnect(ev);
                             break;
                         case (UdpEventType)5:
                         case (UdpEventType)7:
                         case (UdpEventType)9:
                             break;
                         case UdpEventType.Disconnected:
-                            this.ProcessDisconnect(ev);
+                            ProcessDisconnect(ev);
                             break;
                         default:
                             if (eventType == UdpEventType.PacketReceived)
@@ -250,76 +256,60 @@ namespace LywGames.Network
                     }
                     else
                     {
-                        this.ProcessServerForceQuit(ev);
+                        ProcessServerForceQuit(ev);
                     }
                 }
                 continue;
                 IL_5C:
-                this.ProcessReceive(ev);
+                ProcessReceive(ev);
             }
         }
         private void ProcessConnect(UdpEvent ev)
         {
-            bool arg_1F_0;
             if (ev.Connection != null)
             {
-                UdpEndPoint arg_16_0 = ev.Connection.RemoteEndPoint;
-                arg_1F_0 = (1 == 0);
+                LoggerManager.Instance.Debug("ProcessConnect connect to server remote {0} result {1}", ev.Connection.RemoteEndPoint, ev.EventType);
             }
             else
             {
-                arg_1F_0 = true;
-            }
-
-            if (!arg_1F_0)
-            {
-                LoggerManager.Instance.Debug("ProcessConnect connect to server remote {0} result {1}", new object[]
-                {
-                    ev.Connection.RemoteEndPoint,
-                    ev.EventType
-                });
-            }
-            else
-            {
-                LoggerManager.Instance.Debug("ProcessConnect connect to server result {0}", new object[]
-                {
-                    ev.EventType
-                });
+                LoggerManager.Instance.Debug("ProcessConnect connect to server result {0}", ev.EventType);
             }
 
             if (ev.EventType == UdpEventType.Connected)
             {
-                object statusLock;
-                Monitor.Enter(statusLock = this.statusLock);
+                object obj = statusLock;
+                Monitor.Enter(obj);
                 try
                 {
-                    this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_CONNECTED;
+                    connectionStatus = ConnectionStatus.Connected;
                 }
                 finally
                 {
-                    Monitor.Exit(statusLock);
+                    Monitor.Exit(obj);
                 }
-                this.connection = ev.Connection;
-                if (this.handlerPipeline.InHeader != null)
+
+                connection = ev.Connection;
+                if (handlerPipeline.InHeader != null)
                 {
-                    this.handlerPipeline.InHeader.OnConnected(this, SocketError.Success);
+                    handlerPipeline.InHeader.OnConnected(this, SocketError.Success);
                 }
             }
             else
             {
-                object statusLock;
-                Monitor.Enter(statusLock = this.statusLock);
+                object obj = statusLock;
+                Monitor.Enter(obj);
                 try
                 {
-                    this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
+                    connectionStatus = ConnectionStatus.Disconnected;
                 }
                 finally
                 {
-                    Monitor.Exit(statusLock);
+                    Monitor.Exit(obj);
                 }
-                if (this.handlerPipeline.InHeader != null)
+
+                if (handlerPipeline.InHeader != null)
                 {
-                    this.handlerPipeline.InHeader.OnConnected(this, SocketError.SocketError);
+                    handlerPipeline.InHeader.OnConnected(this, SocketError.SocketError);
                 }
             }
         }
@@ -330,15 +320,15 @@ namespace LywGames.Network
             {
                 byte[] data = ev.StreamOp.Data;
                 int size = ev.StreamOp.Data.Length;
-                if (this.handlerPipeline.InHeader != null)
+                if (handlerPipeline.InHeader != null)
                 {
                     try
                     {
-                        this.handlerPipeline.InHeader.OnReceived(this, data, 0, size);
+                        handlerPipeline.InHeader.OnReceived(this, data, 0, size);
                     }
                     catch (Exception ex)
                     {
-                        LoggerManager.Instance.Error("ProcessReceive " + ex.ToString(), new object[0]);
+                        LoggerManager.Instance.Error("ProcessReceive " + ex.ToString());
                     }
                 }
             }
@@ -346,82 +336,80 @@ namespace LywGames.Network
 
         private void ProcessDisconnect(UdpEvent ev)
         {
-            this.lastConnection = this.connection;
-            LoggerManager.Instance.Debug("ProcessDisconnect Disconnected from server at {0}", new object[]
+            LoggerManager.Instance.Debug("ProcessDisconnect Disconnected from server at {0}", ev.Connection.RemoteEndPoint);
+
+            lastConnection = connection;
+            if (handlerPipeline.InHeader != null)
             {
-                ev.Connection.RemoteEndPoint
-            });
-            if (this.handlerPipeline.InHeader != null)
-            {
-                this.handlerPipeline.InHeader.OnDisconnected(this, SocketError.ConnectionAborted);
+                handlerPipeline.InHeader.OnDisconnected(this, SocketError.ConnectionAborted);
             }
-            object statusLock;
-            Monitor.Enter(statusLock = this.statusLock);
+
+            object obj = statusLock;
+            Monitor.Enter(obj);
             try
             {
-                this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
+                connectionStatus = ConnectionStatus.Disconnected;
             }
             finally
             {
-                Monitor.Exit(statusLock);
+                Monitor.Exit(obj);
             }
         }
 
         private void ProcessServerForceQuit(UdpEvent ev)
         {
-            this.lastConnection = null;
-            LoggerManager.Instance.Debug("ProcessServerForceQuit server {0} force quit me", new object[]
+            LoggerManager.Instance.Debug("ProcessServerForceQuit server {0} force quit me", ev.Connection.RemoteEndPoint);
+
+            lastConnection = null;
+            if (handlerPipeline.InHeader != null)
             {
-                ev.Connection.RemoteEndPoint
-            });
-            if (this.handlerPipeline.InHeader != null)
-            {
-                this.handlerPipeline.InHeader.OnDisconnected(this, SocketError.ConnectionAborted);
+                handlerPipeline.InHeader.OnDisconnected(this, SocketError.ConnectionAborted);
             }
-            object statusLock;
-            Monitor.Enter(statusLock = this.statusLock);
+
+            object obj = statusLock;
+            Monitor.Enter(obj);
             try
             {
-                this.connectionStatus = IConnection.ConnectionStatus.CONNECTIONSTATUS_DISCONNECTED;
+                connectionStatus = ConnectionStatus.Disconnected;
             }
             finally
             {
-                Monitor.Exit(statusLock);
+                Monitor.Exit(obj);
             }
         }
 
-        public override long getNetworkPing()
+        public override long GetNetworkPing()
         {
             long result;
-            if (this.connection == null)
+            if (connection == null)
             {
                 result = -1L;
             }
             else
             {
-                result = (long)(this.connection.NetworkPing * 1000f);
+                result = (long)(connection.NetworkPing * 1000f);
             }
             return result;
         }
 
-        public override long getAliasedPing()
+        public override long GetAliasedPing()
         {
             long result;
-            if (this.connection == null)
+            if (connection == null)
             {
                 result = -1L;
             }
             else
             {
-                result = (long)(this.connection.AliasedPing * 1000f);
+                result = (long)(connection.AliasedPing * 1000f);
             }
             return result;
         }
 
-        public override bool getSendStatics(out uint sendBytes, out uint sendNum, out long totalTime)
+        public override bool GetSendStatics(out uint sendBytes, out uint sendNum, out long totalTime)
         {
             bool result;
-            if (this.connection == null)
+            if (connection == null)
             {
                 sendBytes = 0u;
                 sendNum = 0u;
@@ -430,22 +418,22 @@ namespace LywGames.Network
             }
             else
             {
-                this.connection.getSendInfo(out sendBytes, out sendNum);
+                connection.getSendInfo(out sendBytes, out sendNum);
                 totalTime = this.totalTime;
-                if (this.beginTime != 0L)
+                if (beginTime != 0L)
                 {
                     long num = DateTime.Now.ToFileTime() / 10000L;
-                    totalTime += num - this.beginTime;
+                    totalTime += num - beginTime;
                 }
                 result = true;
             }
             return result;
         }
 
-        public override bool getRecvStatics(out uint recvBytes, out uint recvNum, out long totalTime)
+        public override bool GetRecvStatics(out uint recvBytes, out uint recvNum, out long totalTime)
         {
             bool result;
-            if (this.connection == null)
+            if (connection == null)
             {
                 recvBytes = 0u;
                 recvNum = 0u;
@@ -454,37 +442,37 @@ namespace LywGames.Network
             }
             else
             {
-                this.connection.getRecvInfo(out recvBytes, out recvNum);
+                connection.getRecvInfo(out recvBytes, out recvNum);
                 totalTime = this.totalTime;
-                if (this.beginTime != 0L)
+                if (beginTime != 0L)
                 {
                     long num = DateTime.Now.ToFileTime() / 10000L;
-                    totalTime += num - this.beginTime;
+                    totalTime += num - beginTime;
                 }
                 result = true;
             }
             return result;
         }
 
-        public override void pauseStatics()
+        public override void PauseStatics()
         {
-            if (this.connection != null)
+            if (connection != null)
             {
-                long num = DateTime.Now.ToFileTime() / 10000L - this.beginTime;
-                if (num > 0L && this.beginTime != 0L)
+                long num = DateTime.Now.ToFileTime() / 10000L - beginTime;
+                if (num > 0L && beginTime != 0L)
                 {
-                    this.totalTime += num;
+                    totalTime += num;
                 }
                 else
                 {
-                    this.beginTime = 0L;
+                    beginTime = 0L;
                 }
             }
         }
 
-        public override void resumeStatics()
+        public override void ResumeStatics()
         {
-            this.beginTime = DateTime.Now.ToFileTime() / 10000L;
+            beginTime = DateTime.Now.ToFileTime() / 10000L;
         }
 
     }
