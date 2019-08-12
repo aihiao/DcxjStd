@@ -22,17 +22,18 @@ namespace LywGames.Network
 
         public override void Send(IConnection connection, byte[] buffer, int offset, int size)
         {
-            int num = size + this.lengthAdjustment;
-            if (this.lengthIncludesLengthFieldLength)
+            int num = size + lengthAdjustment;
+            if (lengthIncludesLengthFieldLength)
             {
-                num += this.lengthFieldLength;
+                num += lengthFieldLength;
             }
             if (num < 0)
             {
                 throw new ArgumentException("Adjusted frame length (" + num + ") is less than zero");
             }
-            NetworkBuffer networkBuffer = new NetworkBuffer(size + this.lengthFieldLength, true);
-            switch (this.lengthFieldLength)
+
+            NetworkBuffer networkBuffer = new NetworkBuffer(size + lengthFieldLength, true);
+            switch (lengthFieldLength)
             {
                 case 1:
                     if (num >= 256)
@@ -54,8 +55,9 @@ namespace LywGames.Network
             }
             throw new ArgumentException("should not reach here");
             IL_EC:
+
             networkBuffer.Write(buffer, offset, size);
-            base.sendBuffDown(connection, networkBuffer.GetBuffer(), networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
+            SendBuffDown(connection, networkBuffer.GetBuffer(), networkBuffer.ReadOffset, networkBuffer.ReadableBytes);
         }
 
         public override void Send(IConnection connection, object msg)
