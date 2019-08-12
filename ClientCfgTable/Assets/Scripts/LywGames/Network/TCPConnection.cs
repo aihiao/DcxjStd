@@ -30,7 +30,7 @@ namespace LywGames.Network
 
             evenCount = 0;
 
-            bufferManager = new BufferManager(MaxEventNumber * NetworkParameters._MAX_RECV_BUFFER_SIZE, NetworkParameters._MAX_RECV_BUFFER_SIZE);
+            bufferManager = new BufferManager(MaxEventNumber * NetworkParameters.MaxRecvBufferSize, NetworkParameters.MaxRecvBufferSize);
             bufferManager.InitBuffer();
         }
 
@@ -479,7 +479,7 @@ namespace LywGames.Network
                 PushAppendEventArg(e);
 
                 SocketError socketError = e.SocketError;
-                int bytesTransferred = e.BytesTransferred;
+                int bytesTransferred = e.BytesTransferred; // BytesTransferred获取在套接字操作中传输的字节数。
                 if (socketError == SocketError.Success && bytesTransferred > 0)
                 {
                     SocketAsyncEventArgs eventArg = GetEventArg(true);
