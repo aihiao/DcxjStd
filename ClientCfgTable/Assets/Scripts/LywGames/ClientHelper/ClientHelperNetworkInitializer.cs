@@ -18,7 +18,7 @@ namespace LywGames.ClientHelper
 
         public override void Initial(NetworkHandlerPipeline pipeline, ConnectionType cnType)
         {
-            if (protocolType != ProtocolType.Udp || (cnType != ConnectionType.CONNECTION_GAME && cnType != ConnectionType.CONNECTION_BATTLE))
+            if (protocolType != ProtocolType.Udp || (cnType != ConnectionType.Game && cnType != ConnectionType.Battle))
             {
                 pipeline.AddHandler(new LengthFieldBasedFrameDecoder(204800, 0, 4, 0, 4));
                 pipeline.AddHandler(new LengthFieldPrepender(4, 0, false));
