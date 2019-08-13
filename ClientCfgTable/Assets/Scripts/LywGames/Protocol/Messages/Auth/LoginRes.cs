@@ -7,311 +7,343 @@ namespace LywGames.Messages.Proto.Auth
     [ProtoContract(Name = "LoginRes")]
     public class LoginRes : IExtensible
     {
+        // 类前加上ProtoContract Attrbuit
         [ProtoContract(Name = "ChannelMessage")]
         public class ChannelMessage : IExtensible
         {
-            private string _accessToken = "";
-            private string _channelUniqueId = "";
-            private string _channelUserName = "";
-            private string _oid = "";
+            private string accessToken = "";
+            private string channelUniqueId = "";
+            private string channelUserName = "";
+            private string oid = "";
             private IExtension extensionObject;
+
+            // 成员加上ProtoMember Attribute即可, 其中ProtoMember需要一个大于0的int类型的值。原则上这个int类型没有大小限制, 但建议从1开始, 这是一个良好的习惯, 另外这个参数必需是这个类成员的唯一标识, 不可重复。
             [ProtoMember(1), DefaultValue("")]
-            public string accessToken
+            public string AccessToken
             {
                 get
                 {
-                    return this._accessToken;
+                    return accessToken;
                 }
                 set
                 {
-                    this._accessToken = value;
+                    accessToken = value;
                 }
             }
+
             [ProtoMember(2), DefaultValue("")]
-            public string channelUniqueId
+            public string ChannelUniqueId
             {
                 get
                 {
-                    return this._channelUniqueId;
+                    return channelUniqueId;
                 }
                 set
                 {
-                    this._channelUniqueId = value;
+                    channelUniqueId = value;
                 }
             }
-            [ProtoMember(1), DefaultValue("")]
-            public string channelUserName
+
+            [ProtoMember(3), DefaultValue("")]
+            public string ChannelUserName
             {
                 get
                 {
-                    return this._channelUserName;
+                    return channelUserName;
                 }
                 set
                 {
-                    this._channelUserName = value;
+                    channelUserName = value;
                 }
             }
-            [ProtoMember(1), DefaultValue("")]
-            public string oid
+
+            [ProtoMember(4), DefaultValue("")]
+            public string Oid
             {
                 get
                 {
-                    return this._oid;
+                    return oid;
                 }
                 set
                 {
-                    this._oid = value;
+                    oid = value;
                 }
             }
+
             IExtension IExtensible.GetExtensionObject(bool createIfMissing)
             {
-                return Extensible.GetExtensionObject(ref this.extensionObject, createIfMissing);
+                return Extensible.GetExtensionObject(ref extensionObject, createIfMissing);
             }
+
         }
+
         [ProtoContract(Name = "AreaPro")]
         public class AreaPro : IExtensible
         {
-            private int _areaID;
-            private string _name;
-            private int _status;
-            private string _interfaceServerIP;
-            private int _interfaceServerPort;
-            private int _areaAvatarNumber = 0;
-            private int _showAreaID = 0;
-            private bool _isNewServer;
-            private bool _isRecommendServer;
+            private int areaId;
+            private string name;
+            private int status;
+            private string interfaceServerIp;
+            private int interfaceServerPort;
+            private int areaAvatarNumber = 0;
+            private int showAreaId = 0;
+            private bool isNewServer;
+            private bool isRecommendServer;
             private IExtension extensionObject;
+
             [ProtoMember(1)]
-            public int areaID
+            public int AreaId
             {
                 get
                 {
-                    return this._areaID;
+                    return areaId;
                 }
                 set
                 {
-                    this._areaID = value;
+                    areaId = value;
                 }
             }
-            [ProtoMember(1)]
-            public string name
+
+            [ProtoMember(2)]
+            public string Name
             {
                 get
                 {
-                    return this._name;
+                    return name;
                 }
                 set
                 {
-                    this._name = value;
+                    name = value;
                 }
             }
-            [ProtoMember(1)]
-            public int status
+
+            [ProtoMember(3)]
+            public int Status
             {
                 get
                 {
-                    return this._status;
+                    return status;
                 }
                 set
                 {
-                    this._status = value;
+                    status = value;
                 }
             }
-            [ProtoMember(1)]
-            public string interfaceServerIP
+
+            [ProtoMember(4)]
+            public string InterfaceServerIp
             {
                 get
                 {
-                    return this._interfaceServerIP;
+                    return interfaceServerIp;
                 }
                 set
                 {
-                    this._interfaceServerIP = value;
+                    interfaceServerIp = value;
                 }
             }
-            [ProtoMember(1)]
-            public int interfaceServerPort
+
+            [ProtoMember(5)]
+            public int InterfaceServerPort
             {
                 get
                 {
-                    return this._interfaceServerPort;
+                    return interfaceServerPort;
                 }
                 set
                 {
-                    this._interfaceServerPort = value;
+                    interfaceServerPort = value;
                 }
             }
-            [ProtoMember(1), DefaultValue(0)]
-            public int areaAvatarNumber
+
+            [ProtoMember(6), DefaultValue(0)]
+            public int AreaAvatarNumber
             {
                 get
                 {
-                    return this._areaAvatarNumber;
+                    return areaAvatarNumber;
                 }
                 set
                 {
-                    this._areaAvatarNumber = value;
+                    areaAvatarNumber = value;
                 }
             }
-            [ProtoMember(1), DefaultValue(0)]
-            public int showAreaID
+
+            [ProtoMember(7), DefaultValue(0)]
+            public int ShowAreaId
             {
                 get
                 {
-                    return this._showAreaID;
+                    return showAreaId;
                 }
                 set
                 {
-                    this._showAreaID = value;
+                    showAreaId = value;
                 }
             }
-            [ProtoMember(1)]
-            public bool isNewServer
+
+            [ProtoMember(8)]
+            public bool IsNewServer
             {
                 get
                 {
-                    return this._isNewServer;
+                    return isNewServer;
                 }
                 set
                 {
-                    this._isNewServer = value;
+                    isNewServer = value;
                 }
             }
-            [ProtoMember(1)]
-            public bool isRecommendServer
+
+            [ProtoMember(9)]
+            public bool IsRecommendServer
             {
                 get
                 {
-                    return this._isRecommendServer;
+                    return isRecommendServer;
                 }
                 set
                 {
-                    this._isRecommendServer = value;
+                    isRecommendServer = value;
                 }
             }
+
             IExtension IExtensible.GetExtensionObject(bool createIfMissing)
             {
-                return Extensible.GetExtensionObject(ref this.extensionObject, createIfMissing);
+                return Extensible.GetExtensionObject(ref extensionObject, createIfMissing);
             }
+
         }
-        private int _result;
-        private long _accountID = 0L;
-        private string _token = "";
-        private readonly List<LoginRes.AreaPro> _areas = new List<LoginRes.AreaPro>();
-        private int _lastAreaID = -1;
-        private bool _isFirstQuickLogin = false;
-        private bool _isShowActiveInterface = false;
-        private LoginRes.ChannelMessage _channel = null;
-        private long _forbidEndTime = 0L;
+
+        private int resultCode;
+        private long accountId = 0L;
+        private string token = "";
+        private readonly List<AreaPro> areaList = new List<AreaPro>();
+        private int lastAreaId = -1;
+        private bool isFirstQuickLogin = false;
+        private bool isShowActiveInterface = false;
+        private ChannelMessage channelMsg = null;
+        private long forbidEndTime = 0L;
         private IExtension extensionObject;
+
         [ProtoMember(1)]
-        public int result
+        public int ResultCode
         {
             get
             {
-                return this._result;
+                return resultCode;
             }
             set
             {
-                this._result = value;
+                resultCode = value;
             }
         }
-        [ProtoMember(1), DefaultValue(0L)]
-        public long accountID
+
+        [ProtoMember(2), DefaultValue(0L)]
+        public long AccountId
         {
             get
             {
-                return this._accountID;
+                return accountId;
             }
             set
             {
-                this._accountID = value;
+                accountId = value;
             }
         }
-        [ProtoMember(1), DefaultValue("")]
-        public string token
+
+        [ProtoMember(3), DefaultValue("")]
+        public string Token
         {
             get
             {
-                return this._token;
+                return token;
             }
             set
             {
-                this._token = value;
+                token = value;
             }
         }
-        [ProtoMember(1)]
-        public List<LoginRes.AreaPro> areas
+
+        [ProtoMember(4)]
+        public List<AreaPro> AreaList
         {
             get
             {
-                return this._areas;
+                return areaList;
             }
         }
-        [ProtoMember(1), DefaultValue(-1)]
-        public int lastAreaID
+
+        [ProtoMember(5), DefaultValue(-1)]
+        public int LastAreaId
         {
             get
             {
-                return this._lastAreaID;
+                return lastAreaId;
             }
             set
             {
-                this._lastAreaID = value;
+                lastAreaId = value;
             }
         }
-        [ProtoMember(1), DefaultValue(false)]
-        public bool isFirstQuickLogin
+
+        [ProtoMember(6), DefaultValue(false)]
+        public bool IsFirstQuickLogin
         {
             get
             {
-                return this._isFirstQuickLogin;
+                return isFirstQuickLogin;
             }
             set
             {
-                this._isFirstQuickLogin = value;
+                isFirstQuickLogin = value;
             }
         }
-        [ProtoMember(1), DefaultValue(false)]
-        public bool isShowActiveInterface
+
+        [ProtoMember(7), DefaultValue(false)]
+        public bool IsShowActiveInterface
         {
             get
             {
-                return this._isShowActiveInterface;
+                return isShowActiveInterface;
             }
             set
             {
-                this._isShowActiveInterface = value;
+                isShowActiveInterface = value;
             }
         }
-        [ProtoMember(1), DefaultValue(null)]
-        public LoginRes.ChannelMessage channel
+
+        [ProtoMember(8), DefaultValue(null)]
+        public ChannelMessage ChannelMsg
         {
             get
             {
-                return this._channel;
+                return channelMsg;
             }
             set
             {
-                this._channel = value;
+                channelMsg = value;
             }
         }
-        [ProtoMember(1), DefaultValue(0L)]
-        public long forbidEndTime
+
+        [ProtoMember(9), DefaultValue(0L)]
+        public long ForbidEndTime
         {
             get
             {
-                return this._forbidEndTime;
+                return forbidEndTime;
             }
             set
             {
-                this._forbidEndTime = value;
+                forbidEndTime = value;
             }
         }
+
         IExtension IExtensible.GetExtensionObject(bool createIfMissing)
         {
-            return Extensible.GetExtensionObject(ref this.extensionObject, createIfMissing);
+            return Extensible.GetExtensionObject(ref extensionObject, createIfMissing);
         }
+
     }
 }
 
