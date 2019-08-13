@@ -10,7 +10,7 @@ using LywGames.Messages.Proto.Game;
 namespace LywGames.ClientHelper
 {
     /// <summary>
-    /// 网络层暴漏给业务层的类, 供业务层调用
+    /// 网络层暴露给业务层的类, 供业务层调用
     /// </summary>
     public class ClientHelper
     {
@@ -27,15 +27,8 @@ namespace LywGames.ClientHelper
 
         private IConnection connection = null;
 
-        private MessageDelegateInitializer msgDelegateInitializer;
-        private MessageDelegateProcessor msgDelegateProcessor;
-        public MessageDelegateProcessor MsgDelegateProcessor
-        {
-            get
-            {
-                return msgDelegateProcessor;
-            }
-        }
+        private MessageDelegateInitializer msgDelegateInitializer; // 回调消息初始化, 储存了业务层的回调函数
+        private MessageDelegateProcessor msgDelegateProcessor; // 处理网络层接收到的消息, 回调给业务层
 
         private AbstractMessageInitializer messageInitializer;
         private AbstractNetworkInitializer networkInitializer;
@@ -169,7 +162,7 @@ namespace LywGames.ClientHelper
                 {
                     LoggerManager.Instance.Info("connectAS host{0} port {1}", asHost, asPort);
                     
-                    connection.SetNetworkInitializer(networkInitializer, ConnectionType.CONNECTION_AUTH);
+                    connection.SetNetworkInitializer(networkInitializer, ConnectionType.Auth);
                     connection.ConnectAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), 0), new IPEndPoint(NetUtil.GetIPV4Address(asHost), asPort));
 
                     ASConnectionHandler connectionActiveHandler = new ASConnectionHandler(msg, this);
@@ -345,8 +338,8 @@ namespace LywGames.ClientHelper
                     CallBackId = callback,
                     Protocol =
                     {
-                        accountId = accountId,
-                        activeCode = activeCode
+                        AccountId = accountId,
+                        ActiveCode = activeCode
                     }
                 });
             }
@@ -375,7 +368,7 @@ namespace LywGames.ClientHelper
             }
 
             connection = NetworkManager.GetInstance().CreateConnection(type, 0);
-            connection.SetNetworkInitializer(networkInitializer, ConnectionType.CONNECTION_GAME);
+            connection.SetNetworkInitializer(networkInitializer, ConnectionType.Game);
             connection.ConnectAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), 0), remoteAddress);
             LoggerManager.Instance.Debug("LoginGS host {0} port {1} send {2} receive {3}", gsHost, gsPort, num, num2);
 
@@ -472,7 +465,7 @@ namespace LywGames.ClientHelper
             connection = NetworkManager.GetInstance().CreateConnection(type, timeout);
             try
             {
-                connection.SetNetworkInitializer(networkInitializer, ConnectionType.CONNECTION_BATTLE);
+                connection.SetNetworkInitializer(networkInitializer, ConnectionType.Battle);
                 connection.ConnectAsync(new IPEndPoint(IPAddress.Parse("0.0.0.0"), 0), new IPEndPoint(NetUtil.GetIPV4Address(bsHost), bsPort));
                 if (combatMsgHandler != null)
                 {
@@ -533,7 +526,8 @@ namespace LywGames.ClientHelper
         public void SetOnCreateAccountRes(Action<ACCreateAccountMessage> onCreateAccountRes)
         {
             MessageDelegateNode node = new MessageDelegateNode();
-            node.receiveAction = delegate(Message msg){
+            node.receiveAction = delegate(Message msg)
+            {
                 onCreateAccountRes((ACCreateAccountMessage)msg);
             };
             node.isShortConnect = true;
