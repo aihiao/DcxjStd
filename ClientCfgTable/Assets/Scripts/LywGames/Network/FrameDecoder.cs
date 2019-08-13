@@ -7,22 +7,24 @@ namespace LywGames.Network
     public abstract class FrameDecoder : AbstractNetworkInHandler
     {
         protected NetworkBuffer msgBuffer;
+
         public override void OnReceived(IConnection connection, byte[] buffer, int offset, int count)
         {
-            if (this.msgBuffer == null)
+            if (msgBuffer == null)
             {
-                this.msgBuffer = new NetworkBuffer(NetworkParameters._MAX_COMPRESS_MESSAGE_SIZE, true);
+                msgBuffer = new NetworkBuffer(NetworkParameters.MaxCompressMessageSize, true);
             }
-            this.msgBuffer.Write(buffer, offset, count);
+            msgBuffer.Write(buffer, offset, count);
+
             try
             {
-                while (this.msgBuffer.Readable)
+                while (msgBuffer.Readable)
                 {
-                    int readOffset = this.msgBuffer.ReadOffset;
+                    int readOffset = msgBuffer.ReadOffset;
                     int num = 0;
-                    if (!this.Decode(this.msgBuffer, ref num))
+                    if (!Decode(msgBuffer, ref num))
                     {
-                        if (readOffset == this.msgBuffer.ReadOffset)
+                        if (readOffset == msgBuffer.ReadOffset)
                         {
                             break;
                         }
@@ -33,31 +35,30 @@ namespace LywGames.Network
                         {
                             throw new InvalidOperationException("decode() method must read at least one byte if it returned a frame ");
                         }
+
                         try
                         {
-                            base.FireBuffReceived(connection, this.msgBuffer.GetBuffer(), this.msgBuffer.ReadOffset, num);
+                            FireBuffReceived(connection, msgBuffer.GetBuffer(), msgBuffer.ReadOffset, num);
                         }
                         finally
                         {
-                            this.msgBuffer.ReadOffset = this.msgBuffer.ReadOffset + num;
-                            this.msgBuffer.DiscardReadBytes();
+                            msgBuffer.ReadOffset = msgBuffer.ReadOffset + num;
+                            msgBuffer.DiscardReadBytes();
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                LoggerManager.Instance.Info("OnReceived connection {0} catch Exception {1}", new object[]
-                {
-                    connection.ToString(),
-                    ex.ToString()
-                });
+                LoggerManager.Instance.Info("OnReceived connection {0} catch Exception {1}", connection.ToString(), ex.ToString());
             }
         }
+
         public override void OnReceived(IConnection connection, object msg)
         {
             throw new NotSupportedException("FrameDecoder didn't implement OnReceived(IConnection connection, Object msg)");
         }
+
         public abstract bool Decode(NetworkBuffer msgBuffer, ref int msgCount);
     }
 }
