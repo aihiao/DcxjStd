@@ -8,9 +8,9 @@ namespace LywGames.Messages
     {
         private TypeModel typeModel = null;
 
-        public TypeModelProtobufSerializer(TypeModel typeMode)
+        public TypeModelProtobufSerializer(TypeModel typeModel)
         {
-            this.typeModel = typeMode;
+            this.typeModel = typeModel;
         }
 
         public void Serialize<T>(Stream dest, T value)
