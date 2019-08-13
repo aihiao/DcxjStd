@@ -16,7 +16,7 @@ namespace LywGames.Messages
 
         public override Message DecodeBody(byte[] buffer, int offset, int count)
         {
-            protocol = (T)((object)MySerializer.GetInstance().DeserializeByteBuffer(buffer, offset, count, typeof(T)));
+            protocol = (T)MySerializer.GetInstance().DeserializeByteBuffer(buffer, offset, count, typeof(T));
             return this;
         }
 
