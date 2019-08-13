@@ -98,14 +98,14 @@ public class LoginInfo
 
     public void SetLoginAuthMessage(ACLoginAuthMessage message)
     {
-        accountId = message.Protocol.accountID;
-        areas = message.Protocol.areas;
-        channel = message.Protocol.channel;
-        isFirstQuickLogin = message.Protocol.isFirstQuickLogin;
-        isShowActivityInterface = message.Protocol.isShowActiveInterface;
-        lastAreaId = message.Protocol.lastAreaID;
-        result = message.Protocol.result;
-        token = message.Protocol.token;
+        accountId = message.Protocol.AccountId;
+        areas = message.Protocol.AreaList;
+        channel = message.Protocol.ChannelMsg;
+        isFirstQuickLogin = message.Protocol.IsFirstQuickLogin;
+        isShowActivityInterface = message.Protocol.IsShowActiveInterface;
+        lastAreaId = message.Protocol.LastAreaId;
+        result = message.Protocol.ResultCode;
+        token = message.Protocol.Token;
     }
 
     public void Initialize()
