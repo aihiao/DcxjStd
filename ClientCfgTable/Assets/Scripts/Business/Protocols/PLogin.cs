@@ -182,8 +182,8 @@ class PLoginGS : BaseRequest
     public PLoginGS(LoginRes.AreaPro area, OnIsConnectedSuccess connectedSuccessDel, OnIsConnectedFailed connectedFailedDel)
     {
         this.area = area;
-        this.gsHostName = area.interfaceServerIP;
-        this.gsHostPort = area.interfaceServerPort;
+        this.gsHostName = area.InterfaceServerIp;
+        this.gsHostPort = area.InterfaceServerPort;
         onIsConnectedSuccessDel = connectedSuccessDel;
         onIsConnectedFailedDel = connectedFailedDel;
 
@@ -208,7 +208,7 @@ class PLoginGS : BaseRequest
     public override bool Execute(ServerBusiness bsn)
     {
         PlayerSaveData.Destroy();   //登录成功需要使用新号的本地数据
-        return bsn.LoginGS(gsHostName, gsHostPort, CallBackId, DataModelManager.Instance.LoginInfo.AccountId, area.areaID, DataModelManager.Instance.LoginInfo.Token);
+        return bsn.LoginGS(gsHostName, gsHostPort, CallBackId, DataModelManager.Instance.LoginInfo.AccountId, area.AreaId, DataModelManager.Instance.LoginInfo.Token);
     }
 }
 
